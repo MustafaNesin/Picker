@@ -17,7 +17,7 @@
         public static void ChangeLanguage(bool turkish)
         {
             var turkishCulture = CultureInfo.GetCultureInfo("tr-TR");
-            var englishCulture = CultureInfo.GetCultureInfo("en-US");
+            var englishCulture = CultureInfo.GetCultureInfo("en-GB");
             var savedCulture = Settings.Default.CultureInfo;
             var wasTurkish = savedCulture.Equals(turkishCulture);
 
