@@ -1,6 +1,6 @@
 ﻿namespace Picker.Forms
 {
-    partial class MainForm
+    partial class UserForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,14 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserForm));
             this.SuspendLayout();
             // 
-            // MainForm
+            // UserForm
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Name = "MainForm";
+            this.Name = "UserForm";
             this.ResumeLayout(false);
 
         }
