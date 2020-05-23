@@ -66,13 +66,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ComputerDbContext.cs" />
+    <Compile Include="Model\Brand.cs" />
+    <Compile Include="Model\Build.cs" />
+    <Compile Include="Model\Chipset.cs" />
+    <Compile Include="Model\ComputerDbContext.cs" />
     <Compile Include="Forms\UserForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\UserForm.Designer.cs">
       <DependentUpon>UserForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Model\Graphics.cs" />
+    <Compile Include="Model\Memory.cs" />
+    <Compile Include="Model\Motherboard.cs" />
+    <Compile Include="Model\Part.cs" />
+    <Compile Include="Model\Processor.cs" />
+    <Compile Include="Model\Product.cs" />
+    <Compile Include="Model\Socket.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utilities.cs" />
