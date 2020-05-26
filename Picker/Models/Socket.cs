@@ -1,6 +1,9 @@
-namespace Picker.Model
+namespace Picker.Models
 {
-    public class Socket : Part
+    using System.ComponentModel;
+
+    [DisplayName("soket")]
+    internal class Socket : Part
     {
         public bool SupportsDDR2 { get; set; }
         public bool SupportsDDR3 { get; set; }

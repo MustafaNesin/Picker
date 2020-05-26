@@ -37,6 +37,9 @@
     <WarningLevel>4</WarningLevel>
     <LangVersion>latest</LangVersion>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>Picker.MainForm</StartupObject>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
@@ -66,28 +69,55 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Model\Brand.cs" />
-    <Compile Include="Model\Build.cs" />
-    <Compile Include="Model\Chipset.cs" />
-    <Compile Include="Model\ComputerDbContext.cs" />
-    <Compile Include="Forms\UserForm.cs">
+    <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\UserForm.Designer.cs">
-      <DependentUpon>UserForm.cs</DependentUpon>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Model\Graphics.cs" />
-    <Compile Include="Model\Memory.cs" />
-    <Compile Include="Model\Motherboard.cs" />
-    <Compile Include="Model\Part.cs" />
-    <Compile Include="Model\Processor.cs" />
-    <Compile Include="Model\Product.cs" />
-    <Compile Include="Model\Socket.cs" />
-    <Compile Include="Program.cs" />
+    <Compile Include="Models\Brand.cs" />
+    <Compile Include="Models\Build.cs" />
+    <Compile Include="Models\Chipset.cs" />
+    <Compile Include="Models\Database.cs" />
+    <Compile Include="Models\Graphics.cs" />
+    <Compile Include="Models\IEntity.cs" />
+    <Compile Include="Models\Memory.cs" />
+    <Compile Include="Models\Motherboard.cs" />
+    <Compile Include="Models\Part.cs" />
+    <Compile Include="Models\Processor.cs" />
+    <Compile Include="Models\Product.cs" />
+    <Compile Include="Models\Socket.cs" />
+    <Compile Include="Presenters\BuildPresenter.cs" />
+    <Compile Include="Presenters\IEntityPresenter.cs" />
+    <Compile Include="Presenters\IListPresenter.cs" />
+    <Compile Include="Presenters\IPresenter.cs" />
+    <Compile Include="Presenters\BuildListPresenter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utilities.cs" />
-    <EmbeddedResource Include="Forms\UserForm.resx">
-      <DependentUpon>UserForm.cs</DependentUpon>
+    <Compile Include="Views\BuildForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\BuildForm.Designer.cs">
+      <DependentUpon>BuildForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\IBuildView.cs" />
+    <Compile Include="Views\IEntityView.cs" />
+    <Compile Include="Views\IListView.cs" />
+    <Compile Include="Views\IView.cs" />
+    <Compile Include="Views\ListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\ListForm.Designer.cs">
+      <DependentUpon>ListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ListItemControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\ListItemControl.Designer.cs">
+      <DependentUpon>ListItemControl.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -99,6 +129,15 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Views\BuildForm.resx">
+      <DependentUpon>BuildForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ListForm.resx">
+      <DependentUpon>ListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ListItemControl.resx">
+      <DependentUpon>ListItemControl.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

@@ -1,9 +1,11 @@
-namespace Picker.Model
+namespace Picker.Models
 {
     using System.Collections.Generic;
+    using System.ComponentModel;
     using System.ComponentModel.DataAnnotations;
 
-    public class Processor : Product
+    [DisplayName("iþlemci")]
+    internal class Processor : Product
     {
         public int CacheSize { get; set; }
         public virtual ICollection<Chipset> Chipsets { get; set; }
@@ -13,7 +15,6 @@ namespace Picker.Model
         public bool Is64Bit { get; set; }
         public int MaxMemory { get; set; } // GB
         public int MaxMemorySpeed { get; set; } // MHz
-        [Required] public string Model { get; set; }
         public Socket Socket { get; set; }
         public bool SupportsECC { get; set; }
         public int Threads { get; set; }

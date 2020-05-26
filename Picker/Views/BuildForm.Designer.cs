@@ -1,6 +1,6 @@
-﻿namespace Picker.Forms
+﻿namespace Picker.Views
 {
-    partial class UserForm
+    partial class BuildForm
     {
         /// <summary>
         /// Required designer variable.
@@ -30,14 +30,14 @@
         {
             this.SuspendLayout();
             // 
-            // UserForm
+            // BuildForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Name = "UserForm";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Picker";
+            this.Name = "BuildForm";
+            this.Text = "BuildForm";
+            this.Load += new System.EventHandler(this.FormLoad);
             this.ResumeLayout(false);
 
         }
@@ -45,4 +45,3 @@
         #endregion
     }
 }
-

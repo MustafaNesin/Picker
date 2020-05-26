@@ -1,10 +1,13 @@
-namespace Picker.Model
+namespace Picker.Models
 {
+    using System.ComponentModel;
     using System.ComponentModel.DataAnnotations;
 
-    public class Motherboard : Product
+    [DisplayName("anakart")]
+    internal class Motherboard : Product
     {
         public Chipset Chipset { get; set; }
+        [Required] public string FormFactor { get; set; }
         public int MaxMemory { get; set; } // GB
         public int MaxMemorySpeed { get; set; } // MHz
         public int MemorySlots { get; set; }
