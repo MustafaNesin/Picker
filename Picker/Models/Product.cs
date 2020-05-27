@@ -6,7 +6,11 @@ namespace Picker.Models
     [DisplayName("ürün")]
     internal class Product : Part
     {
+        [DisplayName("Model")]
         public string Model { get; set; }
-        [Column(TypeName = "money")] public decimal Price { get; set; } // USD
+
+        [Column(TypeName = "money")]
+        [DisplayName("Fiyat")]
+        public decimal Price { get; set; } // USD
     }
 }

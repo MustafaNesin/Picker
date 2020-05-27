@@ -6,6 +6,7 @@ namespace Picker.Models
     [DisplayName("yonga seti")]
     internal class Chipset : Part
     {
+        [DisplayName("Ýþlemciler")]
         public virtual ICollection<Processor> Processors { get; set; }
     }
 }

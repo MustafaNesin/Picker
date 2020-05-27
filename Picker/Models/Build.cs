@@ -8,12 +8,24 @@ namespace Picker.Models
     [DisplayName("bilgisayar")]
     internal class Build : IEntity
     {
+        [DisplayName("Tarih")]
         public DateTime Date { get; set; }
+
+        [DisplayName("Ekran Kartý")]
         public Graphics Graphics { get; set; }
+
         public int Id { get; private set; }
+
+        [DisplayName("Bellekler")]
         public virtual ICollection<Memory> Memories { get; set; }
+
         public Motherboard Motherboard { get; set; }
-        [Required] public string Name { get; set; }
+
+        [Required]
+        [DisplayName("Ad")]
+        public string Name { get; set; }
+
+        [DisplayName("Ýþlemci")]
         public Processor Processor { get; set; }
     }
 }

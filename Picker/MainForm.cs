@@ -3,6 +3,7 @@
     using System;
     using System.Data.Entity;
     using System.Data.SqlClient;
+    using System.Globalization;
     using System.Threading.Tasks;
     using System.Windows.Forms;
     using Models;
@@ -18,6 +19,8 @@
         [STAThread]
         private static void Main()
         {
+            CultureInfo.CurrentCulture = CultureInfo.GetCultureInfo("tr-TR");
+
             if (!CheckDatabase())
                 return;
 
@@ -70,7 +73,7 @@
             if (type != typeof(Build))
                 return;
 
-            await using var presenter = new BuildListPresenter();
+            await using var presenter = new ListPresenter<Build>();
             presenter.ShowView();
         }
 

@@ -15,9 +15,18 @@ namespace Picker.Models
             set => Color = Color.FromArgb(value);
         }
 
-        [NotMapped] public Color Color { get; set; }
-        [Required] public string Country { get; set; }
+        [NotMapped]
+        [DisplayName("Renk")]
+        public Color Color { get; set; }
+
+        [Required]
+        [DisplayName("Ülke")]
+        public string Country { get; set; }
+
         public int Id { get; private set; }
-        [Required] public string Name { get; set; }
+
+        [Required]
+        [DisplayName("Ad")]
+        public string Name { get; set; }
     }
 }

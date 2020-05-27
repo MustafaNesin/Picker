@@ -9,21 +9,22 @@
     using Models;
     using Views;
 
-    internal sealed class BuildListPresenter : IListPresenter<ListForm<Build>, Build>
+    internal sealed class ListPresenter<TEntity> : IListPresenter<ListForm<TEntity>, TEntity>
+        where TEntity : IEntity
     {
-        public Dictionary<Build, ListItemControl<Build>> Items { get; }
-        public ListForm<Build> View { get; }
+        public Dictionary<TEntity, ListItemControl<TEntity>> Items { get; }
+        public ListForm<TEntity> View { get; }
         public DialogResult ViewResult { get; private set; }
 
-        public BuildListPresenter()
+        public ListPresenter()
         {
-            Items = new Dictionary<Build, ListItemControl<Build>>();
-            View = (ListForm<Build>)Activator.CreateInstance(typeof(ListForm<Build>), this);
+            Items = new Dictionary<TEntity, ListItemControl<TEntity>>();
+            View = (ListForm<TEntity>)Activator.CreateInstance(typeof(ListForm<TEntity>), this);
         }
 
-        public void AddItem(Build entity)
+        public void AddItem(TEntity entity)
         {
-            var control = new ListItemControl<Build>(entity, true) { Dock = DockStyle.Top };
+            var control = new ListItemControl<TEntity>(entity, true) { Dock = DockStyle.Top };
             Invoke(() => View.listPanel.Controls.Add(control));
             Items.Add(entity, control);
         }
@@ -47,7 +48,7 @@
             using var context = new ComputerDatabaseContext();
 
             // Filtreleme
-            var entities = context.Builds.Take(10); // Yalnız ilk çalıştırma
+            var entities = context.Builds.Take(10).Cast<TEntity>(); // Yalnız ilk çalıştırma
 
             // Listeleme
             await entities.ForEachAsync(AddItem);

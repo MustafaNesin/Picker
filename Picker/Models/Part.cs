@@ -6,8 +6,13 @@ namespace Picker.Models
     [DisplayName("parça")]
     internal class Part : IEntity
     {
+        [DisplayName("Marka")]
         public Brand Brand { get; set; }
+
         public int Id { get; private set; }
-        [Required] public string Name { get; set; }
+
+        [Required]
+        [DisplayName("Ad")]
+        public string Name { get; set; }
     }
 }
