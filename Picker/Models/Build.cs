@@ -19,6 +19,7 @@ namespace Picker.Models
         [DisplayName("Bellekler")]
         public virtual ICollection<Memory> Memories { get; set; }
 
+        [DisplayName("Anakart")]
         public Motherboard Motherboard { get; set; }
 
         [Required]
