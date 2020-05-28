@@ -107,6 +107,12 @@
     <Compile Include="Views\IEntityView.cs" />
     <Compile Include="Views\IListView.cs" />
     <Compile Include="Views\IView.cs" />
+    <Compile Include="Views\ListFilterControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\ListFilterControl.Designer.cs">
+      <DependentUpon>ListFilterControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\ListForm.cs">
       <SubType>Form</SubType>
     </Compile>
