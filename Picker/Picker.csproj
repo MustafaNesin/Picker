@@ -72,53 +72,208 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entities\Brands\BrandView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Entities\Brands\BrandView.Designer.cs">
+      <DependentUpon>BrandView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Builds\BuildView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Entities\Builds\BuildView.Designer.cs">
+      <DependentUpon>BuildView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Chipsets\ChipsetView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Entities\Chipsets\ChipsetView.Designer.cs">
+      <DependentUpon>ChipsetView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\GraphicsCards\GraphicsCardView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Entities\GraphicsCards\GraphicsCardView.Designer.cs">
+      <DependentUpon>GraphicsCardView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Memories\MemoryView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Entities\Memories\MemoryView.Designer.cs">
+      <DependentUpon>MemoryView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Motherboards\MotherboardView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Entities\Motherboards\MotherboardView.Designer.cs">
+      <DependentUpon>MotherboardView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Processors\ProcessorView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Entities\Processors\ProcessorView.Designer.cs">
+      <DependentUpon>ProcessorView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Sockets\SocketView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Entities\Sockets\SocketView.Designer.cs">
+      <DependentUpon>SocketView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\EntityPresenter.cs" />
+    <Compile Include="Entities\IEntityView.cs" />
+    <Compile Include="IView.cs" />
+    <Compile Include="Lists\Brands\BrandItemView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Lists\Brands\BrandItemView.Designer.cs">
+      <DependentUpon>BrandItemView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Lists\Brands\BrandListView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Lists\Brands\BrandListView.Designer.cs">
+      <DependentUpon>BrandListView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Lists\Brands\BrandListPresenter.cs" />
+    <Compile Include="Lists\Brands\IBrandListView.cs" />
+    <Compile Include="Lists\Builds\BuildItemView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Lists\Builds\BuildItemView.Designer.cs">
+      <DependentUpon>BuildItemView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Lists\Builds\BuildListView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Lists\Builds\BuildListView.Designer.cs">
+      <DependentUpon>BuildListView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Lists\Builds\BuildListPresenter.cs" />
+    <Compile Include="Lists\Builds\IBuildListView.cs" />
+    <Compile Include="Lists\Chipsets\ChipsetItemView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Lists\Chipsets\ChipsetItemView.Designer.cs">
+      <DependentUpon>ChipsetItemView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Lists\Chipsets\ChipsetListView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Lists\Chipsets\ChipsetListView.Designer.cs">
+      <DependentUpon>ChipsetListView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Lists\Chipsets\ChipsetListPresenter.cs" />
+    <Compile Include="Lists\Chipsets\IChipsetListView.cs" />
+    <Compile Include="Lists\GraphicsCards\GraphicsCardItemView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Lists\GraphicsCards\GraphicsCardItemView.Designer.cs">
+      <DependentUpon>GraphicsCardItemView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Lists\GraphicsCards\GraphicsCardListView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Lists\GraphicsCards\GraphicsCardListView.Designer.cs">
+      <DependentUpon>GraphicsCardListView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Lists\GraphicsCards\GraphicsCardListPresenter.cs" />
+    <Compile Include="Lists\GraphicsCards\IGraphicsCardListView.cs" />
+    <Compile Include="Lists\Memories\MemoryItemView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Lists\Memories\MemoryItemView.Designer.cs">
+      <DependentUpon>MemoryItemView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Lists\Memories\MemoryListView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Lists\Memories\MemoryListView.Designer.cs">
+      <DependentUpon>MemoryListView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Lists\Memories\MemoryListPresenter.cs" />
+    <Compile Include="Lists\Memories\IMemoryListView.cs" />
+    <Compile Include="Lists\Motherboards\MotherboardItemView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Lists\Motherboards\MotherboardItemView.Designer.cs">
+      <DependentUpon>MotherboardItemView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Lists\Motherboards\MotherboardListView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Lists\Motherboards\MotherboardListView.Designer.cs">
+      <DependentUpon>MotherboardListView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Lists\Motherboards\MotherboardListPresenter.cs" />
+    <Compile Include="Lists\Motherboards\IMotherboardListView.cs" />
+    <Compile Include="Lists\Processors\ProcessorItemView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Lists\Processors\ProcessorItemView.Designer.cs">
+      <DependentUpon>ProcessorItemView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Lists\Processors\ProcessorListView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Lists\Processors\ProcessorListView.Designer.cs">
+      <DependentUpon>ProcessorListView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Lists\Processors\ProcessorListPresenter.cs" />
+    <Compile Include="Lists\Processors\IProcessorListView.cs" />
+    <Compile Include="Lists\Sockets\SocketItemView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Lists\Sockets\SocketItemView.Designer.cs">
+      <DependentUpon>SocketItemView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Lists\Sockets\SocketListView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Lists\Sockets\SocketListView.Designer.cs">
+      <DependentUpon>SocketListView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Lists\Sockets\SocketListPresenter.cs" />
+    <Compile Include="Lists\Sockets\ISocketListView.cs" />
+    <Compile Include="Lists\IListView.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Models\Brand.cs" />
-    <Compile Include="Models\Build.cs" />
-    <Compile Include="Models\Chipset.cs" />
-    <Compile Include="Models\Database.cs" />
-    <Compile Include="Models\Graphics.cs" />
-    <Compile Include="Models\IEntity.cs" />
-    <Compile Include="Models\Memory.cs" />
-    <Compile Include="Models\Motherboard.cs" />
-    <Compile Include="Models\Part.cs" />
-    <Compile Include="Models\Processor.cs" />
-    <Compile Include="Models\Product.cs" />
-    <Compile Include="Models\Socket.cs" />
-    <Compile Include="Presenters\BuildPresenter.cs" />
-    <Compile Include="Presenters\IEntityPresenter.cs" />
-    <Compile Include="Presenters\IListPresenter.cs" />
-    <Compile Include="Presenters\IPresenter.cs" />
-    <Compile Include="Presenters\ListPresenter.cs" />
+    <Compile Include="Entities\Brands\Brand.cs" />
+    <Compile Include="Entities\Builds\Build.cs" />
+    <Compile Include="Entities\Chipsets\Chipset.cs" />
+    <Compile Include="Database.cs" />
+    <Compile Include="Entities\GraphicsCards\GraphicsCard.cs" />
+    <Compile Include="Entities\Entity.cs" />
+    <Compile Include="Entities\Memories\Memory.cs" />
+    <Compile Include="Entities\Motherboards\Motherboard.cs" />
+    <Compile Include="Entities\Part.cs" />
+    <Compile Include="Entities\Processors\Processor.cs" />
+    <Compile Include="Entities\Product.cs" />
+    <Compile Include="Entities\Sockets\Socket.cs" />
+    <Compile Include="Entities\Brands\BrandPresenter.cs" />
+    <Compile Include="Entities\Builds\BuildPresenter.cs" />
+    <Compile Include="Entities\Chipsets\ChipsetPresenter.cs" />
+    <Compile Include="Entities\GraphicsCards\GraphicsCardPresenter.cs" />
+    <Compile Include="Entities\Memories\MemoryPresenter.cs" />
+    <Compile Include="Entities\Motherboards\MotherboardPresenter.cs" />
+    <Compile Include="Entities\Processors\ProcessorPresenter.cs" />
+    <Compile Include="Entities\Sockets\SocketPresenter.cs" />
+    <Compile Include="Lists\ListPresenter.cs" />
+    <Compile Include="Presenter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utilities.cs" />
-    <Compile Include="Views\BuildForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\BuildForm.Designer.cs">
-      <DependentUpon>BuildForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Views\IBuildView.cs" />
-    <Compile Include="Views\IEntityView.cs" />
-    <Compile Include="Views\IListView.cs" />
-    <Compile Include="Views\IView.cs" />
-    <Compile Include="Views\ListForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\ListForm.Designer.cs">
-      <DependentUpon>ListForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Views\ListItemControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Views\ListItemControl.Designer.cs">
-      <DependentUpon>ListItemControl.cs</DependentUpon>
-    </Compile>
+    <Compile Include="Entities\Brands\IBrandView.cs" />
+    <Compile Include="Entities\Builds\IBuildView.cs" />
+    <Compile Include="Entities\Chipsets\IChipsetView.cs" />
+    <Compile Include="Entities\GraphicsCards\IGraphicsCardView.cs" />
+    <Compile Include="Entities\Memories\IMemoryView.cs" />
+    <Compile Include="Entities\Motherboards\IMotherboardView.cs" />
+    <Compile Include="Entities\Processors\IProcessorView.cs" />
+    <Compile Include="Entities\Sockets\ISocketView.cs" />
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -132,15 +287,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Views\BuildForm.resx">
-      <DependentUpon>BuildForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\ListForm.resx">
-      <DependentUpon>ListForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\ListItemControl.resx">
-      <DependentUpon>ListItemControl.cs</DependentUpon>
-    </EmbeddedResource>
     <None Include="..\.editorconfig">
       <Link>.editorconfig</Link>
     </None>
@@ -160,6 +306,15 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="favicon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Lists\Brands\" />
+    <Folder Include="Lists\Chipsets\" />
+    <Folder Include="Lists\GraphicsCards\" />
+    <Folder Include="Lists\Memories\" />
+    <Folder Include="Lists\Motherboards\" />
+    <Folder Include="Lists\Processors\" />
+    <Folder Include="Lists\Sockets\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

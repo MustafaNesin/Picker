@@ -7,8 +7,6 @@
     using System.Globalization;
     using System.Threading.Tasks;
     using System.Windows.Forms;
-    using Models;
-    using Presenters;
 
     internal partial class MainForm : Form
     {
@@ -71,11 +69,39 @@
             if (!(button.Tag is Type type))
                 return;
 
-            if (type != typeof(Build))
-                return;
+            if (type == typeof(Brand))
+                await using (var presenter = new BrandListPresenter())
+                    presenter.ShowView();
 
-            await using var presenter = new ListPresenter<Build>();
-            presenter.ShowView();
+            if (type == typeof(Build))
+                await using (var presenter = new BuildListPresenter())
+                    presenter.ShowView();
+
+            if (type == typeof(Chipset))
+                await using (var presenter = new ChipsetListPresenter())
+                    presenter.ShowView();
+
+            if (type == typeof(GraphicsCard))
+                await using (var presenter = new GraphicsCardListPresenter())
+                    presenter.ShowView();
+
+            if (type == typeof(Memory))
+                await using (var presenter = new MemoryListPresenter())
+                    presenter.ShowView();
+
+            if (type == typeof(Motherboard))
+                await using (var presenter = new MotherboardListPresenter())
+                    presenter.ShowView();
+
+            if (type == typeof(Processor))
+                await using (var presenter = new ProcessorListPresenter())
+                    presenter.ShowView();
+
+            if (type == typeof(Socket))
+                await using (var presenter = new SocketListPresenter())
+                    presenter.ShowView();
+
+            await SetCountToolTips();
         }
 
         private void copyrightLabel_Click(object sender, EventArgs e)
@@ -86,23 +112,7 @@
             copyrightLabel.Text = Utilities.GetCopyright();
             versionLabel.Text = "v" + Utilities.GetVersionString();
 
-            using var context = new ComputerDatabaseContext();
-            var motherboardsCount = await context.Motherboards.CountAsync();
-            var processorsCount = await context.Processors.CountAsync();
-            var graphicsCount = await context.Graphics.CountAsync();
-            var memoriesCount = await context.Memories.CountAsync();
-
-            SetCountToolTip(buildsButton, await context.Builds.CountAsync());
-            SetCountToolTip(motherboardsButton, motherboardsCount);
-            SetCountToolTip(processorsButton, processorsCount);
-            SetCountToolTip(graphicsButton, graphicsCount);
-            SetCountToolTip(memoriesButton, memoriesCount);
-            SetCountToolTip(brandsButton, await context.Brands.CountAsync());
-            SetCountToolTip(chipsetsButton, await context.Chipsets.CountAsync());
-            SetCountToolTip(socketsButton, await context.Sockets.CountAsync());
-
-            SetCountToolTip(productsGroupBox,
-                motherboardsCount + processorsCount + graphicsCount + memoriesCount);
+            await SetCountToolTips();
         }
 
         private async void MainForm_Load(object sender, EventArgs e) => await InitializeAsync();
@@ -118,6 +128,27 @@
                 : $"Veri tabanında {entityCount} adet {modelName} bulunuyor.";
 
             countToolTip.SetToolTip(control, caption);
+        }
+
+        public async Task SetCountToolTips()
+        {
+            using var context = new ComputerDatabaseContext();
+            var motherboardsCount = await context.Motherboards.CountAsync();
+            var processorsCount = await context.Processors.CountAsync();
+            var graphicsCount = await context.GraphicsCards.CountAsync();
+            var memoriesCount = await context.Memories.CountAsync();
+
+            SetCountToolTip(buildsButton, await context.Builds.CountAsync());
+            SetCountToolTip(motherboardsButton, motherboardsCount);
+            SetCountToolTip(processorsButton, processorsCount);
+            SetCountToolTip(graphicsButton, graphicsCount);
+            SetCountToolTip(memoriesButton, memoriesCount);
+            SetCountToolTip(brandsButton, await context.Brands.CountAsync());
+            SetCountToolTip(chipsetsButton, await context.Chipsets.CountAsync());
+            SetCountToolTip(socketsButton, await context.Sockets.CountAsync());
+
+            SetCountToolTip(productsGroupBox,
+                motherboardsCount + processorsCount + graphicsCount + memoriesCount);
         }
     }
 }

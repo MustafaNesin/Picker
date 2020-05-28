@@ -124,7 +124,7 @@
             this.productsGroupBox.Size = new System.Drawing.Size(218, 112);
             this.productsGroupBox.TabIndex = 1;
             this.productsGroupBox.TabStop = false;
-            this.productsGroupBox.Tag = typeof(Picker.Models.Product);
+            this.productsGroupBox.Tag = typeof(Picker.Product);
             this.productsGroupBox.Text = "Ürünler";
             // 
             // memoriesButton
@@ -141,7 +141,7 @@
             this.memoriesButton.Name = "memoriesButton";
             this.memoriesButton.Size = new System.Drawing.Size(100, 40);
             this.memoriesButton.TabIndex = 4;
-            this.memoriesButton.Tag = typeof(Picker.Models.Memory);
+            this.memoriesButton.Tag = typeof(Picker.Memory);
             this.memoriesButton.Text = "Bellekler";
             this.memoriesButton.UseVisualStyleBackColor = false;
             this.memoriesButton.Click += new System.EventHandler(this.contextButtons_Click);
@@ -160,7 +160,7 @@
             this.processorsButton.Name = "processorsButton";
             this.processorsButton.Size = new System.Drawing.Size(100, 40);
             this.processorsButton.TabIndex = 2;
-            this.processorsButton.Tag = typeof(Picker.Models.Processor);
+            this.processorsButton.Tag = typeof(Picker.Processor);
             this.processorsButton.Text = "İşlemciler";
             this.processorsButton.UseVisualStyleBackColor = false;
             this.processorsButton.Click += new System.EventHandler(this.contextButtons_Click);
@@ -179,7 +179,7 @@
             this.graphicsButton.Name = "graphicsButton";
             this.graphicsButton.Size = new System.Drawing.Size(100, 40);
             this.graphicsButton.TabIndex = 3;
-            this.graphicsButton.Tag = typeof(Picker.Models.Graphics);
+            this.graphicsButton.Tag = typeof(Picker.GraphicsCard);
             this.graphicsButton.Text = "Ekran Kartları";
             this.graphicsButton.UseVisualStyleBackColor = false;
             this.graphicsButton.Click += new System.EventHandler(this.contextButtons_Click);
@@ -198,7 +198,7 @@
             this.motherboardsButton.Name = "motherboardsButton";
             this.motherboardsButton.Size = new System.Drawing.Size(100, 40);
             this.motherboardsButton.TabIndex = 1;
-            this.motherboardsButton.Tag = typeof(Picker.Models.Motherboard);
+            this.motherboardsButton.Tag = typeof(Picker.Motherboard);
             this.motherboardsButton.Text = "Anakartlar";
             this.motherboardsButton.UseVisualStyleBackColor = false;
             this.motherboardsButton.Click += new System.EventHandler(this.contextButtons_Click);
@@ -217,7 +217,7 @@
             this.brandsButton.Name = "brandsButton";
             this.brandsButton.Size = new System.Drawing.Size(100, 25);
             this.brandsButton.TabIndex = 5;
-            this.brandsButton.Tag = typeof(Picker.Models.Brand);
+            this.brandsButton.Tag = typeof(Picker.Brand);
             this.brandsButton.Text = "Markalar";
             this.brandsButton.UseVisualStyleBackColor = false;
             this.brandsButton.Click += new System.EventHandler(this.contextButtons_Click);
@@ -236,7 +236,7 @@
             this.socketsButton.Name = "socketsButton";
             this.socketsButton.Size = new System.Drawing.Size(100, 25);
             this.socketsButton.TabIndex = 7;
-            this.socketsButton.Tag = typeof(Picker.Models.Socket);
+            this.socketsButton.Tag = typeof(Picker.Socket);
             this.socketsButton.Text = "Soketler";
             this.socketsButton.UseVisualStyleBackColor = false;
             this.socketsButton.Click += new System.EventHandler(this.contextButtons_Click);
@@ -255,7 +255,7 @@
             this.chipsetsButton.Name = "chipsetsButton";
             this.chipsetsButton.Size = new System.Drawing.Size(100, 25);
             this.chipsetsButton.TabIndex = 6;
-            this.chipsetsButton.Tag = typeof(Picker.Models.Chipset);
+            this.chipsetsButton.Tag = typeof(Picker.Chipset);
             this.chipsetsButton.Text = "Yonga Setleri";
             this.chipsetsButton.UseVisualStyleBackColor = false;
             this.chipsetsButton.Click += new System.EventHandler(this.contextButtons_Click);
@@ -274,7 +274,7 @@
             this.buildsButton.Name = "buildsButton";
             this.buildsButton.Size = new System.Drawing.Size(336, 70);
             this.buildsButton.TabIndex = 0;
-            this.buildsButton.Tag = typeof(Picker.Models.Build);
+            this.buildsButton.Tag = typeof(Picker.Build);
             this.buildsButton.Text = "Bilgisayarlar";
             this.buildsButton.UseVisualStyleBackColor = false;
             this.buildsButton.Click += new System.EventHandler(this.contextButtons_Click);
