@@ -65,9 +65,9 @@
 
         private async void contextButtons_Click(object sender, EventArgs e)
         {
-            var button = sender as Button;
+            if (!(sender is Button button))
+                return;
 
-            // ReSharper disable once PossibleNullReferenceException
             if (!(button.Tag is Type type))
                 return;
 
