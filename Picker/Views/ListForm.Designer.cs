@@ -28,15 +28,23 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.filterPanel = new System.Windows.Forms.Panel();
             this.controlPanel = new System.Windows.Forms.Panel();
             this.deleteAllButton = new System.Windows.Forms.Button();
             this.newItemButton = new System.Windows.Forms.Button();
             this.backButton = new System.Windows.Forms.Button();
             this.navigationPanel = new System.Windows.Forms.Panel();
             this.listPanel = new System.Windows.Forms.Panel();
-            this.filterControl = new Picker.Views.ListFilterControl();
             this.controlPanel.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // filterPanel
+            // 
+            this.filterPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.filterPanel.Location = new System.Drawing.Point(0, 0);
+            this.filterPanel.Name = "filterPanel";
+            this.filterPanel.Size = new System.Drawing.Size(820, 103);
+            this.filterPanel.TabIndex = 0;
             // 
             // controlPanel
             // 
@@ -95,18 +103,10 @@
             this.listPanel.AutoScroll = true;
             this.listPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listPanel.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.listPanel.Location = new System.Drawing.Point(0, 112);
+            this.listPanel.Location = new System.Drawing.Point(0, 103);
             this.listPanel.Name = "listPanel";
-            this.listPanel.Size = new System.Drawing.Size(820, 340);
+            this.listPanel.Size = new System.Drawing.Size(820, 349);
             this.listPanel.TabIndex = 2;
-            // 
-            // filterControl
-            // 
-            this.filterControl.Dock = System.Windows.Forms.DockStyle.Top;
-            this.filterControl.Location = new System.Drawing.Point(0, 0);
-            this.filterControl.Name = "filterControl";
-            this.filterControl.Size = new System.Drawing.Size(820, 112);
-            this.filterControl.TabIndex = 4;
             // 
             // ListForm
             // 
@@ -115,8 +115,8 @@
             this.CancelButton = this.backButton;
             this.ClientSize = new System.Drawing.Size(820, 517);
             this.Controls.Add(this.listPanel);
-            this.Controls.Add(this.filterControl);
             this.Controls.Add(this.controlPanel);
+            this.Controls.Add(this.filterPanel);
             this.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.Name = "ListForm";
             this.Text = "ListForm";
@@ -127,12 +127,13 @@
         }
 
         #endregion
+
+        private System.Windows.Forms.Panel filterPanel;
         private System.Windows.Forms.Panel controlPanel;
         private System.Windows.Forms.Panel navigationPanel;
         private System.Windows.Forms.Button deleteAllButton;
         private System.Windows.Forms.Button newItemButton;
         private System.Windows.Forms.Button backButton;
         public System.Windows.Forms.Panel listPanel;
-        private ListFilterControl filterControl;
     }
 }
