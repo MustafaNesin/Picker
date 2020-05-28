@@ -3,6 +3,7 @@
     using System;
     using System.Data.Entity;
     using System.Data.SqlClient;
+    using System.Diagnostics;
     using System.Globalization;
     using System.Threading.Tasks;
     using System.Windows.Forms;
@@ -76,6 +77,9 @@
             await using var presenter = new ListPresenter<Build>();
             presenter.ShowView();
         }
+
+        private void copyrightLabel_Click(object sender, EventArgs e)
+            => Process.Start("https://github.com/MustafaNesin/Picker");
 
         public async Task InitializeAsync()
         {

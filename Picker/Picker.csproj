@@ -141,6 +141,9 @@
     <EmbeddedResource Include="Views\ListItemControl.resx">
       <DependentUpon>ListItemControl.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="..\.editorconfig">
+      <Link>.editorconfig</Link>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
