@@ -4,7 +4,7 @@
 
     internal partial class BuildView : Form, IBuildView
     {
-        private BuildPresenter _presenter;
+        private readonly BuildPresenter _presenter;
 
         public BuildView(BuildPresenter presenter)
         {

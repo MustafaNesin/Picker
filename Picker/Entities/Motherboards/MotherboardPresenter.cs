@@ -2,7 +2,7 @@
 {
     using System.Threading.Tasks;
 
-    internal class MotherboardPresenter : EntityPresenter<MotherboardView, Motherboard>
+    internal sealed class MotherboardPresenter : EntityPresenter<MotherboardView, Motherboard>
     {
         public MotherboardPresenter(Motherboard entity) : base(entity)
         {

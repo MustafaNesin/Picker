@@ -2,7 +2,7 @@
 {
     using System.Threading.Tasks;
 
-    internal class BuildListPresenter : ListPresenter<BuildListView, Build>
+    internal sealed class BuildListPresenter : ListPresenter<BuildListView, Build>
     {
         #region Disposing
         private bool _disposed;

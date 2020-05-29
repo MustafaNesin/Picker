@@ -4,7 +4,7 @@
 
     internal partial class ChipsetView : Form, IChipsetView
     {
-        private ChipsetPresenter _presenter;
+        private readonly ChipsetPresenter _presenter;
 
         public ChipsetView(ChipsetPresenter presenter)
         {

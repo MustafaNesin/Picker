@@ -2,7 +2,7 @@
 {
     using System.Threading.Tasks;
 
-    internal class SocketPresenter : EntityPresenter<SocketView, Socket>
+    internal sealed class SocketPresenter : EntityPresenter<SocketView, Socket>
     {
         public SocketPresenter(Socket entity) : base(entity)
         {

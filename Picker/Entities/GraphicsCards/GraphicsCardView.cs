@@ -4,7 +4,7 @@
 
     internal partial class GraphicsCardView : Form, IGraphicsCardView
     {
-        private GraphicsCardPresenter _presenter;
+        private readonly GraphicsCardPresenter _presenter;
 
         public GraphicsCardView(GraphicsCardPresenter presenter)
         {

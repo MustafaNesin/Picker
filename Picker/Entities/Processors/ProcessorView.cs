@@ -4,7 +4,7 @@
 
     internal partial class ProcessorView : Form, IProcessorView
     {
-        private ProcessorPresenter _presenter;
+        private readonly ProcessorPresenter _presenter;
 
         public ProcessorView(ProcessorPresenter presenter)
         {

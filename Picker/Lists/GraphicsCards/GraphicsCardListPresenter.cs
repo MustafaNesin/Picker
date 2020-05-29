@@ -2,7 +2,8 @@
 {
     using System.Threading.Tasks;
 
-    internal class GraphicsCardListPresenter : ListPresenter<GraphicsCardListView, GraphicsCard>
+    internal sealed class GraphicsCardListPresenter
+        : ListPresenter<GraphicsCardListView, GraphicsCard>
     {
         #region Disposing
         private bool _disposed;

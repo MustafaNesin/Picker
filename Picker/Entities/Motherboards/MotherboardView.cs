@@ -4,7 +4,7 @@
 
     internal partial class MotherboardView : Form, IMotherboardView
     {
-        private MotherboardPresenter _presenter;
+        private readonly MotherboardPresenter _presenter;
 
         public MotherboardView(MotherboardPresenter presenter)
         {

@@ -4,7 +4,7 @@
 
     internal partial class BrandView : Form, IBrandView
     {
-        private BrandPresenter _presenter;
+        private readonly BrandPresenter _presenter;
 
         public BrandView(BrandPresenter presenter)
         {

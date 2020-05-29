@@ -2,7 +2,7 @@
 {
     using System.Threading.Tasks;
 
-    internal class MemoryPresenter : EntityPresenter<MemoryView, Memory>
+    internal sealed class MemoryPresenter : EntityPresenter<MemoryView, Memory>
     {
         public MemoryPresenter(Memory entity) : base(entity)
         {

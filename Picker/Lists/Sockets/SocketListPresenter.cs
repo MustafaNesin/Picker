@@ -2,7 +2,7 @@
 {
     using System.Threading.Tasks;
 
-    internal class SocketListPresenter : ListPresenter<SocketListView, Socket>
+    internal sealed class SocketListPresenter : ListPresenter<SocketListView, Socket>
     {
         #region Disposing
         private bool _disposed;

@@ -2,7 +2,7 @@
 {
     using System.Threading.Tasks;
 
-    internal class ProcessorListPresenter : ListPresenter<ProcessorListView, Processor>
+    internal sealed class ProcessorListPresenter : ListPresenter<ProcessorListView, Processor>
     {
         #region Disposing
         private bool _disposed;

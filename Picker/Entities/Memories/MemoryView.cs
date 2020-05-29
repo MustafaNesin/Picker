@@ -4,7 +4,7 @@
 
     internal partial class MemoryView : Form, IMemoryView
     {
-        private MemoryPresenter _presenter;
+        private readonly MemoryPresenter _presenter;
 
         public MemoryView(MemoryPresenter presenter)
         {

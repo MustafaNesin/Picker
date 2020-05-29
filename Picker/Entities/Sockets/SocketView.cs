@@ -4,7 +4,7 @@
 
     internal partial class SocketView : Form, ISocketView
     {
-        private SocketPresenter _presenter;
+        private readonly SocketPresenter _presenter;
 
         public SocketView(SocketPresenter presenter)
         {

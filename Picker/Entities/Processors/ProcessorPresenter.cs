@@ -2,7 +2,7 @@
 {
     using System.Threading.Tasks;
 
-    internal class ProcessorPresenter : EntityPresenter<ProcessorView, Processor>
+    internal sealed class ProcessorPresenter : EntityPresenter<ProcessorView, Processor>
     {
         public ProcessorPresenter(Processor entity) : base(entity)
         {

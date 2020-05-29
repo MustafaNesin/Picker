@@ -2,7 +2,7 @@
 {
     using System.Threading.Tasks;
 
-    internal class ChipsetListPresenter : ListPresenter<ChipsetListView, Chipset>
+    internal sealed class ChipsetListPresenter : ListPresenter<ChipsetListView, Chipset>
     {
         #region Disposing
         private bool _disposed;

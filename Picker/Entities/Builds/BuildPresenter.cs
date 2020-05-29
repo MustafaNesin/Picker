@@ -2,7 +2,7 @@
 {
     using System.Threading.Tasks;
 
-    internal class BuildPresenter : EntityPresenter<BuildView, Build>
+    internal sealed class BuildPresenter : EntityPresenter<BuildView, Build>
     {
         public BuildPresenter(Build entity) : base(entity)
         {

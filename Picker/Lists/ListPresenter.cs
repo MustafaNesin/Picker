@@ -8,9 +8,7 @@
         where TView : Form
         where TEntity : Entity
     {
-        protected List<TEntity> EntityList { get; }
-
-        protected ListPresenter() => EntityList = new List<TEntity>();
+        protected List<TEntity> EntityList { get; set; }
 
         #region Disposing
         private bool _disposed;

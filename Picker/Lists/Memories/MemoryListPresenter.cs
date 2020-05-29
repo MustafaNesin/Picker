@@ -2,7 +2,7 @@
 {
     using System.Threading.Tasks;
 
-    internal class MemoryListPresenter : ListPresenter<MemoryListView, Memory>
+    internal sealed class MemoryListPresenter : ListPresenter<MemoryListView, Memory>
     {
         #region Disposing
         private bool _disposed;

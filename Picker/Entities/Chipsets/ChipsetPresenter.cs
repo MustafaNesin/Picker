@@ -2,7 +2,7 @@
 {
     using System.Threading.Tasks;
 
-    internal class ChipsetPresenter : EntityPresenter<ChipsetView, Chipset>
+    internal sealed class ChipsetPresenter : EntityPresenter<ChipsetView, Chipset>
     {
         public ChipsetPresenter(Chipset entity) : base(entity)
         {

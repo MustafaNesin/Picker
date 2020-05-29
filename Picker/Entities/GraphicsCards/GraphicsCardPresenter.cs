@@ -2,7 +2,7 @@
 {
     using System.Threading.Tasks;
 
-    internal class GraphicsCardPresenter : EntityPresenter<GraphicsCardView, GraphicsCard>
+    internal sealed class GraphicsCardPresenter : EntityPresenter<GraphicsCardView, GraphicsCard>
     {
         public GraphicsCardPresenter(GraphicsCard entity) : base(entity)
         {
