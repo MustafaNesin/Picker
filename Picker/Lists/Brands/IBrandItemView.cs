@@ -2,7 +2,7 @@
 {
     using System.Drawing;
 
-    internal interface IBrandView : IEntityView<Brand>
+    internal interface IBrandItemView : IItemView<Brand>
     {
         Color BrandColor { get; set; }
         string BrandCountry { get; set; }

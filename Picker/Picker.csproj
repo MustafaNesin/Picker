@@ -136,6 +136,7 @@
       <DependentUpon>BrandListView.cs</DependentUpon>
     </Compile>
     <Compile Include="Lists\Brands\BrandListPresenter.cs" />
+    <Compile Include="Lists\Brands\IBrandItemView.cs" />
     <Compile Include="Lists\Brands\IBrandListView.cs" />
     <Compile Include="Lists\Builds\BuildItemView.cs">
       <SubType>UserControl</SubType>
@@ -179,6 +180,7 @@
     </Compile>
     <Compile Include="Lists\GraphicsCards\GraphicsCardListPresenter.cs" />
     <Compile Include="Lists\GraphicsCards\IGraphicsCardListView.cs" />
+    <Compile Include="Lists\IItemView.cs" />
     <Compile Include="Lists\Memories\MemoryItemView.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -274,6 +276,9 @@
     <Compile Include="Entities\Motherboards\IMotherboardView.cs" />
     <Compile Include="Entities\Processors\IProcessorView.cs" />
     <Compile Include="Entities\Sockets\ISocketView.cs" />
+    <EmbeddedResource Include="Entities\Brands\BrandView.resx">
+      <DependentUpon>BrandView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Lists\Brands\BrandItemView.resx">
       <DependentUpon>BrandItemView.cs</DependentUpon>
     </EmbeddedResource>

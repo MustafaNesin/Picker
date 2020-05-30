@@ -16,11 +16,9 @@ namespace Picker
         }
 
         [NotMapped]
-        [DisplayName("Renk")]
         public Color Color { get; set; }
 
         [Required]
-        [DisplayName("Ülke")]
         public string Country { get; set; }
     }
 }

@@ -96,6 +96,7 @@
             this.editButton.TabIndex = 3;
             this.editButton.Text = "Düzenle";
             this.editButton.UseVisualStyleBackColor = false;
+            this.editButton.Click += new System.EventHandler(this.editButton_Click);
             // 
             // label1
             // 

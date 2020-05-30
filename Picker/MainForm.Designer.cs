@@ -103,7 +103,7 @@
             // springLabel
             // 
             this.springLabel.Name = "springLabel";
-            this.springLabel.Size = new System.Drawing.Size(648, 17);
+            this.springLabel.Size = new System.Drawing.Size(679, 17);
             this.springLabel.Spring = true;
             // 
             // versionLabel

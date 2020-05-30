@@ -69,6 +69,7 @@
             if (!(button.Tag is Type type))
                 return;
 
+            Hide();
             if (type == typeof(Brand))
                 await using (var presenter = new BrandListPresenter())
                     presenter.ShowView();
@@ -100,6 +101,8 @@
             if (type == typeof(Socket))
                 await using (var presenter = new SocketListPresenter())
                     presenter.ShowView();
+
+            Show();
 
             await SetCountToolTips();
         }
