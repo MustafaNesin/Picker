@@ -5,7 +5,7 @@
 
     internal partial class BrandListView : Form, IBrandListView
     {
-        private const string CountLabelFormat = "{0} listelenen toplam {1} marka var.";
+        private const string CountLabelFormat = "{0} tanesi listelenen, toplam {1} marka var.";
         private readonly BrandListPresenter _presenter;
 
         public Country BrandCountry
@@ -19,6 +19,8 @@
             get => nameBox.Text;
             set => nameBox.Text = value ?? string.Empty;
         }
+
+        public bool GeneratingList { get; set; }
 
         public int ItemPerPage
             => int.Parse(itemCountBox
@@ -37,15 +39,15 @@
             set
             {
                 pageCountLabel.Text = "/ " + value;
-                pageIndexBox.Minimum = value == 0 ? 0 : 1;
-                pageIndexBox.Maximum = value;
+                pageBox.Minimum = value == 0 ? 0 : 1;
+                pageBox.Maximum = value;
             }
         }
 
         public int PageIndex
         {
-            get => PageCount == 0 ? 0 : (int)pageIndexBox.Value - 1;
-            set => pageIndexBox.Value = PageCount == 0 ? 0 : value + 1;
+            get => PageCount == 0 ? 0 : (int)pageBox.Value - 1;
+            set => pageBox.Value = PageCount == 0 ? 0 : value + 1;
         }
 
         public BrandListView(BrandListPresenter presenter)
@@ -59,23 +61,55 @@
             orderBox.SelectedIndex = 1;
             itemCountBox.SelectedIndex = 1;
 
-            await _presenter.GenerateList();
+            await _presenter.GenerateListAsync();
 
-            orderBox.SelectedIndexChanged += GenerateListEvent;
-            itemCountBox.SelectedIndexChanged += GenerateListEvent;
-            pageIndexBox.ValueChanged += pageIndexBox_ValueChanged;
+            orderBox.SelectedIndexChanged += GenerateListAsyncEvent;
+            itemCountBox.SelectedIndexChanged += GenerateListAsyncEvent;
+            pageBox.ValueChanged += pageBox_ValueChanged;
         }
 
-        private async void GenerateListEvent(object sender, EventArgs e)
-            => await _presenter.GenerateList();
+        private void firstPageButton_Click(object sender, EventArgs e) => pageBox.Value = 1;
 
+        private async void GenerateListAsyncEvent(object sender, EventArgs e)
+        {
+            if (!GeneratingList)
+                await _presenter.GenerateListAsync();
+        }
         private async void newButton_Click(object sender, EventArgs e)
-            => await _presenter.AddItemAsync();
+        {
+            if (!GeneratingList)
+                await _presenter.AddItemAsync();
+        }
+        private async void pageBox_ValueChanged(object sender, EventArgs e)
+        {
+            if (!GeneratingList)
+                await _presenter.GenerateListAsync(true);
+        }
 
-        private async void pageIndexBox_ValueChanged(object sender, EventArgs e)
-            => await _presenter.GenerateList(true);
+        private void lastPageButton_Click(object sender, EventArgs e) => pageBox.Value = PageCount;
+
+
+        private void nextPageButton_Click(object sender, EventArgs e) => pageBox.Value++;
+
+
+        private void previousPageButton_Click(object sender, EventArgs e) => pageBox.Value--;
+
+        public void UpdateNavigationButtonsStatus()
+        {
+            firstPageButton.Enabled = previousPageButton.Enabled = pageBox.Value > 1;
+            lastPageButton.Enabled = nextPageButton.Enabled = pageBox.Value < PageCount;
+        }
 
         public void SetCountLabel(int itemCount, int totalItemCount)
             => countLabel.Text = string.Format(CountLabelFormat, itemCount, totalItemCount);
+
+        private async void deselectCountryButton_Click(object sender, EventArgs e)
+        {
+            if (GeneratingList)
+                return;
+
+            countryBox.SelectedIndex = -1;
+            await _presenter.GenerateListAsync();
+        }
     }
 }

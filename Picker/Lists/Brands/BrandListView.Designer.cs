@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BrandListView));
             this.filterPanel = new System.Windows.Forms.Panel();
+            this.deselectCountryButton = new System.Windows.Forms.Button();
             this.itemCountBox = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -46,16 +47,23 @@
             this.countLabel = new System.Windows.Forms.Label();
             this.acceptButton = new System.Windows.Forms.Button();
             this.navigationPanel = new System.Windows.Forms.Panel();
-            this.pageIndexBox = new System.Windows.Forms.NumericUpDown();
+            this.navigationSubPanel = new System.Windows.Forms.Panel();
+            this.pageBox = new System.Windows.Forms.NumericUpDown();
+            this.nextPageButton = new System.Windows.Forms.Button();
+            this.lastPageButton = new System.Windows.Forms.Button();
+            this.previousPageButton = new System.Windows.Forms.Button();
+            this.firstPageButton = new System.Windows.Forms.Button();
             this.pageCountLabel = new System.Windows.Forms.Label();
             this.filterPanel.SuspendLayout();
             this.controlPanel.SuspendLayout();
             this.navigationPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pageIndexBox)).BeginInit();
+            this.navigationSubPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pageBox)).BeginInit();
             this.SuspendLayout();
             // 
             // filterPanel
             // 
+            this.filterPanel.Controls.Add(this.deselectCountryButton);
             this.filterPanel.Controls.Add(this.itemCountBox);
             this.filterPanel.Controls.Add(this.label5);
             this.filterPanel.Controls.Add(this.label4);
@@ -70,8 +78,18 @@
             this.filterPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.filterPanel.Location = new System.Drawing.Point(0, 0);
             this.filterPanel.Name = "filterPanel";
-            this.filterPanel.Size = new System.Drawing.Size(623, 99);
+            this.filterPanel.Size = new System.Drawing.Size(623, 96);
             this.filterPanel.TabIndex = 0;
+            // 
+            // deselectCountryButton
+            // 
+            this.deselectCountryButton.Location = new System.Drawing.Point(252, 12);
+            this.deselectCountryButton.Name = "deselectCountryButton";
+            this.deselectCountryButton.Size = new System.Drawing.Size(24, 21);
+            this.deselectCountryButton.TabIndex = 1;
+            this.deselectCountryButton.Text = "X";
+            this.deselectCountryButton.UseVisualStyleBackColor = true;
+            this.deselectCountryButton.Click += new System.EventHandler(this.deselectCountryButton_Click);
             // 
             // itemCountBox
             // 
@@ -399,7 +417,7 @@
             "Zimbabve"});
             this.countryBox.Location = new System.Drawing.Point(69, 12);
             this.countryBox.Name = "countryBox";
-            this.countryBox.Size = new System.Drawing.Size(207, 21);
+            this.countryBox.Size = new System.Drawing.Size(177, 21);
             this.countryBox.TabIndex = 0;
             // 
             // label2
@@ -423,18 +441,18 @@
             // applyFilterButton
             // 
             this.applyFilterButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.applyFilterButton.Location = new System.Drawing.Point(12, 70);
+            this.applyFilterButton.Location = new System.Drawing.Point(201, 67);
             this.applyFilterButton.Name = "applyFilterButton";
-            this.applyFilterButton.Size = new System.Drawing.Size(112, 23);
+            this.applyFilterButton.Size = new System.Drawing.Size(75, 23);
             this.applyFilterButton.TabIndex = 2;
-            this.applyFilterButton.Text = "Filtreyi Uygula";
+            this.applyFilterButton.Text = "Filtrele";
             this.applyFilterButton.UseVisualStyleBackColor = true;
-            this.applyFilterButton.Click += new System.EventHandler(this.GenerateListEvent);
+            this.applyFilterButton.Click += new System.EventHandler(this.GenerateListAsyncEvent);
             // 
             // newButton
             // 
             this.newButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.newButton.Location = new System.Drawing.Point(536, 70);
+            this.newButton.Location = new System.Drawing.Point(536, 67);
             this.newButton.Name = "newButton";
             this.newButton.Size = new System.Drawing.Size(75, 23);
             this.newButton.TabIndex = 5;
@@ -446,9 +464,9 @@
             // 
             this.listPanel.AutoScroll = true;
             this.listPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.listPanel.Location = new System.Drawing.Point(0, 99);
+            this.listPanel.Location = new System.Drawing.Point(0, 96);
             this.listPanel.Name = "listPanel";
-            this.listPanel.Size = new System.Drawing.Size(623, 418);
+            this.listPanel.Size = new System.Drawing.Size(623, 421);
             this.listPanel.TabIndex = 1;
             // 
             // controlPanel
@@ -459,7 +477,7 @@
             this.controlPanel.Location = new System.Drawing.Point(0, 539);
             this.controlPanel.Name = "controlPanel";
             this.controlPanel.Size = new System.Drawing.Size(623, 22);
-            this.controlPanel.TabIndex = 2;
+            this.controlPanel.TabIndex = 3;
             // 
             // countLabel
             // 
@@ -477,43 +495,106 @@
             this.acceptButton.Location = new System.Drawing.Point(548, 0);
             this.acceptButton.Name = "acceptButton";
             this.acceptButton.Size = new System.Drawing.Size(75, 22);
-            this.acceptButton.TabIndex = 7;
+            this.acceptButton.TabIndex = 14;
             this.acceptButton.Text = "Tamam";
             this.acceptButton.UseVisualStyleBackColor = true;
             // 
             // navigationPanel
             // 
-            this.navigationPanel.Controls.Add(this.pageIndexBox);
-            this.navigationPanel.Controls.Add(this.pageCountLabel);
+            this.navigationPanel.Controls.Add(this.navigationSubPanel);
             this.navigationPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.navigationPanel.Location = new System.Drawing.Point(0, 517);
             this.navigationPanel.Name = "navigationPanel";
             this.navigationPanel.Size = new System.Drawing.Size(623, 22);
-            this.navigationPanel.TabIndex = 3;
+            this.navigationPanel.TabIndex = 2;
             // 
-            // pageIndexBox
+            // navigationSubPanel
             // 
-            this.pageIndexBox.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.pageIndexBox.Location = new System.Drawing.Point(286, 0);
-            this.pageIndexBox.Maximum = new decimal(new int[] {
-            1,
+            this.navigationSubPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.navigationSubPanel.Controls.Add(this.pageBox);
+            this.navigationSubPanel.Controls.Add(this.nextPageButton);
+            this.navigationSubPanel.Controls.Add(this.lastPageButton);
+            this.navigationSubPanel.Controls.Add(this.previousPageButton);
+            this.navigationSubPanel.Controls.Add(this.firstPageButton);
+            this.navigationSubPanel.Controls.Add(this.pageCountLabel);
+            this.navigationSubPanel.Location = new System.Drawing.Point(211, 0);
+            this.navigationSubPanel.Name = "navigationSubPanel";
+            this.navigationSubPanel.Size = new System.Drawing.Size(201, 22);
+            this.navigationSubPanel.TabIndex = 0;
+            // 
+            // pageBox
+            // 
+            this.pageBox.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pageBox.Location = new System.Drawing.Point(70, 0);
+            this.pageBox.Maximum = new decimal(new int[] {
+            0,
             0,
             0,
             0});
-            this.pageIndexBox.Name = "pageIndexBox";
-            this.pageIndexBox.Size = new System.Drawing.Size(35, 22);
-            this.pageIndexBox.TabIndex = 6;
-            this.pageIndexBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.pageIndexBox.UpDownAlign = System.Windows.Forms.LeftRightAlignment.Left;
+            this.pageBox.Name = "pageBox";
+            this.pageBox.Size = new System.Drawing.Size(35, 22);
+            this.pageBox.TabIndex = 11;
+            this.pageBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.pageBox.UpDownAlign = System.Windows.Forms.LeftRightAlignment.Left;
+            // 
+            // nextPageButton
+            // 
+            this.nextPageButton.Dock = System.Windows.Forms.DockStyle.Right;
+            this.nextPageButton.Enabled = false;
+            this.nextPageButton.Location = new System.Drawing.Point(131, 0);
+            this.nextPageButton.Name = "nextPageButton";
+            this.nextPageButton.Size = new System.Drawing.Size(35, 22);
+            this.nextPageButton.TabIndex = 12;
+            this.nextPageButton.Text = ">>";
+            this.nextPageButton.UseVisualStyleBackColor = true;
+            this.nextPageButton.Click += new System.EventHandler(this.nextPageButton_Click);
+            // 
+            // lastPageButton
+            // 
+            this.lastPageButton.Dock = System.Windows.Forms.DockStyle.Right;
+            this.lastPageButton.Enabled = false;
+            this.lastPageButton.Location = new System.Drawing.Point(166, 0);
+            this.lastPageButton.Name = "lastPageButton";
+            this.lastPageButton.Size = new System.Drawing.Size(35, 22);
+            this.lastPageButton.TabIndex = 13;
+            this.lastPageButton.Text = ">>";
+            this.lastPageButton.UseVisualStyleBackColor = true;
+            this.lastPageButton.Click += new System.EventHandler(this.lastPageButton_Click);
+            // 
+            // previousPageButton
+            // 
+            this.previousPageButton.Dock = System.Windows.Forms.DockStyle.Left;
+            this.previousPageButton.Enabled = false;
+            this.previousPageButton.Location = new System.Drawing.Point(35, 0);
+            this.previousPageButton.Name = "previousPageButton";
+            this.previousPageButton.Size = new System.Drawing.Size(35, 22);
+            this.previousPageButton.TabIndex = 10;
+            this.previousPageButton.Text = "<";
+            this.previousPageButton.UseVisualStyleBackColor = true;
+            this.previousPageButton.Click += new System.EventHandler(this.previousPageButton_Click);
+            // 
+            // firstPageButton
+            // 
+            this.firstPageButton.Dock = System.Windows.Forms.DockStyle.Left;
+            this.firstPageButton.Enabled = false;
+            this.firstPageButton.Location = new System.Drawing.Point(0, 0);
+            this.firstPageButton.Name = "firstPageButton";
+            this.firstPageButton.Size = new System.Drawing.Size(35, 22);
+            this.firstPageButton.TabIndex = 9;
+            this.firstPageButton.Text = "<<";
+            this.firstPageButton.UseVisualStyleBackColor = true;
+            this.firstPageButton.Click += new System.EventHandler(this.firstPageButton_Click);
             // 
             // pageCountLabel
             // 
-            this.pageCountLabel.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.pageCountLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.pageCountLabel.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.pageCountLabel.Location = new System.Drawing.Point(320, 2);
+            this.pageCountLabel.Location = new System.Drawing.Point(103, 2);
             this.pageCountLabel.Name = "pageCountLabel";
-            this.pageCountLabel.Size = new System.Drawing.Size(35, 19);
-            this.pageCountLabel.TabIndex = 1;
+            this.pageCountLabel.Size = new System.Drawing.Size(26, 15);
+            this.pageCountLabel.TabIndex = 8;
             this.pageCountLabel.Text = "/ 0";
             // 
             // BrandListView
@@ -537,7 +618,8 @@
             this.filterPanel.PerformLayout();
             this.controlPanel.ResumeLayout(false);
             this.navigationPanel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pageIndexBox)).EndInit();
+            this.navigationSubPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pageBox)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -560,8 +642,14 @@
         private System.Windows.Forms.ComboBox itemCountBox;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.NumericUpDown pageIndexBox;
-        private System.Windows.Forms.Label pageCountLabel;
         private System.Windows.Forms.Label countLabel;
+        private System.Windows.Forms.Panel navigationSubPanel;
+        private System.Windows.Forms.NumericUpDown pageBox;
+        private System.Windows.Forms.Button nextPageButton;
+        private System.Windows.Forms.Button lastPageButton;
+        private System.Windows.Forms.Button previousPageButton;
+        private System.Windows.Forms.Button firstPageButton;
+        private System.Windows.Forms.Label pageCountLabel;
+        private System.Windows.Forms.Button deselectCountryButton;
     }
 }

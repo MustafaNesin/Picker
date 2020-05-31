@@ -12,8 +12,7 @@
             if (_disposed)
                 return;
 
-            if (disposing)
-                ;
+            // if (disposing) ;
 
             _disposed = true;
             await base.DisposeAsync(disposing);

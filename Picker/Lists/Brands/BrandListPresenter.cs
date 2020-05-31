@@ -53,7 +53,7 @@
             image.Dispose();
 
             // Listeyi güncelle.
-            await GenerateList();
+            await GenerateListAsync();
         }
 
         public async Task DeleteItemAsync(BrandItemView brandItemView, Brand brand)
@@ -79,7 +79,7 @@
                 File.Delete(imagePath);
 
             // Listeyi güncelle.
-            await GenerateList();
+            await GenerateListAsync();
         }
 
         public async Task EditItemAsync(BrandItemView brandItemView, Brand brand)
@@ -92,7 +92,10 @@
                     return;
 
                 if (isImageChanged = presenter.IsImageChanged)
+                {
+                    brandItemView.BrandImage?.Dispose();
                     brandItemView.BrandImage = presenter.EntityImage;
+                }
             }
 
             // Değiştirilen markayı veritabanına kaydet.
@@ -118,8 +121,10 @@
             }
         }
 
-        public async Task GenerateList(bool paging = false)
+        public async Task GenerateListAsync(bool paging = false)
         {
+            View.GeneratingList = true;
+
             foreach (BrandItemView brandItemView in View.listPanel.Controls)
                 brandItemView.BrandImage?.Dispose();
 
@@ -173,6 +178,7 @@
                     .ToListAsync();
 
                 View.SetCountLabel(brands.Count, totalItemCount);
+                View.UpdateNavigationButtonsStatus();
             }
 
             // ReSharper disable once ForeachCanBePartlyConvertedToQueryUsingAnotherGetEnumerator
@@ -196,6 +202,8 @@
                 View.listPanel.Controls.Add(brandItemView);
                 brandItemView.BringToFront();
             }
+
+            View.GeneratingList = false;
         }
 
         public override DialogResult ShowView()
@@ -216,8 +224,7 @@
             if (_disposed)
                 return;
 
-            if (disposing)
-                ;
+            // if (disposing) ;
 
             _disposed = true;
             await base.DisposeAsync(disposing);

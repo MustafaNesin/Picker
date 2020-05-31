@@ -287,7 +287,10 @@
                 using var context = new ComputerDatabaseContext();
 
                 if (!context.Database.Exists())
+                {
+                    RecursiveDelete("assets");
                     context.Database.Create();
+                }
                 else if (!context.Database.CompatibleWithModel(false))
                 {
                     var result = ShowError(
@@ -298,6 +301,7 @@
                     if (result == DialogResult.No)
                         return false;
 
+                    RecursiveDelete("assets");
                     context.Database.Delete();
                     context.Database.Create();
                 }
@@ -320,6 +324,20 @@
                     controls[ix].Dispose();
                 else
                     controls.RemoveAt(ix);
+        }
+
+        public static void RecursiveDelete(string directoryPath)
+            => new DirectoryInfo(directoryPath).RecursiveDelete();
+
+        public static void RecursiveDelete(this DirectoryInfo directoryInfo)
+        {
+            if (!directoryInfo.Exists)
+                return;
+
+            foreach (var subDirectoryInfo in directoryInfo.EnumerateDirectories())
+                subDirectoryInfo.RecursiveDelete();
+
+            directoryInfo.Delete(true);
         }
 
         public static TValue GetAttributeValue<TAttribute, TValue>(this Type type,

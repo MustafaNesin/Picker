@@ -72,7 +72,7 @@
                 BrandImage = Utilities.LoadImage(dialog.FileName);
                 _presenter.IsImageChanged = true;
             }
-            catch (Exception ex)
+            catch
             {
                 Utilities.ShowError("Resim yüklenemedi.");
             }
