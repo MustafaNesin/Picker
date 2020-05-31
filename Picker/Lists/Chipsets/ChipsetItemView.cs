@@ -2,7 +2,7 @@
 {
     using System.Windows.Forms;
 
-    internal partial class ChipsetItemView : UserControl
+    internal partial class ChipsetItemView : UserControl, IChipsetItemView
     {
         public ChipsetItemView() => InitializeComponent();
     }

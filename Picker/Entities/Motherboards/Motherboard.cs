@@ -1,9 +1,7 @@
 namespace Picker
 {
-    using System.ComponentModel;
     using System.ComponentModel.DataAnnotations;
 
-    [DisplayName("anakart")]
     internal class Motherboard : Product
     {
         public Chipset Chipset { get; set; }

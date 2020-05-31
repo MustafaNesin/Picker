@@ -2,7 +2,7 @@
 {
     using System.Windows.Forms;
 
-    internal partial class MemoryItemView : UserControl
+    internal partial class MemoryItemView : UserControl, IMemoryItemView
     {
         public MemoryItemView() => InitializeComponent();
     }

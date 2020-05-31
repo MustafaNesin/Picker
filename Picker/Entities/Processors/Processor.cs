@@ -1,10 +1,8 @@
 namespace Picker
 {
     using System.Collections.Generic;
-    using System.ComponentModel;
     using System.ComponentModel.DataAnnotations;
 
-    [DisplayName("iþlemci")]
     internal class Processor : Product
     {
         public int CacheSize { get; set; }

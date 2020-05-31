@@ -1,14 +1,10 @@
 namespace Picker
 {
-    using System.ComponentModel;
-    using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Drawing;
 
-    [DisplayName("marka")]
     internal class Brand : Entity
     {
-        [Required]
         public int Argb
         {
             get => Color.ToArgb();
@@ -18,7 +14,6 @@ namespace Picker
         [NotMapped]
         public Color Color { get; set; }
 
-        [Required]
-        public string Country { get; set; }
+        public Country Country { get; set; }
     }
 }

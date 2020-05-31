@@ -1,6 +1,5 @@
 ﻿namespace Picker
 {
-    using System.Collections.Generic;
     using System.Threading.Tasks;
     using System.Windows.Forms;
 
@@ -8,8 +7,6 @@
         where TView : Form
         where TEntity : Entity
     {
-        protected List<TEntity> EntityList { get; set; }
-
         #region Disposing
         private bool _disposed;
 
@@ -21,7 +18,6 @@
             if (disposing)
                 ;
 
-            EntityList.Clear();
             _disposed = true;
             await base.DisposeAsync(disposing);
         }

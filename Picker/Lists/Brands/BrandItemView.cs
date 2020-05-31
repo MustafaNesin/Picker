@@ -8,6 +8,7 @@
     {
         private readonly Brand _brand;
         private readonly BrandListPresenter _presenter;
+        private Country _country;
 
         public Color BrandColor
         {
@@ -29,16 +30,16 @@
             }
         }
 
-        public string BrandCountry
+        public Country BrandCountry
         {
-            get => countryLabel.Text;
-            set => countryLabel.Text = value;
+            get => _country;
+            set => countryLabel.Text = (_country = value).GetDescription();
         }
 
         public Image BrandImage
         {
-            get => logoBox.Image;
-            set => logoBox.Image = value;
+            get => imageBox.Image;
+            set => imageBox.Image = value;
         }
 
         public string BrandName
@@ -55,7 +56,10 @@
             _presenter = presenter;
         }
 
+        private async void deleteButton_Click(object sender, EventArgs e)
+            => await _presenter.DeleteItemAsync(this, _brand);
+
         private async void editButton_Click(object sender, EventArgs e)
-            => await _presenter.EditItem(this, _brand);
+            => await _presenter.EditItemAsync(this, _brand);
     }
 }

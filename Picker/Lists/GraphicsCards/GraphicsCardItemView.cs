@@ -2,7 +2,7 @@
 {
     using System.Windows.Forms;
 
-    internal partial class GraphicsCardItemView : UserControl
+    internal partial class GraphicsCardItemView : UserControl, IGraphicsCardItemView
     {
         public GraphicsCardItemView() => InitializeComponent();
     }

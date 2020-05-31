@@ -2,7 +2,7 @@
 {
     using System.Windows.Forms;
 
-    internal partial class SocketItemView : UserControl
+    internal partial class SocketItemView : UserControl, ISocketItemView
     {
         public SocketItemView() => InitializeComponent();
     }

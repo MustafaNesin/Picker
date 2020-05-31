@@ -12,7 +12,7 @@
 
         protected Presenter() => View = (TView)Activator.CreateInstance(typeof(TView), this);
 
-        public DialogResult ShowView() => ViewResult = View.ShowDialog();
+        public virtual DialogResult ShowView() => ViewResult = View.ShowDialog();
 
         #region Disposing
         private bool _disposed;

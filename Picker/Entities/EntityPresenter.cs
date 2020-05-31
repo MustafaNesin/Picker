@@ -1,5 +1,6 @@
 ﻿namespace Picker
 {
+    using System.Drawing;
     using System.Threading.Tasks;
     using System.Windows.Forms;
 
@@ -8,7 +9,9 @@
         where TEntity : class
     {
         protected ComputerDatabaseContext Context { get; }
-        protected TEntity Entity { get; }
+        public TEntity Entity { get; }
+        public Image EntityImage { get; set; }
+        public bool IsImageChanged { get; set; }
 
         protected EntityPresenter(TEntity entity)
         {

@@ -5,7 +5,7 @@
     internal interface IBrandItemView : IItemView<Brand>
     {
         Color BrandColor { get; set; }
-        string BrandCountry { get; set; }
+        Country BrandCountry { get; set; }
         Image BrandImage { get; set; }
         string BrandName { get; set; }
     }

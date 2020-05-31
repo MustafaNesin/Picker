@@ -1,9 +1,7 @@
 namespace Picker
 {
-    using System.ComponentModel;
     using System.ComponentModel.DataAnnotations;
 
-    [DisplayName("ekran kartý")]
     internal class GraphicsCard : Product
     {
         public int BusWidth { get; set; } // Bit

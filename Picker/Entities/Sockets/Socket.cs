@@ -1,8 +1,5 @@
 namespace Picker
 {
-    using System.ComponentModel;
-
-    [DisplayName("soket")]
     internal class Socket : Part
     {
         public bool SupportsDDR2 { get; set; }

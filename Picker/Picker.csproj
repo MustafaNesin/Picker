@@ -151,6 +151,7 @@
       <DependentUpon>BuildListView.cs</DependentUpon>
     </Compile>
     <Compile Include="Lists\Builds\BuildListPresenter.cs" />
+    <Compile Include="Lists\Builds\IBuildItemView.cs" />
     <Compile Include="Lists\Builds\IBuildListView.cs" />
     <Compile Include="Lists\Chipsets\ChipsetItemView.cs">
       <SubType>UserControl</SubType>
@@ -165,6 +166,7 @@
       <DependentUpon>ChipsetListView.cs</DependentUpon>
     </Compile>
     <Compile Include="Lists\Chipsets\ChipsetListPresenter.cs" />
+    <Compile Include="Lists\Chipsets\IChipsetItemView.cs" />
     <Compile Include="Lists\Chipsets\IChipsetListView.cs" />
     <Compile Include="Lists\GraphicsCards\GraphicsCardItemView.cs">
       <SubType>UserControl</SubType>
@@ -179,8 +181,10 @@
       <DependentUpon>GraphicsCardListView.cs</DependentUpon>
     </Compile>
     <Compile Include="Lists\GraphicsCards\GraphicsCardListPresenter.cs" />
+    <Compile Include="Lists\GraphicsCards\IGraphicsCardItemView.cs" />
     <Compile Include="Lists\GraphicsCards\IGraphicsCardListView.cs" />
     <Compile Include="Lists\IItemView.cs" />
+    <Compile Include="Lists\Memories\IMemoryItemView.cs" />
     <Compile Include="Lists\Memories\MemoryItemView.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -195,6 +199,7 @@
     </Compile>
     <Compile Include="Lists\Memories\MemoryListPresenter.cs" />
     <Compile Include="Lists\Memories\IMemoryListView.cs" />
+    <Compile Include="Lists\Motherboards\IMotherboardItemView.cs" />
     <Compile Include="Lists\Motherboards\MotherboardItemView.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -209,6 +214,7 @@
     </Compile>
     <Compile Include="Lists\Motherboards\MotherboardListPresenter.cs" />
     <Compile Include="Lists\Motherboards\IMotherboardListView.cs" />
+    <Compile Include="Lists\Processors\IProcessorItemView.cs" />
     <Compile Include="Lists\Processors\ProcessorItemView.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -223,6 +229,7 @@
     </Compile>
     <Compile Include="Lists\Processors\ProcessorListPresenter.cs" />
     <Compile Include="Lists\Processors\IProcessorListView.cs" />
+    <Compile Include="Lists\Sockets\ISocketItemView.cs" />
     <Compile Include="Lists\Sockets\SocketItemView.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -287,6 +294,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

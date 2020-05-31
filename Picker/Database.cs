@@ -32,5 +32,9 @@ namespace Picker
         public ComputerDatabaseContext() : base("name=PickerDatabase")
         {
         }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+            => modelBuilder.Entity<Socket>().HasOptional(socket => socket.Brand)
+                .WithOptionalDependent().WillCascadeOnDelete(true);
     }
 }

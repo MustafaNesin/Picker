@@ -2,9 +2,7 @@ namespace Picker
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel;
 
-    [DisplayName("bilgisayar")]
     internal class Build : Entity
     {
         public DateTime Date { get; set; }
