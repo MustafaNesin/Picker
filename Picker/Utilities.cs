@@ -267,6 +267,7 @@
     public static class Utilities
     {
         public const string ImagePathFormat = @"assets\{0}\{1}.png";
+        private static object[] _countryNames;
 
         public static void CheckAssets()
         {
@@ -326,20 +327,6 @@
                     controls.RemoveAt(ix);
         }
 
-        public static void RecursiveDelete(string directoryPath)
-            => new DirectoryInfo(directoryPath).RecursiveDelete();
-
-        public static void RecursiveDelete(this DirectoryInfo directoryInfo)
-        {
-            if (!directoryInfo.Exists)
-                return;
-
-            foreach (var subDirectoryInfo in directoryInfo.EnumerateDirectories())
-                subDirectoryInfo.RecursiveDelete();
-
-            directoryInfo.Delete(true);
-        }
-
         public static TValue GetAttributeValue<TAttribute, TValue>(this Type type,
             Func<TAttribute, TValue> valueSelector)
             where TAttribute : Attribute
@@ -355,6 +342,19 @@
         public static string GetCopyright()
             => FileVersionInfo.GetVersionInfo(Assembly.GetExecutingAssembly().Location)
                 .LegalCopyright;
+
+        public static object[] GetCountryNames()
+        {
+            if (_countryNames != null)
+                return _countryNames;
+
+            var countries = Enum.GetValues(typeof(Country));
+            _countryNames = new object[countries.Length];
+            for (var i = 0; i < countries.Length; i++)
+                _countryNames[i] = ((Country)countries.GetValue(i)).GetDescription();
+
+            return _countryNames;
+        }
 
         public static string GetDescription<T>(this T enumValue)
             where T : struct, IConvertible
@@ -417,6 +417,20 @@
         {
             using var bitmap = new Bitmap(imagePath);
             return new Bitmap(bitmap);
+        }
+
+        public static void RecursiveDelete(string directoryPath)
+            => new DirectoryInfo(directoryPath).RecursiveDelete();
+
+        public static void RecursiveDelete(this DirectoryInfo directoryInfo)
+        {
+            if (!directoryInfo.Exists)
+                return;
+
+            foreach (var subDirectoryInfo in directoryInfo.EnumerateDirectories())
+                subDirectoryInfo.RecursiveDelete();
+
+            directoryInfo.Delete(true);
         }
 
         public static void ShowError(string text) => ShowError(text, MessageBoxButtons.OK);

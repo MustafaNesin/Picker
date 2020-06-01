@@ -15,18 +15,9 @@
             get => BackColor;
             set
             {
-                BackColor = value;
-
-                foreach (var control in itemPanel.Controls)
-                    switch (control)
-                    {
-                        case Button button:
-                            button.BackColor = value;
-                            break;
-                        case Label label:
-                            label.ForeColor = value;
-                            break;
-                    }
+                itemPanel.BackColor = nameLabel.ForeColor = value;
+                foreach (Button button in controlPanel.Controls)
+                    button.BackColor = value;
             }
         }
 

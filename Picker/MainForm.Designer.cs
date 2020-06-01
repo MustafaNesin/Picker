@@ -90,7 +90,7 @@
             this.memoriesButton.Location = new System.Drawing.Point(112, 66);
             this.memoriesButton.Name = "memoriesButton";
             this.memoriesButton.Size = new System.Drawing.Size(100, 40);
-            this.memoriesButton.TabIndex = 4;
+            this.memoriesButton.TabIndex = 3;
             this.memoriesButton.Text = "Bellekler";
             this.memoriesButton.UseVisualStyleBackColor = false;
             this.memoriesButton.Click += new System.EventHandler(this.memoriesButton_Click);
@@ -108,7 +108,7 @@
             this.processorsButton.Location = new System.Drawing.Point(112, 19);
             this.processorsButton.Name = "processorsButton";
             this.processorsButton.Size = new System.Drawing.Size(100, 40);
-            this.processorsButton.TabIndex = 2;
+            this.processorsButton.TabIndex = 1;
             this.processorsButton.Text = "İşlemciler";
             this.processorsButton.UseVisualStyleBackColor = false;
             this.processorsButton.Click += new System.EventHandler(this.processorsButton_Click);
@@ -126,7 +126,7 @@
             this.graphicsCardButton.Location = new System.Drawing.Point(6, 66);
             this.graphicsCardButton.Name = "graphicsCardButton";
             this.graphicsCardButton.Size = new System.Drawing.Size(100, 40);
-            this.graphicsCardButton.TabIndex = 3;
+            this.graphicsCardButton.TabIndex = 2;
             this.graphicsCardButton.Text = "Ekran Kartları";
             this.graphicsCardButton.UseVisualStyleBackColor = false;
             this.graphicsCardButton.Click += new System.EventHandler(this.graphicsCardButton_Click);
@@ -144,7 +144,7 @@
             this.motherboardsButton.Location = new System.Drawing.Point(6, 19);
             this.motherboardsButton.Name = "motherboardsButton";
             this.motherboardsButton.Size = new System.Drawing.Size(100, 40);
-            this.motherboardsButton.TabIndex = 1;
+            this.motherboardsButton.TabIndex = 0;
             this.motherboardsButton.Text = "Anakartlar";
             this.motherboardsButton.UseVisualStyleBackColor = false;
             this.motherboardsButton.Click += new System.EventHandler(this.motherboardsButton_Click);
@@ -157,7 +157,7 @@
             this.miscGroupBox.Location = new System.Drawing.Point(227, 79);
             this.miscGroupBox.Name = "miscGroupBox";
             this.miscGroupBox.Size = new System.Drawing.Size(112, 112);
-            this.miscGroupBox.TabIndex = 5;
+            this.miscGroupBox.TabIndex = 2;
             this.miscGroupBox.TabStop = false;
             this.miscGroupBox.Text = "Çeşitli";
             // 
@@ -174,7 +174,7 @@
             this.brandsButton.Location = new System.Drawing.Point(6, 19);
             this.brandsButton.Name = "brandsButton";
             this.brandsButton.Size = new System.Drawing.Size(100, 25);
-            this.brandsButton.TabIndex = 5;
+            this.brandsButton.TabIndex = 0;
             this.brandsButton.Text = "Markalar";
             this.brandsButton.UseVisualStyleBackColor = false;
             this.brandsButton.Click += new System.EventHandler(this.brandsButton_Click);
@@ -192,7 +192,7 @@
             this.socketsButton.Location = new System.Drawing.Point(6, 81);
             this.socketsButton.Name = "socketsButton";
             this.socketsButton.Size = new System.Drawing.Size(100, 25);
-            this.socketsButton.TabIndex = 7;
+            this.socketsButton.TabIndex = 2;
             this.socketsButton.Text = "Soketler";
             this.socketsButton.UseVisualStyleBackColor = false;
             this.socketsButton.Click += new System.EventHandler(this.socketsButton_Click);
@@ -210,7 +210,7 @@
             this.chipsetsButton.Location = new System.Drawing.Point(6, 50);
             this.chipsetsButton.Name = "chipsetsButton";
             this.chipsetsButton.Size = new System.Drawing.Size(100, 25);
-            this.chipsetsButton.TabIndex = 6;
+            this.chipsetsButton.TabIndex = 1;
             this.chipsetsButton.Text = "Yonga Setleri";
             this.chipsetsButton.UseVisualStyleBackColor = false;
             this.chipsetsButton.Click += new System.EventHandler(this.chipsetsButton_Click);
@@ -247,7 +247,7 @@
             this.statusStrip.Name = "statusStrip";
             this.statusStrip.Size = new System.Drawing.Size(800, 22);
             this.statusStrip.SizingGrip = false;
-            this.statusStrip.TabIndex = 4;
+            this.statusStrip.TabIndex = 2;
             this.statusStrip.Text = "statusStrip1";
             // 
             // copyrightLabel
@@ -284,7 +284,7 @@
             this.exitButton.Location = new System.Drawing.Point(360, 328);
             this.exitButton.Name = "exitButton";
             this.exitButton.Size = new System.Drawing.Size(81, 27);
-            this.exitButton.TabIndex = 5;
+            this.exitButton.TabIndex = 1;
             this.exitButton.Text = "Çıkış";
             this.exitButton.UseVisualStyleBackColor = false;
             this.exitButton.Click += new System.EventHandler(this.exitButton_Click);

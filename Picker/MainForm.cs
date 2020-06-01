@@ -65,6 +65,8 @@
         private void copyrightLabel_Click(object sender, EventArgs e)
             => Process.Start("https://github.com/MustafaNesin/Picker");
 
+        private void exitButton_Click(object sender, EventArgs e) => Close();
+
         private async void graphicsCardButton_Click(object sender, EventArgs e)
         {
             Hide();
@@ -92,7 +94,7 @@
 
             await using (var presenter = new MemoryListPresenter())
                 presenter.ShowView();
-            
+
             await SetCountToolTips();
             Show();
         }
@@ -160,7 +162,5 @@
             await SetCountToolTips();
             Show();
         }
-
-        private void exitButton_Click(object sender, EventArgs e) => Close();
     }
 }

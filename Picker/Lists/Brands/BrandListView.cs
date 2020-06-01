@@ -5,7 +5,6 @@
 
     internal partial class BrandListView : Form, IBrandListView
     {
-        private const string CountLabelFormat = "{0} tanesi listelenen, toplam {1} marka var.";
         private readonly BrandListPresenter _presenter;
 
         public Country BrandCountry
@@ -54,19 +53,23 @@
         {
             InitializeComponent();
             _presenter = presenter;
+            countryBox.Items.AddRange(Utilities.GetCountryNames());
+            orderBox.SelectedIndex = 1;
+            itemCountBox.SelectedIndex = 1;
         }
 
         private async void BrandListView_Load(object sender, EventArgs e)
         {
-            orderBox.SelectedIndex = 1;
-            itemCountBox.SelectedIndex = 1;
-
             await _presenter.GenerateListAsync();
 
+            countryBox.SelectedIndexChanged += GenerateListAsyncEvent;
             orderBox.SelectedIndexChanged += GenerateListAsyncEvent;
             itemCountBox.SelectedIndexChanged += GenerateListAsyncEvent;
             pageBox.ValueChanged += pageBox_ValueChanged;
         }
+
+        private void deselectCountryButton_Click(object sender, EventArgs e)
+            => countryBox.SelectedIndex = -1;
 
         private void firstPageButton_Click(object sender, EventArgs e) => pageBox.Value = 1;
 
@@ -75,24 +78,28 @@
             if (!GeneratingList)
                 await _presenter.GenerateListAsync();
         }
+
+        private void lastPageButton_Click(object sender, EventArgs e) => pageBox.Value = PageCount;
+
         private async void newButton_Click(object sender, EventArgs e)
         {
             if (!GeneratingList)
                 await _presenter.AddItemAsync();
         }
+
+        private void nextPageButton_Click(object sender, EventArgs e) => pageBox.Value++;
+
         private async void pageBox_ValueChanged(object sender, EventArgs e)
         {
             if (!GeneratingList)
                 await _presenter.GenerateListAsync(true);
         }
 
-        private void lastPageButton_Click(object sender, EventArgs e) => pageBox.Value = PageCount;
-
-
-        private void nextPageButton_Click(object sender, EventArgs e) => pageBox.Value++;
-
-
         private void previousPageButton_Click(object sender, EventArgs e) => pageBox.Value--;
+
+        public void SetCountLabel(int itemCount, int totalItemCount)
+            => countLabel.Text =
+                $"{itemCount} tanesi listelenen, toplam {totalItemCount} marka var.";
 
         public void UpdateNavigationButtonsStatus()
         {
@@ -100,16 +107,18 @@
             lastPageButton.Enabled = nextPageButton.Enabled = pageBox.Value < PageCount;
         }
 
-        public void SetCountLabel(int itemCount, int totalItemCount)
-            => countLabel.Text = string.Format(CountLabelFormat, itemCount, totalItemCount);
+        #region
+        private const int WS_EX_COMPOSITED = 0x02000000;
 
-        private async void deselectCountryButton_Click(object sender, EventArgs e)
+        protected override CreateParams CreateParams
         {
-            if (GeneratingList)
-                return;
-
-            countryBox.SelectedIndex = -1;
-            await _presenter.GenerateListAsync();
+            get
+            {
+                var cp = base.CreateParams;
+                cp.ExStyle |= WS_EX_COMPOSITED;
+                return cp;
+            }
         }
+        #endregion
     }
 }

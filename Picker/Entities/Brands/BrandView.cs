@@ -37,6 +37,7 @@
         {
             InitializeComponent();
             _presenter = presenter;
+            countryBox.Items.AddRange(Utilities.GetCountryNames());
         }
 
         private void acceptButton_Click(object sender, EventArgs e)

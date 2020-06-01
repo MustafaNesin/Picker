@@ -142,28 +142,15 @@
                 if (!string.IsNullOrWhiteSpace(View.BrandName))
                     query = query.Where(brand => brand.Name.Contains(View.BrandName));
 
-                // ReSharper disable once ConvertSwitchStatementToSwitchExpression
-                switch (View.OrderIndex)
+                query = View.OrderIndex switch
                 {
-                    case 1: // Yeniden eskiye
-                        query = query.OrderByDescending(brand => brand.Id);
-                        break;
-                    case 2: // İsme göre (A-Z)
-                        query = query.OrderBy(brand => brand.Name);
-                        break;
-                    case 3: // İsme göre (Z-A)
-                        query = query.OrderByDescending(brand => brand.Name);
-                        break;
-                    case 4: // Ülke ismine göre (A-Z)
-                        query = query.OrderBy(brand => brand.Country);
-                        break;
-                    case 5: // Ülke ismine göre (Z-A)
-                        query = query.OrderByDescending(brand => brand.Country);
-                        break;
-                    default: // Eskiden yeniye
-                        query = query.OrderBy(brand => brand.Id);
-                        break;
-                }
+                    1 => query.OrderByDescending(brand => brand.Id), // Yeniden eskiye
+                    2 => query.OrderBy(brand => brand.Name), // İsme göre (A-Z)
+                    3 => query.OrderByDescending(brand => brand.Name), // İsme göre (Z-A)
+                    4 => query.OrderBy(brand => brand.Country), // Ülke ismine göre (A-Z)
+                    5 => query.OrderByDescending(brand => brand.Country), // Ülke ismine göre (Z-A)
+                    _ => query.OrderBy(brand => brand.Id) // Eskiden yeniye
+                };
 
                 var totalItemCount = await query.CountAsync();
                 var pageCount = totalItemCount / View.ItemPerPage;
@@ -181,7 +168,6 @@
                 View.UpdateNavigationButtonsStatus();
             }
 
-            // ReSharper disable once ForeachCanBePartlyConvertedToQueryUsingAnotherGetEnumerator
             foreach (var brand in brands)
             {
                 var brandItemView = new BrandItemView(this, brand)
@@ -201,6 +187,7 @@
 
                 View.listPanel.Controls.Add(brandItemView);
                 brandItemView.BringToFront();
+                View.Update();
             }
 
             View.GeneratingList = false;

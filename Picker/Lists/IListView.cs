@@ -9,7 +9,8 @@
         int PageCount { get; set; }
         int PageIndex { get; set; }
 
-        void UpdateNavigationButtonsStatus();
         void SetCountLabel(int itemCount, int totalItemCount);
+
+        void UpdateNavigationButtonsStatus();
     }
 }
