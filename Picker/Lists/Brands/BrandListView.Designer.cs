@@ -240,7 +240,7 @@
             this.newButton.Name = "newButton";
             this.newButton.Size = new System.Drawing.Size(63, 55);
             this.newButton.TabIndex = 0;
-            this.newButton.Text = "Yeni\r\nMarka\r\nOluştur";
+            this.newButton.Text = "Yeni\r\nMarka\r\nEkle";
             this.newButton.UseVisualStyleBackColor = true;
             this.newButton.Click += new System.EventHandler(this.newButton_Click);
             // 

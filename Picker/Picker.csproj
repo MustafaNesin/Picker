@@ -292,6 +292,9 @@
     <EmbeddedResource Include="Lists\Brands\BrandListView.resx">
       <DependentUpon>BrandListView.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Lists\Sockets\SocketListView.resx">
+      <DependentUpon>SocketListView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
       <SubType>Designer</SubType>
