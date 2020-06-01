@@ -38,7 +38,7 @@
             this.applyFilterButton = new System.Windows.Forms.Button();
             this.orderGroup = new System.Windows.Forms.GroupBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.itemCountBox = new System.Windows.Forms.ComboBox();
+            this.itemPerPageBox = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.orderBox = new System.Windows.Forms.ComboBox();
@@ -49,7 +49,7 @@
             this.acceptButton = new System.Windows.Forms.Button();
             this.navigationPanel = new System.Windows.Forms.Panel();
             this.navigationSubPanel = new System.Windows.Forms.Panel();
-            this.pageBox = new System.Windows.Forms.NumericUpDown();
+            this.pageNumberBox = new System.Windows.Forms.NumericUpDown();
             this.nextPageButton = new System.Windows.Forms.Button();
             this.lastPageButton = new System.Windows.Forms.Button();
             this.previousPageButton = new System.Windows.Forms.Button();
@@ -64,7 +64,7 @@
             this.controlPanel.SuspendLayout();
             this.navigationPanel.SuspendLayout();
             this.navigationSubPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pageBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pageNumberBox)).BeginInit();
             this.listPanelBorder.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -150,7 +150,7 @@
             // orderGroup
             // 
             this.orderGroup.Controls.Add(this.label2);
-            this.orderGroup.Controls.Add(this.itemCountBox);
+            this.orderGroup.Controls.Add(this.itemPerPageBox);
             this.orderGroup.Controls.Add(this.label5);
             this.orderGroup.Controls.Add(this.label4);
             this.orderGroup.Controls.Add(this.orderBox);
@@ -172,19 +172,19 @@
             this.label2.Text = "sırala.";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // itemCountBox
+            // itemPerPageBox
             // 
-            this.itemCountBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.itemCountBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.itemCountBox.FormattingEnabled = true;
-            this.itemCountBox.Items.AddRange(new object[] {
+            this.itemPerPageBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.itemPerPageBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.itemPerPageBox.FormattingEnabled = true;
+            this.itemPerPageBox.Items.AddRange(new object[] {
             "5",
             "10",
             "20"});
-            this.itemCountBox.Location = new System.Drawing.Point(97, 48);
-            this.itemCountBox.Name = "itemCountBox";
-            this.itemCountBox.Size = new System.Drawing.Size(47, 21);
-            this.itemCountBox.TabIndex = 3;
+            this.itemPerPageBox.Location = new System.Drawing.Point(97, 48);
+            this.itemPerPageBox.Name = "itemPerPageBox";
+            this.itemPerPageBox.Size = new System.Drawing.Size(47, 21);
+            this.itemPerPageBox.TabIndex = 3;
             // 
             // label5
             // 
@@ -278,39 +278,40 @@
             // 
             this.navigationPanel.Controls.Add(this.navigationSubPanel);
             this.navigationPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.navigationPanel.Location = new System.Drawing.Point(0, 563);
+            this.navigationPanel.Location = new System.Drawing.Point(0, 557);
             this.navigationPanel.Name = "navigationPanel";
-            this.navigationPanel.Size = new System.Drawing.Size(630, 22);
+            this.navigationPanel.Padding = new System.Windows.Forms.Padding(3);
+            this.navigationPanel.Size = new System.Drawing.Size(630, 28);
             this.navigationPanel.TabIndex = 2;
             // 
             // navigationSubPanel
             // 
             this.navigationSubPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.navigationSubPanel.Controls.Add(this.pageBox);
+            this.navigationSubPanel.Controls.Add(this.pageNumberBox);
             this.navigationSubPanel.Controls.Add(this.nextPageButton);
             this.navigationSubPanel.Controls.Add(this.lastPageButton);
             this.navigationSubPanel.Controls.Add(this.previousPageButton);
             this.navigationSubPanel.Controls.Add(this.firstPageButton);
             this.navigationSubPanel.Controls.Add(this.pageCountLabel);
-            this.navigationSubPanel.Location = new System.Drawing.Point(215, 0);
+            this.navigationSubPanel.Location = new System.Drawing.Point(215, 3);
             this.navigationSubPanel.Name = "navigationSubPanel";
             this.navigationSubPanel.Size = new System.Drawing.Size(201, 22);
             this.navigationSubPanel.TabIndex = 0;
             // 
-            // pageBox
+            // pageNumberBox
             // 
-            this.pageBox.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pageBox.Location = new System.Drawing.Point(70, 0);
-            this.pageBox.Maximum = new decimal(new int[] {
+            this.pageNumberBox.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pageNumberBox.Location = new System.Drawing.Point(70, 0);
+            this.pageNumberBox.Maximum = new decimal(new int[] {
             0,
             0,
             0,
             0});
-            this.pageBox.Name = "pageBox";
-            this.pageBox.Size = new System.Drawing.Size(35, 22);
-            this.pageBox.TabIndex = 0;
-            this.pageBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.pageBox.UpDownAlign = System.Windows.Forms.LeftRightAlignment.Left;
+            this.pageNumberBox.Name = "pageNumberBox";
+            this.pageNumberBox.Size = new System.Drawing.Size(35, 22);
+            this.pageNumberBox.TabIndex = 0;
+            this.pageNumberBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.pageNumberBox.UpDownAlign = System.Windows.Forms.LeftRightAlignment.Left;
             // 
             // nextPageButton
             // 
@@ -371,6 +372,7 @@
             this.pageCountLabel.Size = new System.Drawing.Size(26, 15);
             this.pageCountLabel.TabIndex = 1;
             this.pageCountLabel.Text = "/ 0";
+            this.pageCountLabel.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // listPanelBorder
             // 
@@ -380,7 +382,7 @@
             this.listPanelBorder.Location = new System.Drawing.Point(0, 76);
             this.listPanelBorder.Name = "listPanelBorder";
             this.listPanelBorder.Padding = new System.Windows.Forms.Padding(3);
-            this.listPanelBorder.Size = new System.Drawing.Size(630, 487);
+            this.listPanelBorder.Size = new System.Drawing.Size(630, 481);
             this.listPanelBorder.TabIndex = 1;
             // 
             // listPanel
@@ -391,7 +393,7 @@
             this.listPanel.Location = new System.Drawing.Point(3, 3);
             this.listPanel.Name = "listPanel";
             this.listPanel.Padding = new System.Windows.Forms.Padding(5);
-            this.listPanel.Size = new System.Drawing.Size(624, 481);
+            this.listPanel.Size = new System.Drawing.Size(624, 475);
             this.listPanel.TabIndex = 0;
             // 
             // BrandListView
@@ -420,7 +422,7 @@
             this.controlPanel.ResumeLayout(false);
             this.navigationPanel.ResumeLayout(false);
             this.navigationSubPanel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pageBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pageNumberBox)).EndInit();
             this.listPanelBorder.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -434,7 +436,7 @@
         private System.Windows.Forms.Panel navigationPanel;
         private System.Windows.Forms.Label countLabel;
         private System.Windows.Forms.Panel navigationSubPanel;
-        private System.Windows.Forms.NumericUpDown pageBox;
+        private System.Windows.Forms.NumericUpDown pageNumberBox;
         private System.Windows.Forms.Button nextPageButton;
         private System.Windows.Forms.Button lastPageButton;
         private System.Windows.Forms.Button previousPageButton;
@@ -442,7 +444,7 @@
         private System.Windows.Forms.Label pageCountLabel;
         private System.Windows.Forms.GroupBox controlGroup;
         private System.Windows.Forms.GroupBox orderGroup;
-        private System.Windows.Forms.ComboBox itemCountBox;
+        private System.Windows.Forms.ComboBox itemPerPageBox;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox orderBox;
