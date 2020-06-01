@@ -36,6 +36,7 @@
             await using (var presenter = new BrandListPresenter())
                 presenter.ShowView();
 
+            await SetCountToolTips();
             Show();
         }
 
@@ -46,6 +47,7 @@
             await using (var presenter = new BuildListPresenter())
                 presenter.ShowView();
 
+            await SetCountToolTips();
             Show();
         }
 
@@ -56,6 +58,7 @@
             await using (var presenter = new ChipsetListPresenter())
                 presenter.ShowView();
 
+            await SetCountToolTips();
             Show();
         }
 
@@ -69,6 +72,7 @@
             await using (var presenter = new GraphicsCardListPresenter())
                 presenter.ShowView();
 
+            await SetCountToolTips();
             Show();
         }
 
@@ -88,7 +92,8 @@
 
             await using (var presenter = new MemoryListPresenter())
                 presenter.ShowView();
-
+            
+            await SetCountToolTips();
             Show();
         }
 
@@ -99,6 +104,7 @@
             await using (var presenter = new MotherboardListPresenter())
                 presenter.ShowView();
 
+            await SetCountToolTips();
             Show();
         }
 
@@ -109,6 +115,7 @@
             await using (var presenter = new ProcessorListPresenter())
                 presenter.ShowView();
 
+            await SetCountToolTips();
             Show();
         }
 
@@ -150,6 +157,7 @@
             await using (var presenter = new SocketListPresenter())
                 presenter.ShowView();
 
+            await SetCountToolTips();
             Show();
         }
 
