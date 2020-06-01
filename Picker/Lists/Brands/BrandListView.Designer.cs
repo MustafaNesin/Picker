@@ -321,7 +321,7 @@
             this.nextPageButton.Name = "nextPageButton";
             this.nextPageButton.Size = new System.Drawing.Size(35, 22);
             this.nextPageButton.TabIndex = 4;
-            this.nextPageButton.Text = ">>";
+            this.nextPageButton.Text = ">";
             this.nextPageButton.UseVisualStyleBackColor = true;
             this.nextPageButton.Click += new System.EventHandler(this.nextPageButton_Click);
             // 
