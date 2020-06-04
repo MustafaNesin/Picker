@@ -44,8 +44,8 @@
                     return;
 
                 _brand = value;
-                brandBox.Text = value.Name;
-                brandBox.BackColor = selectImageButton.BackColor =
+                brandButton.Text = value.Name;
+                brandButton.BackColor = selectImageButton.BackColor =
                     acceptButton.BackColor = cancelButton.BackColor = value.Color;
             }
         }
@@ -80,7 +80,7 @@
                 DialogResult = DialogResult.None;
         }
 
-        private async void brandBox_Click(object sender, EventArgs e)
+        private async void brandButton_Click(object sender, EventArgs e)
         {
             if (_presenter.AdminMode)
             {

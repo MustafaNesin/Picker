@@ -22,7 +22,7 @@ namespace Picker
                 Path.Combine(DatabaseUtilities.MotherboardImagesDirectory, Id + ".png");
 
         public int MaxMemory { get; set; } // GB
-        public int MaxMemorySpeed { get; set; } // MHz
+        public int MaxMemoryFrequency { get; set; } // MHz
         public int MemorySlots { get; set; }
 
         [Required]

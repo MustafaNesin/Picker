@@ -25,7 +25,6 @@
 
             Utilities.ShowError("Lütfen bir ülke seçin.");
             return false;
-
         }
 
         #region Disposing

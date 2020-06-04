@@ -70,12 +70,12 @@
 
         private void exitButton_Click(object sender, EventArgs e) => Close();
 
-        private async void graphicsCardButton_Click(object sender, EventArgs e)
+        private async void graphicsCardsButton_Click(object sender, EventArgs e)
         {
             Hide();
 
-            /*await using (var presenter = new GraphicsCardListPresenter(true))
-                presenter.ShowView();*/
+            await using (var presenter = new GraphicsCardListPresenter(true))
+                presenter.ShowView();
 
             await SetCountToolTips();
             Show();
@@ -106,8 +106,8 @@
         {
             Hide();
 
-            /*await using (var presenter = new MotherboardListPresenter(true))
-                presenter.ShowView();*/
+            await using (var presenter = new MotherboardListPresenter(true))
+                presenter.ShowView();
 
             await SetCountToolTips();
             Show();
@@ -147,7 +147,7 @@
             SetCountToolTip(brandsButton, "marka", brandsCount);
             SetCountToolTip(buildsButton, "bilgisayar", buildsCount);
             SetCountToolTip(chipsetsButton, "yonga seti", chipsetsCount);
-            SetCountToolTip(graphicsCardButton, "ekran kartı", graphicsCardsCount);
+            SetCountToolTip(graphicsCardsButton, "ekran kartı", graphicsCardsCount);
             SetCountToolTip(memoriesButton, "bellek", memoriesCount);
             SetCountToolTip(motherboardsButton, "anakart", motherboardsCount);
             SetCountToolTip(processorsButton, "işlemci", processorsCount);

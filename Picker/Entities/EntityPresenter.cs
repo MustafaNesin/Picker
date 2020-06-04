@@ -27,6 +27,12 @@
             return result;
         }
 
+        protected virtual void UpdateEntity()
+        {
+            Entity.Image = View.EntityImage;
+            Entity.Name = View.EntityName;
+        }
+
         public bool ValidateName()
         {
             if (!string.IsNullOrWhiteSpace(View.EntityName))
@@ -34,12 +40,6 @@
 
             Utilities.ShowError("Lütfen bir ad girin.");
             return false;
-        }
-
-        protected virtual void UpdateEntity()
-        {
-            Entity.Image = View.EntityImage;
-            Entity.Name = View.EntityName;
         }
 
         #region Disposing

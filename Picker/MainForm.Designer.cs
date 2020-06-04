@@ -34,7 +34,7 @@
             this.productsGroupBox = new System.Windows.Forms.GroupBox();
             this.memoriesButton = new System.Windows.Forms.Button();
             this.processorsButton = new System.Windows.Forms.Button();
-            this.graphicsCardButton = new System.Windows.Forms.Button();
+            this.graphicsCardsButton = new System.Windows.Forms.Button();
             this.motherboardsButton = new System.Windows.Forms.Button();
             this.miscGroupBox = new System.Windows.Forms.GroupBox();
             this.brandsButton = new System.Windows.Forms.Button();
@@ -68,7 +68,7 @@
             // 
             this.productsGroupBox.Controls.Add(this.memoriesButton);
             this.productsGroupBox.Controls.Add(this.processorsButton);
-            this.productsGroupBox.Controls.Add(this.graphicsCardButton);
+            this.productsGroupBox.Controls.Add(this.graphicsCardsButton);
             this.productsGroupBox.Controls.Add(this.motherboardsButton);
             this.productsGroupBox.Location = new System.Drawing.Point(3, 79);
             this.productsGroupBox.Name = "productsGroupBox";
@@ -113,23 +113,23 @@
             this.processorsButton.UseVisualStyleBackColor = false;
             this.processorsButton.Click += new System.EventHandler(this.processorsButton_Click);
             // 
-            // graphicsCardButton
+            // graphicsCardsButton
             // 
-            this.graphicsCardButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.graphicsCardButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.graphicsCardButton.FlatAppearance.BorderColor = System.Drawing.Color.Teal;
-            this.graphicsCardButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(160)))), ((int)(((byte)(160)))));
-            this.graphicsCardButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.graphicsCardButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.graphicsCardButton.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.graphicsCardButton.ForeColor = System.Drawing.Color.White;
-            this.graphicsCardButton.Location = new System.Drawing.Point(6, 66);
-            this.graphicsCardButton.Name = "graphicsCardButton";
-            this.graphicsCardButton.Size = new System.Drawing.Size(100, 40);
-            this.graphicsCardButton.TabIndex = 2;
-            this.graphicsCardButton.Text = "Ekran Kartları";
-            this.graphicsCardButton.UseVisualStyleBackColor = false;
-            this.graphicsCardButton.Click += new System.EventHandler(this.graphicsCardButton_Click);
+            this.graphicsCardsButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.graphicsCardsButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.graphicsCardsButton.FlatAppearance.BorderColor = System.Drawing.Color.Teal;
+            this.graphicsCardsButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(160)))), ((int)(((byte)(160)))));
+            this.graphicsCardsButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.graphicsCardsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.graphicsCardsButton.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.graphicsCardsButton.ForeColor = System.Drawing.Color.White;
+            this.graphicsCardsButton.Location = new System.Drawing.Point(6, 66);
+            this.graphicsCardsButton.Name = "graphicsCardsButton";
+            this.graphicsCardsButton.Size = new System.Drawing.Size(100, 40);
+            this.graphicsCardsButton.TabIndex = 2;
+            this.graphicsCardsButton.Text = "Ekran Kartları";
+            this.graphicsCardsButton.UseVisualStyleBackColor = false;
+            this.graphicsCardsButton.Click += new System.EventHandler(this.graphicsCardsButton_Click);
             // 
             // motherboardsButton
             // 
@@ -323,7 +323,7 @@
         private System.Windows.Forms.GroupBox productsGroupBox;
         private System.Windows.Forms.Button memoriesButton;
         private System.Windows.Forms.Button processorsButton;
-        private System.Windows.Forms.Button graphicsCardButton;
+        private System.Windows.Forms.Button graphicsCardsButton;
         private System.Windows.Forms.Button motherboardsButton;
         private System.Windows.Forms.GroupBox miscGroupBox;
         private System.Windows.Forms.Button brandsButton;

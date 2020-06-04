@@ -5,12 +5,12 @@
     using System.Windows.Forms;
     using Properties;
 
-    internal partial class SocketItemView : UserControl, ISocketItemView
+    internal partial class MotherboardItemView : UserControl, IMotherboardItemView
     {
-        private readonly SocketListPresenter _presenter;
-        private Socket _entity;
+        private readonly MotherboardListPresenter _presenter;
+        private Motherboard _entity;
 
-        public SocketItemView(SocketListPresenter presenter)
+        public MotherboardItemView(MotherboardListPresenter presenter)
         {
             InitializeComponent();
             Disposed += OnDispose;
@@ -42,7 +42,7 @@
             if (_presenter.GeneratingList)
                 return;
 
-            await using var presenter = new SocketPresenter(_entity, false);
+            await using var presenter = new MotherboardPresenter(_entity, false);
             presenter.ShowView();
         }
 
@@ -63,14 +63,20 @@
             imageBox.DisposeImage();
         }
 
-        public void UpdateView(Socket entity)
+        public void UpdateView(Motherboard entity)
         {
             _entity = entity;
             nameLabel.Text = entity.Name;
             brandLabel.Text = entity.Brand.Name;
-            ddr2Label.ForeColor = entity.SupportsDDR2 ? Color.Green : Color.Red;
-            ddr3Label.ForeColor = entity.SupportsDDR3 ? Color.Green : Color.Red;
-            ddr4Label.ForeColor = entity.SupportsDDR4 ? Color.Green : Color.Red;
+            priceLabel.Text = $"{entity.Price:C2}";
+            chipsetLabel.Text = entity.Chipset.Name;
+            socketLabel.Text = entity.Socket.Name;
+            formFactorLabel.Text = entity.FormFactor;
+            memoryTypeLabel.Text = entity.MemoryType;
+            memorySlotsLabel.Text = entity.MemorySlots + " bellek";
+            maxMemoryLabel.Text = "Max " + entity.MaxMemory + " GB bellek";
+            maxMemoryFrequencyLabel.Text = "Max " + entity.MaxMemoryFrequency + " MHz bellek";
+            eccLabel.ForeColor = entity.SupportsECC ? Color.Green : Color.Red;
 
             itemPanel.BackColor = nameLabel.ForeColor = entity.Brand.Color;
             foreach (Button button in controlPanel.Controls)

@@ -3,9 +3,9 @@
     using System;
     using System.Windows.Forms;
 
-    internal partial class MemoryListView : Form, IMemoryListView
+    internal partial class MotherboardListView : Form, IMotherboardListView
     {
-        private readonly MemoryListPresenter _presenter;
+        private readonly MotherboardListPresenter _presenter;
         public string EntityName => nameBox.Text;
 
         public int ItemPerPage
@@ -13,42 +13,37 @@
                 .Items[itemPerPageBox.SelectedIndex == -1 ? 1 : itemPerPageBox.SelectedIndex]
                 .ToString());
 
-        public string MemoryBrand => brandBox.Text;
+        public string MotherboardBrand => brandBox.Text;
+        public string MotherboardSocket => socketBox.Text;
+        public string MotherboardChipset => chipsetBox.Text;
+        public string MotherboardFormFactor => formFactorBox.Text;
 
-        public int? MemoryCount
-        {
-            get
-            {
-                if (int.TryParse(countBox.Text, out var count))
-                    return count;
+        public int? MotherboardMinMemorySlots
+            => enableMinMemorySlotsBox.Checked ? (int?)minMemorySlotsBox.Value : null;
+        public int? MotherboardMaxMemorySlots
+            => enableMaxMemorySlotsBox.Checked ? (int?)maxMemorySlotsBox.Value : null;
 
-                countBox.Text = string.Empty;
-                return null;
-            }
-        }
+        public CheckState MotherboardSupportsECC => eccBox.CheckState;
 
-        public CheckState MemoryHasECC => eccBox.CheckState;
-        public CheckState MemoryIsBuffered => bufferedBox.CheckState;
+        public int? MotherboardMaxMaxMemory
+            => enableMaxMaxMemoryBox.Checked ? (int?)maxMaxMemoryBox.Value : null;
 
-        public int? MemoryMaxCapacity
-            => enableMaxCapacityBox.Checked ? (int?)maxCapacityBox.Value : null;
+        public int? MotherboardMaxMaxMemoryFrequency
+            => enableMaxMaxMemoryFrequencyBox.Checked ? (int?)maxMaxMemoryFrequencyBox.Value : null;
 
-        public int? MemoryMaxFrequency
-            => enableMaxFrequencyBox.Checked ? (int?)maxFrequencyBox.Value : null;
-
-        public decimal? MemoryMaxPrice
+        public decimal? MotherboardMaxPrice
             => enableMaxPriceBox.Checked ? (int?)maxPriceBox.Value : null;
 
-        public int? MemoryMinCapacity
-            => enableMinCapacityBox.Checked ? (int?)minCapacityBox.Value : null;
+        public int? MotherboardMinMaxMemory
+            => enableMinMaxMemoryBox.Checked ? (int?)minMaxMemoryBox.Value : null;
 
-        public int? MemoryMinFrequency
-            => enableMinFrequencyBox.Checked ? (int?)minFrequencyBox.Value : null;
+        public int? MotherboardMinMaxMemoryFrequency
+            => enableMinMaxMemoryFrequencyBox.Checked ? (int?)minMaxMemoryFrequencyBox.Value : null;
 
-        public decimal? MemoryMinPrice
+        public decimal? MotherboardMinPrice
             => enableMinPriceBox.Checked ? (int?)minPriceBox.Value : null;
 
-        public string MemoryType => typeBox.Text;
+        public string MotherboardMemoryType => memoryTypeBox.Text;
         public bool OnlyCompatibles => compatiblesBox.Checked;
 
         public int OrderIndex
@@ -74,7 +69,7 @@
             set => pageNumberBox.Value = PageCount == 0 ? 0 : value + 1;
         }
 
-        public MemoryListView(MemoryListPresenter presenter)
+        public MotherboardListView(MotherboardListPresenter presenter)
         {
             InitializeComponent();
             _presenter = presenter;
@@ -95,26 +90,26 @@
             if (_presenter.GeneratingList)
                 return;
 
-            brandBox.Text = typeBox.Text = nameBox.Text = countBox.Text = string.Empty;
-            enableMinPriceBox.Checked = enableMaxPriceBox.Checked = enableMinFrequencyBox.Checked =
-                enableMaxFrequencyBox.Checked = enableMinCapacityBox.Checked =
-                    enableMaxCapacityBox.Checked = false;
+            brandBox.Text = memoryTypeBox.Text = nameBox.Text = socketBox.Text = chipsetBox.Text = formFactorBox.Text = string.Empty;
+            enableMinPriceBox.Checked = enableMaxPriceBox.Checked = enableMinMaxMemoryFrequencyBox.Checked =
+                enableMaxMaxMemoryFrequencyBox.Checked = enableMinMaxMemoryBox.Checked =
+                    enableMaxMaxMemoryBox.Checked = enableMinMemorySlotsBox.Checked = enableMaxMemorySlotsBox.Checked = false;
 
-            bufferedBox.CheckState = eccBox.CheckState = CheckState.Indeterminate;
+            eccBox.CheckState = CheckState.Indeterminate;
 
             await _presenter.GenerateListAsync();
         }
 
-        private void enableMaxCapacityBox_CheckedChanged(object sender, EventArgs e)
+        private void enableMaxMaxMemoryBox_CheckedChanged(object sender, EventArgs e)
         {
-            maxCapacityBox.Enabled = enableMaxCapacityBox.Checked;
-            maxCapacityBox.Value = 0M;
+            maxMaxMemoryBox.Enabled = enableMaxMaxMemoryBox.Checked;
+            maxMaxMemoryBox.Value = 0M;
         }
 
-        private void enableMaxFrequencyBox_CheckedChanged(object sender, EventArgs e)
+        private void enableMaxMaxMemoryFrequencyBox_CheckedChanged(object sender, EventArgs e)
         {
-            maxFrequencyBox.Enabled = enableMaxFrequencyBox.Checked;
-            maxFrequencyBox.Value = 0M;
+            maxMaxMemoryFrequencyBox.Enabled = enableMaxMaxMemoryFrequencyBox.Checked;
+            maxMaxMemoryFrequencyBox.Value = 0M;
         }
 
         private void enableMaxPriceBox_CheckedChanged(object sender, EventArgs e)
@@ -123,16 +118,16 @@
             maxPriceBox.Value = 0M;
         }
 
-        private void enableMinCapacityBox_CheckedChanged(object sender, EventArgs e)
+        private void enableMinMaxMemoryBox_CheckedChanged(object sender, EventArgs e)
         {
-            minCapacityBox.Enabled = enableMinCapacityBox.Checked;
-            minCapacityBox.Value = 0M;
+            minMaxMemoryBox.Enabled = enableMinMaxMemoryBox.Checked;
+            minMaxMemoryBox.Value = 0M;
         }
 
-        private void enableMinFrequencyBox_CheckedChanged(object sender, EventArgs e)
+        private void enableMinMaxMemoryFrequencyBox_CheckedChanged(object sender, EventArgs e)
         {
-            minFrequencyBox.Enabled = enableMinFrequencyBox.Checked;
-            minFrequencyBox.Value = 0M;
+            minMaxMemoryFrequencyBox.Enabled = enableMinMaxMemoryFrequencyBox.Checked;
+            minMaxMemoryFrequencyBox.Value = 0M;
         }
 
         private void enableMinPriceBox_CheckedChanged(object sender, EventArgs e)
@@ -160,7 +155,7 @@
                 DialogResult = DialogResult.Cancel;
         }
 
-        private async void MemoryListView_Load(object sender, EventArgs e)
+        private async void MotherboardListView_Load(object sender, EventArgs e)
         {
             await _presenter.GenerateListAsync();
 
@@ -208,5 +203,17 @@
             }
         }
         #endregion
+
+        private void enableMinMemorySlotsBox_CheckedChanged(object sender, EventArgs e)
+        {
+            minMemorySlotsBox.Enabled = enableMinMemorySlotsBox.Checked;
+            minMemorySlotsBox.Value = 0M;
+        }
+
+        private void enableMaxMemorySlotsBox_CheckedChanged(object sender, EventArgs e)
+        {
+            maxMemorySlotsBox.Enabled = enableMaxMemorySlotsBox.Checked;
+            maxMemorySlotsBox.Value = 0M;
+        }
     }
 }

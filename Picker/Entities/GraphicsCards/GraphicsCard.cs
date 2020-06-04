@@ -37,7 +37,9 @@ namespace Picker
         [SuppressMessage("ReSharper", "VirtualMemberCallInConstructor")]
         public GraphicsCard() => Builds = new HashSet<Build>();
 
-        public int GetBandwidth() => DatabaseUtilities.GetGraphicsCardBandwidth(MemoryFrequency, MemoryType, BusWidth); // MB/s
+        public int GetBandwidth()
+            => DatabaseUtilities.GetGraphicsCardBandwidth(MemoryFrequency, MemoryType,
+                BusWidth); // MB/s
 
         public int GetEfficientMemoryFrequency()
             => MemoryFrequency * DatabaseUtilities.GetPumpRate(MemoryType); // MHz

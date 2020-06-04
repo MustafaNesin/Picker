@@ -1,6 +1,6 @@
 ﻿namespace Picker
 {
-    partial class MemoryItemView
+    partial class GraphicsCardItemView
     {
         /// <summary> 
         /// Required designer variable.
@@ -32,19 +32,20 @@
             this.nameLabel = new System.Windows.Forms.Label();
             this.priceLabel = new System.Windows.Forms.Label();
             this.propertiesPanel = new System.Windows.Forms.TableLayoutPanel();
-            this.bufferedLabel = new System.Windows.Forms.Label();
-            this.eccLabel = new System.Windows.Forms.Label();
             this.bandwidthLabel = new System.Windows.Forms.Label();
             this.frequencyLabel = new System.Windows.Forms.Label();
-            this.typeLabel = new System.Windows.Forms.Label();
-            this.capacityLabel = new System.Windows.Forms.Label();
+            this.memoryFrequencyLabel = new System.Windows.Forms.Label();
+            this.busWidthLabel = new System.Windows.Forms.Label();
+            this.memoryLabel = new System.Windows.Forms.Label();
+            this.memoryTypeLabel = new System.Windows.Forms.Label();
             this.brandLabel = new System.Windows.Forms.Label();
-            this.countLabel = new System.Windows.Forms.Label();
+            this.chipsetLabel = new System.Windows.Forms.Label();
             this.controlPanel = new System.Windows.Forms.Panel();
             this.mainButton = new System.Windows.Forms.Button();
             this.deleteButton = new System.Windows.Forms.Button();
             this.imagePanel = new System.Windows.Forms.Panel();
             this.imageBox = new System.Windows.Forms.PictureBox();
+            this.turboFrequencyLabel = new System.Windows.Forms.Label();
             this.itemPanel.SuspendLayout();
             this.propertiesPanel.SuspendLayout();
             this.controlPanel.SuspendLayout();
@@ -64,7 +65,7 @@
             this.itemPanel.Location = new System.Drawing.Point(3, 3);
             this.itemPanel.Name = "itemPanel";
             this.itemPanel.Padding = new System.Windows.Forms.Padding(3);
-            this.itemPanel.Size = new System.Drawing.Size(908, 70);
+            this.itemPanel.Size = new System.Drawing.Size(1242, 70);
             this.itemPanel.TabIndex = 0;
             // 
             // nameLabel
@@ -77,7 +78,7 @@
             this.nameLabel.Location = new System.Drawing.Point(77, 3);
             this.nameLabel.Name = "nameLabel";
             this.nameLabel.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.nameLabel.Size = new System.Drawing.Size(661, 32);
+            this.nameLabel.Size = new System.Drawing.Size(995, 32);
             this.nameLabel.TabIndex = 1;
             this.nameLabel.Text = "Name";
             this.nameLabel.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
@@ -89,7 +90,7 @@
             this.priceLabel.Dock = System.Windows.Forms.DockStyle.Right;
             this.priceLabel.Font = new System.Drawing.Font("Segoe UI", 14F);
             this.priceLabel.ForeColor = System.Drawing.Color.Green;
-            this.priceLabel.Location = new System.Drawing.Point(738, 3);
+            this.priceLabel.Location = new System.Drawing.Point(1072, 3);
             this.priceLabel.Name = "priceLabel";
             this.priceLabel.Size = new System.Drawing.Size(97, 32);
             this.priceLabel.TabIndex = 2;
@@ -99,7 +100,7 @@
             // propertiesPanel
             // 
             this.propertiesPanel.BackColor = System.Drawing.Color.White;
-            this.propertiesPanel.ColumnCount = 9;
+            this.propertiesPanel.ColumnCount = 10;
             this.propertiesPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.propertiesPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.propertiesPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
@@ -109,85 +110,86 @@
             this.propertiesPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.propertiesPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.propertiesPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.propertiesPanel.Controls.Add(this.bufferedLabel, 7, 0);
-            this.propertiesPanel.Controls.Add(this.eccLabel, 6, 0);
-            this.propertiesPanel.Controls.Add(this.bandwidthLabel, 5, 0);
-            this.propertiesPanel.Controls.Add(this.frequencyLabel, 4, 0);
-            this.propertiesPanel.Controls.Add(this.typeLabel, 3, 0);
-            this.propertiesPanel.Controls.Add(this.capacityLabel, 2, 0);
+            this.propertiesPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.propertiesPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.propertiesPanel.Controls.Add(this.bandwidthLabel, 8, 0);
+            this.propertiesPanel.Controls.Add(this.turboFrequencyLabel, 7, 0);
+            this.propertiesPanel.Controls.Add(this.frequencyLabel, 6, 0);
+            this.propertiesPanel.Controls.Add(this.memoryFrequencyLabel, 5, 0);
+            this.propertiesPanel.Controls.Add(this.busWidthLabel, 4, 0);
+            this.propertiesPanel.Controls.Add(this.memoryLabel, 3, 0);
+            this.propertiesPanel.Controls.Add(this.memoryTypeLabel, 2, 0);
             this.propertiesPanel.Controls.Add(this.brandLabel, 0, 0);
-            this.propertiesPanel.Controls.Add(this.countLabel, 1, 0);
+            this.propertiesPanel.Controls.Add(this.chipsetLabel, 1, 0);
             this.propertiesPanel.Cursor = System.Windows.Forms.Cursors.Default;
             this.propertiesPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.propertiesPanel.Location = new System.Drawing.Point(77, 35);
             this.propertiesPanel.Name = "propertiesPanel";
             this.propertiesPanel.RowCount = 1;
             this.propertiesPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.propertiesPanel.Size = new System.Drawing.Size(758, 32);
+            this.propertiesPanel.Size = new System.Drawing.Size(1092, 32);
             this.propertiesPanel.TabIndex = 3;
             this.propertiesPanel.Click += new System.EventHandler(this.entity_Click);
-            // 
-            // bufferedLabel
-            // 
-            this.bufferedLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.bufferedLabel.AutoSize = true;
-            this.bufferedLabel.ForeColor = System.Drawing.Color.Red;
-            this.bufferedLabel.Location = new System.Drawing.Point(359, 9);
-            this.bufferedLabel.Name = "bufferedLabel";
-            this.bufferedLabel.Size = new System.Drawing.Size(62, 13);
-            this.bufferedLabel.TabIndex = 7;
-            this.bufferedLabel.Text = "Registered";
-            // 
-            // eccLabel
-            // 
-            this.eccLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.eccLabel.AutoSize = true;
-            this.eccLabel.ForeColor = System.Drawing.Color.Red;
-            this.eccLabel.Location = new System.Drawing.Point(326, 9);
-            this.eccLabel.Name = "eccLabel";
-            this.eccLabel.Size = new System.Drawing.Size(27, 13);
-            this.eccLabel.TabIndex = 6;
-            this.eccLabel.Text = "ECC";
             // 
             // bandwidthLabel
             // 
             this.bandwidthLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.bandwidthLabel.AutoSize = true;
-            this.bandwidthLabel.Location = new System.Drawing.Point(257, 9);
+            this.bandwidthLabel.Location = new System.Drawing.Point(582, 9);
             this.bandwidthLabel.Name = "bandwidthLabel";
             this.bandwidthLabel.Size = new System.Drawing.Size(63, 13);
-            this.bandwidthLabel.TabIndex = 5;
+            this.bandwidthLabel.TabIndex = 8;
             this.bandwidthLabel.Text = "Bandwidth";
             // 
             // frequencyLabel
             // 
             this.frequencyLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.frequencyLabel.AutoSize = true;
-            this.frequencyLabel.Location = new System.Drawing.Point(191, 9);
+            this.frequencyLabel.Location = new System.Drawing.Point(416, 9);
             this.frequencyLabel.Name = "frequencyLabel";
             this.frequencyLabel.Size = new System.Drawing.Size(60, 13);
-            this.frequencyLabel.TabIndex = 4;
+            this.frequencyLabel.TabIndex = 6;
             this.frequencyLabel.Text = "Frequency";
             // 
-            // typeLabel
+            // memoryFrequencyLabel
             // 
-            this.typeLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.typeLabel.AutoSize = true;
-            this.typeLabel.Location = new System.Drawing.Point(155, 9);
-            this.typeLabel.Name = "typeLabel";
-            this.typeLabel.Size = new System.Drawing.Size(30, 13);
-            this.typeLabel.TabIndex = 3;
-            this.typeLabel.Text = "Type";
+            this.memoryFrequencyLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.memoryFrequencyLabel.AutoSize = true;
+            this.memoryFrequencyLabel.Location = new System.Drawing.Point(306, 9);
+            this.memoryFrequencyLabel.Name = "memoryFrequencyLabel";
+            this.memoryFrequencyLabel.Size = new System.Drawing.Size(104, 13);
+            this.memoryFrequencyLabel.TabIndex = 5;
+            this.memoryFrequencyLabel.Text = "Memory Frequency";
             // 
-            // capacityLabel
+            // busWidthLabel
             // 
-            this.capacityLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.capacityLabel.AutoSize = true;
-            this.capacityLabel.Location = new System.Drawing.Point(99, 9);
-            this.capacityLabel.Name = "capacityLabel";
-            this.capacityLabel.Size = new System.Drawing.Size(50, 13);
-            this.capacityLabel.TabIndex = 2;
-            this.capacityLabel.Text = "Capacity";
+            this.busWidthLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.busWidthLabel.AutoSize = true;
+            this.busWidthLabel.Location = new System.Drawing.Point(240, 9);
+            this.busWidthLabel.Name = "busWidthLabel";
+            this.busWidthLabel.Size = new System.Drawing.Size(60, 13);
+            this.busWidthLabel.TabIndex = 4;
+            this.busWidthLabel.Text = "Bus Width";
+            // 
+            // memoryLabel
+            // 
+            this.memoryLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.memoryLabel.AutoSize = true;
+            this.memoryLabel.Location = new System.Drawing.Point(186, 9);
+            this.memoryLabel.Name = "memoryLabel";
+            this.memoryLabel.Size = new System.Drawing.Size(48, 13);
+            this.memoryLabel.TabIndex = 3;
+            this.memoryLabel.Text = "Memory";
+            // 
+            // memoryTypeLabel
+            // 
+            this.memoryTypeLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.memoryTypeLabel.AutoSize = true;
+            this.memoryTypeLabel.Location = new System.Drawing.Point(106, 9);
+            this.memoryTypeLabel.Name = "memoryTypeLabel";
+            this.memoryTypeLabel.Size = new System.Drawing.Size(74, 13);
+            this.memoryTypeLabel.TabIndex = 2;
+            this.memoryTypeLabel.Text = "Memory Type";
             // 
             // brandLabel
             // 
@@ -201,15 +203,15 @@
             this.brandLabel.TabIndex = 0;
             this.brandLabel.Text = "Brand";
             // 
-            // countLabel
+            // chipsetLabel
             // 
-            this.countLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.countLabel.AutoSize = true;
-            this.countLabel.Location = new System.Drawing.Point(54, 9);
-            this.countLabel.Name = "countLabel";
-            this.countLabel.Size = new System.Drawing.Size(39, 13);
-            this.countLabel.TabIndex = 1;
-            this.countLabel.Text = "Count";
+            this.chipsetLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.chipsetLabel.AutoSize = true;
+            this.chipsetLabel.Location = new System.Drawing.Point(54, 9);
+            this.chipsetLabel.Name = "chipsetLabel";
+            this.chipsetLabel.Size = new System.Drawing.Size(46, 13);
+            this.chipsetLabel.TabIndex = 1;
+            this.chipsetLabel.Text = "Chipset";
             // 
             // controlPanel
             // 
@@ -218,7 +220,7 @@
             this.controlPanel.Controls.Add(this.deleteButton);
             this.controlPanel.Dock = System.Windows.Forms.DockStyle.Right;
             this.controlPanel.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.controlPanel.Location = new System.Drawing.Point(835, 3);
+            this.controlPanel.Location = new System.Drawing.Point(1169, 3);
             this.controlPanel.Name = "controlPanel";
             this.controlPanel.Padding = new System.Windows.Forms.Padding(1);
             this.controlPanel.Size = new System.Drawing.Size(70, 64);
@@ -280,17 +282,27 @@
             this.imageBox.TabStop = false;
             this.imageBox.Click += new System.EventHandler(this.entity_Click);
             // 
-            // MemoryItemView
+            // turboFrequencyLabel
+            // 
+            this.turboFrequencyLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.turboFrequencyLabel.AutoSize = true;
+            this.turboFrequencyLabel.Location = new System.Drawing.Point(482, 9);
+            this.turboFrequencyLabel.Name = "turboFrequencyLabel";
+            this.turboFrequencyLabel.Size = new System.Drawing.Size(94, 13);
+            this.turboFrequencyLabel.TabIndex = 7;
+            this.turboFrequencyLabel.Text = "Turbo Frequency";
+            // 
+            // GraphicsCardItemView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.Controls.Add(this.itemPanel);
             this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.MinimumSize = new System.Drawing.Size(914, 76);
-            this.Name = "MemoryItemView";
+            this.MinimumSize = new System.Drawing.Size(1248, 76);
+            this.Name = "GraphicsCardItemView";
             this.Padding = new System.Windows.Forms.Padding(3);
-            this.Size = new System.Drawing.Size(914, 76);
+            this.Size = new System.Drawing.Size(1248, 76);
             this.itemPanel.ResumeLayout(false);
             this.propertiesPanel.ResumeLayout(false);
             this.propertiesPanel.PerformLayout();
@@ -312,13 +324,14 @@
         private System.Windows.Forms.Panel imagePanel;
         private System.Windows.Forms.PictureBox imageBox;
         private System.Windows.Forms.Button deleteButton;
-        private System.Windows.Forms.Label countLabel;
+        private System.Windows.Forms.Label chipsetLabel;
         private System.Windows.Forms.Label priceLabel;
-        private System.Windows.Forms.Label frequencyLabel;
-        private System.Windows.Forms.Label typeLabel;
-        private System.Windows.Forms.Label capacityLabel;
+        private System.Windows.Forms.Label busWidthLabel;
+        private System.Windows.Forms.Label memoryLabel;
+        private System.Windows.Forms.Label memoryTypeLabel;
+        private System.Windows.Forms.Label memoryFrequencyLabel;
         private System.Windows.Forms.Label bandwidthLabel;
-        private System.Windows.Forms.Label eccLabel;
-        private System.Windows.Forms.Label bufferedLabel;
+        private System.Windows.Forms.Label frequencyLabel;
+        private System.Windows.Forms.Label turboFrequencyLabel;
     }
 }

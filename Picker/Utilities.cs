@@ -8,7 +8,6 @@
     using System.Data.SqlClient;
     using System.Diagnostics;
     using System.Drawing;
-    using System.Globalization;
     using System.IO;
     using System.Linq;
     using System.Linq.Expressions;
@@ -281,11 +280,6 @@
         public const string ProcessorImagesDirectory = AssetsDirectory + "\\processors";
         public const string SocketImagesDirectory = AssetsDirectory + "\\sockets";
 
-        public static int GetBandwidth(int frequency, int busWidth) => frequency * busWidth / 8;
-
-        public static int GetGraphicsCardBandwidth(int memoryFrequency, string memoryType, int busWidth)
-            => GetBandwidth(memoryFrequency * GetPumpRate(memoryType), busWidth);
-
         public static void CheckAssets()
         {
             Directory.CreateDirectory(BrandImagesDirectory);
@@ -394,8 +388,8 @@
             if (relationList.Count == 1)
                 relations = relationList.Single();
             else
-                relations = string.Join(", ", relationList.ToArray(), 0, relationList.Count - 1) + " ve " +
-                            relationList.Last();
+                relations = string.Join(", ", relationList.ToArray(), 0, relationList.Count - 1) +
+                            " ve " + relationList.Last();
 
             Utilities.ShowError($"Silmek istediğiniz '{entityEntry.Entity.Name}' adına sahip " +
                                 $"{modelName} kaydına bağlı {relations} var.\r\n" +
@@ -405,12 +399,18 @@
             return false;
         }
 
+        public static int GetBandwidth(int frequency, int busWidth) => frequency * busWidth / 8;
+
         private static async Task<int> GetCountAsync<TEntity, TElement>(
             this DbEntityEntry<TEntity> entry,
             Expression<Func<TEntity, ICollection<TElement>>> navigationProperty)
             where TElement : class
             where TEntity : Entity
             => await entry.Collection(navigationProperty).Query().CountAsync();
+
+        public static int GetGraphicsCardBandwidth(int memoryFrequency, string memoryType,
+            int busWidth)
+            => GetBandwidth(memoryFrequency * GetPumpRate(memoryType), busWidth);
 
         public static int GetPumpRate(string memoryType)
             => memoryType != null
@@ -612,7 +612,7 @@
 
         public static DialogResult ShowWarning(string text, MessageBoxButtons buttons)
             => MessageBox.Show(text, "Uyarı", buttons, MessageBoxIcon.Warning);
-        
+
         public static Image TryLoadImage(string imagePath)
         {
             try

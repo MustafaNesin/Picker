@@ -18,10 +18,15 @@
 
         public MemoryListPresenter(Build build) : base(build)
         {
-
         }
 
-        protected override Memory CreateEmptyEntity() => new Memory { Model = string.Empty, Name = string.Empty, Type = string.Empty };
+        protected override Memory CreateEmptyEntity()
+            => new Memory
+            {
+                Model = string.Empty,
+                Name = string.Empty,
+                Type = string.Empty
+            };
 
         protected override async Task<List<Memory>> GetEntitiesAsync(
             ComputerDatabaseContext context, bool paging)
@@ -51,10 +56,12 @@
                 query = query.Where(entity => entity.Count == View.MemoryCount.Value);
 
             if (View.MemoryMinCapacity.HasValue)
-                query = query.Where(entity => entity.Capacity * entity.Count >= View.MemoryMinCapacity.Value);
+                query = query.Where(entity
+                    => entity.Capacity * entity.Count >= View.MemoryMinCapacity.Value);
 
             if (View.MemoryMaxCapacity.HasValue)
-                query = query.Where(entity => entity.Capacity * entity.Count <= View.MemoryMaxCapacity.Value);
+                query = query.Where(entity
+                    => entity.Capacity * entity.Count <= View.MemoryMaxCapacity.Value);
 
             if (View.MemoryMinFrequency.HasValue)
                 query = query.Where(entity => entity.Frequency >= View.MemoryMinFrequency.Value);
@@ -82,17 +89,23 @@
                 2 => query.OrderBy(entity => entity.Name), // İsme göre (A-Z)
                 3 => query.OrderByDescending(entity => entity.Name), // İsme göre (Z-A)
                 4 => query.OrderBy(entity => entity.Brand.Name), // Marka ismine göre (A-Z)
-                5 => query.OrderByDescending(entity => entity.Brand.Name), // Marka ismine göre (Z-A)
+                5 => query.OrderByDescending(entity
+                    => entity.Brand.Name), // Marka ismine göre (Z-A)
                 6 => query.OrderBy(entity => entity.Price), // Fiyata göre (En ucuz)
                 7 => query.OrderByDescending(entity => entity.Price), // Fiyata göre (En pahalı)
                 8 => query.OrderBy(entity => entity.Type), // Tipe göre (A-Z)
                 9 => query.OrderByDescending(entity => entity.Type), // Tipe göre (Z-A)
-                10 => query.OrderBy(entity => entity.Frequency), // Hıza/Bant Genişliğine göre (En yavaş)
-                11 => query.OrderByDescending(entity => entity.Frequency), // Hıza/Bant Genişliğine göre (En hızlı)
-                12 => query.OrderBy(entity => entity.Capacity * entity.Count), // Kapasiteye göre (En az)
-                13 => query.OrderByDescending(entity => entity.Capacity * entity.Count), // Kapasiteye göre (En çok)
+                10 => query.OrderBy(entity
+                    => entity.Frequency), // Hıza/Bant Genişliğine göre (En yavaş)
+                11 => query.OrderByDescending(entity
+                    => entity.Frequency), // Hıza/Bant Genişliğine göre (En hızlı)
+                12 => query.OrderBy(entity
+                    => entity.Capacity * entity.Count), // Kapasiteye göre (En az)
+                13 => query.OrderByDescending(entity
+                    => entity.Capacity * entity.Count), // Kapasiteye göre (En çok)
                 14 => query.OrderBy(entity => entity.Count), // Modül sayısına göre (En az)
-                15 => query.OrderByDescending(entity => entity.Count), // Modül sayısına göre (En çok)
+                15 => query.OrderByDescending(entity
+                    => entity.Count), // Modül sayısına göre (En çok)
                 _ => query.OrderBy(entity => entity.Id) // Eskiden yeniye
             };
 

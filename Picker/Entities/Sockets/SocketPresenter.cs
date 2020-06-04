@@ -30,7 +30,6 @@
 
             Utilities.ShowError("Lütfen bir marka seçin.");
             return false;
-
         }
 
         #region Disposing

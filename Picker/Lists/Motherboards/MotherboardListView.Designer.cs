@@ -1,6 +1,6 @@
 ﻿namespace Picker
 {
-    partial class MemoryListView
+    partial class MotherboardListView
     {
         /// <summary>
         /// Required designer variable.
@@ -28,30 +28,38 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MemoryListView));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MotherboardListView));
             this.filterPanel = new System.Windows.Forms.Panel();
             this.filterGroup = new System.Windows.Forms.GroupBox();
+            this.maxMemorySlotsBox = new System.Windows.Forms.NumericUpDown();
+            this.enableMaxMemorySlotsBox = new System.Windows.Forms.CheckBox();
+            this.enableMinMemorySlotsBox = new System.Windows.Forms.CheckBox();
+            this.minMemorySlotsBox = new System.Windows.Forms.NumericUpDown();
+            this.label12 = new System.Windows.Forms.Label();
+            this.formFactorBox = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.socketBox = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.chipsetBox = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.compatiblesBox = new System.Windows.Forms.CheckBox();
             this.clearFilterButton = new System.Windows.Forms.Button();
-            this.countBox = new System.Windows.Forms.ComboBox();
-            this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.maxCapacityBox = new System.Windows.Forms.NumericUpDown();
-            this.enableMaxCapacityBox = new System.Windows.Forms.CheckBox();
-            this.enableMinCapacityBox = new System.Windows.Forms.CheckBox();
-            this.minCapacityBox = new System.Windows.Forms.NumericUpDown();
-            this.maxFrequencyBox = new System.Windows.Forms.NumericUpDown();
-            this.enableMaxFrequencyBox = new System.Windows.Forms.CheckBox();
-            this.minFrequencyBox = new System.Windows.Forms.NumericUpDown();
-            this.enableMinFrequencyBox = new System.Windows.Forms.CheckBox();
+            this.maxMaxMemoryBox = new System.Windows.Forms.NumericUpDown();
+            this.enableMaxMaxMemoryBox = new System.Windows.Forms.CheckBox();
+            this.enableMinMaxMemoryBox = new System.Windows.Forms.CheckBox();
+            this.minMaxMemoryBox = new System.Windows.Forms.NumericUpDown();
+            this.maxMaxMemoryFrequencyBox = new System.Windows.Forms.NumericUpDown();
+            this.enableMaxMaxMemoryFrequencyBox = new System.Windows.Forms.CheckBox();
+            this.minMaxMemoryFrequencyBox = new System.Windows.Forms.NumericUpDown();
+            this.enableMinMaxMemoryFrequencyBox = new System.Windows.Forms.CheckBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.typeBox = new System.Windows.Forms.ComboBox();
+            this.memoryTypeBox = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.maxPriceBox = new System.Windows.Forms.NumericUpDown();
             this.minPriceBox = new System.Windows.Forms.NumericUpDown();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.bufferedBox = new System.Windows.Forms.CheckBox();
             this.eccBox = new System.Windows.Forms.CheckBox();
             this.brandBox = new System.Windows.Forms.TextBox();
             this.nameBox = new System.Windows.Forms.TextBox();
@@ -80,10 +88,12 @@
             this.listPanel = new System.Windows.Forms.Panel();
             this.filterPanel.SuspendLayout();
             this.filterGroup.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.maxCapacityBox)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.minCapacityBox)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.maxFrequencyBox)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.minFrequencyBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.maxMemorySlotsBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.minMemorySlotsBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.maxMaxMemoryBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.minMaxMemoryBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.maxMaxMemoryFrequencyBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.minMaxMemoryFrequencyBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.maxPriceBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.minPriceBox)).BeginInit();
             this.orderGroup.SuspendLayout();
@@ -102,32 +112,40 @@
             this.filterPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.filterPanel.Location = new System.Drawing.Point(0, 0);
             this.filterPanel.Name = "filterPanel";
-            this.filterPanel.Size = new System.Drawing.Size(930, 115);
+            this.filterPanel.Size = new System.Drawing.Size(1035, 145);
             this.filterPanel.TabIndex = 0;
             // 
             // filterGroup
             // 
+            this.filterGroup.Controls.Add(this.maxMemorySlotsBox);
+            this.filterGroup.Controls.Add(this.enableMaxMemorySlotsBox);
+            this.filterGroup.Controls.Add(this.enableMinMemorySlotsBox);
+            this.filterGroup.Controls.Add(this.minMemorySlotsBox);
+            this.filterGroup.Controls.Add(this.label12);
+            this.filterGroup.Controls.Add(this.formFactorBox);
+            this.filterGroup.Controls.Add(this.label11);
+            this.filterGroup.Controls.Add(this.socketBox);
+            this.filterGroup.Controls.Add(this.label10);
+            this.filterGroup.Controls.Add(this.chipsetBox);
+            this.filterGroup.Controls.Add(this.label2);
             this.filterGroup.Controls.Add(this.compatiblesBox);
             this.filterGroup.Controls.Add(this.clearFilterButton);
-            this.filterGroup.Controls.Add(this.countBox);
-            this.filterGroup.Controls.Add(this.label10);
             this.filterGroup.Controls.Add(this.label9);
-            this.filterGroup.Controls.Add(this.maxCapacityBox);
-            this.filterGroup.Controls.Add(this.enableMaxCapacityBox);
-            this.filterGroup.Controls.Add(this.enableMinCapacityBox);
-            this.filterGroup.Controls.Add(this.minCapacityBox);
-            this.filterGroup.Controls.Add(this.maxFrequencyBox);
-            this.filterGroup.Controls.Add(this.enableMaxFrequencyBox);
-            this.filterGroup.Controls.Add(this.minFrequencyBox);
-            this.filterGroup.Controls.Add(this.enableMinFrequencyBox);
+            this.filterGroup.Controls.Add(this.maxMaxMemoryBox);
+            this.filterGroup.Controls.Add(this.enableMaxMaxMemoryBox);
+            this.filterGroup.Controls.Add(this.enableMinMaxMemoryBox);
+            this.filterGroup.Controls.Add(this.minMaxMemoryBox);
+            this.filterGroup.Controls.Add(this.maxMaxMemoryFrequencyBox);
+            this.filterGroup.Controls.Add(this.enableMaxMaxMemoryFrequencyBox);
+            this.filterGroup.Controls.Add(this.minMaxMemoryFrequencyBox);
+            this.filterGroup.Controls.Add(this.enableMinMaxMemoryFrequencyBox);
             this.filterGroup.Controls.Add(this.label8);
-            this.filterGroup.Controls.Add(this.typeBox);
+            this.filterGroup.Controls.Add(this.memoryTypeBox);
             this.filterGroup.Controls.Add(this.label3);
             this.filterGroup.Controls.Add(this.maxPriceBox);
             this.filterGroup.Controls.Add(this.minPriceBox);
             this.filterGroup.Controls.Add(this.label7);
             this.filterGroup.Controls.Add(this.label6);
-            this.filterGroup.Controls.Add(this.bufferedBox);
             this.filterGroup.Controls.Add(this.eccBox);
             this.filterGroup.Controls.Add(this.brandBox);
             this.filterGroup.Controls.Add(this.nameBox);
@@ -138,19 +156,129 @@
             this.filterGroup.Dock = System.Windows.Forms.DockStyle.Fill;
             this.filterGroup.Location = new System.Drawing.Point(0, 0);
             this.filterGroup.Name = "filterGroup";
-            this.filterGroup.Size = new System.Drawing.Size(704, 115);
+            this.filterGroup.Size = new System.Drawing.Size(798, 145);
             this.filterGroup.TabIndex = 0;
             this.filterGroup.TabStop = false;
             this.filterGroup.Text = "Filtrele";
+            // 
+            // maxMemorySlotsBox
+            // 
+            this.maxMemorySlotsBox.Enabled = false;
+            this.maxMemorySlotsBox.Location = new System.Drawing.Point(752, 51);
+            this.maxMemorySlotsBox.Maximum = new decimal(new int[] {
+            999,
+            0,
+            0,
+            0});
+            this.maxMemorySlotsBox.Name = "maxMemorySlotsBox";
+            this.maxMemorySlotsBox.Size = new System.Drawing.Size(40, 22);
+            this.maxMemorySlotsBox.TabIndex = 17;
+            // 
+            // enableMaxMemorySlotsBox
+            // 
+            this.enableMaxMemorySlotsBox.AutoSize = true;
+            this.enableMaxMemorySlotsBox.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.enableMaxMemorySlotsBox.Location = new System.Drawing.Point(722, 54);
+            this.enableMaxMemorySlotsBox.Name = "enableMaxMemorySlotsBox";
+            this.enableMaxMemorySlotsBox.Size = new System.Drawing.Size(30, 17);
+            this.enableMaxMemorySlotsBox.TabIndex = 16;
+            this.enableMaxMemorySlotsBox.Text = "-";
+            this.enableMaxMemorySlotsBox.UseVisualStyleBackColor = true;
+            this.enableMaxMemorySlotsBox.CheckedChanged += new System.EventHandler(this.enableMaxMemorySlotsBox_CheckedChanged);
+            // 
+            // enableMinMemorySlotsBox
+            // 
+            this.enableMinMemorySlotsBox.AutoSize = true;
+            this.enableMinMemorySlotsBox.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.enableMinMemorySlotsBox.Location = new System.Drawing.Point(667, 55);
+            this.enableMinMemorySlotsBox.Name = "enableMinMemorySlotsBox";
+            this.enableMinMemorySlotsBox.Size = new System.Drawing.Size(15, 14);
+            this.enableMinMemorySlotsBox.TabIndex = 14;
+            this.enableMinMemorySlotsBox.UseVisualStyleBackColor = true;
+            this.enableMinMemorySlotsBox.CheckedChanged += new System.EventHandler(this.enableMinMemorySlotsBox_CheckedChanged);
+            // 
+            // minMemorySlotsBox
+            // 
+            this.minMemorySlotsBox.Enabled = false;
+            this.minMemorySlotsBox.Location = new System.Drawing.Point(682, 51);
+            this.minMemorySlotsBox.Maximum = new decimal(new int[] {
+            999,
+            0,
+            0,
+            0});
+            this.minMemorySlotsBox.Name = "minMemorySlotsBox";
+            this.minMemorySlotsBox.Size = new System.Drawing.Size(40, 22);
+            this.minMemorySlotsBox.TabIndex = 15;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(591, 55);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(70, 13);
+            this.label12.TabIndex = 13;
+            this.label12.Text = "Bellek Slotu:";
+            this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // formFactorBox
+            // 
+            this.formFactorBox.Location = new System.Drawing.Point(462, 51);
+            this.formFactorBox.Name = "formFactorBox";
+            this.formFactorBox.Size = new System.Drawing.Size(118, 22);
+            this.formFactorBox.TabIndex = 12;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(384, 55);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(72, 13);
+            this.label11.TabIndex = 11;
+            this.label11.Text = "Form Faktör:";
+            this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // socketBox
+            // 
+            this.socketBox.Location = new System.Drawing.Point(255, 51);
+            this.socketBox.Name = "socketBox";
+            this.socketBox.Size = new System.Drawing.Size(118, 22);
+            this.socketBox.TabIndex = 10;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(210, 55);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(39, 13);
+            this.label10.TabIndex = 9;
+            this.label10.Text = "Soket:";
+            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // chipsetBox
+            // 
+            this.chipsetBox.Location = new System.Drawing.Point(81, 51);
+            this.chipsetBox.Name = "chipsetBox";
+            this.chipsetBox.Size = new System.Drawing.Size(118, 22);
+            this.chipsetBox.TabIndex = 8;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(12, 55);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(63, 13);
+            this.label2.TabIndex = 7;
+            this.label2.Text = "Yonga Seti:";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // compatiblesBox
             // 
             this.compatiblesBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.compatiblesBox.AutoSize = true;
-            this.compatiblesBox.Location = new System.Drawing.Point(549, 89);
+            this.compatiblesBox.Location = new System.Drawing.Point(643, 119);
             this.compatiblesBox.Name = "compatiblesBox";
             this.compatiblesBox.Size = new System.Drawing.Size(149, 17);
-            this.compatiblesBox.TabIndex = 27;
+            this.compatiblesBox.TabIndex = 35;
             this.compatiblesBox.Text = "Uyumsuz parçaları gizle.";
             this.compatiblesBox.UseVisualStyleBackColor = true;
             this.compatiblesBox.CheckedChanged += new System.EventHandler(this.GenerateListAsyncEvent);
@@ -158,189 +286,155 @@
             // clearFilterButton
             // 
             this.clearFilterButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.clearFilterButton.Location = new System.Drawing.Point(431, 87);
+            this.clearFilterButton.Location = new System.Drawing.Point(525, 117);
             this.clearFilterButton.Name = "clearFilterButton";
             this.clearFilterButton.Size = new System.Drawing.Size(91, 22);
-            this.clearFilterButton.TabIndex = 26;
+            this.clearFilterButton.TabIndex = 34;
             this.clearFilterButton.Text = "Filtreyi Temizle";
             this.clearFilterButton.UseVisualStyleBackColor = true;
             this.clearFilterButton.Click += new System.EventHandler(this.clearFilterButton_Click);
             // 
-            // countBox
-            // 
-            this.countBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.countBox.FormattingEnabled = true;
-            this.countBox.Items.AddRange(new object[] {
-            "1",
-            "2",
-            "3",
-            "4",
-            "5",
-            "6",
-            "7",
-            "8"});
-            this.countBox.Location = new System.Drawing.Point(435, 53);
-            this.countBox.Name = "countBox";
-            this.countBox.Size = new System.Drawing.Size(38, 21);
-            this.countBox.TabIndex = 17;
-            // 
-            // label10
-            // 
-            this.label10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(354, 56);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(75, 13);
-            this.label10.TabIndex = 16;
-            this.label10.Text = "Modül Sayısı:";
-            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
             // label9
             // 
-            this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(488, 56);
+            this.label9.Location = new System.Drawing.Point(149, 87);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(76, 13);
-            this.label9.TabIndex = 18;
-            this.label9.Text = "Kapasite (GB):";
+            this.label9.Size = new System.Drawing.Size(96, 13);
+            this.label9.TabIndex = 20;
+            this.label9.Text = "Maks. Bellek (GB):";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // maxCapacityBox
+            // maxMaxMemoryBox
             // 
-            this.maxCapacityBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.maxCapacityBox.Enabled = false;
-            this.maxCapacityBox.Location = new System.Drawing.Point(655, 53);
-            this.maxCapacityBox.Maximum = new decimal(new int[] {
+            this.maxMaxMemoryBox.Enabled = false;
+            this.maxMaxMemoryBox.Location = new System.Drawing.Point(336, 84);
+            this.maxMaxMemoryBox.Maximum = new decimal(new int[] {
             999,
             0,
             0,
             0});
-            this.maxCapacityBox.Name = "maxCapacityBox";
-            this.maxCapacityBox.Size = new System.Drawing.Size(40, 22);
-            this.maxCapacityBox.TabIndex = 22;
+            this.maxMaxMemoryBox.Name = "maxMaxMemoryBox";
+            this.maxMaxMemoryBox.Size = new System.Drawing.Size(40, 22);
+            this.maxMaxMemoryBox.TabIndex = 24;
             // 
-            // enableMaxCapacityBox
+            // enableMaxMaxMemoryBox
             // 
-            this.enableMaxCapacityBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.enableMaxCapacityBox.AutoSize = true;
-            this.enableMaxCapacityBox.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.enableMaxCapacityBox.Location = new System.Drawing.Point(625, 56);
-            this.enableMaxCapacityBox.Name = "enableMaxCapacityBox";
-            this.enableMaxCapacityBox.Size = new System.Drawing.Size(30, 17);
-            this.enableMaxCapacityBox.TabIndex = 21;
-            this.enableMaxCapacityBox.Text = "-";
-            this.enableMaxCapacityBox.UseVisualStyleBackColor = true;
-            this.enableMaxCapacityBox.CheckedChanged += new System.EventHandler(this.enableMaxCapacityBox_CheckedChanged);
+            this.enableMaxMaxMemoryBox.AutoSize = true;
+            this.enableMaxMaxMemoryBox.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.enableMaxMaxMemoryBox.Location = new System.Drawing.Point(306, 87);
+            this.enableMaxMaxMemoryBox.Name = "enableMaxMaxMemoryBox";
+            this.enableMaxMaxMemoryBox.Size = new System.Drawing.Size(30, 17);
+            this.enableMaxMaxMemoryBox.TabIndex = 23;
+            this.enableMaxMaxMemoryBox.Text = "-";
+            this.enableMaxMaxMemoryBox.UseVisualStyleBackColor = true;
+            this.enableMaxMaxMemoryBox.CheckedChanged += new System.EventHandler(this.enableMaxMaxMemoryBox_CheckedChanged);
             // 
-            // enableMinCapacityBox
+            // enableMinMaxMemoryBox
             // 
-            this.enableMinCapacityBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.enableMinCapacityBox.AutoSize = true;
-            this.enableMinCapacityBox.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.enableMinCapacityBox.Location = new System.Drawing.Point(570, 57);
-            this.enableMinCapacityBox.Name = "enableMinCapacityBox";
-            this.enableMinCapacityBox.Size = new System.Drawing.Size(15, 14);
-            this.enableMinCapacityBox.TabIndex = 19;
-            this.enableMinCapacityBox.UseVisualStyleBackColor = true;
-            this.enableMinCapacityBox.CheckedChanged += new System.EventHandler(this.enableMinCapacityBox_CheckedChanged);
+            this.enableMinMaxMemoryBox.AutoSize = true;
+            this.enableMinMaxMemoryBox.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.enableMinMaxMemoryBox.Location = new System.Drawing.Point(251, 88);
+            this.enableMinMaxMemoryBox.Name = "enableMinMaxMemoryBox";
+            this.enableMinMaxMemoryBox.Size = new System.Drawing.Size(15, 14);
+            this.enableMinMaxMemoryBox.TabIndex = 21;
+            this.enableMinMaxMemoryBox.UseVisualStyleBackColor = true;
+            this.enableMinMaxMemoryBox.CheckedChanged += new System.EventHandler(this.enableMinMaxMemoryBox_CheckedChanged);
             // 
-            // minCapacityBox
+            // minMaxMemoryBox
             // 
-            this.minCapacityBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.minCapacityBox.Enabled = false;
-            this.minCapacityBox.Location = new System.Drawing.Point(585, 53);
-            this.minCapacityBox.Maximum = new decimal(new int[] {
+            this.minMaxMemoryBox.Enabled = false;
+            this.minMaxMemoryBox.Location = new System.Drawing.Point(266, 84);
+            this.minMaxMemoryBox.Maximum = new decimal(new int[] {
             999,
             0,
             0,
             0});
-            this.minCapacityBox.Name = "minCapacityBox";
-            this.minCapacityBox.Size = new System.Drawing.Size(40, 22);
-            this.minCapacityBox.TabIndex = 20;
+            this.minMaxMemoryBox.Name = "minMaxMemoryBox";
+            this.minMaxMemoryBox.Size = new System.Drawing.Size(40, 22);
+            this.minMaxMemoryBox.TabIndex = 22;
             // 
-            // maxFrequencyBox
+            // maxMaxMemoryFrequencyBox
             // 
-            this.maxFrequencyBox.Enabled = false;
-            this.maxFrequencyBox.Location = new System.Drawing.Point(269, 53);
-            this.maxFrequencyBox.Maximum = new decimal(new int[] {
+            this.maxMaxMemoryFrequencyBox.Enabled = false;
+            this.maxMaxMemoryFrequencyBox.Location = new System.Drawing.Point(611, 84);
+            this.maxMaxMemoryFrequencyBox.Maximum = new decimal(new int[] {
             9999,
             0,
             0,
             0});
-            this.maxFrequencyBox.Name = "maxFrequencyBox";
-            this.maxFrequencyBox.Size = new System.Drawing.Size(46, 22);
-            this.maxFrequencyBox.TabIndex = 15;
+            this.maxMaxMemoryFrequencyBox.Name = "maxMaxMemoryFrequencyBox";
+            this.maxMaxMemoryFrequencyBox.Size = new System.Drawing.Size(46, 22);
+            this.maxMaxMemoryFrequencyBox.TabIndex = 29;
             // 
-            // enableMaxFrequencyBox
+            // enableMaxMaxMemoryFrequencyBox
             // 
-            this.enableMaxFrequencyBox.AutoSize = true;
-            this.enableMaxFrequencyBox.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.enableMaxFrequencyBox.Location = new System.Drawing.Point(239, 56);
-            this.enableMaxFrequencyBox.Name = "enableMaxFrequencyBox";
-            this.enableMaxFrequencyBox.Size = new System.Drawing.Size(30, 17);
-            this.enableMaxFrequencyBox.TabIndex = 14;
-            this.enableMaxFrequencyBox.Text = "-";
-            this.enableMaxFrequencyBox.UseVisualStyleBackColor = true;
-            this.enableMaxFrequencyBox.CheckedChanged += new System.EventHandler(this.enableMaxFrequencyBox_CheckedChanged);
+            this.enableMaxMaxMemoryFrequencyBox.AutoSize = true;
+            this.enableMaxMaxMemoryFrequencyBox.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.enableMaxMaxMemoryFrequencyBox.Location = new System.Drawing.Point(581, 87);
+            this.enableMaxMaxMemoryFrequencyBox.Name = "enableMaxMaxMemoryFrequencyBox";
+            this.enableMaxMaxMemoryFrequencyBox.Size = new System.Drawing.Size(30, 17);
+            this.enableMaxMaxMemoryFrequencyBox.TabIndex = 28;
+            this.enableMaxMaxMemoryFrequencyBox.Text = "-";
+            this.enableMaxMaxMemoryFrequencyBox.UseVisualStyleBackColor = true;
+            this.enableMaxMaxMemoryFrequencyBox.CheckedChanged += new System.EventHandler(this.enableMaxMaxMemoryFrequencyBox_CheckedChanged);
             // 
-            // minFrequencyBox
+            // minMaxMemoryFrequencyBox
             // 
-            this.minFrequencyBox.Enabled = false;
-            this.minFrequencyBox.Location = new System.Drawing.Point(193, 53);
-            this.minFrequencyBox.Maximum = new decimal(new int[] {
+            this.minMaxMemoryFrequencyBox.Enabled = false;
+            this.minMaxMemoryFrequencyBox.Location = new System.Drawing.Point(535, 84);
+            this.minMaxMemoryFrequencyBox.Maximum = new decimal(new int[] {
             9999,
             0,
             0,
             0});
-            this.minFrequencyBox.Name = "minFrequencyBox";
-            this.minFrequencyBox.Size = new System.Drawing.Size(46, 22);
-            this.minFrequencyBox.TabIndex = 13;
+            this.minMaxMemoryFrequencyBox.Name = "minMaxMemoryFrequencyBox";
+            this.minMaxMemoryFrequencyBox.Size = new System.Drawing.Size(46, 22);
+            this.minMaxMemoryFrequencyBox.TabIndex = 27;
             // 
-            // enableMinFrequencyBox
+            // enableMinMaxMemoryFrequencyBox
             // 
-            this.enableMinFrequencyBox.AutoSize = true;
-            this.enableMinFrequencyBox.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.enableMinFrequencyBox.Location = new System.Drawing.Point(178, 57);
-            this.enableMinFrequencyBox.Name = "enableMinFrequencyBox";
-            this.enableMinFrequencyBox.Size = new System.Drawing.Size(15, 14);
-            this.enableMinFrequencyBox.TabIndex = 12;
-            this.enableMinFrequencyBox.UseVisualStyleBackColor = true;
-            this.enableMinFrequencyBox.CheckedChanged += new System.EventHandler(this.enableMinFrequencyBox_CheckedChanged);
+            this.enableMinMaxMemoryFrequencyBox.AutoSize = true;
+            this.enableMinMaxMemoryFrequencyBox.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.enableMinMaxMemoryFrequencyBox.Location = new System.Drawing.Point(520, 88);
+            this.enableMinMaxMemoryFrequencyBox.Name = "enableMinMaxMemoryFrequencyBox";
+            this.enableMinMaxMemoryFrequencyBox.Size = new System.Drawing.Size(15, 14);
+            this.enableMinMaxMemoryFrequencyBox.TabIndex = 26;
+            this.enableMinMaxMemoryFrequencyBox.UseVisualStyleBackColor = true;
+            this.enableMinMaxMemoryFrequencyBox.CheckedChanged += new System.EventHandler(this.enableMinMaxMemoryFrequencyBox_CheckedChanged);
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(114, 56);
+            this.label8.Location = new System.Drawing.Point(387, 87);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(58, 13);
-            this.label8.TabIndex = 11;
-            this.label8.Text = "Hız (MHz):";
+            this.label8.Size = new System.Drawing.Size(127, 13);
+            this.label8.TabIndex = 25;
+            this.label8.Text = "Maks. Bellek Hızı (MHz):";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // typeBox
+            // memoryTypeBox
             // 
-            this.typeBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.typeBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.typeBox.FormattingEnabled = true;
-            this.typeBox.Items.AddRange(new object[] {
+            this.memoryTypeBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.memoryTypeBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.memoryTypeBox.FormattingEnabled = true;
+            this.memoryTypeBox.Items.AddRange(new object[] {
             "DDR",
             "DDR2",
             "DDR3",
             "DDR4"});
-            this.typeBox.Location = new System.Drawing.Point(44, 53);
-            this.typeBox.Name = "typeBox";
-            this.typeBox.Size = new System.Drawing.Size(58, 21);
-            this.typeBox.TabIndex = 10;
+            this.memoryTypeBox.Location = new System.Drawing.Point(80, 84);
+            this.memoryTypeBox.Name = "memoryTypeBox";
+            this.memoryTypeBox.Size = new System.Drawing.Size(58, 21);
+            this.memoryTypeBox.TabIndex = 19;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 56);
+            this.label3.Location = new System.Drawing.Point(12, 88);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(26, 13);
-            this.label3.TabIndex = 9;
-            this.label3.Text = "Tip:";
+            this.label3.Size = new System.Drawing.Size(62, 13);
+            this.label3.TabIndex = 18;
+            this.label3.Text = "Bellek Tipi:";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // maxPriceBox
@@ -348,7 +442,7 @@
             this.maxPriceBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.maxPriceBox.DecimalPlaces = 2;
             this.maxPriceBox.Enabled = false;
-            this.maxPriceBox.Location = new System.Drawing.Point(479, 18);
+            this.maxPriceBox.Location = new System.Drawing.Point(722, 20);
             this.maxPriceBox.Maximum = new decimal(new int[] {
             9999999,
             0,
@@ -364,7 +458,7 @@
             this.minPriceBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.minPriceBox.DecimalPlaces = 2;
             this.minPriceBox.Enabled = false;
-            this.minPriceBox.Location = new System.Drawing.Point(379, 18);
+            this.minPriceBox.Location = new System.Drawing.Point(622, 20);
             this.minPriceBox.Maximum = new decimal(new int[] {
             9999999,
             0,
@@ -379,7 +473,7 @@
             // 
             this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(309, 21);
+            this.label7.Location = new System.Drawing.Point(552, 23);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(49, 13);
             this.label7.TabIndex = 2;
@@ -389,26 +483,12 @@
             // 
             this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(12, 90);
+            this.label6.Location = new System.Drawing.Point(12, 120);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(27, 13);
-            this.label6.TabIndex = 23;
+            this.label6.TabIndex = 31;
             this.label6.Text = "Ara:";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // bufferedBox
-            // 
-            this.bufferedBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.bufferedBox.AutoSize = true;
-            this.bufferedBox.Checked = true;
-            this.bufferedBox.CheckState = System.Windows.Forms.CheckState.Indeterminate;
-            this.bufferedBox.Location = new System.Drawing.Point(565, 21);
-            this.bufferedBox.Name = "bufferedBox";
-            this.bufferedBox.Size = new System.Drawing.Size(81, 17);
-            this.bufferedBox.TabIndex = 7;
-            this.bufferedBox.Text = "Registered";
-            this.bufferedBox.ThreeState = true;
-            this.bufferedBox.UseVisualStyleBackColor = true;
             // 
             // eccBox
             // 
@@ -416,11 +496,11 @@
             this.eccBox.AutoSize = true;
             this.eccBox.Checked = true;
             this.eccBox.CheckState = System.Windows.Forms.CheckState.Indeterminate;
-            this.eccBox.Location = new System.Drawing.Point(652, 21);
+            this.eccBox.Location = new System.Drawing.Point(705, 87);
             this.eccBox.Name = "eccBox";
-            this.eccBox.Size = new System.Drawing.Size(46, 17);
-            this.eccBox.TabIndex = 8;
-            this.eccBox.Text = "ECC";
+            this.eccBox.Size = new System.Drawing.Size(87, 17);
+            this.eccBox.TabIndex = 30;
+            this.eccBox.Text = "ECC desteği";
             this.eccBox.ThreeState = true;
             this.eccBox.UseVisualStyleBackColor = true;
             // 
@@ -430,17 +510,17 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.brandBox.Location = new System.Drawing.Point(60, 19);
             this.brandBox.Name = "brandBox";
-            this.brandBox.Size = new System.Drawing.Size(243, 22);
+            this.brandBox.Size = new System.Drawing.Size(486, 22);
             this.brandBox.TabIndex = 1;
             // 
             // nameBox
             // 
             this.nameBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.nameBox.Location = new System.Drawing.Point(45, 87);
+            this.nameBox.Location = new System.Drawing.Point(45, 117);
             this.nameBox.Name = "nameBox";
-            this.nameBox.Size = new System.Drawing.Size(283, 22);
-            this.nameBox.TabIndex = 24;
+            this.nameBox.Size = new System.Drawing.Size(377, 22);
+            this.nameBox.TabIndex = 32;
             // 
             // label1
             // 
@@ -455,10 +535,10 @@
             // applyFilterButton
             // 
             this.applyFilterButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.applyFilterButton.Location = new System.Drawing.Point(334, 87);
+            this.applyFilterButton.Location = new System.Drawing.Point(428, 117);
             this.applyFilterButton.Name = "applyFilterButton";
             this.applyFilterButton.Size = new System.Drawing.Size(91, 22);
-            this.applyFilterButton.TabIndex = 25;
+            this.applyFilterButton.TabIndex = 33;
             this.applyFilterButton.Text = "Ara ve Filtrele";
             this.applyFilterButton.UseVisualStyleBackColor = true;
             this.applyFilterButton.Click += new System.EventHandler(this.GenerateListAsyncEvent);
@@ -468,7 +548,7 @@
             this.enableMaxPriceBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.enableMaxPriceBox.AutoSize = true;
             this.enableMaxPriceBox.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.enableMaxPriceBox.Location = new System.Drawing.Point(449, 21);
+            this.enableMaxPriceBox.Location = new System.Drawing.Point(692, 23);
             this.enableMaxPriceBox.Name = "enableMaxPriceBox";
             this.enableMaxPriceBox.Size = new System.Drawing.Size(30, 17);
             this.enableMaxPriceBox.TabIndex = 5;
@@ -481,7 +561,7 @@
             this.enableMinPriceBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.enableMinPriceBox.AutoSize = true;
             this.enableMinPriceBox.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.enableMinPriceBox.Location = new System.Drawing.Point(364, 22);
+            this.enableMinPriceBox.Location = new System.Drawing.Point(607, 24);
             this.enableMinPriceBox.Name = "enableMinPriceBox";
             this.enableMinPriceBox.Size = new System.Drawing.Size(15, 14);
             this.enableMinPriceBox.TabIndex = 3;
@@ -496,9 +576,9 @@
             this.orderGroup.Controls.Add(this.label4);
             this.orderGroup.Controls.Add(this.orderBox);
             this.orderGroup.Dock = System.Windows.Forms.DockStyle.Right;
-            this.orderGroup.Location = new System.Drawing.Point(704, 0);
+            this.orderGroup.Location = new System.Drawing.Point(798, 0);
             this.orderGroup.Name = "orderGroup";
-            this.orderGroup.Size = new System.Drawing.Size(226, 115);
+            this.orderGroup.Size = new System.Drawing.Size(237, 145);
             this.orderGroup.TabIndex = 1;
             this.orderGroup.TabStop = false;
             this.orderGroup.Text = "Sırala";
@@ -507,11 +587,11 @@
             // 
             this.newButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.newButton.Location = new System.Drawing.Point(6, 87);
+            this.newButton.Location = new System.Drawing.Point(6, 117);
             this.newButton.Name = "newButton";
-            this.newButton.Size = new System.Drawing.Size(214, 22);
+            this.newButton.Size = new System.Drawing.Size(225, 22);
             this.newButton.TabIndex = 4;
-            this.newButton.Text = "Yeni Bellek Ekle";
+            this.newButton.Text = "Yeni Anakart Ekle";
             this.newButton.UseVisualStyleBackColor = true;
             this.newButton.Click += new System.EventHandler(this.newButton_Click);
             // 
@@ -563,17 +643,19 @@
             "Marka ismine göre (Z-A)",
             "Fiyata göre (En ucuz)",
             "Fiyata göre (En pahalı)",
-            "Tipe göre (A-Z)",
-            "Tipe göre (Z-A)",
-            "Hıza/Bant Genişliğine göre (En yavaş)",
-            "Hıza/Bant Genişliğine göre (En hızlı)",
-            "Kapasiteye göre (En az)",
-            "Kapasiteye göre (En çok)",
-            "Modül sayısına göre (En az)",
-            "Modül sayısına göre (En çok)"});
+            "Bellek tipine göre (A-Z)",
+            "Bellek tipine göre (Z-A)",
+            "Bellek slot sayısına göre (En az)",
+            "Bellek slot sayısına göre (En çok)",
+            "Maks. bellek kapasitesine göre (En az)",
+            "Maks. bellek kapasitesine göre (En çok)",
+            "Maks. bellek hızına göre (En az)",
+            "Maks. bellek hızına göre (En çok)",
+            "Form faktörüne göre (A-Z)",
+            "Form faktörüne göre (Z-A)"});
             this.orderBox.Location = new System.Drawing.Point(6, 22);
             this.orderBox.Name = "orderBox";
-            this.orderBox.Size = new System.Drawing.Size(214, 21);
+            this.orderBox.Size = new System.Drawing.Size(225, 21);
             this.orderBox.TabIndex = 0;
             // 
             // controlPanel
@@ -581,9 +663,9 @@
             this.controlPanel.Controls.Add(this.countLabel);
             this.controlPanel.Controls.Add(this.mainButton);
             this.controlPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.controlPanel.Location = new System.Drawing.Point(0, 634);
+            this.controlPanel.Location = new System.Drawing.Point(0, 664);
             this.controlPanel.Name = "controlPanel";
-            this.controlPanel.Size = new System.Drawing.Size(930, 22);
+            this.controlPanel.Size = new System.Drawing.Size(1035, 22);
             this.controlPanel.TabIndex = 3;
             // 
             // countLabel
@@ -591,7 +673,7 @@
             this.countLabel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.countLabel.Location = new System.Drawing.Point(0, 0);
             this.countLabel.Name = "countLabel";
-            this.countLabel.Size = new System.Drawing.Size(855, 22);
+            this.countLabel.Size = new System.Drawing.Size(960, 22);
             this.countLabel.TabIndex = 0;
             this.countLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
@@ -599,7 +681,7 @@
             // 
             this.mainButton.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.mainButton.Dock = System.Windows.Forms.DockStyle.Right;
-            this.mainButton.Location = new System.Drawing.Point(855, 0);
+            this.mainButton.Location = new System.Drawing.Point(960, 0);
             this.mainButton.Name = "mainButton";
             this.mainButton.Size = new System.Drawing.Size(75, 22);
             this.mainButton.TabIndex = 1;
@@ -611,10 +693,10 @@
             // 
             this.navigationPanel.Controls.Add(this.navigationSubPanel);
             this.navigationPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.navigationPanel.Location = new System.Drawing.Point(0, 606);
+            this.navigationPanel.Location = new System.Drawing.Point(0, 636);
             this.navigationPanel.Name = "navigationPanel";
             this.navigationPanel.Padding = new System.Windows.Forms.Padding(3);
-            this.navigationPanel.Size = new System.Drawing.Size(930, 28);
+            this.navigationPanel.Size = new System.Drawing.Size(1035, 28);
             this.navigationPanel.TabIndex = 2;
             // 
             // navigationSubPanel
@@ -626,7 +708,7 @@
             this.navigationSubPanel.Controls.Add(this.previousPageButton);
             this.navigationSubPanel.Controls.Add(this.firstPageButton);
             this.navigationSubPanel.Controls.Add(this.pageCountLabel);
-            this.navigationSubPanel.Location = new System.Drawing.Point(365, 3);
+            this.navigationSubPanel.Location = new System.Drawing.Point(417, 3);
             this.navigationSubPanel.Name = "navigationSubPanel";
             this.navigationSubPanel.Size = new System.Drawing.Size(201, 22);
             this.navigationSubPanel.TabIndex = 0;
@@ -712,10 +794,10 @@
             this.listPanelBorder.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.listPanelBorder.Controls.Add(this.listPanel);
             this.listPanelBorder.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.listPanelBorder.Location = new System.Drawing.Point(0, 115);
+            this.listPanelBorder.Location = new System.Drawing.Point(0, 145);
             this.listPanelBorder.Name = "listPanelBorder";
             this.listPanelBorder.Padding = new System.Windows.Forms.Padding(3);
-            this.listPanelBorder.Size = new System.Drawing.Size(930, 491);
+            this.listPanelBorder.Size = new System.Drawing.Size(1035, 491);
             this.listPanelBorder.TabIndex = 1;
             // 
             // listPanel
@@ -726,34 +808,36 @@
             this.listPanel.Location = new System.Drawing.Point(3, 3);
             this.listPanel.Name = "listPanel";
             this.listPanel.Padding = new System.Windows.Forms.Padding(5);
-            this.listPanel.Size = new System.Drawing.Size(924, 485);
+            this.listPanel.Size = new System.Drawing.Size(1029, 485);
             this.listPanel.TabIndex = 0;
             // 
-            // MemoryListView
+            // MotherboardListView
             // 
             this.AcceptButton = this.applyFilterButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.mainButton;
-            this.ClientSize = new System.Drawing.Size(930, 656);
+            this.ClientSize = new System.Drawing.Size(1035, 686);
             this.Controls.Add(this.listPanelBorder);
             this.Controls.Add(this.navigationPanel);
             this.Controls.Add(this.controlPanel);
             this.Controls.Add(this.filterPanel);
             this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MinimumSize = new System.Drawing.Size(946, 670);
-            this.Name = "MemoryListView";
+            this.MinimumSize = new System.Drawing.Size(1051, 725);
+            this.Name = "MotherboardListView";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Picker | Bellekler";
-            this.Load += new System.EventHandler(this.MemoryListView_Load);
+            this.Text = "Picker | Anakartlar";
+            this.Load += new System.EventHandler(this.MotherboardListView_Load);
             this.filterPanel.ResumeLayout(false);
             this.filterGroup.ResumeLayout(false);
             this.filterGroup.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.maxCapacityBox)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.minCapacityBox)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.maxFrequencyBox)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.minFrequencyBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.maxMemorySlotsBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.minMemorySlotsBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.maxMaxMemoryBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.minMaxMemoryBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.maxMaxMemoryFrequencyBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.minMaxMemoryFrequencyBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.maxPriceBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.minPriceBox)).EndInit();
             this.orderGroup.ResumeLayout(false);
@@ -792,7 +876,6 @@
         private System.Windows.Forms.Button firstPageButton;
         private System.Windows.Forms.TextBox nameBox;
         private System.Windows.Forms.TextBox brandBox;
-        private System.Windows.Forms.CheckBox bufferedBox;
         private System.Windows.Forms.CheckBox eccBox;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
@@ -801,21 +884,30 @@
         private System.Windows.Forms.CheckBox enableMaxPriceBox;
         private System.Windows.Forms.CheckBox enableMinPriceBox;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.NumericUpDown minFrequencyBox;
-        private System.Windows.Forms.CheckBox enableMinFrequencyBox;
+        private System.Windows.Forms.NumericUpDown minMaxMemoryFrequencyBox;
+        private System.Windows.Forms.CheckBox enableMinMaxMemoryFrequencyBox;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.ComboBox typeBox;
-        private System.Windows.Forms.NumericUpDown maxFrequencyBox;
-        private System.Windows.Forms.CheckBox enableMaxFrequencyBox;
+        private System.Windows.Forms.ComboBox memoryTypeBox;
+        private System.Windows.Forms.NumericUpDown maxMaxMemoryFrequencyBox;
+        private System.Windows.Forms.CheckBox enableMaxMaxMemoryFrequencyBox;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.NumericUpDown maxCapacityBox;
-        private System.Windows.Forms.CheckBox enableMaxCapacityBox;
-        private System.Windows.Forms.CheckBox enableMinCapacityBox;
-        private System.Windows.Forms.NumericUpDown minCapacityBox;
+        private System.Windows.Forms.NumericUpDown maxMaxMemoryBox;
+        private System.Windows.Forms.CheckBox enableMaxMaxMemoryBox;
+        private System.Windows.Forms.CheckBox enableMinMaxMemoryBox;
+        private System.Windows.Forms.NumericUpDown minMaxMemoryBox;
         private System.Windows.Forms.CheckBox compatiblesBox;
         private System.Windows.Forms.Button clearFilterButton;
-        private System.Windows.Forms.ComboBox countBox;
-        private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Button newButton;
+        private System.Windows.Forms.TextBox chipsetBox;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox formFactorBox;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TextBox socketBox;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.NumericUpDown maxMemorySlotsBox;
+        private System.Windows.Forms.CheckBox enableMaxMemorySlotsBox;
+        private System.Windows.Forms.CheckBox enableMinMemorySlotsBox;
+        private System.Windows.Forms.NumericUpDown minMemorySlotsBox;
+        private System.Windows.Forms.Label label12;
     }
 }

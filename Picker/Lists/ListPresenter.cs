@@ -16,19 +16,16 @@
         where TEntityView : Form, IEntityView
         where TItemView : UserControl, IItemView<TEntity>
     {
+        public Build Build { get; }
         public bool GeneratingList { get; private set; }
         protected abstract Panel ListPanel { get; }
-        protected Build Build { get; }
         public TEntity SelectedEntity { get; private set; }
 
         protected ListPresenter(bool adminMode) : base(adminMode)
         {
         }
 
-        protected ListPresenter(Build build) : base(build == null)
-        {
-            Build = build;
-        }
+        protected ListPresenter(Build build) : base(build == null) => Build = build;
 
         public async Task AddItemAsync()
         {
@@ -130,7 +127,8 @@
 
         protected abstract Task LoadRelationsAsync(DbEntityEntry<TEntity> entry);
 
-        public async Task<List<TEntity>> RunQueryAsync(IQueryable<TEntity> query, int totalItemCount, bool paging)
+        public async Task<List<TEntity>> RunQueryAsync(IQueryable<TEntity> query,
+            int totalItemCount, bool paging)
         {
             var itemCount = await query.CountAsync();
             var pageCount = itemCount / View.ItemPerPage;

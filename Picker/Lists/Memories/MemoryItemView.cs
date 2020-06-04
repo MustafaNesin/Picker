@@ -26,14 +26,22 @@
 
         private async void deleteButton_Click(object sender, EventArgs e)
         {
-            if (!_presenter.GeneratingList)
-                await _presenter.DeleteItemAsync(_entity);
+            if (_presenter.GeneratingList)
+                return;
+
+            if (MessageBox.Show("Bu kaydı silmek istediğinize emin misiniz?", _entity.Name,
+                MessageBoxButtons.YesNo, MessageBoxIcon.Question,
+                MessageBoxDefaultButton.Button2) == DialogResult.No)
+                return;
+
+            await _presenter.DeleteItemAsync(_entity);
         }
 
         private async void entity_Click(object sender, EventArgs e)
         {
             if (_presenter.GeneratingList)
                 return;
+
             await using var presenter = new MemoryPresenter(_entity, false);
             presenter.ShowView();
         }
@@ -42,6 +50,7 @@
         {
             if (_presenter.GeneratingList)
                 return;
+
             if (_presenter.AdminMode)
                 await _presenter.EditItemAsync(this, _entity);
             else
@@ -64,7 +73,9 @@
             typeLabel.Text = entity.Type;
             capacityLabel.Text = entity.Capacity + " GB";
             frequencyLabel.Text = entity.Frequency + " MHz";
-            bandwidthLabel.Text = entity.GetBandwidth() + " MB/s";
+            bandwidthLabel.Text = "Bant Genişliği: " +
+                                  (entity.GetBandwidth() / 1000d).ToString("0.##") + " GB/s";
+
             eccLabel.ForeColor = entity.HasECC ? Color.Green : Color.Red;
             bufferedLabel.ForeColor = entity.IsBuffered ? Color.Green : Color.Red;
 

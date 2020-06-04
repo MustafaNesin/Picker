@@ -31,7 +31,7 @@
 
         public string EntityName
         {
-            get => string.IsNullOrWhiteSpace(MemoryModel) 
+            get => string.IsNullOrWhiteSpace(MemoryModel)
                 ? MemoryModel
                 : $"{MemoryBrand.Name} {MemoryModel} {MemoryCapacity * MemoryCount} GB " +
                   $"({MemoryCount} x {MemoryCapacity} GB) {MemoryType}-{MemoryFrequency}";
@@ -47,28 +47,10 @@
                     return;
 
                 _brand = value;
-                brandBox.Text = value.Name;
-                brandBox.BackColor = selectImageButton.BackColor =
+                brandButton.Text = value.Name;
+                brandButton.BackColor = selectImageButton.BackColor =
                     acceptButton.BackColor = cancelButton.BackColor = value.Color;
             }
-        }
-
-        public string MemoryModel
-        {
-            get => modelBox.Text;
-            set => modelBox.Text = value;
-        }
-
-        public decimal MemoryPrice
-        {
-            get => priceBox.Value;
-            set => priceBox.Value = value;
-        }
-
-        public string MemoryType
-        {
-            get => typeBox.Text.ToUpper();
-            set => typeBox.Text = value;
         }
 
         public int MemoryCapacity
@@ -101,6 +83,24 @@
             set => bufferedBox.Checked = value;
         }
 
+        public string MemoryModel
+        {
+            get => modelBox.Text;
+            set => modelBox.Text = value;
+        }
+
+        public decimal MemoryPrice
+        {
+            get => priceBox.Value;
+            set => priceBox.Value = value;
+        }
+
+        public string MemoryType
+        {
+            get => typeBox.Text.ToUpper();
+            set => typeBox.Text = value;
+        }
+
         public MemoryView(MemoryPresenter presenter)
         {
             InitializeComponent();
@@ -113,7 +113,7 @@
                 DialogResult = DialogResult.None;
         }
 
-        private async void brandBox_Click(object sender, EventArgs e)
+        private async void brandButton_Click(object sender, EventArgs e)
         {
             if (_presenter.AdminMode)
             {
@@ -132,15 +132,13 @@
 
         private void deleteImageButton_Click(object sender, EventArgs e) => EntityImage = null;
 
-        private void selectImageButton_Click(object sender, EventArgs e)
-        {
-            string fileName;
+        private void frequencyBox_ValueChanged(object sender, EventArgs e)
+            => bandwidthLabel.Text = "MHz, Bant Genişliği: " +
+                                     (DatabaseUtilities.GetBandwidth((int)frequencyBox.Value, 64) /
+                                      1000d).ToString("0.##") + " GB/s";
 
-            if ((fileName = DatabaseUtilities.ShowImageDialog()) == null)
-                return;
-
-            EntityImage = Utilities.TryLoadImage(fileName);
-        }
+        private void kit_ValueChanged(object sender, EventArgs e)
+            => capacityLabel.Text = "GB = " + (int)countBox.Value * (int)capacityBox.Value + " GB";
 
         private void MemoryView_FormClosed(object sender, FormClosedEventArgs e)
         {
@@ -159,12 +157,14 @@
             entityPanel.MakeReadOnly();
         }
 
-        private void frequencyBox_ValueChanged(object sender, EventArgs e)
-            => bandwidthLabel.Text = "MHz, Bant Genişliği: " +
-                                     DatabaseUtilities.GetBandwidth((int)frequencyBox.Value, 64) +
-                                     " MB/s";
+        private void selectImageButton_Click(object sender, EventArgs e)
+        {
+            string fileName;
 
-        private void kit_ValueChanged(object sender, EventArgs e)
-            => capacityLabel.Text = "GB = " + (int)countBox.Value * (int)capacityBox.Value + " GB";
+            if ((fileName = DatabaseUtilities.ShowImageDialog()) == null)
+                return;
+
+            EntityImage = Utilities.TryLoadImage(fileName);
+        }
     }
 }

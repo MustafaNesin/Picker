@@ -72,11 +72,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CompabilityNote.cs" />
     <Compile Include="Entities\Brands\BrandView.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Entities\Brands\BrandView.Designer.cs">
       <DependentUpon>BrandView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Builds\IBuildView.cs" />
+    <Compile Include="Entities\Builds\BuildPresenter.cs" />
+    <Compile Include="Entities\Builds\BuildView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Entities\Builds\BuildView.Designer.cs">
+      <DependentUpon>BuildView.cs</DependentUpon>
     </Compile>
     <Compile Include="Entities\Chipsets\IChipsetView.cs" />
     <Compile Include="Entities\Chipsets\ChipsetPresenter.cs" />
@@ -87,6 +96,14 @@
       <DependentUpon>ChipsetView.cs</DependentUpon>
     </Compile>
     <Compile Include="Entities\EntityPresenter.cs" />
+    <Compile Include="Entities\GraphicsCards\IGraphicsCardView.cs" />
+    <Compile Include="Entities\GraphicsCards\GraphicsCardPresenter.cs" />
+    <Compile Include="Entities\GraphicsCards\GraphicsCardView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Entities\GraphicsCards\GraphicsCardView.Designer.cs">
+      <DependentUpon>GraphicsCardView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Entities\IEntityView.cs" />
     <Compile Include="Entities\Memories\IMemoryView.cs" />
     <Compile Include="Entities\Memories\MemoryPresenter.cs" />
@@ -95,6 +112,14 @@
     </Compile>
     <Compile Include="Entities\Memories\MemoryView.Designer.cs">
       <DependentUpon>MemoryView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Motherboards\IMotherboardView.cs" />
+    <Compile Include="Entities\Motherboards\MotherboardPresenter.cs" />
+    <Compile Include="Entities\Motherboards\MotherboardView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Entities\Motherboards\MotherboardView.Designer.cs">
+      <DependentUpon>MotherboardView.cs</DependentUpon>
     </Compile>
     <Compile Include="Entities\Sockets\SocketView.cs">
       <SubType>Form</SubType>
@@ -133,6 +158,21 @@
     <Compile Include="Lists\Chipsets\ChipsetListView.Designer.cs">
       <DependentUpon>ChipsetListView.cs</DependentUpon>
     </Compile>
+    <Compile Include="Lists\GraphicsCards\IGraphicsCardItemView.cs" />
+    <Compile Include="Lists\GraphicsCards\IGraphicsCardListView.cs" />
+    <Compile Include="Lists\GraphicsCards\GraphicsCardItemView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Lists\GraphicsCards\GraphicsCardItemView.Designer.cs">
+      <DependentUpon>GraphicsCardItemView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Lists\GraphicsCards\GraphicsCardListPresenter.cs" />
+    <Compile Include="Lists\GraphicsCards\GraphicsCardListView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Lists\GraphicsCards\GraphicsCardListView.Designer.cs">
+      <DependentUpon>GraphicsCardListView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Lists\IItemView.cs" />
     <Compile Include="Lists\IListView.cs" />
     <Compile Include="Lists\Memories\IMemoryItemView.cs" />
@@ -149,6 +189,21 @@
     </Compile>
     <Compile Include="Lists\Memories\MemoryListView.Designer.cs">
       <DependentUpon>MemoryListView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Lists\Motherboards\IMotherboardItemView.cs" />
+    <Compile Include="Lists\Motherboards\IMotherboardListView.cs" />
+    <Compile Include="Lists\Motherboards\MotherboardItemView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Lists\Motherboards\MotherboardItemView.Designer.cs">
+      <DependentUpon>MotherboardItemView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Lists\Motherboards\MotherboardListPresenter.cs" />
+    <Compile Include="Lists\Motherboards\MotherboardListView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Lists\Motherboards\MotherboardListView.Designer.cs">
+      <DependentUpon>MotherboardListView.cs</DependentUpon>
     </Compile>
     <Compile Include="Lists\Sockets\SocketItemView.cs">
       <SubType>UserControl</SubType>
@@ -194,11 +249,20 @@
     <EmbeddedResource Include="Entities\Brands\BrandView.resx">
       <DependentUpon>BrandView.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Entities\Builds\BuildView.resx">
+      <DependentUpon>BuildView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Entities\Chipsets\ChipsetView.resx">
       <DependentUpon>ChipsetView.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Entities\GraphicsCards\GraphicsCardView.resx">
+      <DependentUpon>GraphicsCardView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Entities\Memories\MemoryView.resx">
       <DependentUpon>MemoryView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Entities\Motherboards\MotherboardView.resx">
+      <DependentUpon>MotherboardView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Entities\Sockets\SocketView.resx">
       <DependentUpon>SocketView.cs</DependentUpon>
@@ -216,12 +280,26 @@
     <EmbeddedResource Include="Lists\Chipsets\ChipsetListView.resx">
       <DependentUpon>ChipsetListView.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Lists\GraphicsCards\GraphicsCardItemView.resx">
+      <DependentUpon>GraphicsCardItemView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Lists\GraphicsCards\GraphicsCardListView.resx">
+      <DependentUpon>GraphicsCardListView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Lists\Memories\MemoryItemView.resx">
       <DependentUpon>MemoryItemView.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Lists\Memories\MemoryListView.resx">
       <DependentUpon>MemoryListView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Lists\Motherboards\MotherboardItemView.resx">
+      <DependentUpon>MotherboardItemView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Lists\Motherboards\MotherboardListView.resx">
+      <DependentUpon>MotherboardListView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Lists\Sockets\SocketItemView.resx">
       <DependentUpon>SocketItemView.cs</DependentUpon>
@@ -272,8 +350,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Lists\Builds\" />
-    <Folder Include="Lists\GraphicsCards\" />
-    <Folder Include="Lists\Motherboards\" />
     <Folder Include="Lists\Processors\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -26,31 +26,35 @@ namespace Picker
         public bool IsCompatibleWith(Motherboard motherboard)
             => IsCompatibleWith(motherboard, out var messages);
 
-        public bool IsCompatibleWith(Motherboard motherboard, out List<string> messages)
+        public bool IsCompatibleWith(Motherboard motherboard, out List<CompabilityNote> issues)
         {
-            messages = new List<string>();
+            issues = new List<CompabilityNote>();
             return true;
         }
+
         public bool IsCompatibleWith(Processor processor)
             => IsCompatibleWith(processor, out var messages);
-        public bool IsCompatibleWith(Processor processor, out List<string> messages)
+
+        public bool IsCompatibleWith(Processor processor, out List<CompabilityNote> issues)
         {
-            messages = new List<string>();
+            issues = new List<CompabilityNote>();
             return true;
         }
 
         public bool IsCompatibleWith(GraphicsCard graphicsCard)
             => IsCompatibleWith(graphicsCard, out var messages);
-        public bool IsCompatibleWith(GraphicsCard graphicsCard, out List<string> messages)
+
+        public bool IsCompatibleWith(GraphicsCard graphicsCard, out List<CompabilityNote> issues)
         {
-            messages = new List<string>();
+            issues = new List<CompabilityNote>();
             return true;
         }
-        public bool IsCompatibleWith(Memory memory)
-            => IsCompatibleWith(memory, out var messages);
-        public bool IsCompatibleWith(Memory memory, out List<string> messages)
+
+        public bool IsCompatibleWith(Memory memory) => IsCompatibleWith(memory, out var messages);
+
+        public bool IsCompatibleWith(Memory memory, out List<CompabilityNote> issues)
         {
-            messages = new List<string>();
+            issues = new List<CompabilityNote>();
             return true;
         }
     }

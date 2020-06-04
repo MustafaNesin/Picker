@@ -33,7 +33,7 @@
             this.cancelButton = new System.Windows.Forms.Button();
             this.acceptButton = new System.Windows.Forms.Button();
             this.entityPanel = new System.Windows.Forms.Panel();
-            this.brandBox = new System.Windows.Forms.Button();
+            this.brandButton = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.nameBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -92,7 +92,7 @@
             // 
             // entityPanel
             // 
-            this.entityPanel.Controls.Add(this.brandBox);
+            this.entityPanel.Controls.Add(this.brandButton);
             this.entityPanel.Controls.Add(this.label2);
             this.entityPanel.Controls.Add(this.nameBox);
             this.entityPanel.Controls.Add(this.label1);
@@ -102,22 +102,22 @@
             this.entityPanel.Size = new System.Drawing.Size(310, 135);
             this.entityPanel.TabIndex = 0;
             // 
-            // brandBox
+            // brandButton
             // 
-            this.brandBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.brandButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.brandBox.BackColor = System.Drawing.Color.Green;
-            this.brandBox.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.brandBox.FlatAppearance.BorderSize = 0;
-            this.brandBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.brandBox.ForeColor = System.Drawing.Color.White;
-            this.brandBox.Location = new System.Drawing.Point(94, 42);
-            this.brandBox.Name = "brandBox";
-            this.brandBox.Size = new System.Drawing.Size(204, 23);
-            this.brandBox.TabIndex = 3;
-            this.brandBox.Text = "Marka Seç...";
-            this.brandBox.UseVisualStyleBackColor = false;
-            this.brandBox.Click += new System.EventHandler(this.brandBox_Click);
+            this.brandButton.BackColor = System.Drawing.Color.Green;
+            this.brandButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.brandButton.FlatAppearance.BorderSize = 0;
+            this.brandButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.brandButton.ForeColor = System.Drawing.Color.White;
+            this.brandButton.Location = new System.Drawing.Point(94, 42);
+            this.brandButton.Name = "brandButton";
+            this.brandButton.Size = new System.Drawing.Size(204, 23);
+            this.brandButton.TabIndex = 3;
+            this.brandButton.Text = "Marka Seç...";
+            this.brandButton.UseVisualStyleBackColor = false;
+            this.brandButton.Click += new System.EventHandler(this.brandButton_Click);
             // 
             // label2
             // 
@@ -242,7 +242,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox nameBox;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button brandBox;
+        private System.Windows.Forms.Button brandButton;
         private System.Windows.Forms.PictureBox imageBox;
         private System.Windows.Forms.Button selectImageButton;
         private System.Windows.Forms.Button deleteImageButton;
