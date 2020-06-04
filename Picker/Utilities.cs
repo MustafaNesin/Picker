@@ -1,14 +1,19 @@
 ﻿namespace Picker
 {
     using System;
+    using System.Collections.Generic;
     using System.ComponentModel;
+    using System.Data.Entity;
+    using System.Data.Entity.Infrastructure;
     using System.Data.SqlClient;
     using System.Diagnostics;
     using System.Drawing;
     using System.Globalization;
     using System.IO;
     using System.Linq;
+    using System.Linq.Expressions;
     using System.Reflection;
+    using System.Threading.Tasks;
     using System.Windows.Forms;
 
     // @formatter:off
@@ -264,21 +269,28 @@
     }
     // @formatter:on
 
-    public static class Utilities
+    public static class DatabaseUtilities
     {
-        public const string ImagePathFormat = @"assets\{0}\{1}.png";
-        private static object[] _countryNames;
+        public const string AssetsDirectory = "assets";
+        public const string BrandImagesDirectory = AssetsDirectory + "\\brands";
+        public const string BuildImagesDirectory = AssetsDirectory + "\\builds";
+        public const string ChipsetImagesDirectory = AssetsDirectory + "\\chipsets";
+        public const string GraphicsCardImagesDirectory = AssetsDirectory + "\\graphics";
+        public const string MemoryImagesDirectory = AssetsDirectory + "\\memories";
+        public const string MotherboardImagesDirectory = AssetsDirectory + "\\motherboards";
+        public const string ProcessorImagesDirectory = AssetsDirectory + "\\processors";
+        public const string SocketImagesDirectory = AssetsDirectory + "\\sockets";
 
         public static void CheckAssets()
         {
-            Directory.CreateDirectory(@"assets\brands");
-            Directory.CreateDirectory(@"assets\builds");
-            Directory.CreateDirectory(@"assets\chipsets");
-            Directory.CreateDirectory(@"assets\graphics");
-            Directory.CreateDirectory(@"assets\memories");
-            Directory.CreateDirectory(@"assets\motherboards");
-            Directory.CreateDirectory(@"assets\processors");
-            Directory.CreateDirectory(@"assets\sockets");
+            Directory.CreateDirectory(BrandImagesDirectory);
+            Directory.CreateDirectory(BuildImagesDirectory);
+            Directory.CreateDirectory(ChipsetImagesDirectory);
+            Directory.CreateDirectory(GraphicsCardImagesDirectory);
+            Directory.CreateDirectory(MemoryImagesDirectory);
+            Directory.CreateDirectory(MotherboardImagesDirectory);
+            Directory.CreateDirectory(ProcessorImagesDirectory);
+            Directory.CreateDirectory(SocketImagesDirectory);
         }
 
         public static bool CheckDatabase()
@@ -286,23 +298,23 @@
             try
             {
                 using var context = new ComputerDatabaseContext();
-
                 if (!context.Database.Exists())
                 {
-                    RecursiveDelete("assets");
+                    Utilities.RecursiveDelete("assets");
                     context.Database.Create();
                 }
                 else if (!context.Database.CompatibleWithModel(false))
                 {
-                    var result = ShowError(
-                        "Mevcut veri tabanı eski ve programda kullanılan modelle uyuşmuyor.\r\n" +
+                    var result = Utilities.ShowError(
+                        "Mevcut veri tabanı eski ve programda kullanılan modelle uyuşmuyor." +
+                        Environment.NewLine +
                         "Yeni bir veri tabanı oluşturmak için eski veri tabanı silinsin mi?",
                         MessageBoxButtons.YesNo);
 
                     if (result == DialogResult.No)
                         return false;
 
-                    RecursiveDelete("assets");
+                    Utilities.RecursiveDelete("assets");
                     context.Database.Delete();
                     context.Database.Create();
                 }
@@ -311,12 +323,127 @@
             }
             catch (SqlException e) when (e.Number == 3702)
             {
-                ShowError("Veri tabanı şu anda kullanıldığı için silinemiyor. " +
-                          "Diğer bağlantıları kapattıktan sonra veri tabanını silin.");
-
-                return false;
+                Utilities.ShowError("Veri tabanı şu anda kullanıldığı için silinemiyor. " +
+                                    "Diğer bağlantıları kapattıktan sonra veri tabanını silin.");
             }
+            catch (SqlException e)
+            {
+                MessageBox.Show(e.ToString(), "SqlException: " + e.Number, MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
+            catch (Exception e)
+            {
+                Utilities.ShowError(e.ToString());
+            }
+
+            return false;
         }
+
+        internal static async Task<bool> EnsureRelationshipsAsync
+            <TEntity>(this ComputerDatabaseContext context, DbEntityEntry<TEntity> entityEntry)
+            where TEntity : Entity
+        {
+            string modelName;
+            var relatedModels = new List<(string relatedModel, int count)>();
+
+            switch (entityEntry)
+            {
+                case DbEntityEntry<Brand> brand:
+                    modelName = "marka";
+                    relatedModels.Add(("yonga seti", await brand.GetCountAsync(t => t.Chipsets)));
+                    relatedModels.Add(("ekran kartı",
+                        await brand.GetCountAsync(t => t.GraphicsCards)));
+
+                    relatedModels.Add(("ekran kartı yonga seti",
+                        await brand.GetCountAsync(t => t.GraphicsCardChipsets)));
+
+                    relatedModels.Add(("bellek", await brand.GetCountAsync(t => t.Memories)));
+                    relatedModels.Add(("anakart", await brand.GetCountAsync(t => t.Motherboards)));
+                    relatedModels.Add(("işlemci", await brand.GetCountAsync(t => t.Processors)));
+                    relatedModels.Add(("soket", await brand.GetCountAsync(t => t.Sockets)));
+                    break;
+                case DbEntityEntry<Chipset> chipset:
+                    modelName = "yonga seti";
+                    relatedModels.Add(("anakart",
+                        await chipset.GetCountAsync(t => t.Motherboards)));
+
+                    break;
+                case DbEntityEntry<Socket> socket:
+                    modelName = "soket";
+                    relatedModels.Add(("anakart", await socket.GetCountAsync(t => t.Motherboards)));
+                    relatedModels.Add(("işlemci", await socket.GetCountAsync(t => t.Processors)));
+                    break;
+                default:
+                    return true;
+            }
+
+            var relationList = new List<string>();
+            foreach (var (relatedModel, count) in relatedModels)
+                if (count > 0)
+                    relationList.Add($"{count} {relatedModel}");
+
+            if (relationList.Count == 0)
+                return true;
+
+            string relations;
+            if (relationList.Count == 1)
+                relations = relationList.Single();
+            else
+                relations = string.Join(", ", relationList.ToArray(), 0, relationList.Count - 1) + " ve " +
+                            relationList.Last();
+
+            Utilities.ShowError($"Silmek istediğiniz '{entityEntry.Entity.Name}' adına sahip " +
+                                $"{modelName} kaydına bağlı {relations} var.\r\n" +
+                                $"Lütfen '{entityEntry.Entity.Name}' kaydını silmek için önce " +
+                                "bu kayıtları silin.");
+
+            return false;
+        }
+
+        private static async Task<int> GetCountAsync<TEntity, TElement>(
+            this DbEntityEntry<TEntity> entry,
+            Expression<Func<TEntity, ICollection<TElement>>> navigationProperty)
+            where TElement : class
+            where TEntity : Entity
+            => await entry.Collection(navigationProperty).Query().CountAsync();
+
+        public static int GetPumpRate(string memoryType)
+            => memoryType != null
+                ? memoryType.ToUpper() switch
+                {
+                    "SDR" => 1,
+                    "HBM" => 2,
+                    "HBM2" => 2,
+                    "DDR" => 2,
+                    "DDR2" => 2,
+                    "DDR3" => 2,
+                    "DDR4" => 2,
+                    "GDDR" => 2,
+                    "GDDR2" => 2,
+                    "GDDR3" => 2,
+                    "GDDR4" => 2,
+                    "GDDR5" => 4,
+                    "GDDR5X" => 8,
+                    "GDDR6" => 8,
+                    _ => throw new ArgumentException(nameof(memoryType))
+                }
+                : throw new ArgumentNullException(nameof(memoryType));
+
+        public static string ShowImageDialog()
+        {
+            using var dialog = new OpenFileDialog
+            {
+                Title = "Bir resim dosyası seçin",
+                Filter = "Resim dosyaları|*.png;*.jpg;*.jpeg;*.bmp|Tüm dosyalar|*.*"
+            };
+
+            return dialog.ShowDialog() == DialogResult.OK ? dialog.FileName : null;
+        }
+    }
+
+    public static class Utilities
+    {
+        private static object[] _countryNames;
 
         public static void Clear(this Control.ControlCollection controls, bool dispose)
         {
@@ -325,6 +452,16 @@
                     controls[ix].Dispose();
                 else
                     controls.RemoveAt(ix);
+        }
+
+        public static void DisposeImage(this PictureBox pictureBox)
+        {
+            if (pictureBox.Image == null)
+                return;
+
+            var image = pictureBox.Image;
+            pictureBox.Image = null;
+            image.Dispose();
         }
 
         public static TValue GetAttributeValue<TAttribute, TValue>(this Type type,
@@ -375,27 +512,20 @@
             return description;
         }
 
-        public static int GetPumpRate(string memoryType)
-            => memoryType != null
-                ? memoryType.ToUpper() switch
-                {
-                    "SDR" => 1,
-                    "HBM" => 2,
-                    "HBM2" => 2,
-                    "DDR" => 2,
-                    "DDR2" => 2,
-                    "DDR3" => 2,
-                    "DDR4" => 2,
-                    "GDDR" => 2,
-                    "GDDR2" => 2,
-                    "GDDR3" => 2,
-                    "GDDR4" => 2,
-                    "GDDR5" => 4,
-                    "GDDR5X" => 8,
-                    "GDDR6" => 8,
-                    _ => throw new ArgumentException(nameof(memoryType))
-                }
-                : throw new ArgumentNullException(nameof(memoryType));
+        public static int GetSelectedIndex(this ComboBox comboBox) => comboBox.GetSelectedIndex(0);
+
+        public static int GetSelectedIndex(this ComboBox comboBox, int defaultIndex)
+        {
+            if (comboBox.Items.Count == 0)
+                throw new ArgumentOutOfRangeException();
+
+            return comboBox.SelectedIndex == -1 ? 0 : comboBox.SelectedIndex;
+        }
+
+        public static object GetSelectedItem(this ComboBox comboBox) => comboBox.GetSelectedItem(0);
+
+        public static object GetSelectedItem(this ComboBox comboBox, int defaultIndex)
+            => comboBox.Items[comboBox.GetSelectedIndex(defaultIndex)];
 
         public static string GetVersionString()
             => Assembly.GetExecutingAssembly().GetName().Version.GetVersionString();
@@ -417,6 +547,35 @@
         {
             using var bitmap = new Bitmap(imagePath);
             return new Bitmap(bitmap);
+        }
+
+        public static void MakeReadOnly(this Control control)
+        {
+            foreach (Control subControl in control.Controls)
+                subControl.MakeReadOnly();
+
+            if (control.Controls.Count > 0)
+                return;
+
+            switch (control)
+            {
+                case Label label:
+                case Button button:
+                    break;
+                case TextBox textBox:
+                    textBox.ReadOnly = true;
+                    break;
+                case CheckBox checkBox:
+                    checkBox.AutoCheck = false;
+                    break;
+                case NumericUpDown numericUpDown:
+                    numericUpDown.ReadOnly = true;
+                    numericUpDown.Increment = 0;
+                    break;
+                default:
+                    control.Enabled = false;
+                    break;
+            }
         }
 
         public static void RecursiveDelete(string directoryPath)
@@ -451,6 +610,19 @@
 
         public static string ToTitleCase(this string str)
             => CultureInfo.CurrentCulture.TextInfo.ToTitleCase(str);
+
+        public static Image TryLoadImage(string imagePath)
+        {
+            try
+            {
+                return LoadImage(imagePath);
+            }
+            catch
+            {
+                ShowError("Resim yüklenemedi.");
+                return null;
+            }
+        }
     }
 }
 

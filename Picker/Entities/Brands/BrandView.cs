@@ -3,6 +3,7 @@
     using System;
     using System.Drawing;
     using System.Windows.Forms;
+    using Properties;
 
     internal partial class BrandView : Form, IBrandView
     {
@@ -11,7 +12,7 @@
         public Color BrandColor
         {
             get => pickColorButton.BackColor;
-            set => pickColorButton.BackColor = uploadImageButton.BackColor =
+            set => pickColorButton.BackColor = selectImageButton.BackColor =
                 acceptButton.BackColor = cancelButton.BackColor = value;
         }
 
@@ -21,16 +22,29 @@
             set => countryBox.SelectedIndex = (int)value;
         }
 
-        public Image BrandImage
+        public Image EntityImage
         {
             get => imageBox.Image;
-            set => imageBox.Image = value;
+            set
+            {
+                imageBox.DisposeImage();
+
+                if (!_presenter.AdminMode)
+                {
+                    imageBox.Image = value ?? Resources.FavIcon64;
+                    return;
+                }
+
+                imageBox.Dock = value == null ? DockStyle.None : DockStyle.Top;
+                imageBox.Visible = deleteImageButton.Visible = value != null;
+                imageBox.Image = value;
+            }
         }
 
-        public string BrandName
+        public string EntityName
         {
             get => nameBox.Text;
-            set => nameBox.Text = value ?? string.Empty;
+            set => nameBox.Text = value;
         }
 
         public BrandView(BrandPresenter presenter)
@@ -42,9 +56,31 @@
 
         private void acceptButton_Click(object sender, EventArgs e)
         {
-            if (!_presenter.Validate())
+            if (_presenter.AdminMode && !_presenter.Validate())
                 DialogResult = DialogResult.None;
         }
+
+        private void BrandView_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if (_presenter.AdminMode && DialogResult == DialogResult.OK)
+                return;
+
+            EntityImage = null;
+        }
+
+        private void BrandView_Load(object sender, EventArgs e)
+        {
+            if (_presenter.AdminMode)
+                return;
+
+            Height = 160;
+            label3.Visible = pickColorButton.Visible = selectImageButton.Visible =
+                deleteImageButton.Visible = cancelButton.Visible = false;
+
+            entityPanel.MakeReadOnly();
+        }
+
+        private void deleteImageButton_Click(object sender, EventArgs e) => EntityImage = null;
 
         private void pickColorButton_Click(object sender, EventArgs e)
         {
@@ -56,27 +92,14 @@
             BrandColor = dialog.Color;
         }
 
-        private void uploadImageButton_Click(object sender, EventArgs e)
+        private void selectImageButton_Click(object sender, EventArgs e)
         {
-            using var dialog = new OpenFileDialog
-            {
-                Title = "Bir resim dosyası seçin",
-                Filter = "Resim dosyaları|*.png|Tüm dosyalar|*.*"
-            };
+            string fileName;
 
-            if (dialog.ShowDialog() == DialogResult.Cancel)
+            if ((fileName = DatabaseUtilities.ShowImageDialog()) == null)
                 return;
 
-            try
-            {
-                BrandImage?.Dispose();
-                BrandImage = Utilities.LoadImage(dialog.FileName);
-                _presenter.IsImageChanged = true;
-            }
-            catch
-            {
-                Utilities.ShowError("Resim yüklenemedi.");
-            }
+            EntityImage = Utilities.TryLoadImage(fileName);
         }
     }
 }

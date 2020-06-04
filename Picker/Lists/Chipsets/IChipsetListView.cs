@@ -1,6 +1,7 @@
 ﻿namespace Picker
 {
-    internal interface IChipsetListView : IListView<Chipset>
+    internal interface IChipsetListView : IListView
     {
+        string ChipsetBrand { get; }
     }
 }

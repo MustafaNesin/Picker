@@ -5,18 +5,41 @@
     using System.Windows.Forms;
 
     internal abstract class EntityPresenter<TView, TEntity> : Presenter<TView>
-        where TView : Form
-        where TEntity : class
+        where TView : Form, IEntityView
+        where TEntity : Entity
     {
-        protected ComputerDatabaseContext Context { get; }
         public TEntity Entity { get; }
-        public Image EntityImage { get; set; }
-        public bool IsImageChanged { get; set; }
 
-        protected EntityPresenter(TEntity entity)
+        protected EntityPresenter(TEntity entity, bool adminMode) : base(adminMode)
         {
             Entity = entity;
-            Context = new ComputerDatabaseContext();
+            View.EntityName = Entity.Name;
+            View.EntityImage = Entity.Id == 0 ? null : (Image)Entity.Image?.Clone();
+        }
+
+        public override DialogResult ShowView()
+        {
+            var result = base.ShowView();
+
+            if (AdminMode && result == DialogResult.OK)
+                UpdateEntity();
+
+            return result;
+        }
+
+        public bool ValidateName()
+        {
+            if (!string.IsNullOrWhiteSpace(View.EntityName))
+                return true;
+
+            Utilities.ShowError("Lütfen bir ad girin.");
+            return false;
+        }
+
+        protected virtual void UpdateEntity()
+        {
+            Entity.Image = View.EntityImage;
+            Entity.Name = View.EntityName;
         }
 
         #region Disposing
@@ -27,13 +50,7 @@
             if (_disposed)
                 return;
 
-            if (disposing)
-            {
-                if (ViewResult == DialogResult.OK)
-                    await Context.SaveChangesAsync();
-
-                Context.Dispose();
-            }
+            // if (disposing) ;
 
             _disposed = true;
             await base.DisposeAsync(disposing);

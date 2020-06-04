@@ -1,56 +1,70 @@
 ﻿namespace Picker
 {
     using System;
-    using System.Drawing;
     using System.Windows.Forms;
+    using Properties;
 
     internal partial class BrandItemView : UserControl, IBrandItemView
     {
-        private readonly Brand _brand;
         private readonly BrandListPresenter _presenter;
-        private Country _country;
+        private Brand _entity;
 
-        public Color BrandColor
-        {
-            get => BackColor;
-            set
-            {
-                itemPanel.BackColor = nameLabel.ForeColor = value;
-                foreach (Button button in controlPanel.Controls)
-                    button.BackColor = value;
-            }
-        }
-
-        public Country BrandCountry
-        {
-            get => _country;
-            set => countryLabel.Text = (_country = value).GetDescription();
-        }
-
-        public Image BrandImage
-        {
-            get => imageBox.Image;
-            set => imageBox.Image = value;
-        }
-
-        public string BrandName
-        {
-            get => nameLabel.Text;
-            set => nameLabel.Text = value;
-        }
-
-        public BrandItemView(BrandListPresenter presenter, Brand brand)
+        public BrandItemView(BrandListPresenter presenter)
         {
             InitializeComponent();
+            Disposed += OnDispose;
 
-            _brand = brand;
             _presenter = presenter;
+
+            if (presenter.AdminMode)
+                return;
+
+            mainButton.Text = "Seç";
+            deleteButton.Visible = false;
         }
 
         private async void deleteButton_Click(object sender, EventArgs e)
-            => await _presenter.DeleteItemAsync(this, _brand);
+        {
+            if (!_presenter.GeneratingList)
+                await _presenter.DeleteItemAsync(_entity);
+        }
 
-        private async void editButton_Click(object sender, EventArgs e)
-            => await _presenter.EditItemAsync(this, _brand);
+        private async void entity_Click(object sender, EventArgs e)
+        {
+            if (_presenter.GeneratingList)
+                return;
+            await using var presenter = new BrandPresenter(_entity, false);
+            presenter.ShowView();
+        }
+
+        private async void mainButton_Click(object sender, EventArgs e)
+        {
+            if (_presenter.GeneratingList)
+                return;
+            if (_presenter.AdminMode)
+                await _presenter.EditItemAsync(this, _entity);
+            else
+                _presenter.SelectEntity(_entity);
+        }
+
+        private void OnDispose(object sender, EventArgs e)
+        {
+            _entity.DisposeImage();
+            imageBox.DisposeImage();
+        }
+
+        public void UpdateView(Brand entity)
+        {
+            _entity = entity;
+            nameLabel.Text = entity.Name;
+            countryLabel.Text = entity.Country.GetDescription();
+
+            itemPanel.BackColor = nameLabel.ForeColor = entity.Color;
+            foreach (Button button in controlPanel.Controls)
+                button.BackColor = entity.Color;
+
+            imageBox.DisposeImage();
+            imageBox.Image = entity.Image ?? Resources.FavIcon64;
+        }
     }
 }

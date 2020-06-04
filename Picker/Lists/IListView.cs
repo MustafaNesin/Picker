@@ -1,9 +1,8 @@
 ﻿namespace Picker
 {
-    internal interface IListView<TEntity> : IView<TEntity>
-        where TEntity : Entity
+    internal interface IListView : IView
     {
-        bool GeneratingList { get; set; }
+        string EntityName { get; }
         int ItemPerPage { get; }
         int OrderIndex { get; set; }
         int PageCount { get; set; }

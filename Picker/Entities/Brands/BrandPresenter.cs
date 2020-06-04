@@ -1,67 +1,31 @@
 ﻿namespace Picker
 {
-    using System.IO;
-    using System.Linq;
     using System.Threading.Tasks;
-    using System.Windows.Forms;
 
     internal class BrandPresenter : EntityPresenter<BrandView, Brand>
     {
-        public BrandPresenter(Brand entity) : base(entity)
+        public BrandPresenter(Brand entity, bool adminMode) : base(entity, adminMode)
         {
-            View.BrandColor = entity.Color;
-            View.BrandName = entity.Name;
-            View.BrandCountry = entity.Country;
-
-            var imagePath = string.Format(Utilities.ImagePathFormat, "brands", entity.Id);
-            if (File.Exists(imagePath))
-            {
-                View.BrandImage?.Dispose();
-                View.BrandImage = Utilities.LoadImage(imagePath);
-            }
-
-            View.Text = string.IsNullOrEmpty(View.BrandName) ? "Yeni Marka" : View.BrandName;
+            View.Text = string.IsNullOrEmpty(Entity.Name) ? "Yeni Marka" : Entity.Name;
+            View.BrandColor = Entity.Color;
+            View.BrandCountry = Entity.Country;
         }
 
-        public bool IsBrandExist(string newName)
-            => Context.Brands.Any(brand
-                => string.IsNullOrEmpty(Entity.Name)
-                    ? brand.Name == newName
-                    : newName != Entity.Name && brand.Name == newName);
-
-        public override DialogResult ShowView()
+        protected override void UpdateEntity()
         {
-            var result = base.ShowView();
-
-            if (result == DialogResult.Cancel)
-            {
-                View.BrandImage?.Dispose();
-                return result;
-            }
-
             Entity.Color = View.BrandColor;
-            Entity.Name = View.BrandName;
             Entity.Country = View.BrandCountry;
-            EntityImage = View.BrandImage;
-
-            return result;
+            base.UpdateEntity();
         }
 
         public bool Validate()
         {
-            if (string.IsNullOrWhiteSpace(View.BrandName))
-                Utilities.ShowError("Lütfen bir ad girin.");
+            if ((int)View.BrandCountry != -1)
+                return ValidateName();
 
-            else if (IsBrandExist(View.BrandName))
-                Utilities.ShowError("Aynı adda bir marka zaten var.");
-
-            else if ((int)View.BrandCountry == -1)
-                Utilities.ShowError("Lütfen bir ülke seçin.");
-
-            else
-                return true;
-
+            Utilities.ShowError("Lütfen bir ülke seçin.");
             return false;
+
         }
 
         #region Disposing

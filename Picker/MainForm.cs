@@ -19,10 +19,10 @@
         [STAThread]
         private static void Main()
         {
-            if (!Utilities.CheckDatabase())
+            if (!DatabaseUtilities.CheckDatabase())
                 return;
 
-            Utilities.CheckAssets();
+            DatabaseUtilities.CheckAssets();
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
@@ -33,7 +33,7 @@
         {
             Hide();
 
-            await using (var presenter = new BrandListPresenter())
+            await using (var presenter = new BrandListPresenter(true))
                 presenter.ShowView();
 
             await SetCountToolTips();
@@ -44,8 +44,8 @@
         {
             Hide();
 
-            await using (var presenter = new BuildListPresenter())
-                presenter.ShowView();
+            /*await using (var presenter = new BuildListPresenter(true))
+                presenter.ShowView();*/
 
             await SetCountToolTips();
             Show();
@@ -55,7 +55,7 @@
         {
             Hide();
 
-            await using (var presenter = new ChipsetListPresenter())
+            await using (var presenter = new ChipsetListPresenter(true))
                 presenter.ShowView();
 
             await SetCountToolTips();
@@ -71,8 +71,8 @@
         {
             Hide();
 
-            await using (var presenter = new GraphicsCardListPresenter())
-                presenter.ShowView();
+            /*await using (var presenter = new GraphicsCardListPresenter(true))
+                presenter.ShowView();*/
 
             await SetCountToolTips();
             Show();
@@ -92,8 +92,8 @@
         {
             Hide();
 
-            await using (var presenter = new MemoryListPresenter())
-                presenter.ShowView();
+            /*await using (var presenter = new MemoryListPresenter(true))
+                presenter.ShowView();*/
 
             await SetCountToolTips();
             Show();
@@ -103,8 +103,8 @@
         {
             Hide();
 
-            await using (var presenter = new MotherboardListPresenter())
-                presenter.ShowView();
+            /*await using (var presenter = new MotherboardListPresenter(true))
+                presenter.ShowView();*/
 
             await SetCountToolTips();
             Show();
@@ -114,8 +114,8 @@
         {
             Hide();
 
-            await using (var presenter = new ProcessorListPresenter())
-                presenter.ShowView();
+            /*await using (var presenter = new ProcessorListPresenter(true))
+                presenter.ShowView();*/
 
             await SetCountToolTips();
             Show();
@@ -156,7 +156,7 @@
         {
             Hide();
 
-            await using (var presenter = new SocketListPresenter())
+            await using (var presenter = new SocketListPresenter(true))
                 presenter.ShowView();
 
             await SetCountToolTips();

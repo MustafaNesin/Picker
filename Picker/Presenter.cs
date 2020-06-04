@@ -5,12 +5,17 @@
     using System.Windows.Forms;
 
     internal abstract class Presenter<TView> : IAsyncDisposable
-        where TView : Form
+        where TView : Form, IView
     {
+        public bool AdminMode { get; }
         protected TView View { get; }
         public DialogResult ViewResult { get; private set; }
 
-        protected Presenter() => View = (TView)Activator.CreateInstance(typeof(TView), this);
+        protected Presenter(bool adminMode)
+        {
+            AdminMode = adminMode;
+            View = (TView)Activator.CreateInstance(typeof(TView), this);
+        }
 
         public virtual DialogResult ShowView() => ViewResult = View.ShowDialog();
 

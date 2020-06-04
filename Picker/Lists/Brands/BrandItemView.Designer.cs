@@ -33,7 +33,7 @@
             this.countryLabel = new System.Windows.Forms.Label();
             this.nameLabel = new System.Windows.Forms.Label();
             this.controlPanel = new System.Windows.Forms.Panel();
-            this.editButton = new System.Windows.Forms.Button();
+            this.mainButton = new System.Windows.Forms.Button();
             this.deleteButton = new System.Windows.Forms.Button();
             this.imagePanel = new System.Windows.Forms.Panel();
             this.imageBox = new System.Windows.Forms.PictureBox();
@@ -65,6 +65,7 @@
             this.propertiesPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.propertiesPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.propertiesPanel.Controls.Add(this.countryLabel, 0, 0);
+            this.propertiesPanel.Cursor = System.Windows.Forms.Cursors.Default;
             this.propertiesPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.propertiesPanel.Location = new System.Drawing.Point(77, 35);
             this.propertiesPanel.Name = "propertiesPanel";
@@ -72,6 +73,7 @@
             this.propertiesPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.propertiesPanel.Size = new System.Drawing.Size(540, 32);
             this.propertiesPanel.TabIndex = 2;
+            this.propertiesPanel.Click += new System.EventHandler(this.entity_Click);
             // 
             // countryLabel
             // 
@@ -88,6 +90,7 @@
             // nameLabel
             // 
             this.nameLabel.BackColor = System.Drawing.Color.White;
+            this.nameLabel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.nameLabel.Dock = System.Windows.Forms.DockStyle.Top;
             this.nameLabel.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.nameLabel.ForeColor = System.Drawing.Color.Green;
@@ -98,11 +101,12 @@
             this.nameLabel.TabIndex = 1;
             this.nameLabel.Text = "Name";
             this.nameLabel.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
+            this.nameLabel.Click += new System.EventHandler(this.entity_Click);
             // 
             // controlPanel
             // 
             this.controlPanel.BackColor = System.Drawing.Color.White;
-            this.controlPanel.Controls.Add(this.editButton);
+            this.controlPanel.Controls.Add(this.mainButton);
             this.controlPanel.Controls.Add(this.deleteButton);
             this.controlPanel.Dock = System.Windows.Forms.DockStyle.Right;
             this.controlPanel.Font = new System.Drawing.Font("Segoe UI", 10F);
@@ -112,21 +116,21 @@
             this.controlPanel.Size = new System.Drawing.Size(96, 64);
             this.controlPanel.TabIndex = 0;
             // 
-            // editButton
+            // mainButton
             // 
-            this.editButton.BackColor = System.Drawing.Color.Green;
-            this.editButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.editButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.editButton.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.editButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.editButton.ForeColor = System.Drawing.Color.White;
-            this.editButton.Location = new System.Drawing.Point(1, 1);
-            this.editButton.Name = "editButton";
-            this.editButton.Size = new System.Drawing.Size(94, 30);
-            this.editButton.TabIndex = 0;
-            this.editButton.Text = "Düzenle";
-            this.editButton.UseVisualStyleBackColor = false;
-            this.editButton.Click += new System.EventHandler(this.editButton_Click);
+            this.mainButton.BackColor = System.Drawing.Color.Green;
+            this.mainButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.mainButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.mainButton.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.mainButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.mainButton.ForeColor = System.Drawing.Color.White;
+            this.mainButton.Location = new System.Drawing.Point(1, 1);
+            this.mainButton.Name = "mainButton";
+            this.mainButton.Size = new System.Drawing.Size(94, 30);
+            this.mainButton.TabIndex = 0;
+            this.mainButton.Text = "Düzenle";
+            this.mainButton.UseVisualStyleBackColor = false;
+            this.mainButton.Click += new System.EventHandler(this.mainButton_Click);
             // 
             // deleteButton
             // 
@@ -158,14 +162,15 @@
             // imageBox
             // 
             this.imageBox.BackColor = System.Drawing.Color.White;
+            this.imageBox.Cursor = System.Windows.Forms.Cursors.Hand;
             this.imageBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.imageBox.Image = global::Picker.Properties.Resources.favicon_64;
             this.imageBox.Location = new System.Drawing.Point(10, 0);
             this.imageBox.Name = "imageBox";
             this.imageBox.Size = new System.Drawing.Size(64, 64);
             this.imageBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.imageBox.TabIndex = 1;
             this.imageBox.TabStop = false;
+            this.imageBox.Click += new System.EventHandler(this.entity_Click);
             // 
             // BrandItemView
             // 
@@ -192,11 +197,11 @@
         private System.Windows.Forms.Panel itemPanel;
         private System.Windows.Forms.Label nameLabel;
         private System.Windows.Forms.Panel controlPanel;
-        private System.Windows.Forms.Button editButton;
-        private System.Windows.Forms.Button deleteButton;
+        private System.Windows.Forms.Button mainButton;
         private System.Windows.Forms.TableLayoutPanel propertiesPanel;
         private System.Windows.Forms.Label countryLabel;
         private System.Windows.Forms.Panel imagePanel;
         private System.Windows.Forms.PictureBox imageBox;
+        private System.Windows.Forms.Button deleteButton;
     }
 }

@@ -1,8 +1,7 @@
 ﻿namespace Picker
 {
-    internal interface IBrandListView : IListView<Brand>
+    internal interface IBrandListView : IListView
     {
-        Country BrandCountry { get; set; }
-        string BrandName { get; set; }
+        Country BrandCountry { get; }
     }
 }

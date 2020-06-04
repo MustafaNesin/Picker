@@ -46,7 +46,7 @@
             this.newButton = new System.Windows.Forms.Button();
             this.controlPanel = new System.Windows.Forms.Panel();
             this.countLabel = new System.Windows.Forms.Label();
-            this.acceptButton = new System.Windows.Forms.Button();
+            this.mainButton = new System.Windows.Forms.Button();
             this.navigationPanel = new System.Windows.Forms.Panel();
             this.navigationSubPanel = new System.Windows.Forms.Panel();
             this.pageNumberBox = new System.Windows.Forms.NumericUpDown();
@@ -247,7 +247,7 @@
             // controlPanel
             // 
             this.controlPanel.Controls.Add(this.countLabel);
-            this.controlPanel.Controls.Add(this.acceptButton);
+            this.controlPanel.Controls.Add(this.mainButton);
             this.controlPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.controlPanel.Location = new System.Drawing.Point(0, 585);
             this.controlPanel.Name = "controlPanel";
@@ -263,16 +263,17 @@
             this.countLabel.TabIndex = 0;
             this.countLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // acceptButton
+            // mainButton
             // 
-            this.acceptButton.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.acceptButton.Dock = System.Windows.Forms.DockStyle.Right;
-            this.acceptButton.Location = new System.Drawing.Point(555, 0);
-            this.acceptButton.Name = "acceptButton";
-            this.acceptButton.Size = new System.Drawing.Size(75, 22);
-            this.acceptButton.TabIndex = 1;
-            this.acceptButton.Text = "Tamam";
-            this.acceptButton.UseVisualStyleBackColor = true;
+            this.mainButton.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.mainButton.Dock = System.Windows.Forms.DockStyle.Right;
+            this.mainButton.Location = new System.Drawing.Point(555, 0);
+            this.mainButton.Name = "mainButton";
+            this.mainButton.Size = new System.Drawing.Size(75, 22);
+            this.mainButton.TabIndex = 1;
+            this.mainButton.Text = "Tamam";
+            this.mainButton.UseVisualStyleBackColor = true;
+            this.mainButton.Click += new System.EventHandler(this.mainButton_Click);
             // 
             // navigationPanel
             // 
@@ -398,10 +399,10 @@
             // 
             // BrandListView
             // 
-            this.AcceptButton = this.acceptButton;
+            this.AcceptButton = this.applyFilterButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.CancelButton = this.acceptButton;
+            this.CancelButton = this.mainButton;
             this.ClientSize = new System.Drawing.Size(630, 607);
             this.Controls.Add(this.listPanelBorder);
             this.Controls.Add(this.navigationPanel);
@@ -432,15 +433,10 @@
 
         private System.Windows.Forms.Panel filterPanel;
         private System.Windows.Forms.Panel controlPanel;
-        private System.Windows.Forms.Button acceptButton;
+        private System.Windows.Forms.Button mainButton;
         private System.Windows.Forms.Panel navigationPanel;
         private System.Windows.Forms.Label countLabel;
         private System.Windows.Forms.Panel navigationSubPanel;
-        private System.Windows.Forms.NumericUpDown pageNumberBox;
-        private System.Windows.Forms.Button nextPageButton;
-        private System.Windows.Forms.Button lastPageButton;
-        private System.Windows.Forms.Button previousPageButton;
-        private System.Windows.Forms.Button firstPageButton;
         private System.Windows.Forms.Label pageCountLabel;
         private System.Windows.Forms.GroupBox controlGroup;
         private System.Windows.Forms.GroupBox orderGroup;
@@ -451,12 +447,17 @@
         private System.Windows.Forms.Button newButton;
         private System.Windows.Forms.GroupBox filterGroup;
         private System.Windows.Forms.Button deselectCountryButton;
-        private System.Windows.Forms.TextBox nameBox;
         private System.Windows.Forms.ComboBox countryBox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button applyFilterButton;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel listPanelBorder;
         internal System.Windows.Forms.Panel listPanel;
+        private System.Windows.Forms.NumericUpDown pageNumberBox;
+        private System.Windows.Forms.Button nextPageButton;
+        private System.Windows.Forms.Button lastPageButton;
+        private System.Windows.Forms.Button previousPageButton;
+        private System.Windows.Forms.Button firstPageButton;
+        private System.Windows.Forms.TextBox nameBox;
     }
 }

@@ -80,7 +80,7 @@
             // memoriesButton
             // 
             this.memoriesButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.memoriesButton.Cursor = System.Windows.Forms.Cursors.Default;
+            this.memoriesButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.memoriesButton.FlatAppearance.BorderColor = System.Drawing.Color.Teal;
             this.memoriesButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(160)))), ((int)(((byte)(160)))));
             this.memoriesButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
@@ -98,7 +98,7 @@
             // processorsButton
             // 
             this.processorsButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.processorsButton.Cursor = System.Windows.Forms.Cursors.Default;
+            this.processorsButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.processorsButton.FlatAppearance.BorderColor = System.Drawing.Color.Teal;
             this.processorsButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(160)))), ((int)(((byte)(160)))));
             this.processorsButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
@@ -116,7 +116,7 @@
             // graphicsCardButton
             // 
             this.graphicsCardButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.graphicsCardButton.Cursor = System.Windows.Forms.Cursors.Default;
+            this.graphicsCardButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.graphicsCardButton.FlatAppearance.BorderColor = System.Drawing.Color.Teal;
             this.graphicsCardButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(160)))), ((int)(((byte)(160)))));
             this.graphicsCardButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
@@ -134,7 +134,7 @@
             // motherboardsButton
             // 
             this.motherboardsButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.motherboardsButton.Cursor = System.Windows.Forms.Cursors.Default;
+            this.motherboardsButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.motherboardsButton.FlatAppearance.BorderColor = System.Drawing.Color.Teal;
             this.motherboardsButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(160)))), ((int)(((byte)(160)))));
             this.motherboardsButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
@@ -164,7 +164,7 @@
             // brandsButton
             // 
             this.brandsButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.brandsButton.Cursor = System.Windows.Forms.Cursors.Default;
+            this.brandsButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.brandsButton.FlatAppearance.BorderColor = System.Drawing.Color.Teal;
             this.brandsButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(160)))), ((int)(((byte)(160)))));
             this.brandsButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
@@ -182,7 +182,7 @@
             // socketsButton
             // 
             this.socketsButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.socketsButton.Cursor = System.Windows.Forms.Cursors.Default;
+            this.socketsButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.socketsButton.FlatAppearance.BorderColor = System.Drawing.Color.Teal;
             this.socketsButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(160)))), ((int)(((byte)(160)))));
             this.socketsButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
@@ -200,7 +200,7 @@
             // chipsetsButton
             // 
             this.chipsetsButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.chipsetsButton.Cursor = System.Windows.Forms.Cursors.Default;
+            this.chipsetsButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.chipsetsButton.FlatAppearance.BorderColor = System.Drawing.Color.Teal;
             this.chipsetsButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(160)))), ((int)(((byte)(160)))));
             this.chipsetsButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
@@ -218,7 +218,7 @@
             // buildsButton
             // 
             this.buildsButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.buildsButton.Cursor = System.Windows.Forms.Cursors.Default;
+            this.buildsButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buildsButton.FlatAppearance.BorderColor = System.Drawing.Color.Teal;
             this.buildsButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(160)))), ((int)(((byte)(160)))));
             this.buildsButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
@@ -275,6 +275,7 @@
             // 
             this.exitButton.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.exitButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.exitButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.exitButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.exitButton.FlatAppearance.BorderColor = System.Drawing.Color.Maroon;
             this.exitButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(160)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));

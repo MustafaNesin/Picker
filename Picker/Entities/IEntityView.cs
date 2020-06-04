@@ -1,7 +1,10 @@
 ﻿namespace Picker
 {
-    internal interface IEntityView<TEntity> : IView<TEntity>
-        where TEntity : Entity
+    using System.Drawing;
+
+    internal interface IEntityView : IView
     {
+        Image EntityImage { get; set; }
+        string EntityName { get; set; }
     }
 }

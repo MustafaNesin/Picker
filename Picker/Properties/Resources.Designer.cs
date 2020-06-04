@@ -63,9 +63,9 @@ namespace Picker.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap favicon_128 {
+        internal static System.Drawing.Bitmap FavIcon128 {
             get {
-                object obj = ResourceManager.GetObject("favicon_128", resourceCulture);
+                object obj = ResourceManager.GetObject("FavIcon128", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -73,9 +73,9 @@ namespace Picker.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap favicon_16 {
+        internal static System.Drawing.Bitmap FavIcon16 {
             get {
-                object obj = ResourceManager.GetObject("favicon_16", resourceCulture);
+                object obj = ResourceManager.GetObject("FavIcon16", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -83,9 +83,9 @@ namespace Picker.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap favicon_256 {
+        internal static System.Drawing.Bitmap FavIcon256 {
             get {
-                object obj = ResourceManager.GetObject("favicon_256", resourceCulture);
+                object obj = ResourceManager.GetObject("FavIcon256", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -93,9 +93,9 @@ namespace Picker.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap favicon_32 {
+        internal static System.Drawing.Bitmap FavIcon32 {
             get {
-                object obj = ResourceManager.GetObject("favicon_32", resourceCulture);
+                object obj = ResourceManager.GetObject("FavIcon32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -103,9 +103,9 @@ namespace Picker.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap favicon_48 {
+        internal static System.Drawing.Bitmap FavIcon48 {
             get {
-                object obj = ResourceManager.GetObject("favicon_48", resourceCulture);
+                object obj = ResourceManager.GetObject("FavIcon48", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -113,9 +113,9 @@ namespace Picker.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap favicon_64 {
+        internal static System.Drawing.Bitmap FavIcon64 {
             get {
-                object obj = ResourceManager.GetObject("favicon_64", resourceCulture);
+                object obj = ResourceManager.GetObject("FavIcon64", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

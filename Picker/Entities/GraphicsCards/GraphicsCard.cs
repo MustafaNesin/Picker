@@ -1,16 +1,31 @@
 namespace Picker
 {
+    using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
+    using System.Diagnostics.CodeAnalysis;
+    using System.IO;
 
-    internal class GraphicsCard : Product
+    public class GraphicsCard : Product
     {
+        public virtual ICollection<Build> Builds { get; set; }
         public int BusWidth { get; set; } // Bit
-        public Brand ChipsetBrand { get; set; }
+
+        [Required]
+        [InverseProperty("GraphicsCardChipsets")]
+        public virtual Brand ChipsetBrand { get; set; }
+
+        public int ChipsetBrandId { get; set; }
 
         [Required]
         public string ChipsetModel { get; set; }
 
         public int Frequency { get; set; } // MHz
+
+        protected override string ImagePath
+            => _imagePath ??=
+                Path.Combine(DatabaseUtilities.GraphicsCardImagesDirectory, Id + ".png");
+
         public int Memory { get; set; } // GB
         public int MemoryFrequency { get; set; } // MHz
 
@@ -19,9 +34,12 @@ namespace Picker
 
         public int TurboFrequency { get; set; } // MHz
 
+        [SuppressMessage("ReSharper", "VirtualMemberCallInConstructor")]
+        public GraphicsCard() => Builds = new HashSet<Build>();
+
         public int GetBandwidth() => GetEfficientMemoryFrequency() * BusWidth / 8; // MB/s
 
         public int GetEfficientMemoryFrequency()
-            => MemoryFrequency * Utilities.GetPumpRate(MemoryType); // MHz
+            => MemoryFrequency * DatabaseUtilities.GetPumpRate(MemoryType); // MHz
     }
 }

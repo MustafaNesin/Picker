@@ -28,12 +28,224 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ChipsetView));
+            this.controlPanel = new System.Windows.Forms.Panel();
+            this.cancelButton = new System.Windows.Forms.Button();
+            this.acceptButton = new System.Windows.Forms.Button();
+            this.entityPanel = new System.Windows.Forms.Panel();
+            this.brandBox = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.nameBox = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.imageBox = new System.Windows.Forms.PictureBox();
+            this.selectImageButton = new System.Windows.Forms.Button();
+            this.deleteImageButton = new System.Windows.Forms.Button();
+            this.imagePanel = new System.Windows.Forms.GroupBox();
+            this.controlPanel.SuspendLayout();
+            this.entityPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.imageBox)).BeginInit();
+            this.imagePanel.SuspendLayout();
+            this.SuspendLayout();
+            // 
+            // controlPanel
+            // 
+            this.controlPanel.Controls.Add(this.cancelButton);
+            this.controlPanel.Controls.Add(this.acceptButton);
+            this.controlPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.controlPanel.Location = new System.Drawing.Point(0, 135);
+            this.controlPanel.Name = "controlPanel";
+            this.controlPanel.Size = new System.Drawing.Size(386, 32);
+            this.controlPanel.TabIndex = 2;
+            // 
+            // cancelButton
+            // 
+            this.cancelButton.BackColor = System.Drawing.Color.Green;
+            this.cancelButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.cancelButton.Dock = System.Windows.Forms.DockStyle.Left;
+            this.cancelButton.FlatAppearance.BorderSize = 0;
+            this.cancelButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cancelButton.ForeColor = System.Drawing.Color.White;
+            this.cancelButton.Location = new System.Drawing.Point(0, 0);
+            this.cancelButton.Name = "cancelButton";
+            this.cancelButton.Size = new System.Drawing.Size(89, 32);
+            this.cancelButton.TabIndex = 1;
+            this.cancelButton.Text = "İptal";
+            this.cancelButton.UseVisualStyleBackColor = false;
+            // 
+            // acceptButton
+            // 
+            this.acceptButton.BackColor = System.Drawing.Color.Green;
+            this.acceptButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.acceptButton.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.acceptButton.Dock = System.Windows.Forms.DockStyle.Right;
+            this.acceptButton.FlatAppearance.BorderSize = 0;
+            this.acceptButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.acceptButton.ForeColor = System.Drawing.Color.White;
+            this.acceptButton.Location = new System.Drawing.Point(297, 0);
+            this.acceptButton.Name = "acceptButton";
+            this.acceptButton.Size = new System.Drawing.Size(89, 32);
+            this.acceptButton.TabIndex = 0;
+            this.acceptButton.Text = "Tamam";
+            this.acceptButton.UseVisualStyleBackColor = false;
+            this.acceptButton.Click += new System.EventHandler(this.acceptButton_Click);
+            // 
+            // entityPanel
+            // 
+            this.entityPanel.Controls.Add(this.brandBox);
+            this.entityPanel.Controls.Add(this.label2);
+            this.entityPanel.Controls.Add(this.nameBox);
+            this.entityPanel.Controls.Add(this.label1);
+            this.entityPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.entityPanel.Location = new System.Drawing.Point(76, 0);
+            this.entityPanel.Name = "entityPanel";
+            this.entityPanel.Size = new System.Drawing.Size(310, 135);
+            this.entityPanel.TabIndex = 0;
+            // 
+            // brandBox
+            // 
+            this.brandBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.brandBox.BackColor = System.Drawing.Color.Green;
+            this.brandBox.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.brandBox.FlatAppearance.BorderSize = 0;
+            this.brandBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.brandBox.ForeColor = System.Drawing.Color.White;
+            this.brandBox.Location = new System.Drawing.Point(94, 42);
+            this.brandBox.Name = "brandBox";
+            this.brandBox.Size = new System.Drawing.Size(204, 23);
+            this.brandBox.TabIndex = 3;
+            this.brandBox.Text = "Marka Seç...";
+            this.brandBox.UseVisualStyleBackColor = false;
+            this.brandBox.Click += new System.EventHandler(this.brandBox_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.label2.Location = new System.Drawing.Point(6, 47);
+            this.label2.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(42, 13);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "Marka:";
+            // 
+            // nameBox
+            // 
+            this.nameBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.nameBox.Location = new System.Drawing.Point(94, 12);
+            this.nameBox.Name = "nameBox";
+            this.nameBox.Size = new System.Drawing.Size(204, 22);
+            this.nameBox.TabIndex = 1;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.label1.Location = new System.Drawing.Point(6, 15);
+            this.label1.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(24, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Ad:";
+            // 
+            // imageBox
+            // 
+            this.imageBox.Dock = System.Windows.Forms.DockStyle.Top;
+            this.imageBox.InitialImage = null;
+            this.imageBox.Location = new System.Drawing.Point(6, 18);
+            this.imageBox.Name = "imageBox";
+            this.imageBox.Size = new System.Drawing.Size(64, 64);
+            this.imageBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.imageBox.TabIndex = 5;
+            this.imageBox.TabStop = false;
+            // 
+            // selectImageButton
+            // 
+            this.selectImageButton.BackColor = System.Drawing.Color.Green;
+            this.selectImageButton.Dock = System.Windows.Forms.DockStyle.Top;
+            this.selectImageButton.FlatAppearance.BorderSize = 0;
+            this.selectImageButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.selectImageButton.ForeColor = System.Drawing.Color.White;
+            this.selectImageButton.Location = new System.Drawing.Point(6, 82);
+            this.selectImageButton.Name = "selectImageButton";
+            this.selectImageButton.Size = new System.Drawing.Size(64, 22);
+            this.selectImageButton.TabIndex = 0;
+            this.selectImageButton.Text = "Seç...";
+            this.selectImageButton.UseVisualStyleBackColor = false;
+            this.selectImageButton.Click += new System.EventHandler(this.selectImageButton_Click);
+            // 
+            // deleteImageButton
+            // 
+            this.deleteImageButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.deleteImageButton.Dock = System.Windows.Forms.DockStyle.Top;
+            this.deleteImageButton.FlatAppearance.BorderSize = 0;
+            this.deleteImageButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.deleteImageButton.ForeColor = System.Drawing.Color.White;
+            this.deleteImageButton.Location = new System.Drawing.Point(6, 104);
+            this.deleteImageButton.Name = "deleteImageButton";
+            this.deleteImageButton.Size = new System.Drawing.Size(64, 22);
+            this.deleteImageButton.TabIndex = 1;
+            this.deleteImageButton.Text = "Sil";
+            this.deleteImageButton.UseVisualStyleBackColor = false;
+            this.deleteImageButton.Click += new System.EventHandler(this.deleteImageButton_Click);
+            // 
+            // imagePanel
+            // 
+            this.imagePanel.Controls.Add(this.deleteImageButton);
+            this.imagePanel.Controls.Add(this.selectImageButton);
+            this.imagePanel.Controls.Add(this.imageBox);
+            this.imagePanel.Dock = System.Windows.Forms.DockStyle.Left;
+            this.imagePanel.Location = new System.Drawing.Point(0, 0);
+            this.imagePanel.Name = "imagePanel";
+            this.imagePanel.Padding = new System.Windows.Forms.Padding(6, 3, 6, 3);
+            this.imagePanel.Size = new System.Drawing.Size(76, 135);
+            this.imagePanel.TabIndex = 1;
+            this.imagePanel.TabStop = false;
+            this.imagePanel.Text = "Resim";
+            // 
+            // ChipsetView
+            // 
+            this.AcceptButton = this.acceptButton;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "ChipsetView";
+            this.CancelButton = this.cancelButton;
+            this.ClientSize = new System.Drawing.Size(386, 167);
+            this.Controls.Add(this.entityPanel);
+            this.Controls.Add(this.imagePanel);
+            this.Controls.Add(this.controlPanel);
+            this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.Name = "ChipsetView";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Yonga Seti";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.ChipsetView_FormClosed);
+            this.Load += new System.EventHandler(this.ChipsetView_Load);
+            this.controlPanel.ResumeLayout(false);
+            this.entityPanel.ResumeLayout(false);
+            this.entityPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.imageBox)).EndInit();
+            this.imagePanel.ResumeLayout(false);
+            this.ResumeLayout(false);
+
         }
 
         #endregion
+
+        private System.Windows.Forms.Panel controlPanel;
+        private System.Windows.Forms.Button acceptButton;
+        private System.Windows.Forms.Button cancelButton;
+        private System.Windows.Forms.Panel entityPanel;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox nameBox;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button brandBox;
+        private System.Windows.Forms.PictureBox imageBox;
+        private System.Windows.Forms.Button selectImageButton;
+        private System.Windows.Forms.Button deleteImageButton;
+        private System.Windows.Forms.GroupBox imagePanel;
     }
 }

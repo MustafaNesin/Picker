@@ -2,13 +2,25 @@ namespace Picker
 {
     using System;
     using System.Collections.Generic;
+    using System.Diagnostics.CodeAnalysis;
+    using System.IO;
 
-    internal class Build : Entity
+    public class Build : Entity
     {
         public DateTime Date { get; set; }
-        public GraphicsCard GraphicsCard { get; set; }
+        public virtual GraphicsCard GraphicsCard { get; set; }
+        public int? GraphicsCardId { get; set; }
+
+        protected override string ImagePath
+            => _imagePath ??= Path.Combine(DatabaseUtilities.BuildImagesDirectory, Id + ".png");
+
         public virtual ICollection<Memory> Memories { get; set; }
-        public Motherboard Motherboard { get; set; }
-        public Processor Processor { get; set; }
+        public virtual Motherboard Motherboard { get; set; }
+        public int? MotherboardId { get; set; }
+        public virtual Processor Processor { get; set; }
+        public int? ProcessorId { get; set; }
+
+        [SuppressMessage("ReSharper", "VirtualMemberCallInConstructor")]
+        public Build() => Memories = new HashSet<Memory>();
     }
 }

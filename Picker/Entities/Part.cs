@@ -1,7 +1,12 @@
 namespace Picker
 {
-    internal abstract class Part : Entity
+    using System.ComponentModel.DataAnnotations;
+
+    public abstract class Part : Entity
     {
-        public Brand Brand { get; set; }
+        [Required]
+        public virtual Brand Brand { get; set; }
+
+        public int BrandId { get; set; }
     }
 }
