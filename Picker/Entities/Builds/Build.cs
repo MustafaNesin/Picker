@@ -22,5 +22,36 @@ namespace Picker
 
         [SuppressMessage("ReSharper", "VirtualMemberCallInConstructor")]
         public Build() => Memories = new HashSet<Memory>();
+
+        public bool IsCompatibleWith(Motherboard motherboard)
+            => IsCompatibleWith(motherboard, out var messages);
+
+        public bool IsCompatibleWith(Motherboard motherboard, out List<string> messages)
+        {
+            messages = new List<string>();
+            return true;
+        }
+        public bool IsCompatibleWith(Processor processor)
+            => IsCompatibleWith(processor, out var messages);
+        public bool IsCompatibleWith(Processor processor, out List<string> messages)
+        {
+            messages = new List<string>();
+            return true;
+        }
+
+        public bool IsCompatibleWith(GraphicsCard graphicsCard)
+            => IsCompatibleWith(graphicsCard, out var messages);
+        public bool IsCompatibleWith(GraphicsCard graphicsCard, out List<string> messages)
+        {
+            messages = new List<string>();
+            return true;
+        }
+        public bool IsCompatibleWith(Memory memory)
+            => IsCompatibleWith(memory, out var messages);
+        public bool IsCompatibleWith(Memory memory, out List<string> messages)
+        {
+            messages = new List<string>();
+            return true;
+        }
     }
 }

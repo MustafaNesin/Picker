@@ -3,6 +3,7 @@
     using System;
     using System.Data.Entity;
     using System.Diagnostics;
+    using System.Globalization;
     using System.Threading.Tasks;
     using System.Windows.Forms;
 
@@ -19,6 +20,8 @@
         [STAThread]
         private static void Main()
         {
+            CultureInfo.CurrentCulture = CultureInfo.GetCultureInfo("en-US");
+
             if (!DatabaseUtilities.CheckDatabase())
                 return;
 
@@ -92,8 +95,8 @@
         {
             Hide();
 
-            /*await using (var presenter = new MemoryListPresenter(true))
-                presenter.ShowView();*/
+            await using (var presenter = new MemoryListPresenter(true))
+                presenter.ShowView();
 
             await SetCountToolTips();
             Show();

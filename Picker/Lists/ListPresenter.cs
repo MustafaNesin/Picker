@@ -18,10 +18,16 @@
     {
         public bool GeneratingList { get; private set; }
         protected abstract Panel ListPanel { get; }
+        protected Build Build { get; }
         public TEntity SelectedEntity { get; private set; }
 
         protected ListPresenter(bool adminMode) : base(adminMode)
         {
+        }
+
+        protected ListPresenter(Build build) : base(build == null)
+        {
+            Build = build;
         }
 
         public async Task AddItemAsync()

@@ -24,6 +24,6 @@ namespace Picker
         [SuppressMessage("ReSharper", "VirtualMemberCallInConstructor")]
         public Memory() => Builds = new HashSet<Build>();
 
-        public int GetBandwidth() => Frequency * 8; // MB/s
+        public int GetBandwidth() => DatabaseUtilities.GetBandwidth(Frequency, 64); // MB/s
     }
 }

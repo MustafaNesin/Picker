@@ -1,6 +1,6 @@
 ﻿namespace Picker
 {
-    partial class ChipsetItemView
+    partial class MemoryItemView
     {
         /// <summary> 
         /// Required designer variable.
@@ -30,8 +30,16 @@
         {
             this.itemPanel = new System.Windows.Forms.Panel();
             this.nameLabel = new System.Windows.Forms.Label();
+            this.priceLabel = new System.Windows.Forms.Label();
             this.propertiesPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.bufferedLabel = new System.Windows.Forms.Label();
+            this.eccLabel = new System.Windows.Forms.Label();
+            this.bandwidthLabel = new System.Windows.Forms.Label();
+            this.frequencyLabel = new System.Windows.Forms.Label();
+            this.typeLabel = new System.Windows.Forms.Label();
+            this.capacityLabel = new System.Windows.Forms.Label();
             this.brandLabel = new System.Windows.Forms.Label();
+            this.countLabel = new System.Windows.Forms.Label();
             this.controlPanel = new System.Windows.Forms.Panel();
             this.mainButton = new System.Windows.Forms.Button();
             this.deleteButton = new System.Windows.Forms.Button();
@@ -48,6 +56,7 @@
             // 
             this.itemPanel.BackColor = System.Drawing.Color.Green;
             this.itemPanel.Controls.Add(this.nameLabel);
+            this.itemPanel.Controls.Add(this.priceLabel);
             this.itemPanel.Controls.Add(this.propertiesPanel);
             this.itemPanel.Controls.Add(this.controlPanel);
             this.itemPanel.Controls.Add(this.imagePanel);
@@ -55,7 +64,7 @@
             this.itemPanel.Location = new System.Drawing.Point(3, 3);
             this.itemPanel.Name = "itemPanel";
             this.itemPanel.Padding = new System.Windows.Forms.Padding(3);
-            this.itemPanel.Size = new System.Drawing.Size(608, 70);
+            this.itemPanel.Size = new System.Drawing.Size(908, 70);
             this.itemPanel.TabIndex = 0;
             // 
             // nameLabel
@@ -68,31 +77,117 @@
             this.nameLabel.Location = new System.Drawing.Point(77, 3);
             this.nameLabel.Name = "nameLabel";
             this.nameLabel.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.nameLabel.Size = new System.Drawing.Size(458, 32);
+            this.nameLabel.Size = new System.Drawing.Size(661, 32);
             this.nameLabel.TabIndex = 1;
             this.nameLabel.Text = "Name";
             this.nameLabel.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             this.nameLabel.Click += new System.EventHandler(this.entity_Click);
             // 
+            // priceLabel
+            // 
+            this.priceLabel.BackColor = System.Drawing.Color.White;
+            this.priceLabel.Dock = System.Windows.Forms.DockStyle.Right;
+            this.priceLabel.Font = new System.Drawing.Font("Segoe UI", 14F);
+            this.priceLabel.ForeColor = System.Drawing.Color.Green;
+            this.priceLabel.Location = new System.Drawing.Point(738, 3);
+            this.priceLabel.Name = "priceLabel";
+            this.priceLabel.Size = new System.Drawing.Size(97, 32);
+            this.priceLabel.TabIndex = 2;
+            this.priceLabel.Text = "$0";
+            this.priceLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
             // propertiesPanel
             // 
             this.propertiesPanel.BackColor = System.Drawing.Color.White;
-            this.propertiesPanel.ColumnCount = 2;
+            this.propertiesPanel.ColumnCount = 9;
             this.propertiesPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.propertiesPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.propertiesPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.propertiesPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.propertiesPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.propertiesPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.propertiesPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.propertiesPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.propertiesPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.propertiesPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.propertiesPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.propertiesPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.propertiesPanel.Controls.Add(this.bufferedLabel, 7, 0);
+            this.propertiesPanel.Controls.Add(this.eccLabel, 6, 0);
+            this.propertiesPanel.Controls.Add(this.bandwidthLabel, 5, 0);
+            this.propertiesPanel.Controls.Add(this.frequencyLabel, 4, 0);
+            this.propertiesPanel.Controls.Add(this.typeLabel, 3, 0);
+            this.propertiesPanel.Controls.Add(this.capacityLabel, 2, 0);
             this.propertiesPanel.Controls.Add(this.brandLabel, 0, 0);
+            this.propertiesPanel.Controls.Add(this.countLabel, 1, 0);
             this.propertiesPanel.Cursor = System.Windows.Forms.Cursors.Default;
             this.propertiesPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.propertiesPanel.Location = new System.Drawing.Point(77, 35);
             this.propertiesPanel.Name = "propertiesPanel";
             this.propertiesPanel.RowCount = 1;
             this.propertiesPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.propertiesPanel.Size = new System.Drawing.Size(458, 32);
-            this.propertiesPanel.TabIndex = 2;
+            this.propertiesPanel.Size = new System.Drawing.Size(758, 32);
+            this.propertiesPanel.TabIndex = 3;
             this.propertiesPanel.Click += new System.EventHandler(this.entity_Click);
+            // 
+            // bufferedLabel
+            // 
+            this.bufferedLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.bufferedLabel.AutoSize = true;
+            this.bufferedLabel.ForeColor = System.Drawing.Color.Red;
+            this.bufferedLabel.Location = new System.Drawing.Point(362, 9);
+            this.bufferedLabel.Name = "bufferedLabel";
+            this.bufferedLabel.Size = new System.Drawing.Size(62, 13);
+            this.bufferedLabel.TabIndex = 7;
+            this.bufferedLabel.Text = "Registered";
+            // 
+            // eccLabel
+            // 
+            this.eccLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.eccLabel.AutoSize = true;
+            this.eccLabel.ForeColor = System.Drawing.Color.Red;
+            this.eccLabel.Location = new System.Drawing.Point(329, 9);
+            this.eccLabel.Name = "eccLabel";
+            this.eccLabel.Size = new System.Drawing.Size(27, 13);
+            this.eccLabel.TabIndex = 6;
+            this.eccLabel.Text = "ECC";
+            // 
+            // bandwidthLabel
+            // 
+            this.bandwidthLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.bandwidthLabel.AutoSize = true;
+            this.bandwidthLabel.Location = new System.Drawing.Point(260, 9);
+            this.bandwidthLabel.Name = "bandwidthLabel";
+            this.bandwidthLabel.Size = new System.Drawing.Size(63, 13);
+            this.bandwidthLabel.TabIndex = 5;
+            this.bandwidthLabel.Text = "Bandwidth";
+            // 
+            // frequencyLabel
+            // 
+            this.frequencyLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.frequencyLabel.AutoSize = true;
+            this.frequencyLabel.Location = new System.Drawing.Point(194, 9);
+            this.frequencyLabel.Name = "frequencyLabel";
+            this.frequencyLabel.Size = new System.Drawing.Size(60, 13);
+            this.frequencyLabel.TabIndex = 4;
+            this.frequencyLabel.Text = "Frequency";
+            // 
+            // typeLabel
+            // 
+            this.typeLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.typeLabel.AutoSize = true;
+            this.typeLabel.Location = new System.Drawing.Point(158, 9);
+            this.typeLabel.Name = "typeLabel";
+            this.typeLabel.Size = new System.Drawing.Size(30, 13);
+            this.typeLabel.TabIndex = 3;
+            this.typeLabel.Text = "Type";
+            // 
+            // capacityLabel
+            // 
+            this.capacityLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.capacityLabel.AutoSize = true;
+            this.capacityLabel.Location = new System.Drawing.Point(102, 9);
+            this.capacityLabel.Name = "capacityLabel";
+            this.capacityLabel.Size = new System.Drawing.Size(50, 13);
+            this.capacityLabel.TabIndex = 2;
+            this.capacityLabel.Text = "Capacity";
             // 
             // brandLabel
             // 
@@ -102,9 +197,19 @@
             this.brandLabel.ForeColor = System.Drawing.SystemColors.ControlText;
             this.brandLabel.Location = new System.Drawing.Point(3, 6);
             this.brandLabel.Name = "brandLabel";
-            this.brandLabel.Size = new System.Drawing.Size(45, 19);
+            this.brandLabel.Size = new System.Drawing.Size(48, 19);
             this.brandLabel.TabIndex = 0;
-            this.brandLabel.Text = "Brand";
+            this.brandLabel.Text = "Marka";
+            // 
+            // countLabel
+            // 
+            this.countLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.countLabel.AutoSize = true;
+            this.countLabel.Location = new System.Drawing.Point(57, 9);
+            this.countLabel.Name = "countLabel";
+            this.countLabel.Size = new System.Drawing.Size(39, 13);
+            this.countLabel.TabIndex = 1;
+            this.countLabel.Text = "Count";
             // 
             // controlPanel
             // 
@@ -113,7 +218,7 @@
             this.controlPanel.Controls.Add(this.deleteButton);
             this.controlPanel.Dock = System.Windows.Forms.DockStyle.Right;
             this.controlPanel.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.controlPanel.Location = new System.Drawing.Point(535, 3);
+            this.controlPanel.Location = new System.Drawing.Point(835, 3);
             this.controlPanel.Name = "controlPanel";
             this.controlPanel.Padding = new System.Windows.Forms.Padding(1);
             this.controlPanel.Size = new System.Drawing.Size(70, 64);
@@ -160,7 +265,7 @@
             this.imagePanel.Name = "imagePanel";
             this.imagePanel.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.imagePanel.Size = new System.Drawing.Size(74, 64);
-            this.imagePanel.TabIndex = 3;
+            this.imagePanel.TabIndex = 4;
             // 
             // imageBox
             // 
@@ -175,17 +280,17 @@
             this.imageBox.TabStop = false;
             this.imageBox.Click += new System.EventHandler(this.entity_Click);
             // 
-            // ChipsetItemView
+            // MemoryItemView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.Controls.Add(this.itemPanel);
             this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.MinimumSize = new System.Drawing.Size(614, 76);
-            this.Name = "ChipsetItemView";
+            this.MinimumSize = new System.Drawing.Size(914, 76);
+            this.Name = "MemoryItemView";
             this.Padding = new System.Windows.Forms.Padding(3);
-            this.Size = new System.Drawing.Size(614, 76);
+            this.Size = new System.Drawing.Size(914, 76);
             this.itemPanel.ResumeLayout(false);
             this.propertiesPanel.ResumeLayout(false);
             this.propertiesPanel.PerformLayout();
@@ -207,5 +312,13 @@
         private System.Windows.Forms.Panel imagePanel;
         private System.Windows.Forms.PictureBox imageBox;
         private System.Windows.Forms.Button deleteButton;
+        private System.Windows.Forms.Label countLabel;
+        private System.Windows.Forms.Label priceLabel;
+        private System.Windows.Forms.Label frequencyLabel;
+        private System.Windows.Forms.Label typeLabel;
+        private System.Windows.Forms.Label capacityLabel;
+        private System.Windows.Forms.Label bandwidthLabel;
+        private System.Windows.Forms.Label eccLabel;
+        private System.Windows.Forms.Label bufferedLabel;
     }
 }

@@ -281,6 +281,11 @@
         public const string ProcessorImagesDirectory = AssetsDirectory + "\\processors";
         public const string SocketImagesDirectory = AssetsDirectory + "\\sockets";
 
+        public static int GetBandwidth(int frequency, int busWidth) => frequency * busWidth / 8;
+
+        public static int GetGraphicsCardBandwidth(int memoryFrequency, string memoryType, int busWidth)
+            => GetBandwidth(memoryFrequency * GetPumpRate(memoryType), busWidth);
+
         public static void CheckAssets()
         {
             Directory.CreateDirectory(BrandImagesDirectory);
@@ -607,10 +612,7 @@
 
         public static DialogResult ShowWarning(string text, MessageBoxButtons buttons)
             => MessageBox.Show(text, "Uyarı", buttons, MessageBoxIcon.Warning);
-
-        public static string ToTitleCase(this string str)
-            => CultureInfo.CurrentCulture.TextInfo.ToTitleCase(str);
-
+        
         public static Image TryLoadImage(string imagePath)
         {
             try
