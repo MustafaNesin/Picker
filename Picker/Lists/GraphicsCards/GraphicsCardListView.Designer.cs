@@ -31,11 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GraphicsCardListView));
             this.filterPanel = new System.Windows.Forms.Panel();
             this.filterGroup = new System.Windows.Forms.GroupBox();
-            this.maxBandwidthBox = new System.Windows.Forms.NumericUpDown();
-            this.enableMaxBandwidthBox = new System.Windows.Forms.CheckBox();
-            this.minBandwidthBox = new System.Windows.Forms.NumericUpDown();
-            this.enableMinBandwidthBox = new System.Windows.Forms.CheckBox();
-            this.label14 = new System.Windows.Forms.Label();
             this.maxTurboFrequencyBox = new System.Windows.Forms.NumericUpDown();
             this.enableMaxTurboFrequencyBox = new System.Windows.Forms.CheckBox();
             this.minTurboFrequencyBox = new System.Windows.Forms.NumericUpDown();
@@ -100,8 +95,6 @@
             this.listPanel = new System.Windows.Forms.Panel();
             this.filterPanel.SuspendLayout();
             this.filterGroup.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.maxBandwidthBox)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.minBandwidthBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.maxTurboFrequencyBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.minTurboFrequencyBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.maxFrequencyBox)).BeginInit();
@@ -135,11 +128,6 @@
             // 
             // filterGroup
             // 
-            this.filterGroup.Controls.Add(this.maxBandwidthBox);
-            this.filterGroup.Controls.Add(this.enableMaxBandwidthBox);
-            this.filterGroup.Controls.Add(this.minBandwidthBox);
-            this.filterGroup.Controls.Add(this.enableMinBandwidthBox);
-            this.filterGroup.Controls.Add(this.label14);
             this.filterGroup.Controls.Add(this.maxTurboFrequencyBox);
             this.filterGroup.Controls.Add(this.enableMaxTurboFrequencyBox);
             this.filterGroup.Controls.Add(this.minTurboFrequencyBox);
@@ -190,65 +178,6 @@
             this.filterGroup.TabIndex = 0;
             this.filterGroup.TabStop = false;
             this.filterGroup.Text = "Filtrele";
-            // 
-            // maxBandwidthBox
-            // 
-            this.maxBandwidthBox.Enabled = false;
-            this.maxBandwidthBox.Location = new System.Drawing.Point(859, 86);
-            this.maxBandwidthBox.Maximum = new decimal(new int[] {
-            9999,
-            0,
-            0,
-            0});
-            this.maxBandwidthBox.Name = "maxBandwidthBox";
-            this.maxBandwidthBox.Size = new System.Drawing.Size(46, 22);
-            this.maxBandwidthBox.TabIndex = 42;
-            // 
-            // enableMaxBandwidthBox
-            // 
-            this.enableMaxBandwidthBox.AutoSize = true;
-            this.enableMaxBandwidthBox.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.enableMaxBandwidthBox.Location = new System.Drawing.Point(829, 89);
-            this.enableMaxBandwidthBox.Name = "enableMaxBandwidthBox";
-            this.enableMaxBandwidthBox.Size = new System.Drawing.Size(30, 17);
-            this.enableMaxBandwidthBox.TabIndex = 41;
-            this.enableMaxBandwidthBox.Text = "-";
-            this.enableMaxBandwidthBox.UseVisualStyleBackColor = true;
-            this.enableMaxBandwidthBox.CheckedChanged += new System.EventHandler(this.enableMaxBandwidthBox_CheckedChanged);
-            // 
-            // minBandwidthBox
-            // 
-            this.minBandwidthBox.Enabled = false;
-            this.minBandwidthBox.Location = new System.Drawing.Point(783, 86);
-            this.minBandwidthBox.Maximum = new decimal(new int[] {
-            9999,
-            0,
-            0,
-            0});
-            this.minBandwidthBox.Name = "minBandwidthBox";
-            this.minBandwidthBox.Size = new System.Drawing.Size(46, 22);
-            this.minBandwidthBox.TabIndex = 40;
-            // 
-            // enableMinBandwidthBox
-            // 
-            this.enableMinBandwidthBox.AutoSize = true;
-            this.enableMinBandwidthBox.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.enableMinBandwidthBox.Location = new System.Drawing.Point(768, 90);
-            this.enableMinBandwidthBox.Name = "enableMinBandwidthBox";
-            this.enableMinBandwidthBox.Size = new System.Drawing.Size(15, 14);
-            this.enableMinBandwidthBox.TabIndex = 39;
-            this.enableMinBandwidthBox.UseVisualStyleBackColor = true;
-            this.enableMinBandwidthBox.CheckedChanged += new System.EventHandler(this.enableMinBandwidthBox_CheckedChanged);
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(639, 89);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(115, 13);
-            this.label14.TabIndex = 38;
-            this.label14.Text = "Bant Genişliği (MB/s):";
-            this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // maxTurboFrequencyBox
             // 
@@ -835,9 +764,7 @@
             "Maks. çekirdek hızına göre (En yavaş)",
             "Maks. çekirdek hızına göre (En hızlı)",
             "Veri yolu genişliğine göre (En az)",
-            "Veri yolu genişliğine göre (En çok)",
-            "Bant genişliğine göre (En yavaş)",
-            "Bant genişliğine göre (En hızlı)"});
+            "Veri yolu genişliğine göre (En çok)"});
             this.orderBox.Location = new System.Drawing.Point(6, 22);
             this.orderBox.Name = "orderBox";
             this.orderBox.Size = new System.Drawing.Size(214, 21);
@@ -1017,8 +944,6 @@
             this.filterPanel.ResumeLayout(false);
             this.filterGroup.ResumeLayout(false);
             this.filterGroup.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.maxBandwidthBox)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.minBandwidthBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.maxTurboFrequencyBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.minTurboFrequencyBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.maxFrequencyBox)).EndInit();
@@ -1107,10 +1032,5 @@
         private System.Windows.Forms.NumericUpDown minTurboFrequencyBox;
         private System.Windows.Forms.CheckBox enableMinTurboFrequencyBox;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.NumericUpDown maxBandwidthBox;
-        private System.Windows.Forms.CheckBox enableMaxBandwidthBox;
-        private System.Windows.Forms.NumericUpDown minBandwidthBox;
-        private System.Windows.Forms.CheckBox enableMinBandwidthBox;
-        private System.Windows.Forms.Label label14;
     }
 }

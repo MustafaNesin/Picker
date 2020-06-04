@@ -5,7 +5,6 @@
         string GraphicsCardBrand { get; }
         string GraphicsCardChipsetBrand { get; }
         string GraphicsCardChipsetModel { get; }
-        int? GraphicsCardMaxBandwidth { get; }
         int? GraphicsCardMaxBusWidth { get; }
         int? GraphicsCardMaxFrequency { get; }
         int? GraphicsCardMaxMemory { get; }
@@ -13,7 +12,6 @@
         decimal? GraphicsCardMaxPrice { get; }
         int? GraphicsCardMaxTurboFrequency { get; }
         string GraphicsCardMemoryType { get; }
-        int? GraphicsCardMinBandwidth { get; }
         int? GraphicsCardMinBusWidth { get; }
         int? GraphicsCardMinFrequency { get; }
         int? GraphicsCardMinMemory { get; }

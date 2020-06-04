@@ -11,9 +11,6 @@
         public string GraphicsCardChipsetBrand => chipsetBrandBox.Text;
         public string GraphicsCardChipsetModel => chipsetModelBox.Text;
 
-        public int? GraphicsCardMaxBandwidth
-            => enableMaxBandwidthBox.Checked ? (int?)maxBandwidthBox.Value : null;
-
         public int? GraphicsCardMaxBusWidth
             => enableMaxBusWidthBox.Checked ? (int?)maxBusWidthBox.Value : null;
 
@@ -33,9 +30,6 @@
             => enableMaxTurboFrequencyBox.Checked ? (int?)maxTurboFrequencyBox.Value : null;
 
         public string GraphicsCardMemoryType => memoryTypeBox.Text;
-
-        public int? GraphicsCardMinBandwidth
-            => enableMinBandwidthBox.Checked ? (int?)minBandwidthBox.Value : null;
 
         public int? GraphicsCardMinBusWidth
             => enableMinBusWidthBox.Checked ? (int?)minBusWidthBox.Value : null;
@@ -108,23 +102,14 @@
             brandBox.Text = memoryTypeBox.Text =
                 nameBox.Text = chipsetBrandBox.Text = chipsetModelBox.Text = string.Empty;
 
-            enableMinPriceBox.Checked = enableMaxPriceBox.Checked = enableMinBandwidthBox.Checked =
-                enableMaxBandwidthBox.Checked = enableMinBusWidthBox.Checked =
-                    enableMaxBusWidthBox.Checked = enableMinFrequencyBox.Checked =
-                        enableMaxFrequencyBox.Checked = enableMinMemoryFrequencyBox.Checked =
-                            enableMaxMemoryFrequencyBox.Checked =
-                                enableMinTurboFrequencyBox.Checked =
-                                    enableMaxTurboFrequencyBox.Checked =
-                                        enableMinMemoryBox.Checked =
-                                            enableMaxMemoryBox.Checked = false;
+            enableMinPriceBox.Checked = enableMaxPriceBox.Checked = enableMinBusWidthBox.Checked =
+                enableMaxBusWidthBox.Checked = enableMinFrequencyBox.Checked =
+                    enableMaxFrequencyBox.Checked = enableMinMemoryFrequencyBox.Checked =
+                        enableMaxMemoryFrequencyBox.Checked = enableMinTurboFrequencyBox.Checked =
+                            enableMaxTurboFrequencyBox.Checked = enableMinMemoryBox.Checked =
+                                enableMaxMemoryBox.Checked = false;
 
             await _presenter.GenerateListAsync();
-        }
-
-        private void enableMaxBandwidthBox_CheckedChanged(object sender, EventArgs e)
-        {
-            maxBandwidthBox.Enabled = enableMaxBandwidthBox.Checked;
-            maxBandwidthBox.Value = 0M;
         }
 
         private void enableMaxBusWidthBox_CheckedChanged(object sender, EventArgs e)
@@ -161,12 +146,6 @@
         {
             maxTurboFrequencyBox.Enabled = enableMaxTurboFrequencyBox.Checked;
             maxTurboFrequencyBox.Value = 0M;
-        }
-
-        private void enableMinBandwidthBox_CheckedChanged(object sender, EventArgs e)
-        {
-            minBandwidthBox.Enabled = enableMinBandwidthBox.Checked;
-            minBandwidthBox.Value = 0M;
         }
 
         private void enableMinBusWidthBox_CheckedChanged(object sender, EventArgs e)

@@ -92,14 +92,6 @@
                 query = query.Where(entity
                     => entity.MemoryFrequency <= View.GraphicsCardMaxMemoryFrequency.Value);
 
-            if (View.GraphicsCardMinBandwidth.HasValue)
-                query = query.Where(entity
-                    => entity.GetBandwidth() >= View.GraphicsCardMinBandwidth.Value);
-
-            if (View.GraphicsCardMaxBandwidth.HasValue)
-                query = query.Where(entity
-                    => entity.GetBandwidth() <= View.GraphicsCardMaxBandwidth.Value);
-
             if (View.GraphicsCardMinBusWidth.HasValue)
                 query = query.Where(entity
                     => entity.BusWidth >= View.GraphicsCardMinBusWidth.Value);
@@ -152,10 +144,6 @@
                     => entity.BusWidth), // Veri yolu genişliğine göre (En az)
                 23 => query.OrderByDescending(entity
                     => entity.BusWidth), // Veri yolu genişliğine göre (En çok)
-                24 => query.OrderBy(entity
-                    => entity.GetBandwidth()), // Bant genişliğine göre (En yavaş)
-                25 => query.OrderByDescending(entity
-                    => entity.GetBandwidth()), // Bant genişliğine göre (En hızlı)
                 _ => query.OrderBy(entity => entity.Id) // Eskiden yeniye
             };
 

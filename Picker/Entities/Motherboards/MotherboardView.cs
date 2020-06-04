@@ -69,6 +69,48 @@
             }
         }
 
+        public string MotherboardFormFactor
+        {
+            get => formFactorBox.Text;
+            set => formFactorBox.Text = value;
+        }
+
+        public int MotherboardMaxMemory
+        {
+            get => (int)maxMemoryBox.Value;
+            set => maxMemoryBox.Value = value;
+        }
+
+        public int MotherboardMaxMemoryFrequency
+        {
+            get => (int)maxMemoryFrequencyBox.Value;
+            set => maxMemoryFrequencyBox.Value = value;
+        }
+
+        public int MotherboardMemorySlots
+        {
+            get => (int)memorySlotsBox.Value;
+            set => memorySlotsBox.Value = value;
+        }
+
+        public string MotherboardMemoryType
+        {
+            get => memoryTypeBox.Text.ToUpper();
+            set => memoryTypeBox.Text = value;
+        }
+
+        public string MotherboardModel
+        {
+            get => modelBox.Text;
+            set => modelBox.Text = value;
+        }
+
+        public decimal MotherboardPrice
+        {
+            get => priceBox.Value;
+            set => priceBox.Value = value;
+        }
+
         public Socket MotherboardSocket
         {
             get => _socket;
@@ -83,52 +125,10 @@
             }
         }
 
-        public int MotherboardMaxMemory
-        {
-            get => (int)maxMemoryBox.Value;
-            set => maxMemoryBox.Value = value;
-        }
-
-        public int MotherboardMemorySlots
-        {
-            get => (int)memorySlotsBox.Value;
-            set => memorySlotsBox.Value = value;
-        }
-
-        public int MotherboardMaxMemoryFrequency
-        {
-            get => (int)maxMemoryFrequencyBox.Value;
-            set => maxMemoryFrequencyBox.Value = value;
-        }
-
         public bool MotherboardSupportsECC
         {
             get => eccBox.Checked;
             set => eccBox.Checked = value;
-        }
-
-        public string MotherboardModel
-        {
-            get => modelBox.Text;
-            set => modelBox.Text = value;
-        }
-
-        public string MotherboardFormFactor
-        {
-            get => formFactorBox.Text;
-            set => formFactorBox.Text = value;
-        }
-
-        public decimal MotherboardPrice
-        {
-            get => priceBox.Value;
-            set => priceBox.Value = value;
-        }
-
-        public string MotherboardMemoryType
-        {
-            get => memoryTypeBox.Text.ToUpper();
-            set => memoryTypeBox.Text = value;
         }
 
         public MotherboardView(MotherboardPresenter presenter)
@@ -160,6 +160,23 @@
             }
         }
 
+        private async void chipsetButton_Click(object sender, EventArgs e)
+        {
+            if (_presenter.AdminMode)
+            {
+                await using var presenter = new ChipsetListPresenter(false);
+                if (presenter.ShowView() == DialogResult.Cancel)
+                    return;
+
+                (MotherboardChipset = presenter.SelectedEntity).DisposeImage();
+            }
+            else
+            {
+                await using var presenter = new ChipsetPresenter(MotherboardChipset, false);
+                presenter.ShowView();
+            }
+        }
+
         private void deleteImageButton_Click(object sender, EventArgs e) => EntityImage = null;
 
         private void MotherboardView_FormClosed(object sender, FormClosedEventArgs e)
@@ -187,23 +204,6 @@
                 return;
 
             EntityImage = Utilities.TryLoadImage(fileName);
-        }
-
-        private async void chipsetButton_Click(object sender, EventArgs e)
-        {
-            if (_presenter.AdminMode)
-            {
-                await using var presenter = new ChipsetListPresenter(false);
-                if (presenter.ShowView() == DialogResult.Cancel)
-                    return;
-
-                (MotherboardChipset = presenter.SelectedEntity).DisposeImage();
-            }
-            else
-            {
-                await using var presenter = new ChipsetPresenter(MotherboardChipset, false);
-                presenter.ShowView();
-            }
         }
 
         private async void socketButton_Click(object sender, EventArgs e)

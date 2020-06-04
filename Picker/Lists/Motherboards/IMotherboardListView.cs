@@ -5,24 +5,19 @@
     internal interface IMotherboardListView : IListView
     {
         string MotherboardBrand { get; }
-        decimal? MotherboardMinPrice { get; }
-        decimal? MotherboardMaxPrice { get; }
-
-        string MotherboardFormFactor { get; }
-
         string MotherboardChipset { get; }
-        string MotherboardSocket { get; }
-
-        string MotherboardMemoryType { get; }
-        int? MotherboardMinMemorySlots { get; }
-        int? MotherboardMaxMemorySlots { get; }
-        CheckState MotherboardSupportsECC { get; }
-
-        int? MotherboardMinMaxMemory { get; }
+        string MotherboardFormFactor { get; }
         int? MotherboardMaxMaxMemory { get; }
-        int? MotherboardMinMaxMemoryFrequency { get; }
         int? MotherboardMaxMaxMemoryFrequency { get; }
-
+        int? MotherboardMaxMemorySlots { get; }
+        decimal? MotherboardMaxPrice { get; }
+        string MotherboardMemoryType { get; }
+        int? MotherboardMinMaxMemory { get; }
+        int? MotherboardMinMaxMemoryFrequency { get; }
+        int? MotherboardMinMemorySlots { get; }
+        decimal? MotherboardMinPrice { get; }
+        string MotherboardSocket { get; }
+        CheckState MotherboardSupportsECC { get; }
         bool OnlyCompatibles { get; }
     }
 }

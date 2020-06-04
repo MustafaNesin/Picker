@@ -8,7 +8,8 @@
     using System.Windows.Forms;
 
     internal sealed class MotherboardListPresenter
-        : ListPresenter<MotherboardListView, Motherboard, MotherboardPresenter, MotherboardView, MotherboardItemView>
+        : ListPresenter<MotherboardListView, Motherboard, MotherboardPresenter, MotherboardView,
+            MotherboardItemView>
     {
         protected override Panel ListPanel => View.listPanel;
 
@@ -50,34 +51,43 @@
                 query = query.Where(entity => entity.Brand.Name.Contains(View.MotherboardBrand));
 
             if (!string.IsNullOrWhiteSpace(View.MotherboardChipset))
-                query = query.Where(entity => entity.Chipset.Name.Contains(View.MotherboardChipset));
+                query = query.Where(entity
+                    => entity.Chipset.Name.Contains(View.MotherboardChipset));
 
             if (!string.IsNullOrWhiteSpace(View.MotherboardSocket))
                 query = query.Where(entity => entity.Socket.Name.Contains(View.MotherboardSocket));
 
             if (!string.IsNullOrWhiteSpace(View.MotherboardMemoryType))
-                query = query.Where(entity => entity.MemoryType.Contains(View.MotherboardMemoryType));
+                query = query.Where(
+                    entity => entity.MemoryType.Contains(View.MotherboardMemoryType));
 
             if (!string.IsNullOrWhiteSpace(View.MotherboardFormFactor))
-                query = query.Where(entity => entity.MemoryType.Contains(View.MotherboardFormFactor));
+                query = query.Where(
+                    entity => entity.MemoryType.Contains(View.MotherboardFormFactor));
 
             if (View.MotherboardMinMemorySlots.HasValue)
-                query = query.Where(entity => entity.MemorySlots >= View.MotherboardMinMemorySlots.Value);
+                query = query.Where(entity
+                    => entity.MemorySlots >= View.MotherboardMinMemorySlots.Value);
 
             if (View.MotherboardMaxMemorySlots.HasValue)
-                query = query.Where(entity => entity.MemorySlots <= View.MotherboardMaxMemorySlots.Value);
+                query = query.Where(entity
+                    => entity.MemorySlots <= View.MotherboardMaxMemorySlots.Value);
 
             if (View.MotherboardMinMaxMemory.HasValue)
-                query = query.Where(entity => entity.MaxMemory >= View.MotherboardMinMaxMemory.Value);
+                query = query.Where(
+                    entity => entity.MaxMemory >= View.MotherboardMinMaxMemory.Value);
 
             if (View.MotherboardMaxMaxMemory.HasValue)
-                query = query.Where(entity => entity.MaxMemory <= View.MotherboardMaxMaxMemory.Value);
+                query = query.Where(
+                    entity => entity.MaxMemory <= View.MotherboardMaxMaxMemory.Value);
 
             if (View.MotherboardMinMaxMemoryFrequency.HasValue)
-                query = query.Where(entity => entity.MaxMemoryFrequency >= View.MotherboardMinMaxMemoryFrequency.Value);
+                query = query.Where(entity
+                    => entity.MaxMemoryFrequency >= View.MotherboardMinMaxMemoryFrequency.Value);
 
             if (View.MotherboardMaxMaxMemoryFrequency.HasValue)
-                query = query.Where(entity => entity.MaxMemoryFrequency <= View.MotherboardMaxMaxMemoryFrequency.Value);
+                query = query.Where(entity
+                    => entity.MaxMemoryFrequency <= View.MotherboardMaxMaxMemoryFrequency.Value);
 
             if (View.MotherboardMinPrice.HasValue)
                 query = query.Where(entity => entity.Price >= View.MotherboardMinPrice.Value);
@@ -100,7 +110,8 @@
                 6 => query.OrderBy(entity => entity.Price), // Fiyata göre (En ucuz)
                 7 => query.OrderByDescending(entity => entity.Price), // Fiyata göre (En pahalı)
                 8 => query.OrderBy(entity => entity.MemoryType), // Bellek tipine göre (A-Z)
-                9 => query.OrderByDescending(entity => entity.MemoryType), // Bellek tipine göre (Z-A)
+                9 => query.OrderByDescending(entity
+                    => entity.MemoryType), // Bellek tipine göre (Z-A)
                 10 => query.OrderBy(entity
                     => entity.MemorySlots), // Bellek slot sayısına göre (En az)
                 11 => query.OrderByDescending(entity
@@ -109,12 +120,11 @@
                     => entity.MaxMemory), // Maks. bellek kapasitesine göre (En az)
                 13 => query.OrderByDescending(entity
                     => entity.MaxMemory), //  Maks. bellek kapasitesine göre (En çok)
-                14 => query.OrderBy(entity 
+                14 => query.OrderBy(entity
                     => entity.MaxMemoryFrequency), // Maks. bellek hızına göre (En az)
                 15 => query.OrderByDescending(entity
                     => entity.MaxMemoryFrequency), // Maks. bellek hızına göre (En çok)
-                16 => query.OrderBy(entity
-                    => entity.FormFactor), // Form faktörüne göre (A-Z)
+                16 => query.OrderBy(entity => entity.FormFactor), // Form faktörüne göre (A-Z)
                 17 => query.OrderByDescending(entity
                     => entity.FormFactor), // Form faktörüne göre (Z-A)
                 _ => query.OrderBy(entity => entity.Id) // Eskiden yeniye
