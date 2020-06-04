@@ -132,7 +132,7 @@
             this.pickColorButton.FlatAppearance.BorderSize = 0;
             this.pickColorButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.pickColorButton.ForeColor = System.Drawing.Color.White;
-            this.pickColorButton.Location = new System.Drawing.Point(45, 67);
+            this.pickColorButton.Location = new System.Drawing.Point(51, 67);
             this.pickColorButton.Name = "pickColorButton";
             this.pickColorButton.Size = new System.Drawing.Size(250, 26);
             this.pickColorButton.TabIndex = 5;
@@ -145,10 +145,10 @@
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.label3.Location = new System.Drawing.Point(3, 73);
+            this.label3.Location = new System.Drawing.Point(3, 70);
             this.label3.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(36, 13);
+            this.label3.Size = new System.Drawing.Size(42, 19);
             this.label3.TabIndex = 4;
             this.label3.Text = "Renk:";
             // 
@@ -158,9 +158,9 @@
             this.countryBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.countryBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.countryBox.FormattingEnabled = true;
-            this.countryBox.Location = new System.Drawing.Point(45, 37);
+            this.countryBox.Location = new System.Drawing.Point(51, 35);
             this.countryBox.Name = "countryBox";
-            this.countryBox.Size = new System.Drawing.Size(250, 21);
+            this.countryBox.Size = new System.Drawing.Size(250, 27);
             this.countryBox.TabIndex = 3;
             // 
             // label2
@@ -168,19 +168,19 @@
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.label2.Location = new System.Drawing.Point(3, 41);
+            this.label2.Location = new System.Drawing.Point(3, 38);
             this.label2.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(33, 13);
+            this.label2.Size = new System.Drawing.Size(39, 19);
             this.label2.TabIndex = 2;
             this.label2.Text = "Ülke:";
             // 
             // nameBox
             // 
             this.nameBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.nameBox.Location = new System.Drawing.Point(45, 5);
+            this.nameBox.Location = new System.Drawing.Point(51, 3);
             this.nameBox.Name = "nameBox";
-            this.nameBox.Size = new System.Drawing.Size(250, 22);
+            this.nameBox.Size = new System.Drawing.Size(250, 26);
             this.nameBox.TabIndex = 1;
             // 
             // label1
@@ -188,10 +188,10 @@
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.label1.Location = new System.Drawing.Point(3, 9);
+            this.label1.Location = new System.Drawing.Point(3, 6);
             this.label1.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(24, 13);
+            this.label1.Size = new System.Drawing.Size(29, 19);
             this.label1.TabIndex = 0;
             this.label1.Text = "Ad:";
             // 
@@ -235,7 +235,7 @@
             // BrandView
             // 
             this.AcceptButton = this.acceptButton;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.cancelButton;
             this.ClientSize = new System.Drawing.Size(374, 143);
