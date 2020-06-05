@@ -88,6 +88,9 @@
                 if (presenter.ShowView() == DialogResult.Cancel)
                     return;
 
+                if (SocketBrand != null && SocketBrand.Id == presenter.SelectedEntity.Id)
+                    return;
+
                 (SocketBrand = presenter.SelectedEntity).DisposeImage();
             }
             else

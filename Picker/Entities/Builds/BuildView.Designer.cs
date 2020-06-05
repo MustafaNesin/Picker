@@ -248,7 +248,7 @@
             this.memoryPriceLabel.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
             this.memoryPriceLabel.Size = new System.Drawing.Size(421, 29);
             this.memoryPriceLabel.TabIndex = 3;
-            this.memoryPriceLabel.Text = "Fiyat: $0.00";
+            this.memoryPriceLabel.Text = "Fiyat ($):0.00";
             this.memoryPriceLabel.Visible = false;
             // 
             // memorySelectButton
@@ -376,7 +376,7 @@
             this.graphicsCardPriceLabel.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
             this.graphicsCardPriceLabel.Size = new System.Drawing.Size(471, 29);
             this.graphicsCardPriceLabel.TabIndex = 3;
-            this.graphicsCardPriceLabel.Text = "Fiyat: $0.00";
+            this.graphicsCardPriceLabel.Text = "Fiyat ($):0.00";
             this.graphicsCardPriceLabel.Visible = false;
             // 
             // graphicsCardSelectButton
@@ -460,7 +460,7 @@
             this.processorPriceLabel.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
             this.processorPriceLabel.Size = new System.Drawing.Size(471, 29);
             this.processorPriceLabel.TabIndex = 3;
-            this.processorPriceLabel.Text = "Fiyat: $0.00";
+            this.processorPriceLabel.Text = "Fiyat ($):0.00";
             this.processorPriceLabel.Visible = false;
             // 
             // processorSelectButton
@@ -544,7 +544,7 @@
             this.motherboardPriceLabel.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
             this.motherboardPriceLabel.Size = new System.Drawing.Size(471, 29);
             this.motherboardPriceLabel.TabIndex = 3;
-            this.motherboardPriceLabel.Text = "Fiyat: $0.00";
+            this.motherboardPriceLabel.Text = "Fiyat ($):0.00";
             this.motherboardPriceLabel.Visible = false;
             // 
             // motherboardSelectButton

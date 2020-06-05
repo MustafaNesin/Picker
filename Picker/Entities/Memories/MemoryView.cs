@@ -121,6 +121,9 @@
                 if (presenter.ShowView() == DialogResult.Cancel)
                     return;
 
+                if (MemoryBrand != null && MemoryBrand.Id == presenter.SelectedEntity.Id)
+                    return;
+
                 (MemoryBrand = presenter.SelectedEntity).DisposeImage();
             }
             else

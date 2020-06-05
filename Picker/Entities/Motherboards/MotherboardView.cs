@@ -151,6 +151,9 @@
                 if (presenter.ShowView() == DialogResult.Cancel)
                     return;
 
+                if (MotherboardBrand != null && MotherboardBrand.Id == presenter.SelectedEntity.Id)
+                    return;
+
                 (MotherboardBrand = presenter.SelectedEntity).DisposeImage();
             }
             else
@@ -166,6 +169,9 @@
             {
                 await using var presenter = new ChipsetListPresenter(false);
                 if (presenter.ShowView() == DialogResult.Cancel)
+                    return;
+
+                if (MotherboardChipset != null && MotherboardChipset.Id == presenter.SelectedEntity.Id)
                     return;
 
                 (MotherboardChipset = presenter.SelectedEntity).DisposeImage();
@@ -212,6 +218,9 @@
             {
                 await using var presenter = new SocketListPresenter(false);
                 if (presenter.ShowView() == DialogResult.Cancel)
+                    return;
+
+                if (MotherboardSocket != null && MotherboardSocket.Id == presenter.SelectedEntity.Id)
                     return;
 
                 (MotherboardSocket = presenter.SelectedEntity).DisposeImage();

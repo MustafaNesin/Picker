@@ -47,10 +47,6 @@
         protected override async Task LoadRelationsAsync(DbEntityEntry<Chipset> entry)
             => await entry.Reference(entity => entity.Brand).LoadAsync();
 
-        protected override void StateRelationsUnchanged(ComputerDatabaseContext context,
-            Chipset entity)
-            => context.Entry(entity.Brand).State = EntityState.Unchanged;
-
         #region Disposing
         private bool _disposed;
 

@@ -495,7 +495,7 @@
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(43, 13);
             this.label15.TabIndex = 4;
-            this.label15.Text = "Fiyat: $";
+            this.label15.Text = "Fiyat ($):";
             // 
             // imageBox
             // 

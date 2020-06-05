@@ -53,11 +53,6 @@
         protected override async Task LoadRelationsAsync(DbEntityEntry<Brand> entry)
             => await Task.Delay(1);
 
-        protected override void StateRelationsUnchanged(ComputerDatabaseContext context,
-            Brand entity)
-        {
-        }
-
         #region Disposing
         private bool _disposed;
 

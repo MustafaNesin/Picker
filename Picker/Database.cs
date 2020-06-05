@@ -20,5 +20,15 @@ namespace Picker
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
             => modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
+
+        public void ClearTrackingEntities<TEntity>(TEntity exception) where TEntity : Entity
+        {
+            foreach (var entry in ChangeTracker.Entries())
+            {
+                if (entry.Entity is TEntity entity && entity.Id == exception.Id)
+                    continue;
+                entry.State = EntityState.Unchanged;
+            }
+        }
     }
 }

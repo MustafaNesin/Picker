@@ -137,15 +137,9 @@
         {
             await entry.Reference(entity => entity.Brand).LoadAsync();
             await entry.Reference(entity => entity.Chipset).LoadAsync();
+            await context.Entry(entry.Entity.Chipset).Reference(entity => entity.Brand).LoadAsync();
             await entry.Reference(entity => entity.Socket).LoadAsync();
-        }
-
-        protected override void StateRelationsUnchanged(ComputerDatabaseContext context,
-            Motherboard entity)
-        {
-            context.Entry(entity.Brand).State = EntityState.Unchanged;
-            context.Entry(entity.Chipset).State = EntityState.Unchanged;
-            context.Entry(entity.Socket).State = EntityState.Unchanged;
+            await context.Entry(entry.Entity.Socket).Reference(entity => entity.Brand).LoadAsync();
         }
 
         #region Disposing

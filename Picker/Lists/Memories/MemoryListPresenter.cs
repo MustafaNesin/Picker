@@ -115,10 +115,6 @@
         protected override async Task LoadRelationsAsync(DbEntityEntry<Memory> entry)
             => await entry.Reference(entity => entity.Brand).LoadAsync();
 
-        protected override void StateRelationsUnchanged(ComputerDatabaseContext context,
-            Memory entity)
-            => context.Entry(entity.Brand).State = EntityState.Unchanged;
-
         #region Disposing
         private bool _disposed;
 

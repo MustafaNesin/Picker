@@ -156,13 +156,6 @@
             await entry.Reference(entity => entity.ChipsetBrand).LoadAsync();
         }
 
-        protected override void StateRelationsUnchanged(ComputerDatabaseContext context,
-            GraphicsCard entity)
-        {
-            context.Entry(entity.Brand).State = EntityState.Unchanged;
-            context.Entry(entity.ChipsetBrand).State = EntityState.Unchanged;
-        }
-
         #region Disposing
         private bool _disposed;
 

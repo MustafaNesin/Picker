@@ -152,6 +152,9 @@
                 if (presenter.ShowView() == DialogResult.Cancel)
                     return;
 
+                if (GraphicsCardBrand != null && GraphicsCardBrand.Id == presenter.SelectedEntity.Id)
+                    return;
+
                 (GraphicsCardBrand = presenter.SelectedEntity).DisposeImage();
             }
             else
@@ -167,6 +170,9 @@
             {
                 await using var presenter = new BrandListPresenter(false);
                 if (presenter.ShowView() == DialogResult.Cancel)
+                    return;
+
+                if (GraphicsCardChipsetBrand != null && GraphicsCardChipsetBrand.Id == presenter.SelectedEntity.Id)
                     return;
 
                 (GraphicsCardChipsetBrand = presenter.SelectedEntity).DisposeImage();

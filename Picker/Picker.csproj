@@ -121,6 +121,14 @@
     <Compile Include="Entities\Motherboards\MotherboardView.Designer.cs">
       <DependentUpon>MotherboardView.cs</DependentUpon>
     </Compile>
+    <Compile Include="Entities\Processors\IProcessorView.cs" />
+    <Compile Include="Entities\Processors\ProcessorPresenter.cs" />
+    <Compile Include="Entities\Processors\ProcessorView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Entities\Processors\ProcessorView.Designer.cs">
+      <DependentUpon>ProcessorView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Entities\Sockets\SocketView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -263,6 +271,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Entities\Motherboards\MotherboardView.resx">
       <DependentUpon>MotherboardView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Entities\Processors\ProcessorView.resx">
+      <DependentUpon>ProcessorView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Entities\Sockets\SocketView.resx">
       <DependentUpon>SocketView.cs</DependentUpon>

@@ -43,7 +43,7 @@
             {
                 var entry = context.Entry(entity);
                 entry.State = EntityState.Added;
-                StateRelationsUnchanged(context, entity);
+                context.ClearTrackingEntities(entity);
                 await context.SaveChangesAsync();
             }
 
@@ -94,7 +94,7 @@
                 var entry = context.Entry(entity);
                 entry.State = EntityState.Modified;
                 await LoadRelationsAsync(entry);
-                StateRelationsUnchanged(context, entity);
+                context.ClearTrackingEntities(entity);
                 await context.SaveChangesAsync();
             }
 
@@ -152,9 +152,6 @@
             SelectedEntity = entity;
             View.DialogResult = DialogResult.OK;
         }
-
-        protected abstract void StateRelationsUnchanged(ComputerDatabaseContext context,
-            TEntity entity);
 
         #region Disposing
         private bool _disposed;
