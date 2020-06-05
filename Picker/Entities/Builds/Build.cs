@@ -14,14 +14,10 @@ namespace Picker
         protected override string ImagePath
             => _imagePath ??= Path.Combine(DatabaseUtilities.BuildImagesDirectory, Id + ".png");
 
-        public virtual ICollection<Memory> Memories { get; set; }
         public virtual Motherboard Motherboard { get; set; }
         public int? MotherboardId { get; set; }
         public virtual Processor Processor { get; set; }
         public int? ProcessorId { get; set; }
-
-        [SuppressMessage("ReSharper", "VirtualMemberCallInConstructor")]
-        public Build() => Memories = new HashSet<Memory>();
 
         public bool IsCompatibleWith(Motherboard motherboard)
             => IsCompatibleWith(motherboard, out var messages);

@@ -13,20 +13,26 @@ namespace Picker
         public virtual DbSet<Motherboard> Motherboards { get; set; }
         public virtual DbSet<Processor> Processors { get; set; }
         public virtual DbSet<Socket> Sockets { get; set; }
+        public virtual DbSet<ProcessorChipset> ProcessorChipsets { get; set; }
+        public virtual DbSet<BuildMemory> BuildMemories { get; set; }
 
         public ComputerDatabaseContext() : base("name=PickerDatabase")
         {
         }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
-            => modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
+        {
+            modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
+        }
 
         public void ClearTrackingEntities<TEntity>(TEntity exception) where TEntity : Entity
         {
             foreach (var entry in ChangeTracker.Entries())
             {
-                if (entry.Entity is TEntity entity && entity.Id == exception.Id)
-                    continue;
+                if (entry.Entity is ProcessorChipset || entry.Entity is BuildMemory ||
+                    entry.Entity is TEntity entity && entity.Id == exception.Id)
+                    continue; 
+                
                 entry.State = EntityState.Unchanged;
             }
         }

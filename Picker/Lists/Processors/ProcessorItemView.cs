@@ -5,12 +5,12 @@
     using System.Windows.Forms;
     using Properties;
 
-    internal partial class MotherboardItemView : UserControl, IMotherboardItemView
+    internal partial class ProcessorItemView : UserControl, IProcessorItemView
     {
-        private readonly MotherboardListPresenter _presenter;
-        private Motherboard _entity;
+        private readonly ProcessorListPresenter _presenter;
+        private Processor _entity;
 
-        public MotherboardItemView(MotherboardListPresenter presenter)
+        public ProcessorItemView(ProcessorListPresenter presenter)
         {
             InitializeComponent();
             Disposed += OnDispose;
@@ -42,7 +42,7 @@
             if (_presenter.GeneratingList)
                 return;
 
-            await using var presenter = new MotherboardPresenter(_entity, false);
+            await using var presenter = new ProcessorPresenter(_entity, false);
             presenter.ShowView();
         }
 
@@ -63,20 +63,23 @@
             imageBox.DisposeImage();
         }
 
-        public void UpdateView(Motherboard entity)
+        public void UpdateView(Processor entity)
         {
             _entity = entity;
             nameLabel.Text = entity.Name;
             brandLabel.Text = entity.Brand.Name;
             priceLabel.Text = $"{entity.Price:C2}";
-            chipsetLabel.Text = entity.Chipset.Name;
-            socketLabel.Text = entity.Socket.Name;
-            formFactorLabel.Text = entity.FormFactor;
-            memoryTypeLabel.Text = entity.MemoryType;
-            memorySlotsLabel.Text = entity.MemorySlots + " bellek slotu";
+            familyLabel.Text = entity.Family;
+            coresLabel.Text = entity.Cores + " çekirdek";
+            threadsLabel.Text = entity.Threads + " iş parçacığı";
+            cacheSizeLabel.Text = entity.CacheSize + " MB önbellek";
+            frequencyLabel.Text = (entity.Frequency / 1000d).ToString("0.##") + " GHz";
+            turboFrequencyLabel.Text = "Turbo: " + (entity.TurboFrequency / 1000d).ToString("0.##") + " GHz";
             maxMemoryLabel.Text = "Max " + entity.MaxMemory + " GB bellek";
-            maxMemoryFrequencyLabel.Text = "Max " + entity.MaxMemoryFrequency + " MHz bellek";
+            maxMemorySpeedLabel.Text = "Max " + entity.MaxMemorySpeed + " MHz bellek";
+            socketLabel.Text = entity.Socket.Name;
             eccLabel.ForeColor = entity.SupportsECC ? Color.Green : Color.Red;
+            is64BitLabel.ForeColor = entity.Is64Bit ? Color.Green : Color.Red;
 
             itemPanel.BackColor = nameLabel.ForeColor = entity.Brand.Color;
             foreach (Button button in controlPanel.Controls)

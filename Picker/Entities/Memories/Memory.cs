@@ -7,7 +7,6 @@ namespace Picker
 
     public class Memory : Product
     {
-        public virtual ICollection<Build> Builds { get; set; }
         public int Capacity { get; set; } // GB
         public int Count { get; set; }
         public int Frequency { get; set; } // MHz
@@ -20,9 +19,6 @@ namespace Picker
 
         [Required]
         public string Type { get; set; }
-
-        [SuppressMessage("ReSharper", "VirtualMemberCallInConstructor")]
-        public Memory() => Builds = new HashSet<Build>();
 
         public int GetBandwidth() => DatabaseUtilities.GetBandwidth(Frequency, 64); // MB/s
     }

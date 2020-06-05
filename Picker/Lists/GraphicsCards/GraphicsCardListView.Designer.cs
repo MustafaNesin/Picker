@@ -182,21 +182,21 @@
             // maxTurboFrequencyBox
             // 
             this.maxTurboFrequencyBox.Enabled = false;
-            this.maxTurboFrequencyBox.Location = new System.Drawing.Point(570, 86);
+            this.maxTurboFrequencyBox.Location = new System.Drawing.Point(580, 86);
             this.maxTurboFrequencyBox.Maximum = new decimal(new int[] {
-            9999,
+            99999,
             0,
             0,
             0});
             this.maxTurboFrequencyBox.Name = "maxTurboFrequencyBox";
-            this.maxTurboFrequencyBox.Size = new System.Drawing.Size(46, 22);
+            this.maxTurboFrequencyBox.Size = new System.Drawing.Size(56, 22);
             this.maxTurboFrequencyBox.TabIndex = 37;
             // 
             // enableMaxTurboFrequencyBox
             // 
             this.enableMaxTurboFrequencyBox.AutoSize = true;
             this.enableMaxTurboFrequencyBox.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.enableMaxTurboFrequencyBox.Location = new System.Drawing.Point(540, 89);
+            this.enableMaxTurboFrequencyBox.Location = new System.Drawing.Point(550, 89);
             this.enableMaxTurboFrequencyBox.Name = "enableMaxTurboFrequencyBox";
             this.enableMaxTurboFrequencyBox.Size = new System.Drawing.Size(30, 17);
             this.enableMaxTurboFrequencyBox.TabIndex = 36;
@@ -209,12 +209,12 @@
             this.minTurboFrequencyBox.Enabled = false;
             this.minTurboFrequencyBox.Location = new System.Drawing.Point(494, 86);
             this.minTurboFrequencyBox.Maximum = new decimal(new int[] {
-            9999,
+            99999,
             0,
             0,
             0});
             this.minTurboFrequencyBox.Name = "minTurboFrequencyBox";
-            this.minTurboFrequencyBox.Size = new System.Drawing.Size(46, 22);
+            this.minTurboFrequencyBox.Size = new System.Drawing.Size(56, 22);
             this.minTurboFrequencyBox.TabIndex = 35;
             // 
             // enableMinTurboFrequencyBox
@@ -241,21 +241,21 @@
             // maxFrequencyBox
             // 
             this.maxFrequencyBox.Enabled = false;
-            this.maxFrequencyBox.Location = new System.Drawing.Point(218, 86);
+            this.maxFrequencyBox.Location = new System.Drawing.Point(228, 86);
             this.maxFrequencyBox.Maximum = new decimal(new int[] {
-            9999,
+            99999,
             0,
             0,
             0});
             this.maxFrequencyBox.Name = "maxFrequencyBox";
-            this.maxFrequencyBox.Size = new System.Drawing.Size(46, 22);
+            this.maxFrequencyBox.Size = new System.Drawing.Size(56, 22);
             this.maxFrequencyBox.TabIndex = 32;
             // 
             // enableMaxFrequencyBox
             // 
             this.enableMaxFrequencyBox.AutoSize = true;
             this.enableMaxFrequencyBox.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.enableMaxFrequencyBox.Location = new System.Drawing.Point(188, 89);
+            this.enableMaxFrequencyBox.Location = new System.Drawing.Point(198, 89);
             this.enableMaxFrequencyBox.Name = "enableMaxFrequencyBox";
             this.enableMaxFrequencyBox.Size = new System.Drawing.Size(30, 17);
             this.enableMaxFrequencyBox.TabIndex = 31;
@@ -268,12 +268,12 @@
             this.minFrequencyBox.Enabled = false;
             this.minFrequencyBox.Location = new System.Drawing.Point(142, 86);
             this.minFrequencyBox.Maximum = new decimal(new int[] {
-            9999,
+            99999,
             0,
             0,
             0});
             this.minFrequencyBox.Name = "minFrequencyBox";
-            this.minFrequencyBox.Size = new System.Drawing.Size(46, 22);
+            this.minFrequencyBox.Size = new System.Drawing.Size(56, 22);
             this.minFrequencyBox.TabIndex = 30;
             // 
             // enableMinFrequencyBox

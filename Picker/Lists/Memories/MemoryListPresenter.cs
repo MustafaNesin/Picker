@@ -36,8 +36,7 @@
 
             if (Build != null)
             {
-                foreach (var memory in Build.Memories)
-                    query = query.Where(entity => entity.Id != memory.Id);
+                await context.BuildMemories.LoadAsync();
 
                 if (View.OnlyCompatibles)
                     query = query.Where(entity => Build.IsCompatibleWith(entity));

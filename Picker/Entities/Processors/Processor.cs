@@ -9,7 +9,6 @@ namespace Picker
     {
         public virtual ICollection<Build> Builds { get; set; }
         public int CacheSize { get; set; }
-        public virtual ICollection<Chipset> Chipsets { get; set; }
         public int Cores { get; set; }
 
         [Required]
@@ -36,7 +35,6 @@ namespace Picker
         public Processor()
         {
             Builds = new HashSet<Build>();
-            Chipsets = new HashSet<Chipset>();
         }
     }
 }

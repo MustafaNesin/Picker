@@ -117,8 +117,8 @@
         {
             Hide();
 
-            /*await using (var presenter = new ProcessorListPresenter(true))
-                presenter.ShowView();*/
+            await using (var presenter = new ProcessorListPresenter(true))
+                presenter.ShowView();
 
             await SetCountToolTips();
             Show();

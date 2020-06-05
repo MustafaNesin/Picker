@@ -205,7 +205,7 @@
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.label12.Location = new System.Drawing.Point(386, 143);
+            this.label12.Location = new System.Drawing.Point(396, 143);
             this.label12.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(30, 13);
@@ -216,12 +216,12 @@
             // 
             this.turboFrequencyBox.Location = new System.Drawing.Point(336, 141);
             this.turboFrequencyBox.Maximum = new decimal(new int[] {
-            9999,
+            99999,
             0,
             0,
             0});
             this.turboFrequencyBox.Name = "turboFrequencyBox";
-            this.turboFrequencyBox.Size = new System.Drawing.Size(50, 22);
+            this.turboFrequencyBox.Size = new System.Drawing.Size(60, 22);
             this.turboFrequencyBox.TabIndex = 22;
             // 
             // label13
@@ -239,7 +239,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.label10.Location = new System.Drawing.Point(139, 143);
+            this.label10.Location = new System.Drawing.Point(149, 143);
             this.label10.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(30, 13);
@@ -250,12 +250,12 @@
             // 
             this.frequencyBox.Location = new System.Drawing.Point(89, 141);
             this.frequencyBox.Maximum = new decimal(new int[] {
-            9999,
+            99999,
             0,
             0,
             0});
             this.frequencyBox.Name = "frequencyBox";
-            this.frequencyBox.Size = new System.Drawing.Size(50, 22);
+            this.frequencyBox.Size = new System.Drawing.Size(60, 22);
             this.frequencyBox.TabIndex = 19;
             // 
             // label11
@@ -493,7 +493,7 @@
             this.label15.Location = new System.Drawing.Point(362, 47);
             this.label15.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(43, 13);
+            this.label15.Size = new System.Drawing.Size(49, 13);
             this.label15.TabIndex = 4;
             this.label15.Text = "Fiyat ($):";
             // 
