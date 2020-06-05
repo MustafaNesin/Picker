@@ -235,6 +235,7 @@
     <Compile Include="Entities\Memories\Memory.cs" />
     <Compile Include="Entities\Motherboards\Motherboard.cs" />
     <Compile Include="Entities\Part.cs" />
+    <Compile Include="Entities\Processors\Processor.cs" />
     <Compile Include="Entities\Product.cs" />
     <Compile Include="Entities\Sockets\Socket.cs" />
     <Compile Include="Entities\Brands\BrandPresenter.cs" />
@@ -349,6 +350,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Lists\Builds\" />
+    <Folder Include="Lists\Processors\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
