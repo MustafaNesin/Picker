@@ -153,6 +153,21 @@
     <Compile Include="Lists\Brands\BrandListPresenter.cs" />
     <Compile Include="Lists\Brands\IBrandItemView.cs" />
     <Compile Include="Lists\Brands\IBrandListView.cs" />
+    <Compile Include="Lists\Builds\IBuildItemView.cs" />
+    <Compile Include="Lists\Builds\IBuildListView.cs" />
+    <Compile Include="Lists\Builds\BuildItemView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Lists\Builds\BuildItemView.Designer.cs">
+      <DependentUpon>BuildItemView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Lists\Builds\BuildListPresenter.cs" />
+    <Compile Include="Lists\Builds\BuildListView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Lists\Builds\BuildListView.Designer.cs">
+      <DependentUpon>BuildListView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Lists\Chipsets\IChipsetItemView.cs" />
     <Compile Include="Lists\Chipsets\IChipsetListView.cs" />
     <Compile Include="Lists\Chipsets\ChipsetItemView.cs">
@@ -301,6 +316,13 @@
     <EmbeddedResource Include="Lists\Brands\BrandListView.resx">
       <DependentUpon>BrandListView.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Lists\Builds\BuildItemView.resx">
+      <DependentUpon>BuildItemView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Lists\Builds\BuildListView.resx">
+      <DependentUpon>BuildListView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Lists\Chipsets\ChipsetItemView.resx">
       <DependentUpon>ChipsetItemView.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -383,9 +405,7 @@
     <None Include="Resources\favicon_32.png" />
     <None Include="Resources\favicon_16.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Lists\Builds\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
