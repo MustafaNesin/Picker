@@ -93,7 +93,7 @@
             {
                 var entry = context.Entry(entity);
                 entry.State = EntityState.Modified;
-                await LoadRelationsAsync(entry);
+                await LoadRelationsAsync(context, entry);
                 context.ClearTrackingEntities(entity);
                 await context.SaveChangesAsync();
             }
@@ -110,7 +110,7 @@
             List<TEntity> entities;
             using (var context = new ComputerDatabaseContext())
                 foreach (var entity in entities = await GetEntitiesAsync(context, paging))
-                    await LoadRelationsAsync(context.Entry(entity));
+                    await LoadRelationsAsync(context, context.Entry(entity));
 
             foreach (var itemView in entities.Select(CreateEntityItemView))
             {
@@ -125,7 +125,7 @@
         protected abstract Task<List<TEntity>> GetEntitiesAsync(ComputerDatabaseContext context,
             bool paging);
 
-        protected abstract Task LoadRelationsAsync(DbEntityEntry<TEntity> entry);
+        protected abstract Task LoadRelationsAsync(ComputerDatabaseContext context, DbEntityEntry<TEntity> entry);
 
         public async Task<List<TEntity>> RunQueryAsync(IQueryable<TEntity> query,
             int totalItemCount, bool paging)

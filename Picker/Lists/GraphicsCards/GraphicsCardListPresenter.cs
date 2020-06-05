@@ -150,7 +150,7 @@
             return await RunQueryAsync(query, totalItemCount, paging);
         }
 
-        protected override async Task LoadRelationsAsync(DbEntityEntry<GraphicsCard> entry)
+        protected override async Task LoadRelationsAsync(ComputerDatabaseContext context, DbEntityEntry<GraphicsCard> entry)
         {
             await entry.Reference(entity => entity.Brand).LoadAsync();
             await entry.Reference(entity => entity.ChipsetBrand).LoadAsync();

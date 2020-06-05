@@ -133,7 +133,7 @@
             return await RunQueryAsync(query, totalItemCount, paging);
         }
 
-        protected override async Task LoadRelationsAsync(DbEntityEntry<Motherboard> entry)
+        protected override async Task LoadRelationsAsync(ComputerDatabaseContext context, DbEntityEntry<Motherboard> entry)
         {
             await entry.Reference(entity => entity.Brand).LoadAsync();
             await entry.Reference(entity => entity.Chipset).LoadAsync();
