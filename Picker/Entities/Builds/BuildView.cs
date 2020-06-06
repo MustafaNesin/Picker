@@ -375,8 +375,7 @@
 
             graphicsCardImageBox.Image = graphicsCard?.Image ?? Resources.FavIcon64;
             graphicsCardNameLabel.Text = graphicsCard?.Name ?? "Bir ekran kartı seçin...";
-            graphicsCardNameLabel.ForeColor = graphicsCardSelectButton.BackColor =
-                graphicsCard?.Brand.Color ?? Color.Green;
+            graphicsCardNameLabel.ForeColor = graphicsCard?.Brand.Color ?? Color.Green;
 
             graphicsCardPriceLabel.Visible =
                 graphicsCardRemoveButton.Visible = graphicsCard != null;
@@ -429,8 +428,7 @@
 
             motherboardImageBox.Image = motherboard?.Image ?? Resources.FavIcon64;
             motherboardNameLabel.Text = motherboard?.Name ?? "Bir anakart seçin...";
-            motherboardNameLabel.ForeColor = motherboardSelectButton.BackColor =
-                motherboard?.Brand.Color ?? Color.Green;
+            motherboardNameLabel.ForeColor = motherboard?.Brand.Color ?? Color.Green;
 
             motherboardPriceLabel.Visible = motherboardRemoveButton.Visible = motherboard != null;
             _motherboard = motherboard;
@@ -456,8 +454,7 @@
 
             processorImageBox.Image = processor?.Image ?? Resources.FavIcon64;
             processorNameLabel.Text = processor?.Name ?? "Bir işlemci seçin...";
-            processorNameLabel.ForeColor = processorSelectButton.BackColor =
-                processor?.Brand.Color ?? Color.Green;
+            processorNameLabel.ForeColor = processor?.Brand.Color ?? Color.Green;
 
             processorPriceLabel.Visible = processorRemoveButton.Visible = processor != null;
             _processor = processor;
