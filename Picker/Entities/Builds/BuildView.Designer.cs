@@ -199,6 +199,7 @@
             // 
             // memoryBox
             // 
+            this.memoryBox.BackColor = System.Drawing.Color.White;
             this.memoryBox.Controls.Add(this.memoryPriceLabel);
             this.memoryBox.Controls.Add(this.memoryRemoveButton);
             this.memoryBox.Controls.Add(this.memorySelectButton);
@@ -261,7 +262,7 @@
             // 
             this.memoryNameLabel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.memoryNameLabel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.memoryNameLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.memoryNameLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.memoryNameLabel.ForeColor = System.Drawing.Color.Green;
             this.memoryNameLabel.Location = new System.Drawing.Point(72, 23);
             this.memoryNameLabel.Name = "memoryNameLabel";
@@ -286,6 +287,7 @@
             // 
             // memoryNavigationPanel
             // 
+            this.memoryNavigationPanel.BackColor = System.Drawing.Color.White;
             this.memoryNavigationPanel.Controls.Add(this.memoryLabel);
             this.memoryNavigationPanel.Controls.Add(this.nextMemoryButton);
             this.memoryNavigationPanel.Controls.Add(this.previousMemoryButton);
@@ -333,6 +335,7 @@
             // 
             // graphicsCardBox
             // 
+            this.graphicsCardBox.BackColor = System.Drawing.Color.White;
             this.graphicsCardBox.Controls.Add(this.graphicsCardPriceLabel);
             this.graphicsCardBox.Controls.Add(this.graphicsCardRemoveButton);
             this.graphicsCardBox.Controls.Add(this.graphicsCardSelectButton);
@@ -395,7 +398,7 @@
             // 
             this.graphicsCardNameLabel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.graphicsCardNameLabel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.graphicsCardNameLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.graphicsCardNameLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.graphicsCardNameLabel.ForeColor = System.Drawing.Color.Green;
             this.graphicsCardNameLabel.Location = new System.Drawing.Point(72, 23);
             this.graphicsCardNameLabel.Name = "graphicsCardNameLabel";
@@ -420,6 +423,7 @@
             // 
             // processorBox
             // 
+            this.processorBox.BackColor = System.Drawing.Color.White;
             this.processorBox.Controls.Add(this.processorPriceLabel);
             this.processorBox.Controls.Add(this.processorRemoveButton);
             this.processorBox.Controls.Add(this.processorSelectButton);
@@ -482,7 +486,7 @@
             // 
             this.processorNameLabel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.processorNameLabel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.processorNameLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.processorNameLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.processorNameLabel.ForeColor = System.Drawing.Color.Green;
             this.processorNameLabel.Location = new System.Drawing.Point(72, 23);
             this.processorNameLabel.Name = "processorNameLabel";
@@ -507,6 +511,7 @@
             // 
             // motherboardBox
             // 
+            this.motherboardBox.BackColor = System.Drawing.Color.White;
             this.motherboardBox.Controls.Add(this.motherboardPriceLabel);
             this.motherboardBox.Controls.Add(this.motherboardRemoveButton);
             this.motherboardBox.Controls.Add(this.motherboardSelectButton);
@@ -569,7 +574,7 @@
             // 
             this.motherboardNameLabel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.motherboardNameLabel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.motherboardNameLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.motherboardNameLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.motherboardNameLabel.ForeColor = System.Drawing.Color.Green;
             this.motherboardNameLabel.Location = new System.Drawing.Point(72, 23);
             this.motherboardNameLabel.Name = "motherboardNameLabel";
@@ -594,7 +599,7 @@
             // 
             // compatibilityBox
             // 
-            this.compatibilityBox.BackColor = System.Drawing.SystemColors.Control;
+            this.compatibilityBox.BackColor = System.Drawing.Color.White;
             this.compatibilityBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.compatibilityBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.compatibilityBox.Font = new System.Drawing.Font("Segoe UI", 12F);
@@ -611,6 +616,7 @@
             this.AcceptButton = this.acceptButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.CancelButton = this.cancelButton;
             this.ClientSize = new System.Drawing.Size(984, 561);
             this.Controls.Add(this.container);
