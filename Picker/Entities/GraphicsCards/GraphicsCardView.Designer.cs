@@ -389,6 +389,11 @@
             // 
             this.priceBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.priceBox.DecimalPlaces = 2;
+            this.priceBox.Increment = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
             this.priceBox.Location = new System.Drawing.Point(411, 43);
             this.priceBox.Maximum = new decimal(new int[] {
             9999999,
