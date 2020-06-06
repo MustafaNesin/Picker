@@ -17,10 +17,6 @@
         {
         }
 
-        public GraphicsCardListPresenter(BuildPresenter buildPresenter) : base(buildPresenter)
-        {
-        }
-
         protected override GraphicsCard CreateEmptyEntity()
             => new GraphicsCard
             {

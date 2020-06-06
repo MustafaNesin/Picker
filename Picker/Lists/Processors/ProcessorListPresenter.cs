@@ -17,10 +17,6 @@
         {
         }
 
-        public ProcessorListPresenter(BuildPresenter buildPresenter) : base(buildPresenter)
-        {
-        }
-
         protected override Processor CreateEmptyEntity()
             => new Processor
             {

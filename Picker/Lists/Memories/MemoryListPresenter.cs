@@ -16,10 +16,6 @@
         {
         }
 
-        public MemoryListPresenter(BuildPresenter buildPresenter) : base(buildPresenter)
-        {
-        }
-
         protected override Memory CreateEmptyEntity()
             => new Memory
             {

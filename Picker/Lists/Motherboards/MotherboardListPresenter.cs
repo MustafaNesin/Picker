@@ -17,10 +17,6 @@
         {
         }
 
-        public MotherboardListPresenter(BuildPresenter buildPresenter) : base(buildPresenter)
-        {
-        }
-
         protected override Motherboard CreateEmptyEntity()
             => new Motherboard
             {
