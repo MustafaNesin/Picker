@@ -3,6 +3,7 @@
     using System;
     using System.Collections.Generic;
     using System.Drawing;
+    using System.Linq;
     using System.Windows.Forms;
     using Properties;
 
@@ -102,30 +103,129 @@
             var isCompatible = true;
             compatibilityBox.Items.Clear();
 
-            if (BuildGraphicsCard != null)
-            {
-                partSelected = true;
-                ;
-            }
-
             if (BuildMotherboard != null)
             {
                 partSelected = true;
 
                 if (BuildProcessor != null)
+                {
                     if (BuildProcessor.Socket.Id != BuildMotherboard.Socket.Id)
                     {
                         isCompatible = false;
                         compatibilityBox.Items.Add(
-                            "Anakart ve işlemci soketleri farklı, lütfen aynı sokete sahip anakart ve işlemci seçin.");
+                            $"Anakart soketi ({BuildMotherboard.Socket.Name}) " +
+                            $"ve işlemci soketi ({BuildProcessor.Socket.Name}) " +
+                            "aynı olmalıdır.");
                     }
+
+                    using var context = new ComputerDatabaseContext();
+                    if (!context.ProcessorChipsets.Any(pc
+                        => pc.ChipsetId == BuildMotherboard.ChipsetId &&
+                           pc.ProcessorId == BuildProcessor.Id))
+                    {
+                        isCompatible = false;
+                        compatibilityBox.Items.Add(
+                            $"Anakart yonga seti ({BuildMotherboard.Chipset.Name}) " +
+                            "işlemci tarafından desteklenmiyor.");
+                    }
+                }
+
+                if (BuildMemories.Sum(memory => memory.Count) > BuildMotherboard.MemorySlots)
+                {
+                    isCompatible = false;
+                    compatibilityBox.Items.Add("Anakartın bellek slotundan " +
+                                               $"({BuildMotherboard.MemorySlots}) " +
+                                               "daha fazla bellek seçilemez.");
+                }
+
+                if (BuildMemories.Sum(memory => memory.Count * memory.Capacity) >
+                    BuildMotherboard.MaxMemory)
+                {
+                    isCompatible = false;
+                    compatibilityBox.Items.Add("Anakartın desteklediği maksimum bellek kapasitesi" +
+                                               $" ({BuildMotherboard.MaxMemory} GB) aşıldı.");
+                }
             }
 
             if (BuildProcessor != null)
+                if (BuildMemories.Sum(memory => memory.Count * memory.Capacity) >
+                    BuildProcessor.MaxMemory)
+                {
+                    isCompatible = false;
+                    compatibilityBox.Items.Add(
+                        "İşlemcinin desteklediği maksimum bellek kapasitesi" +
+                        $" ({BuildProcessor.MaxMemory} GB) aşıldı.");
+                }
+
+            if (BuildGraphicsCard != null)
                 partSelected = true;
 
+            var memoryNumber = 1;
             foreach (var memory in BuildMemories)
+            {
                 partSelected = true;
+
+                if (BuildMotherboard != null)
+                {
+                    if (BuildMotherboard.MemoryType != memory.Type)
+                    {
+                        isCompatible = false;
+                        compatibilityBox.Items.Add(
+                            $"Anakartın bellek tipi ({BuildMotherboard.MemoryType}) " +
+                            $"ile {memoryNumber}. belleğin bellek tipi " +
+                            $"({memory.Type}) aynı olmalıdır.");
+                    }
+
+                    if (memory.HasECC != BuildMotherboard.SupportsECC)
+                    {
+                        isCompatible = false;
+                        compatibilityBox.Items.Add(
+                            $"Anakart ve {memoryNumber}. belleğin 'ECC' özelliği aynı olmalıdır.");
+                    }
+
+                    if (memory.Frequency > BuildMotherboard.MaxMemoryFrequency)
+                    {
+                        isCompatible = false;
+                        compatibilityBox.Items.Add($"{memoryNumber}. bellek anakartın " +
+                                                   "desteklediği maksimum bellek hızını aşıyor.");
+                    }
+                }
+
+                if (BuildProcessor != null)
+                {
+                    if (memory.HasECC != BuildProcessor.SupportsECC)
+                    {
+                        isCompatible = false;
+                        compatibilityBox.Items.Add(
+                            $"İşlemci ve {memoryNumber}. belleğin 'ECC' özelliği aynı olmalıdır.");
+                    }
+
+                    if (memory.Frequency > BuildProcessor.MaxMemorySpeed)
+                    {
+                        isCompatible = false;
+                        compatibilityBox.Items.Add($"{memoryNumber}. bellek işlemcinin " +
+                                                   "desteklediği maksimum bellek hızını aşıyor.");
+                    }
+                }
+
+                memoryNumber++;
+            }
+
+            if (BuildMemories.Count > 1)
+            {
+                var firstMemory = BuildMemories.First();
+                var memories =
+                    BuildMemories.Where(memory => firstMemory.IsBuffered != memory.IsBuffered);
+
+                foreach (var memory in memories)
+                {
+                    isCompatible = false;
+                    compatibilityBox.Items.Add(
+                        $"{BuildMemories.IndexOf(firstMemory)}. bellek ile " +
+                        $"{BuildMemories.IndexOf(memory)}. belleğin " +
+                        "'Registered' özelliği aynı olmalıdır.");
+                }
+            }
 
             if (!partSelected)
                 compatibilityBox.Items.Add("Hiçbir parça seçilmedi.");

@@ -697,6 +697,11 @@
             this.maxPriceBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.maxPriceBox.DecimalPlaces = 2;
             this.maxPriceBox.Enabled = false;
+            this.maxPriceBox.Increment = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
             this.maxPriceBox.Location = new System.Drawing.Point(782, 20);
             this.maxPriceBox.Maximum = new decimal(new int[] {
             9999999,
@@ -713,6 +718,11 @@
             this.minPriceBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.minPriceBox.DecimalPlaces = 2;
             this.minPriceBox.Enabled = false;
+            this.minPriceBox.Increment = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
             this.minPriceBox.Location = new System.Drawing.Point(682, 20);
             this.minPriceBox.Maximum = new decimal(new int[] {
             9999999,
