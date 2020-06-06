@@ -58,6 +58,9 @@
 
         private void OnDispose(object sender, EventArgs e)
         {
+            if (_presenter.LeaveImage)
+                return;
+
             _entity.DisposeImage();
             imageBox.DisposeImage();
         }

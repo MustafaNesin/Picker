@@ -94,10 +94,6 @@
                 SelectMemory(_memories.Count - 1);
         }
 
-        private void BuildView_Load(object sender, EventArgs e)
-        {
-        }
-
         private async void graphicsCardNameLabel_Click(object sender, EventArgs e)
         {
             if (BuildGraphicsCard == null)
@@ -112,15 +108,12 @@
 
         private async void graphicsCardSelectButton_Click(object sender, EventArgs e)
         {
-            await using (var presenter = new GraphicsCardListPresenter(false))
-            {
-                if (presenter.ShowView() == DialogResult.Cancel)
-                    return;
+            await using var presenter = new GraphicsCardListPresenter(false);
+            if (presenter.ShowView() == DialogResult.Cancel)
+                return;
 
-                (BuildGraphicsCard = presenter.SelectedEntity).DisposeImage();
-            }
-
-            graphicsCardImageBox.Image = BuildGraphicsCard.Image ?? Resources.FavIcon64;
+            BuildGraphicsCard = presenter.SelectedEntity;
+            presenter.LeaveImage = true;
         }
 
         private async void memoryNameLabel_Click(object sender, EventArgs e)
@@ -140,16 +133,12 @@
 
         private async void memorySelectButton_Click(object sender, EventArgs e)
         {
-            await using (var presenter = new MemoryListPresenter(false))
-            {
-                if (presenter.ShowView() == DialogResult.Cancel)
-                    return;
+            await using var presenter = new MemoryListPresenter(false);
+            if (presenter.ShowView() == DialogResult.Cancel)
+                return;
 
-                presenter.SelectedEntity.DisposeImage();
-                AddMemory(presenter.SelectedEntity);
-            }
-
-            memoryImageBox.Image = SelectedMemory.Image ?? Resources.FavIcon64;
+            AddMemory(presenter.SelectedEntity);
+            presenter.LeaveImage = true;
         }
 
         private async void motherboardNameLabel_Click(object sender, EventArgs e)
@@ -166,15 +155,12 @@
 
         private async void motherboardSelectButton_Click(object sender, EventArgs e)
         {
-            await using (var presenter = new MotherboardListPresenter(false))
-            {
-                if (presenter.ShowView() == DialogResult.Cancel)
-                    return;
+            await using var presenter = new MotherboardListPresenter(false);
+            if (presenter.ShowView() == DialogResult.Cancel)
+                return;
 
-                (BuildMotherboard = presenter.SelectedEntity).DisposeImage();
-            }
-
-            motherboardImageBox.Image = BuildMotherboard.Image ?? Resources.FavIcon64;
+            BuildMotherboard = presenter.SelectedEntity;
+            presenter.LeaveImage = true;
         }
 
         private void nextMemoryButton_Click(object sender, EventArgs e)
@@ -197,15 +183,12 @@
 
         private async void processorSelectButton_Click(object sender, EventArgs e)
         {
-            await using (var presenter = new ProcessorListPresenter(false))
-            {
-                if (presenter.ShowView() == DialogResult.Cancel)
-                    return;
+            await using var presenter = new ProcessorListPresenter(false);
+            if (presenter.ShowView() == DialogResult.Cancel)
+                return;
 
-                (BuildProcessor = presenter.SelectedEntity).DisposeImage();
-            }
-
-            processorImageBox.Image = BuildProcessor.Image ?? Resources.FavIcon64;
+            BuildProcessor = presenter.SelectedEntity;
+            presenter.LeaveImage = true;
         }
 
         public void RemoveMemory(int index)
@@ -236,6 +219,7 @@
                 Total += graphicsCard.Price;
             }
 
+            graphicsCardImageBox.Image = graphicsCard?.Image ?? Resources.FavIcon64;
             graphicsCardNameLabel.Text = graphicsCard?.Name ?? "Bir ekran kartı seçin...";
             graphicsCardNameLabel.ForeColor = graphicsCardSelectButton.BackColor =
                 graphicsCard?.Brand.Color ?? Color.Green;
@@ -257,6 +241,7 @@
             else
             {
                 memory = _memories[index];
+                memoryImageBox.Image = memory.Image ?? Resources.FavIcon64;
                 memoryNameLabel.Text = memory.Name;
                 memoryPriceLabel.Text = $"Fiyat: {memory.Price:C2}";
             }
@@ -289,6 +274,7 @@
                 Total += motherboard.Price;
             }
 
+            motherboardImageBox.Image = motherboard?.Image ?? Resources.FavIcon64;
             motherboardNameLabel.Text = motherboard?.Name ?? "Bir anakart seçin...";
             motherboardNameLabel.ForeColor = motherboardSelectButton.BackColor =
                 motherboard?.Brand.Color ?? Color.Green;
@@ -315,6 +301,7 @@
                 Total += processor.Price;
             }
 
+            processorImageBox.Image = processor?.Image ?? Resources.FavIcon64;
             processorNameLabel.Text = processor?.Name ?? "Bir işlemci seçin...";
             processorNameLabel.ForeColor = processorSelectButton.BackColor =
                 processor?.Brand.Color ?? Color.Green;

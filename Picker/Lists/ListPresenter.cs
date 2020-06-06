@@ -16,6 +16,7 @@
         where TEntityView : Form, IEntityView
         where TItemView : UserControl, IItemView<TEntity>
     {
+        public bool LeaveImage { get; set; }
         public BuildPresenter BuildPresenter { get; }
         public bool GeneratingList { get; private set; }
         protected abstract Panel ListPanel { get; }
