@@ -37,7 +37,7 @@
             get => string.IsNullOrWhiteSpace(ProcessorModel)
                 ? ProcessorModel
                 : $"{ProcessorBrand.Name} {ProcessorFamily}-{ProcessorModel} " +
-                  $"{ProcessorFrequency / 1000d: 0.##} GHz {ProcessorCores} Çekirdek {ProcessorCacheSize} MB Önbellek"
+                  $"{ProcessorFrequency / 1000d:0.##} GHz {ProcessorCores} Çekirdek {ProcessorCacheSize} MB Önbellek"
             ;
             set => Text = value;
         }
