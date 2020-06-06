@@ -5,7 +5,7 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("Picker")]
-[assembly: AssemblyDescription("Build a custom PC and check the compability of components.")]
+[assembly: AssemblyDescription("Build a custom PC and check the compatibility of components.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("Picker")]
