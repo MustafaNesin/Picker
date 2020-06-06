@@ -23,7 +23,7 @@
         {
             var query = context.Builds.AsQueryable();
             var totalItemCount = await query.CountAsync();
-            query = query.OrderByDescending(entity => entity.Id);
+            query = query.OrderByDescending(entity => entity.Date);
             return await RunQueryAsync(query, totalItemCount, paging);
         }
 

@@ -301,6 +301,7 @@
             // 
             this.memoryImageBox.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.memoryImageBox.Dock = System.Windows.Forms.DockStyle.Left;
+            this.memoryImageBox.Image = ((System.Drawing.Image)(resources.GetObject("memoryImageBox.Image")));
             this.memoryImageBox.Location = new System.Drawing.Point(8, 23);
             this.memoryImageBox.Name = "memoryImageBox";
             this.memoryImageBox.Size = new System.Drawing.Size(64, 64);
@@ -434,6 +435,7 @@
             // 
             this.graphicsCardImageBox.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.graphicsCardImageBox.Dock = System.Windows.Forms.DockStyle.Left;
+            this.graphicsCardImageBox.Image = ((System.Drawing.Image)(resources.GetObject("graphicsCardImageBox.Image")));
             this.graphicsCardImageBox.Location = new System.Drawing.Point(8, 23);
             this.graphicsCardImageBox.Name = "graphicsCardImageBox";
             this.graphicsCardImageBox.Size = new System.Drawing.Size(64, 64);
@@ -520,6 +522,7 @@
             // 
             this.processorImageBox.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.processorImageBox.Dock = System.Windows.Forms.DockStyle.Left;
+            this.processorImageBox.Image = ((System.Drawing.Image)(resources.GetObject("processorImageBox.Image")));
             this.processorImageBox.Location = new System.Drawing.Point(8, 23);
             this.processorImageBox.Name = "processorImageBox";
             this.processorImageBox.Size = new System.Drawing.Size(64, 64);
@@ -606,6 +609,7 @@
             // 
             this.motherboardImageBox.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.motherboardImageBox.Dock = System.Windows.Forms.DockStyle.Left;
+            this.motherboardImageBox.Image = ((System.Drawing.Image)(resources.GetObject("motherboardImageBox.Image")));
             this.motherboardImageBox.Location = new System.Drawing.Point(8, 23);
             this.motherboardImageBox.Name = "motherboardImageBox";
             this.motherboardImageBox.Size = new System.Drawing.Size(64, 64);
