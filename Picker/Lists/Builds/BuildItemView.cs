@@ -1,10 +1,8 @@
 ﻿namespace Picker
 {
     using System;
-    using System.Drawing;
     using System.Globalization;
     using System.Windows.Forms;
-    using Properties;
 
     internal partial class BuildItemView : UserControl, IBuildItemView
     {
@@ -29,15 +27,6 @@
                 return;
 
             await _presenter.DeleteItemAsync(_entity);
-        }
-
-        private async void entity_Click(object sender, EventArgs e)
-        {
-            if (_presenter.GeneratingList)
-                return;
-
-            await using var presenter = new BuildPresenter(_entity, false);
-            presenter.ShowView();
         }
 
         private async void mainButton_Click(object sender, EventArgs e)

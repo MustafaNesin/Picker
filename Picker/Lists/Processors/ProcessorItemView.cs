@@ -74,7 +74,9 @@
             threadsLabel.Text = entity.Threads + " iş parçacığı";
             cacheSizeLabel.Text = entity.CacheSize + " MB önbellek";
             frequencyLabel.Text = (entity.Frequency / 1000d).ToString("0.##") + " GHz";
-            turboFrequencyLabel.Text = "Turbo: " + (entity.TurboFrequency / 1000d).ToString("0.##") + " GHz";
+            turboFrequencyLabel.Text =
+                "Turbo: " + (entity.TurboFrequency / 1000d).ToString("0.##") + " GHz";
+
             maxMemoryLabel.Text = "Max " + entity.MaxMemory + " GB bellek";
             maxMemorySpeedLabel.Text = "Max " + entity.MaxMemorySpeed + " MHz bellek";
             socketLabel.Text = entity.Socket.Name;

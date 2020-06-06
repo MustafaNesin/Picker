@@ -43,10 +43,10 @@
             this.buildsButton = new System.Windows.Forms.Button();
             this.countToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.statusStrip = new System.Windows.Forms.StatusStrip();
-            this.copyrightLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.springLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.versionLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.exitButton = new System.Windows.Forms.Button();
+            this.copyrightLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.contextPanel.SuspendLayout();
             this.productsGroupBox.SuspendLayout();
             this.miscGroupBox.SuspendLayout();
@@ -250,14 +250,6 @@
             this.statusStrip.TabIndex = 2;
             this.statusStrip.Text = "statusStrip1";
             // 
-            // copyrightLabel
-            // 
-            this.copyrightLabel.IsLink = true;
-            this.copyrightLabel.Name = "copyrightLabel";
-            this.copyrightLabel.Size = new System.Drawing.Size(58, 17);
-            this.copyrightLabel.Text = "copyright";
-            this.copyrightLabel.Click += new System.EventHandler(this.copyrightLabel_Click);
-            // 
             // springLabel
             // 
             this.springLabel.Name = "springLabel";
@@ -289,6 +281,12 @@
             this.exitButton.Text = "Çıkış";
             this.exitButton.UseVisualStyleBackColor = false;
             this.exitButton.Click += new System.EventHandler(this.exitButton_Click);
+            // 
+            // copyrightLabel
+            // 
+            this.copyrightLabel.Name = "copyrightLabel";
+            this.copyrightLabel.Size = new System.Drawing.Size(58, 17);
+            this.copyrightLabel.Text = "copyright";
             // 
             // MainForm
             // 
@@ -333,8 +331,8 @@
         private System.Windows.Forms.ToolTip countToolTip;
         private System.Windows.Forms.StatusStrip statusStrip;
         private System.Windows.Forms.ToolStripStatusLabel springLabel;
-        private System.Windows.Forms.ToolStripStatusLabel copyrightLabel;
         private System.Windows.Forms.ToolStripStatusLabel versionLabel;
         private System.Windows.Forms.Button exitButton;
+        private System.Windows.Forms.ToolStripStatusLabel copyrightLabel;
     }
 }

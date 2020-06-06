@@ -44,7 +44,8 @@
             return await RunQueryAsync(query, totalItemCount, paging);
         }
 
-        protected override async Task LoadRelationsAsync(ComputerDatabaseContext context, DbEntityEntry<Chipset> entry)
+        public override async Task LoadRelationsAsync(ComputerDatabaseContext context,
+            DbEntityEntry<Chipset> entry)
             => await entry.Reference(entity => entity.Brand).LoadAsync();
 
         #region Disposing

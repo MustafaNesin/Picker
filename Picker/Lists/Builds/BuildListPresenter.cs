@@ -8,8 +8,7 @@
     using System.Windows.Forms;
 
     internal sealed class BuildListPresenter
-        : ListPresenter<BuildListView, Build, BuildPresenter, BuildView,
-            BuildItemView>
+        : ListPresenter<BuildListView, Build, BuildPresenter, BuildView, BuildItemView>
     {
         protected override Panel ListPanel => View.listPanel;
 
@@ -17,29 +16,44 @@
         {
         }
 
-        public BuildListPresenter(Build build) : base(build)
-        {
-        }
+        protected override Build CreateEmptyEntity() => new Build { Name = string.Empty };
 
-        protected override Build CreateEmptyEntity()
-            => new Build
-            {
-                Name = string.Empty
-            };
-
-        protected override async Task<List<Build>> GetEntitiesAsync(
-            ComputerDatabaseContext context, bool paging)
+        protected override async Task<List<Build>> GetEntitiesAsync(ComputerDatabaseContext context,
+            bool paging)
         {
             var query = context.Builds.AsQueryable();
             var totalItemCount = await query.CountAsync();
+            query = query.OrderByDescending(entity => entity.Id);
             return await RunQueryAsync(query, totalItemCount, paging);
         }
 
-        protected override async Task LoadRelationsAsync(ComputerDatabaseContext context, DbEntityEntry<Build> entry)
+        public override async Task LoadRelationsAsync(ComputerDatabaseContext context,
+            DbEntityEntry<Build> entry)
         {
-            await entry.Reference(entity => entity.GraphicsCard).LoadAsync();
-            await entry.Reference(entity => entity.Motherboard).LoadAsync();
-            await entry.Reference(entity => entity.Processor).LoadAsync();
+            if (entry.Entity.GraphicsCard != null)
+            {
+                var graphicsCard = context.Entry(entry.Entity.GraphicsCard);
+                await entry.Reference(entity => entity.GraphicsCard).LoadAsync();
+                await graphicsCard.Reference(entity => entity.Brand).LoadAsync();
+                await graphicsCard.Reference(entity => entity.ChipsetBrand).LoadAsync();
+            }
+
+            if (entry.Entity.Motherboard != null)
+            {
+                var motherboard = context.Entry(entry.Entity.Motherboard);
+                await entry.Reference(entity => entity.Motherboard).LoadAsync();
+                await motherboard.Reference(entity => entity.Brand).LoadAsync();
+                await motherboard.Reference(entity => entity.Chipset).LoadAsync();
+                await motherboard.Reference(entity => entity.Socket).LoadAsync();
+            }
+
+            if (entry.Entity.Processor != null)
+            {
+                var processor = context.Entry(entry.Entity.Processor);
+                await entry.Reference(entity => entity.Processor).LoadAsync();
+                await processor.Reference(entity => entity.Brand).LoadAsync();
+                await processor.Reference(entity => entity.Socket).LoadAsync();
+            }
         }
 
         #region Disposing

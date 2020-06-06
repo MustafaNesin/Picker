@@ -50,7 +50,8 @@
             return await RunQueryAsync(query, totalItemCount, paging);
         }
 
-        protected override async Task LoadRelationsAsync(ComputerDatabaseContext context, DbEntityEntry<Brand> entry)
+        public override async Task LoadRelationsAsync(ComputerDatabaseContext context,
+            DbEntityEntry<Brand> entry)
             => await Task.Delay(1);
 
         #region Disposing

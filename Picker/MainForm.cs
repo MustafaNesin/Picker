@@ -2,7 +2,6 @@
 {
     using System;
     using System.Data.Entity;
-    using System.Diagnostics;
     using System.Globalization;
     using System.Threading.Tasks;
     using System.Windows.Forms;
@@ -47,8 +46,8 @@
         {
             Hide();
 
-            /*await using (var presenter = new BuildListPresenter(true))
-                presenter.ShowView();*/
+            await using (var presenter = new BuildListPresenter(true))
+                presenter.ShowView();
 
             await SetCountToolTips();
             Show();
@@ -64,9 +63,6 @@
             await SetCountToolTips();
             Show();
         }
-
-        private void copyrightLabel_Click(object sender, EventArgs e)
-            => Process.Start("https://github.com/MustafaNesin/Picker");
 
         private void exitButton_Click(object sender, EventArgs e) => Close();
 

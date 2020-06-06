@@ -24,8 +24,8 @@
         {
             Entity.Brand = View.GraphicsCardBrand;
             Entity.BrandId = View.GraphicsCardBrand.Id;
-            Entity.ChipsetBrand = View.GraphicsCardChipsetBrand;
-            Entity.ChipsetBrand.Id = View.GraphicsCardChipsetBrand.Id;
+            Entity.ChipsetBrand = null;
+            Entity.ChipsetBrandId = View.GraphicsCardChipsetBrand.Id;
             Entity.BusWidth = View.GraphicsCardBusWidth;
             Entity.ChipsetModel = View.GraphicsCardChipsetModel;
             Entity.Frequency = View.GraphicsCardFrequency;

@@ -1,52 +1,100 @@
 ﻿namespace Picker
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Data.Entity;
+    using System.Linq;
     using System.Threading.Tasks;
 
     internal sealed class BuildPresenter : EntityPresenter<BuildView, Build>
     {
+        public List<Memory> Memories { get; set; }
+
         public BuildPresenter(Build entity, bool adminMode) : base(entity, adminMode)
-            => View.Text = string.IsNullOrEmpty(Entity.Name) ? "Yeni Bilgisayar" : Entity.Name;
+        {
+            View.Text = string.IsNullOrEmpty(Entity.Name) ? "Yeni Bilgisayar" : Entity.Name;
+            View.BuildMotherboard = entity.Motherboard;
+            View.BuildProcessor = entity.Processor;
+            View.BuildGraphicsCard = entity.GraphicsCard;
 
-        /*  View.BuildBrand = entity.Brand;
-            View.BuildType = entity.Type;
-            View.BuildModel = entity.Model;
-            View.BuildPrice = entity.Price;
-            View.BuildCapacity = entity.Capacity;
-            View.BuildCount = entity.Count;
-            View.BuildFrequency = entity.Frequency;
-            View.BuildHasECC = entity.HasECC;
-            View.BuildIsBuffered = entity.IsBuffered;*/
+            using var context = new ComputerDatabaseContext();
+            View.BuildMemories = entity.Id == 0
+                ? null
+                : context.BuildMemories.Where(p => p.BuildId == entity.Id).Select(p => p.Memory)
+                    .Include(p => p.Brand).ToList();
+        }
+
+        public bool IsCompatibleWith(Motherboard motherboard)
+            => IsCompatibleWith(motherboard, out var messages);
+
+        public bool IsCompatibleWith(Motherboard motherboard, out List<CompabilityNote> issues)
+        {
+            issues = new List<CompabilityNote>();
+            return issues.All(issue => !issue.IsIssue);
+        }
+
+        public bool IsCompatibleWith(Processor processor)
+            => IsCompatibleWith(processor, out var messages);
+
+        public bool IsCompatibleWith(Processor processor, out List<CompabilityNote> issues)
+        {
+            issues = new List<CompabilityNote>();
+            return issues.All(issue => !issue.IsIssue);
+        }
+
+        public bool IsCompatibleWith(GraphicsCard graphicsCard)
+            => IsCompatibleWith(graphicsCard, out var messages);
+
+        public bool IsCompatibleWith(GraphicsCard graphicsCard, out List<CompabilityNote> issues)
+        {
+            issues = new List<CompabilityNote>();
+            return issues.All(issue => !issue.IsIssue);
+        }
+
+        public bool IsCompatibleWith(Memory memory) => IsCompatibleWith(memory, out var messages);
+
+        public bool IsCompatibleWith(Memory memory, out List<CompabilityNote> issues)
+        {
+            issues = new List<CompabilityNote>();
+            return issues.All(issue => !issue.IsIssue);
+        }
+
         protected override void UpdateEntity()
-            =>
-                /*    Entity.Brand = View.BuildBrand;
-                Entity.BrandId = View.BuildBrand.Id;
-                Entity.Type = View.BuildType;
-                Entity.Model = View.BuildModel;
-                Entity.Price = View.BuildPrice;
-                Entity.Capacity = View.BuildCapacity;
-                Entity.Count = View.BuildCount;
-                Entity.Frequency = View.BuildFrequency;
-                Entity.HasECC = View.BuildHasECC;
-                Entity.IsBuffered = View.BuildIsBuffered;*/
-                base.UpdateEntity();
+        {
+            View.BuildMotherboard?.DisposeImage();
+            View.BuildProcessor?.DisposeImage();
+            View.BuildGraphicsCard?.DisposeImage();
 
-        public bool Validate()
-            =>
-                /*   if (View.BuildBrand == null)
-                    Utilities.ShowError("Lütfen bir marka seçin.");
-                else if (View.BuildPrice == decimal.Zero)
-                    Utilities.ShowError("Lütfen ürünün fiyatını girin.");
-                else if (string.IsNullOrWhiteSpace(View.BuildType))
-                    Utilities.ShowError("Lütfen bir bellek tipi girin.");
-                else if (View.BuildCapacity == 0)
-                    Utilities.ShowError("Lütfen bellek modül kapasitesini girin.");
-                else if (View.BuildCount == 0)
-                    Utilities.ShowError("Lütfen bellek modül sayısını girin.");
-                else if (View.BuildFrequency == 0)
-                    Utilities.ShowError("Lütfen bellek hızını girin.");
-                else
-                    return ValidateName();*/
-                false;
+            if ((Entity.Motherboard = View.BuildMotherboard) != null)
+            {
+                Entity.MotherboardId = Entity.Motherboard.Id;
+                Entity.Motherboard.Brand = null;
+                Entity.Motherboard.Chipset = null;
+                Entity.Motherboard.Socket = null;
+            }
+
+            if ((Entity.Processor = View.BuildProcessor) != null)
+            {
+                Entity.ProcessorId = Entity.Processor.Id;
+                Entity.Processor.Brand = null;
+                Entity.Processor.Socket = null;
+            }
+
+            if ((Entity.GraphicsCard = View.BuildGraphicsCard) != null)
+            {
+                Entity.GraphicsCardId = Entity.GraphicsCard.Id;
+                Entity.GraphicsCard.Brand = null;
+                Entity.GraphicsCard.ChipsetBrand = null;
+            }
+
+            foreach (var memory in Memories = View.BuildMemories)
+                memory.DisposeImage();
+
+            Entity.Date = DateTime.Now;
+            base.UpdateEntity();
+        }
+
+        public bool Validate() => ValidateName();
 
         #region Disposing
         private bool _disposed;

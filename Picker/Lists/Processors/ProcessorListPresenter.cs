@@ -17,7 +17,7 @@
         {
         }
 
-        public ProcessorListPresenter(Build build) : base(build)
+        public ProcessorListPresenter(BuildPresenter buildPresenter) : base(buildPresenter)
         {
         }
 
@@ -35,13 +35,8 @@
             var query = context.Processors.AsQueryable();
             var totalItemCount = await query.CountAsync();
 
-            if (Build != null)
-            {
-                query = query.Where(entity => entity.Id != Build.ProcessorId);
-
-                if (View.OnlyCompatibles)
-                    query = query.Where(entity => Build.IsCompatibleWith(entity));
-            }
+            //if (BuildPresenter != null && View.OnlyCompatibles)
+            //    query = query.Where(entity => BuildPresenter.IsCompatibleWith(entity));
 
             if (!string.IsNullOrWhiteSpace(View.EntityName))
                 query = query.Where(entity => entity.Name.Contains(View.EntityName));
@@ -86,10 +81,12 @@
                 query = query.Where(entity => entity.Frequency <= View.ProcessorMaxFrequency.Value);
 
             if (View.ProcessorMinTurboFrequency.HasValue)
-                query = query.Where(entity => entity.TurboFrequency >= View.ProcessorMinTurboFrequency.Value);
+                query = query.Where(entity
+                    => entity.TurboFrequency >= View.ProcessorMinTurboFrequency.Value);
 
             if (View.ProcessorMaxTurboFrequency.HasValue)
-                query = query.Where(entity => entity.TurboFrequency <= View.ProcessorMaxTurboFrequency.Value);
+                query = query.Where(entity
+                    => entity.TurboFrequency <= View.ProcessorMaxTurboFrequency.Value);
 
             if (View.ProcessorMinMaxMemory.HasValue)
                 query = query.Where(entity => entity.MaxMemory >= View.ProcessorMinMaxMemory.Value);
@@ -98,10 +95,12 @@
                 query = query.Where(entity => entity.MaxMemory <= View.ProcessorMaxMaxMemory.Value);
 
             if (View.ProcessorMinMaxMemorySpeed.HasValue)
-                query = query.Where(entity => entity.MaxMemorySpeed >= View.ProcessorMinMaxMemorySpeed.Value);
+                query = query.Where(entity
+                    => entity.MaxMemorySpeed >= View.ProcessorMinMaxMemorySpeed.Value);
 
             if (View.ProcessorMaxMaxMemorySpeed.HasValue)
-                query = query.Where(entity => entity.MaxMemorySpeed <= View.ProcessorMaxMaxMemorySpeed.Value);
+                query = query.Where(entity
+                    => entity.MaxMemorySpeed <= View.ProcessorMaxMaxMemorySpeed.Value);
 
             if (View.ProcessorSupportsECC != CheckState.Indeterminate)
                 query = query.Where(entity
@@ -117,32 +116,43 @@
                 2 => query.OrderBy(entity => entity.Name), // İsme göre (A-Z)
                 3 => query.OrderByDescending(entity => entity.Name), // İsme göre (Z-A)
                 4 => query.OrderBy(entity => entity.Brand.Name), // Marka ismine göre (A-Z)
-                5 => query.OrderByDescending(entity => entity.Brand.Name), // Marka ismine göre (Z-A)
+                5 => query.OrderByDescending(entity
+                    => entity.Brand.Name), // Marka ismine göre (Z-A)
                 6 => query.OrderBy(entity => entity.Price), // Fiyata göre (En ucuz)
                 7 => query.OrderByDescending(entity => entity.Price), // Fiyata göre (En pahalı)
                 8 => query.OrderBy(entity => entity.Family), // Serisine göre (A-Z)
                 9 => query.OrderByDescending(entity => entity.Family), // Serisine göre (Z-A)
                 10 => query.OrderBy(entity => entity.Cores), // Çekirdek sayısına göre (En az)
-                11 => query.OrderByDescending(entity => entity.Cores), // Çekirdek sayısına göre (En çok)
+                11 => query.OrderByDescending(entity
+                    => entity.Cores), // Çekirdek sayısına göre (En çok)
                 12 => query.OrderBy(entity => entity.Threads), // İş parçacığı sayısına göre (En az)
-                13 => query.OrderByDescending(entity => entity.Threads), // İş parçacığı sayısına göre (En çok)
+                13 => query.OrderByDescending(entity
+                    => entity.Threads), // İş parçacığı sayısına göre (En çok)
                 14 => query.OrderBy(entity => entity.CacheSize), // Önbellek boyutuna göre (En az)
-                15 => query.OrderByDescending(entity => entity.CacheSize), // Önbellek boyutuna göre (En çok)
+                15 => query.OrderByDescending(entity
+                    => entity.CacheSize), // Önbellek boyutuna göre (En çok)
                 16 => query.OrderBy(entity => entity.Frequency), // Hızına göre (En yavaş)
                 17 => query.OrderByDescending(entity => entity.Frequency), // Hızına göre (En hızlı)
-                18 => query.OrderBy(entity => entity.TurboFrequency), // Maks. hızına göre (En yavaş)
-                19 => query.OrderByDescending(entity => entity.TurboFrequency), // Maks. hızına göre (En hızlı)
-                20 => query.OrderBy(entity => entity.MaxMemory), // Maks. bellek boyutuna göre (En az)
-                21 => query.OrderByDescending(entity => entity.MaxMemory), // Maks. bellek boyutuna göre (En çok)
-                22 => query.OrderBy(entity => entity.MaxMemorySpeed), // Maks. bellek hızına göre (En yavaş)
-                23 => query.OrderByDescending(entity => entity.MaxMemorySpeed), // Maks. bellek hızına göre (En hızlı)
+                18 => query.OrderBy(entity
+                    => entity.TurboFrequency), // Maks. hızına göre (En yavaş)
+                19 => query.OrderByDescending(entity
+                    => entity.TurboFrequency), // Maks. hızına göre (En hızlı)
+                20 => query.OrderBy(entity
+                    => entity.MaxMemory), // Maks. bellek boyutuna göre (En az)
+                21 => query.OrderByDescending(entity
+                    => entity.MaxMemory), // Maks. bellek boyutuna göre (En çok)
+                22 => query.OrderBy(entity
+                    => entity.MaxMemorySpeed), // Maks. bellek hızına göre (En yavaş)
+                23 => query.OrderByDescending(entity
+                    => entity.MaxMemorySpeed), // Maks. bellek hızına göre (En hızlı)
                 _ => query.OrderBy(entity => entity.Id) // Eskiden yeniye
             };
 
             return await RunQueryAsync(query, totalItemCount, paging);
         }
 
-        protected override async Task LoadRelationsAsync(ComputerDatabaseContext context, DbEntityEntry<Processor> entry)
+        public override async Task LoadRelationsAsync(ComputerDatabaseContext context,
+            DbEntityEntry<Processor> entry)
         {
             await entry.Reference(entity => entity.Brand).LoadAsync();
             await entry.Reference(entity => entity.Socket).LoadAsync();

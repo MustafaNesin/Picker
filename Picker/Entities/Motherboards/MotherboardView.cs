@@ -171,7 +171,8 @@
                 if (presenter.ShowView() == DialogResult.Cancel)
                     return;
 
-                if (MotherboardChipset != null && MotherboardChipset.Id == presenter.SelectedEntity.Id)
+                if (MotherboardChipset != null &&
+                    MotherboardChipset.Id == presenter.SelectedEntity.Id)
                     return;
 
                 (MotherboardChipset = presenter.SelectedEntity).DisposeImage();
@@ -220,7 +221,8 @@
                 if (presenter.ShowView() == DialogResult.Cancel)
                     return;
 
-                if (MotherboardSocket != null && MotherboardSocket.Id == presenter.SelectedEntity.Id)
+                if (MotherboardSocket != null &&
+                    MotherboardSocket.Id == presenter.SelectedEntity.Id)
                     return;
 
                 (MotherboardSocket = presenter.SelectedEntity).DisposeImage();

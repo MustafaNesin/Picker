@@ -354,7 +354,8 @@
                         await brand.GetCountAsync(t => t.GraphicsCards)));
 
                     relatedModels.Add(("ekran kartı yonga seti",
-                        await brand.GetCountAsync(t => t.GraphicsCardChipsets)));
+                        await context.GraphicsCards.CountAsync(t
+                            => t.ChipsetBrandId == brand.Entity.Id)));
 
                     relatedModels.Add(("bellek", await brand.GetCountAsync(t => t.Memories)));
                     relatedModels.Add(("anakart", await brand.GetCountAsync(t => t.Motherboards)));
@@ -366,6 +367,22 @@
                     relatedModels.Add(("anakart",
                         await chipset.GetCountAsync(t => t.Motherboards)));
 
+                    break;
+                case DbEntityEntry<GraphicsCard> graphicsCard:
+                    modelName = "ekran kartı";
+                    relatedModels.Add(("bilgisayar",
+                        await graphicsCard.GetCountAsync(t => t.Builds)));
+
+                    break;
+                case DbEntityEntry<Motherboard> motherboard:
+                    modelName = "anakart";
+                    relatedModels.Add(
+                        ("bilgisayar", await motherboard.GetCountAsync(t => t.Builds)));
+
+                    break;
+                case DbEntityEntry<Processor> processor:
+                    modelName = "işlemci";
+                    relatedModels.Add(("bilgisayar", await processor.GetCountAsync(t => t.Builds)));
                     break;
                 case DbEntityEntry<Socket> socket:
                     modelName = "soket";

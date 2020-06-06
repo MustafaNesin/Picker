@@ -152,7 +152,8 @@
                 if (presenter.ShowView() == DialogResult.Cancel)
                     return;
 
-                if (GraphicsCardBrand != null && GraphicsCardBrand.Id == presenter.SelectedEntity.Id)
+                if (GraphicsCardBrand != null &&
+                    GraphicsCardBrand.Id == presenter.SelectedEntity.Id)
                     return;
 
                 (GraphicsCardBrand = presenter.SelectedEntity).DisposeImage();
@@ -172,7 +173,8 @@
                 if (presenter.ShowView() == DialogResult.Cancel)
                     return;
 
-                if (GraphicsCardChipsetBrand != null && GraphicsCardChipsetBrand.Id == presenter.SelectedEntity.Id)
+                if (GraphicsCardChipsetBrand != null &&
+                    GraphicsCardChipsetBrand.Id == presenter.SelectedEntity.Id)
                     return;
 
                 (GraphicsCardChipsetBrand = presenter.SelectedEntity).DisposeImage();

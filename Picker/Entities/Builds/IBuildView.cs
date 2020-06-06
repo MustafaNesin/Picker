@@ -4,9 +4,9 @@
 
     internal interface IBuildView : IEntityView
     {
-        GraphicsCard BuildGraphicsCard { get; set; }
-        List<Memory> BuildMemories { get; set; }
-        Motherboard BuildMotherboard { get; set; }
-        Processor BuildProcessor { get; set; }
+        public GraphicsCard BuildGraphicsCard { get; set; }
+        public List<Memory> BuildMemories { get; set; }
+        public Motherboard BuildMotherboard { get; set; }
+        public Processor BuildProcessor { get; set; }
     }
 }

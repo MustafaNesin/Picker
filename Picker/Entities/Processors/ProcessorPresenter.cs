@@ -3,7 +3,6 @@
     using System.Collections.Generic;
     using System.Data.Entity;
     using System.Linq;
-    using System.Runtime.InteropServices;
     using System.Threading.Tasks;
 
     internal sealed class ProcessorPresenter : EntityPresenter<ProcessorView, Processor>
@@ -28,13 +27,11 @@
             View.ProcessorIs64Bit = entity.Is64Bit;
             View.ProcessorSupportsECC = entity.SupportsECC;
 
-            if (entity.Id == 0)
-                View.ProcessorChipsets = new List<Chipset>();
-            else
-            {
-                using var context = new ComputerDatabaseContext();
-                View.ProcessorChipsets = context.ProcessorChipsets.Where(p => p.ProcessorId == entity.Id).Select(p => p.Chipset).ToList();
-            }
+            using var context = new ComputerDatabaseContext();
+            View.ProcessorChipsets = entity.Id == 0
+                ? null
+                : context.ProcessorChipsets.Where(p => p.ProcessorId == entity.Id)
+                    .Select(p => p.Chipset).Include(p => p.Brand).ToList();
         }
 
         protected override void UpdateEntity()

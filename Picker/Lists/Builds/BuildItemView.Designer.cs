@@ -30,9 +30,7 @@
         {
             this.itemPanel = new System.Windows.Forms.Panel();
             this.nameLabel = new System.Windows.Forms.Label();
-            this.priceLabel = new System.Windows.Forms.Label();
             this.propertiesPanel = new System.Windows.Forms.TableLayoutPanel();
-            this.brandLabel = new System.Windows.Forms.Label();
             this.dateLabel = new System.Windows.Forms.Label();
             this.controlPanel = new System.Windows.Forms.Panel();
             this.mainButton = new System.Windows.Forms.Button();
@@ -46,14 +44,13 @@
             // 
             this.itemPanel.BackColor = System.Drawing.Color.Green;
             this.itemPanel.Controls.Add(this.nameLabel);
-            this.itemPanel.Controls.Add(this.priceLabel);
             this.itemPanel.Controls.Add(this.propertiesPanel);
             this.itemPanel.Controls.Add(this.controlPanel);
             this.itemPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.itemPanel.Location = new System.Drawing.Point(3, 3);
             this.itemPanel.Name = "itemPanel";
             this.itemPanel.Padding = new System.Windows.Forms.Padding(3);
-            this.itemPanel.Size = new System.Drawing.Size(394, 70);
+            this.itemPanel.Size = new System.Drawing.Size(534, 70);
             this.itemPanel.TabIndex = 0;
             // 
             // nameLabel
@@ -66,32 +63,18 @@
             this.nameLabel.Location = new System.Drawing.Point(3, 3);
             this.nameLabel.Name = "nameLabel";
             this.nameLabel.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.nameLabel.Size = new System.Drawing.Size(221, 32);
+            this.nameLabel.Size = new System.Drawing.Size(458, 32);
             this.nameLabel.TabIndex = 1;
             this.nameLabel.Text = "Name";
             this.nameLabel.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
-            this.nameLabel.Click += new System.EventHandler(this.entity_Click);
-            // 
-            // priceLabel
-            // 
-            this.priceLabel.BackColor = System.Drawing.Color.White;
-            this.priceLabel.Dock = System.Windows.Forms.DockStyle.Right;
-            this.priceLabel.Font = new System.Drawing.Font("Segoe UI", 14F);
-            this.priceLabel.ForeColor = System.Drawing.Color.Green;
-            this.priceLabel.Location = new System.Drawing.Point(224, 3);
-            this.priceLabel.Name = "priceLabel";
-            this.priceLabel.Size = new System.Drawing.Size(97, 32);
-            this.priceLabel.TabIndex = 2;
-            this.priceLabel.Text = "$0.00";
-            this.priceLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.nameLabel.Click += new System.EventHandler(this.mainButton_Click);
             // 
             // propertiesPanel
             // 
             this.propertiesPanel.BackColor = System.Drawing.Color.White;
-            this.propertiesPanel.ColumnCount = 3;
+            this.propertiesPanel.ColumnCount = 2;
             this.propertiesPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.propertiesPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.propertiesPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.propertiesPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.propertiesPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.propertiesPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
@@ -99,35 +82,22 @@
             this.propertiesPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.propertiesPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.propertiesPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.propertiesPanel.Controls.Add(this.brandLabel, 0, 0);
-            this.propertiesPanel.Controls.Add(this.dateLabel, 1, 0);
+            this.propertiesPanel.Controls.Add(this.dateLabel, 0, 0);
             this.propertiesPanel.Cursor = System.Windows.Forms.Cursors.Default;
             this.propertiesPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.propertiesPanel.Location = new System.Drawing.Point(3, 35);
             this.propertiesPanel.Name = "propertiesPanel";
             this.propertiesPanel.RowCount = 1;
             this.propertiesPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.propertiesPanel.Size = new System.Drawing.Size(318, 32);
+            this.propertiesPanel.Size = new System.Drawing.Size(458, 32);
             this.propertiesPanel.TabIndex = 3;
-            this.propertiesPanel.Click += new System.EventHandler(this.entity_Click);
-            // 
-            // brandLabel
-            // 
-            this.brandLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.brandLabel.AutoSize = true;
-            this.brandLabel.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.brandLabel.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.brandLabel.Location = new System.Drawing.Point(3, 6);
-            this.brandLabel.Name = "brandLabel";
-            this.brandLabel.Size = new System.Drawing.Size(45, 19);
-            this.brandLabel.TabIndex = 0;
-            this.brandLabel.Text = "Brand";
+            this.propertiesPanel.Click += new System.EventHandler(this.mainButton_Click);
             // 
             // dateLabel
             // 
             this.dateLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.dateLabel.AutoSize = true;
-            this.dateLabel.Location = new System.Drawing.Point(54, 9);
+            this.dateLabel.Location = new System.Drawing.Point(3, 9);
             this.dateLabel.Name = "dateLabel";
             this.dateLabel.Size = new System.Drawing.Size(31, 13);
             this.dateLabel.TabIndex = 1;
@@ -140,7 +110,7 @@
             this.controlPanel.Controls.Add(this.deleteButton);
             this.controlPanel.Dock = System.Windows.Forms.DockStyle.Right;
             this.controlPanel.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.controlPanel.Location = new System.Drawing.Point(321, 3);
+            this.controlPanel.Location = new System.Drawing.Point(461, 3);
             this.controlPanel.Name = "controlPanel";
             this.controlPanel.Padding = new System.Windows.Forms.Padding(1);
             this.controlPanel.Size = new System.Drawing.Size(70, 64);
@@ -185,10 +155,10 @@
             this.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.Controls.Add(this.itemPanel);
             this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.MinimumSize = new System.Drawing.Size(400, 76);
+            this.MinimumSize = new System.Drawing.Size(540, 76);
             this.Name = "BuildItemView";
             this.Padding = new System.Windows.Forms.Padding(3);
-            this.Size = new System.Drawing.Size(400, 76);
+            this.Size = new System.Drawing.Size(540, 76);
             this.itemPanel.ResumeLayout(false);
             this.propertiesPanel.ResumeLayout(false);
             this.propertiesPanel.PerformLayout();
@@ -204,9 +174,7 @@
         private System.Windows.Forms.Panel controlPanel;
         private System.Windows.Forms.Button mainButton;
         private System.Windows.Forms.TableLayoutPanel propertiesPanel;
-        private System.Windows.Forms.Label brandLabel;
         private System.Windows.Forms.Button deleteButton;
         private System.Windows.Forms.Label dateLabel;
-        private System.Windows.Forms.Label priceLabel;
     }
 }

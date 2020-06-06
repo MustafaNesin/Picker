@@ -32,9 +32,6 @@ namespace Picker
         public int TurboFrequency { get; set; } // MHz
 
         [SuppressMessage("ReSharper", "VirtualMemberCallInConstructor")]
-        public Processor()
-        {
-            Builds = new HashSet<Build>();
-        }
+        public Processor() => Builds = new HashSet<Build>();
     }
 }

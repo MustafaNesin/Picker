@@ -23,7 +23,6 @@ namespace Picker
         [Range((int)Country.VI, (int)Country.ZW)]
         public Country Country { get; set; }
 
-        public virtual ICollection<GraphicsCard> GraphicsCardChipsets { get; set; }
         public virtual ICollection<GraphicsCard> GraphicsCards { get; set; }
 
         protected override string ImagePath
@@ -39,7 +38,6 @@ namespace Picker
         {
             Chipsets = new HashSet<Chipset>();
             GraphicsCards = new HashSet<GraphicsCard>();
-            GraphicsCardChipsets = new HashSet<GraphicsCard>();
             Memories = new HashSet<Memory>();
             Motherboards = new HashSet<Motherboard>();
             Processors = new HashSet<Processor>();

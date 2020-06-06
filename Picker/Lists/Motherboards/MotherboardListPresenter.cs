@@ -17,7 +17,7 @@
         {
         }
 
-        public MotherboardListPresenter(Build build) : base(build)
+        public MotherboardListPresenter(BuildPresenter buildPresenter) : base(buildPresenter)
         {
         }
 
@@ -36,13 +36,8 @@
             var query = context.Motherboards.AsQueryable();
             var totalItemCount = await query.CountAsync();
 
-            if (Build != null)
-            {
-                query = query.Where(entity => entity.Id != Build.MotherboardId);
-
-                if (View.OnlyCompatibles)
-                    query = query.Where(entity => Build.IsCompatibleWith(entity));
-            }
+            //if (BuildPresenter != null && View.OnlyCompatibles)
+            //    query = query.Where(entity => BuildPresenter.IsCompatibleWith(entity));
 
             if (!string.IsNullOrWhiteSpace(View.EntityName))
                 query = query.Where(entity => entity.Name.Contains(View.EntityName));
@@ -133,7 +128,8 @@
             return await RunQueryAsync(query, totalItemCount, paging);
         }
 
-        protected override async Task LoadRelationsAsync(ComputerDatabaseContext context, DbEntityEntry<Motherboard> entry)
+        public override async Task LoadRelationsAsync(ComputerDatabaseContext context,
+            DbEntityEntry<Motherboard> entry)
         {
             await entry.Reference(entity => entity.Brand).LoadAsync();
             await entry.Reference(entity => entity.Chipset).LoadAsync();

@@ -16,7 +16,7 @@
         {
         }
 
-        public MemoryListPresenter(Build build) : base(build)
+        public MemoryListPresenter(BuildPresenter buildPresenter) : base(buildPresenter)
         {
         }
 
@@ -34,13 +34,8 @@
             var query = context.Memories.AsQueryable();
             var totalItemCount = await query.CountAsync();
 
-            if (Build != null)
-            {
-                await context.BuildMemories.LoadAsync();
-
-                if (View.OnlyCompatibles)
-                    query = query.Where(entity => Build.IsCompatibleWith(entity));
-            }
+            //if (BuildPresenter != null && View.OnlyCompatibles)
+            //    query = query.Where(entity => BuildPresenter.IsCompatibleWith(entity, true));
 
             if (!string.IsNullOrWhiteSpace(View.EntityName))
                 query = query.Where(entity => entity.Name.Contains(View.EntityName));
@@ -111,7 +106,8 @@
             return await RunQueryAsync(query, totalItemCount, paging);
         }
 
-        protected override async Task LoadRelationsAsync(ComputerDatabaseContext context, DbEntityEntry<Memory> entry)
+        public override async Task LoadRelationsAsync(ComputerDatabaseContext context,
+            DbEntityEntry<Memory> entry)
             => await entry.Reference(entity => entity.Brand).LoadAsync();
 
         #region Disposing

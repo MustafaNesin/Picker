@@ -16,7 +16,7 @@
         where TEntityView : Form, IEntityView
         where TItemView : UserControl, IItemView<TEntity>
     {
-        public Build Build { get; }
+        public BuildPresenter BuildPresenter { get; }
         public bool GeneratingList { get; private set; }
         protected abstract Panel ListPanel { get; }
         public TEntity SelectedEntity { get; private set; }
@@ -25,13 +25,14 @@
         {
         }
 
-        protected ListPresenter(Build build) : base(build == null) => Build = build;
+        protected ListPresenter(BuildPresenter buildPresenter) : base(buildPresenter == null)
+            => BuildPresenter = buildPresenter;
 
         public async Task AddItemAsync()
         {
             List<Chipset> chipsets = null;
             var entity = CreateEmptyEntity();
-            // TODO List<Memory> memories = null;
+            List<Memory> memories = null;
 
             await using (var presenter = CreateEntityPresenter(entity))
                 if (presenter.ShowView() == DialogResult.Cancel)
@@ -41,20 +42,27 @@
                     return;
                 }
                 else if (presenter is ProcessorPresenter processorPresenter)
-                    chipsets = processorPresenter.Chipsets;       
-            // TODO else if (presenter is BuildPresenter buildPresenter)
-            // TODO     memories = buildPresenter.Memories;
+                    chipsets = processorPresenter.Chipsets;
+                else if (presenter is BuildPresenter buildPresenter)
+                    memories = buildPresenter.Memories;
 
             using (var context = new ComputerDatabaseContext())
             {
                 if (chipsets != null)
                     foreach (var chipset in chipsets)
-                        context.ProcessorChipsets.Add(new ProcessorChipset { ProcessorId = entity.Id , ChipsetId = chipset.Id });
-                /* TODO
-                  if (memories != null)
+                        context.ProcessorChipsets.Add(new ProcessorChipset
+                        {
+                            ProcessorId = entity.Id,
+                            ChipsetId = chipset.Id
+                        });
+
+                if (memories != null)
                     foreach (var memory in memories)
-                        context.BuildMemories.Add(new BuildMemory { BuildId = entity.Id , MemoryId = memory.Id });
-                 */
+                        context.BuildMemories.Add(new BuildMemory
+                        {
+                            BuildId = entity.Id,
+                            MemoryId = memory.Id
+                        });
 
                 var entry = context.Entry(entity);
                 entry.State = EntityState.Added;
@@ -96,6 +104,7 @@
                     {
                         var relations = context.ProcessorChipsets.Where(relation
                             => relation.ProcessorId == processor.Id);
+
                         foreach (var relation in relations)
                             context.Entry(relation).State = EntityState.Deleted;
 
@@ -106,6 +115,7 @@
                     {
                         var relations = context.ProcessorChipsets.Where(relation
                             => relation.ChipsetId == chipset.Id);
+
                         foreach (var relation in relations)
                             context.Entry(relation).State = EntityState.Deleted;
 
@@ -114,23 +124,23 @@
 
                     case Build build:
                     {
-                        /* TODO
-                            var relations = context.BuildMemories.Where(relation => relation.BuildId == build.Id);
+                        var relations =
+                            context.BuildMemories.Where(relation => relation.BuildId == build.Id);
 
-                            foreach (var relation in relations)
-                                context.Entry(relation).State = EntityState.Deleted;
-                        */
+                        foreach (var relation in relations)
+                            context.Entry(relation).State = EntityState.Deleted;
+
                         break;
                     }
 
                     case Memory memory:
                     {
-                        /* TODO
-                            var relations = context.BuildMemories.Where(relation => relation.MemoryId == memory.Id);
+                        var relations =
+                            context.BuildMemories.Where(relation => relation.MemoryId == memory.Id);
 
-                            foreach (var relation in relations)
-                                context.Entry(relation).State = EntityState.Deleted;
-                        */
+                        foreach (var relation in relations)
+                            context.Entry(relation).State = EntityState.Deleted;
+
                         break;
                     }
                 }
@@ -146,21 +156,28 @@
         public async Task EditItemAsync(TItemView itemView, TEntity entity)
         {
             List<Chipset> chipsets = null;
-            // TODO List<Memory> memories = null;
+            List<Memory> memories = null;
 
             await using (var presenter = CreateEntityPresenter(entity))
                 if (presenter.ShowView() == DialogResult.Cancel)
                     return;
-                else if (presenter is ProcessorPresenter processorPresenter)
-                    chipsets = processorPresenter.Chipsets;
-            // TODO else if (presenter is BuildPresenter buildPresenter)
-            // TODO     memories = buildPresenter.Memories;
+                else
+                    switch (presenter)
+                    {
+                        case ProcessorPresenter processorPresenter:
+                            chipsets = processorPresenter.Chipsets;
+                            break;
+                        case BuildPresenter buildPresenter:
+                            memories = buildPresenter.Memories;
+                            break;
+                    }
 
             using (var context = new ComputerDatabaseContext())
             {
                 if (chipsets != null)
                 {
-                    var relations = context.ProcessorChipsets.Where(p => p.ProcessorId == entity.Id).ToList();
+                    var relations = context.ProcessorChipsets.Where(p => p.ProcessorId == entity.Id)
+                        .ToList();
 
                     foreach (var relation in relations)
                         if (!chipsets.Exists(chipset => chipset.Id == relation.ChipsetId))
@@ -168,23 +185,26 @@
 
                     foreach (var chipset in chipsets)
                         if (!relations.Exists(relation => chipset.Id == relation.ChipsetId))
-                            context.ProcessorChipsets.Add(new ProcessorChipset { ProcessorId = entity.Id , ChipsetId = chipset.Id });
+                            context.ProcessorChipsets.Add(new ProcessorChipset
+                            {
+                                ProcessorId = entity.Id,
+                                ChipsetId = chipset.Id
+                            });
                 }
 
-                /* TODO
-                    if (memories != null)
-                    {
-                       var relations = context.BuildMemories.Where(p => p.BuildId == entity.Id).ToList();
-                       
-                       foreach (var relation in relations)
-                        if (!memories.Exists(memory => memory.Id == relation.MemoryId))
-                            context.Entry(relation).State = EntityState.Deleted;
-                       
-                       foreach (var memory in memories)
-                        if (!relations.Exists(relation => memory.Id == relation.MemoryId))
-                            context.ProcessorChipsets.Add(new ProcessorChipset { ProcessorId = entity.Id , ChipsetId = chipset.Id });
-                    }
-                 */
+                if (memories != null)
+                {
+                    foreach (var relation in context.BuildMemories.Where(
+                        p => p.BuildId == entity.Id))
+                        context.Entry(relation).State = EntityState.Deleted;
+
+                    foreach (var memory in memories)
+                        context.BuildMemories.Add(new BuildMemory
+                        {
+                            BuildId = entity.Id,
+                            MemoryId = memory.Id
+                        });
+                }
 
                 var entry = context.Entry(entity);
                 entry.State = EntityState.Modified;
@@ -220,7 +240,8 @@
         protected abstract Task<List<TEntity>> GetEntitiesAsync(ComputerDatabaseContext context,
             bool paging);
 
-        protected abstract Task LoadRelationsAsync(ComputerDatabaseContext context, DbEntityEntry<TEntity> entry);
+        public abstract Task LoadRelationsAsync(ComputerDatabaseContext context,
+            DbEntityEntry<TEntity> entry);
 
         public async Task<List<TEntity>> RunQueryAsync(IQueryable<TEntity> query,
             int totalItemCount, bool paging)

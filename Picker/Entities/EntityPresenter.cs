@@ -14,7 +14,8 @@
         {
             Entity = entity;
             View.EntityName = Entity.Name;
-            View.EntityImage = Entity.Id == 0 ? null : (Image)Entity.Image?.Clone();
+            if (!(Entity is Build))
+                View.EntityImage = Entity.Id == 0 ? null : (Image)Entity.Image?.Clone();
         }
 
         public override DialogResult ShowView()
@@ -29,7 +30,9 @@
 
         protected virtual void UpdateEntity()
         {
-            Entity.Image = View.EntityImage;
+            if (!(Entity is Build))
+                Entity.Image = View.EntityImage;
+
             Entity.Name = View.EntityName;
         }
 

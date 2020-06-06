@@ -2,7 +2,6 @@ namespace Picker
 {
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
-    using System.ComponentModel.DataAnnotations.Schema;
     using System.Diagnostics.CodeAnalysis;
     using System.IO;
 
@@ -10,11 +9,7 @@ namespace Picker
     {
         public virtual ICollection<Build> Builds { get; set; }
         public int BusWidth { get; set; } // Bit
-
-        [Required]
-        [InverseProperty("GraphicsCardChipsets")]
         public virtual Brand ChipsetBrand { get; set; }
-
         public int ChipsetBrandId { get; set; }
 
         [Required]

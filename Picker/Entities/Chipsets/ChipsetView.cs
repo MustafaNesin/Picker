@@ -2,7 +2,6 @@
 {
     using System;
     using System.Drawing;
-    using System.Linq;
     using System.Windows.Forms;
     using Properties;
 
@@ -68,8 +67,8 @@
             if (_presenter.AdminMode)
             {
                 await using var presenter = new BrandListPresenter(false);
-                    if (presenter.ShowView() == DialogResult.Cancel)
-                        return;
+                if (presenter.ShowView() == DialogResult.Cancel)
+                    return;
 
                 if (ChipsetBrand != null && ChipsetBrand.Id == presenter.SelectedEntity.Id)
                     return;

@@ -86,7 +86,7 @@
             orderBox.SelectedIndex = 1;
             itemPerPageBox.SelectedIndex = 0;
 
-            compatiblesBox.Visible = _presenter.Build != null;
+            compatiblesBox.Visible = _presenter.BuildPresenter != null;
             if (_presenter.AdminMode)
                 return;
 
