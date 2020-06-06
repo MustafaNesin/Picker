@@ -94,6 +94,8 @@
                 SelectMemory(_memories.Count - 1);
         }
 
+        private void BuildView_Load(object sender, EventArgs e) => CheckCompatibility();
+
         public void CheckCompatibility()
         {
             var partSelected = false;
@@ -102,32 +104,28 @@
 
             if (BuildGraphicsCard != null)
             {
-                partSelected = true;;
+                partSelected = true;
+                ;
             }
 
-            if (BuildMotherboard!= null)
+            if (BuildMotherboard != null)
             {
                 partSelected = true;
 
                 if (BuildProcessor != null)
-                {
                     if (BuildProcessor.Socket.Id != BuildMotherboard.Socket.Id)
                     {
                         isCompatible = false;
-                        compatibilityBox.Items.Add("Anakart ve işlemci soketleri farklı, lütfen aynı sokete sahip anakart ve işlemci seçin.");
+                        compatibilityBox.Items.Add(
+                            "Anakart ve işlemci soketleri farklı, lütfen aynı sokete sahip anakart ve işlemci seçin.");
                     }
-                }
             }
 
             if (BuildProcessor != null)
-            {
                 partSelected = true;
-            }
 
             foreach (var memory in BuildMemories)
-            {
                 partSelected = true;
-            }
 
             if (!partSelected)
                 compatibilityBox.Items.Add("Hiçbir parça seçilmedi.");
@@ -174,6 +172,7 @@
         {
             if (BuildMemories.Count != 0)
                 RemoveMemory(_selectedMemoryIndex);
+
             CheckCompatibility();
         }
 
@@ -210,7 +209,7 @@
                 return;
 
             BuildMotherboard = presenter.SelectedEntity;
-            presenter.LeaveImage = true; 
+            presenter.LeaveImage = true;
             CheckCompatibility();
         }
 
@@ -362,11 +361,6 @@
 
             processorPriceLabel.Visible = processorRemoveButton.Visible = processor != null;
             _processor = processor;
-        }
-
-        private void BuildView_Load(object sender, EventArgs e)
-        {
-            CheckCompatibility();
         }
     }
 }
