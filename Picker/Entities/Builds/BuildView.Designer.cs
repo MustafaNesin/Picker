@@ -65,7 +65,7 @@
             this.motherboardSelectButton = new System.Windows.Forms.Button();
             this.motherboardNameLabel = new System.Windows.Forms.Label();
             this.motherboardImageBox = new System.Windows.Forms.PictureBox();
-            this.compabilityBox = new System.Windows.Forms.ListBox();
+            this.compatibilityBox = new System.Windows.Forms.ListBox();
             this.controlPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.container)).BeginInit();
             this.container.Panel1.SuspendLayout();
@@ -180,7 +180,7 @@
             // 
             // container.Panel2
             // 
-            this.container.Panel2.Controls.Add(this.compabilityBox);
+            this.container.Panel2.Controls.Add(this.compatibilityBox);
             this.container.Panel2.Padding = new System.Windows.Forms.Padding(10);
             this.container.Panel2MinSize = 100;
             this.container.Size = new System.Drawing.Size(984, 529);
@@ -240,6 +240,7 @@
             this.memoryRemoveButton.Text = "Kaldır";
             this.memoryRemoveButton.UseVisualStyleBackColor = false;
             this.memoryRemoveButton.Visible = false;
+            this.memoryRemoveButton.Click += new System.EventHandler(this.memoryRemoveButton_Click);
             // 
             // memorySelectButton
             // 
@@ -254,6 +255,7 @@
             this.memorySelectButton.TabIndex = 0;
             this.memorySelectButton.Text = "Ekle...";
             this.memorySelectButton.UseVisualStyleBackColor = false;
+            this.memorySelectButton.Click += new System.EventHandler(this.memorySelectButton_Click);
             // 
             // memoryNameLabel
             // 
@@ -268,6 +270,7 @@
             this.memoryNameLabel.TabIndex = 2;
             this.memoryNameLabel.Text = "Bir bellek seçin...";
             this.memoryNameLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.memoryNameLabel.Click += new System.EventHandler(this.memoryNameLabel_Click);
             // 
             // memoryImageBox
             // 
@@ -314,6 +317,7 @@
             this.nextMemoryButton.TabIndex = 2;
             this.nextMemoryButton.Text = "▼";
             this.nextMemoryButton.UseVisualStyleBackColor = true;
+            this.nextMemoryButton.Click += new System.EventHandler(this.nextMemoryButton_Click);
             // 
             // previousMemoryButton
             // 
@@ -325,6 +329,7 @@
             this.previousMemoryButton.TabIndex = 0;
             this.previousMemoryButton.Text = "▲";
             this.previousMemoryButton.UseVisualStyleBackColor = true;
+            this.previousMemoryButton.Click += new System.EventHandler(this.previousMemoryButton_Click);
             // 
             // graphicsCardBox
             // 
@@ -369,6 +374,7 @@
             this.graphicsCardRemoveButton.Text = "Kaldır";
             this.graphicsCardRemoveButton.UseVisualStyleBackColor = false;
             this.graphicsCardRemoveButton.Visible = false;
+            this.graphicsCardRemoveButton.Click += new System.EventHandler(this.graphicsCardRemoveButton_Click);
             // 
             // graphicsCardSelectButton
             // 
@@ -383,6 +389,7 @@
             this.graphicsCardSelectButton.TabIndex = 0;
             this.graphicsCardSelectButton.Text = "Seç...";
             this.graphicsCardSelectButton.UseVisualStyleBackColor = false;
+            this.graphicsCardSelectButton.Click += new System.EventHandler(this.graphicsCardSelectButton_Click);
             // 
             // graphicsCardNameLabel
             // 
@@ -397,6 +404,7 @@
             this.graphicsCardNameLabel.TabIndex = 2;
             this.graphicsCardNameLabel.Text = "Bir ekran kartı seçin...";
             this.graphicsCardNameLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.graphicsCardNameLabel.Click += new System.EventHandler(this.graphicsCardNameLabel_Click);
             // 
             // graphicsCardImageBox
             // 
@@ -453,6 +461,7 @@
             this.processorRemoveButton.Text = "Kaldır";
             this.processorRemoveButton.UseVisualStyleBackColor = false;
             this.processorRemoveButton.Visible = false;
+            this.processorRemoveButton.Click += new System.EventHandler(this.processorRemoveButton_Click);
             // 
             // processorSelectButton
             // 
@@ -467,6 +476,7 @@
             this.processorSelectButton.TabIndex = 0;
             this.processorSelectButton.Text = "Seç...";
             this.processorSelectButton.UseVisualStyleBackColor = false;
+            this.processorSelectButton.Click += new System.EventHandler(this.processorSelectButton_Click);
             // 
             // processorNameLabel
             // 
@@ -481,6 +491,7 @@
             this.processorNameLabel.TabIndex = 2;
             this.processorNameLabel.Text = "Bir işlemci seçin...";
             this.processorNameLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.processorNameLabel.Click += new System.EventHandler(this.processorNameLabel_Click);
             // 
             // processorImageBox
             // 
@@ -537,6 +548,7 @@
             this.motherboardRemoveButton.Text = "Kaldır";
             this.motherboardRemoveButton.UseVisualStyleBackColor = false;
             this.motherboardRemoveButton.Visible = false;
+            this.motherboardRemoveButton.Click += new System.EventHandler(this.motherboardRemoveButton_Click);
             // 
             // motherboardSelectButton
             // 
@@ -551,6 +563,7 @@
             this.motherboardSelectButton.TabIndex = 0;
             this.motherboardSelectButton.Text = "Seç...";
             this.motherboardSelectButton.UseVisualStyleBackColor = false;
+            this.motherboardSelectButton.Click += new System.EventHandler(this.motherboardSelectButton_Click);
             // 
             // motherboardNameLabel
             // 
@@ -565,6 +578,7 @@
             this.motherboardNameLabel.TabIndex = 2;
             this.motherboardNameLabel.Text = "Bir anakart seçin...";
             this.motherboardNameLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.motherboardNameLabel.Click += new System.EventHandler(this.motherboardNameLabel_Click);
             // 
             // motherboardImageBox
             // 
@@ -578,17 +592,19 @@
             this.motherboardImageBox.TabIndex = 4;
             this.motherboardImageBox.TabStop = false;
             // 
-            // compabilityBox
+            // compatibilityBox
             // 
-            this.compabilityBox.BackColor = System.Drawing.SystemColors.Control;
-            this.compabilityBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.compabilityBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.compabilityBox.FormattingEnabled = true;
-            this.compabilityBox.Location = new System.Drawing.Point(10, 10);
-            this.compabilityBox.Name = "compabilityBox";
-            this.compabilityBox.SelectionMode = System.Windows.Forms.SelectionMode.None;
-            this.compabilityBox.Size = new System.Drawing.Size(964, 105);
-            this.compabilityBox.TabIndex = 8;
+            this.compatibilityBox.BackColor = System.Drawing.SystemColors.Control;
+            this.compatibilityBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.compatibilityBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.compatibilityBox.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.compatibilityBox.FormattingEnabled = true;
+            this.compatibilityBox.ItemHeight = 21;
+            this.compatibilityBox.Location = new System.Drawing.Point(10, 10);
+            this.compatibilityBox.Name = "compatibilityBox";
+            this.compatibilityBox.SelectionMode = System.Windows.Forms.SelectionMode.None;
+            this.compatibilityBox.Size = new System.Drawing.Size(964, 105);
+            this.compatibilityBox.TabIndex = 8;
             // 
             // BuildView
             // 
@@ -605,6 +621,7 @@
             this.Name = "BuildView";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Bilgisayar";
+            this.Load += new System.EventHandler(this.BuildView_Load);
             this.controlPanel.ResumeLayout(false);
             this.controlPanel.PerformLayout();
             this.container.Panel1.ResumeLayout(false);
@@ -663,6 +680,6 @@
         private System.Windows.Forms.Button motherboardSelectButton;
         private System.Windows.Forms.Label motherboardNameLabel;
         private System.Windows.Forms.PictureBox motherboardImageBox;
-        private System.Windows.Forms.ListBox compabilityBox;
+        private System.Windows.Forms.ListBox compatibilityBox;
     }
 }

@@ -94,14 +94,45 @@
                 SelectMemory(_memories.Count - 1);
         }
 
-        public void CheckCompability()
+        public void CheckCompatibility()
         {
-            compabilityBox.Items.Clear();
+            var partSelected = false;
+            var isCompatible = true;
+            compatibilityBox.Items.Clear();
 
-            /*if (BuildGraphicsCard)
+            if (BuildGraphicsCard != null)
             {
-                compabilityBox.Items.Add("Hiçbir parça seçilmedi.");
-            }*/
+                partSelected = true;;
+            }
+
+            if (BuildMotherboard!= null)
+            {
+                partSelected = true;
+
+                if (BuildProcessor != null)
+                {
+                    if (BuildProcessor.Socket.Id != BuildMotherboard.Socket.Id)
+                    {
+                        isCompatible = false;
+                        compatibilityBox.Items.Add("Anakart ve işlemci soketleri farklı, lütfen aynı sokete sahip anakart ve işlemci seçin.");
+                    }
+                }
+            }
+
+            if (BuildProcessor != null)
+            {
+                partSelected = true;
+            }
+
+            foreach (var memory in BuildMemories)
+            {
+                partSelected = true;
+            }
+
+            if (!partSelected)
+                compatibilityBox.Items.Add("Hiçbir parça seçilmedi.");
+            else if (isCompatible)
+                compatibilityBox.Items.Add("Bilgisayarınızın parçaları uyuşuyor.");
         }
 
         private async void graphicsCardNameLabel_Click(object sender, EventArgs e)
@@ -114,7 +145,10 @@
         }
 
         private void graphicsCardRemoveButton_Click(object sender, EventArgs e)
-            => BuildGraphicsCard = null;
+        {
+            BuildGraphicsCard = null;
+            CheckCompatibility();
+        }
 
         private async void graphicsCardSelectButton_Click(object sender, EventArgs e)
         {
@@ -124,6 +158,7 @@
 
             BuildGraphicsCard = presenter.SelectedEntity;
             presenter.LeaveImage = true;
+            CheckCompatibility();
         }
 
         private async void memoryNameLabel_Click(object sender, EventArgs e)
@@ -139,6 +174,7 @@
         {
             if (BuildMemories.Count != 0)
                 RemoveMemory(_selectedMemoryIndex);
+            CheckCompatibility();
         }
 
         private async void memorySelectButton_Click(object sender, EventArgs e)
@@ -149,6 +185,7 @@
 
             AddMemory(presenter.SelectedEntity);
             presenter.LeaveImage = true;
+            CheckCompatibility();
         }
 
         private async void motherboardNameLabel_Click(object sender, EventArgs e)
@@ -161,7 +198,10 @@
         }
 
         private void motherboardRemoveButton_Click(object sender, EventArgs e)
-            => BuildMotherboard = null;
+        {
+            BuildMotherboard = null;
+            CheckCompatibility();
+        }
 
         private async void motherboardSelectButton_Click(object sender, EventArgs e)
         {
@@ -170,7 +210,8 @@
                 return;
 
             BuildMotherboard = presenter.SelectedEntity;
-            presenter.LeaveImage = true;
+            presenter.LeaveImage = true; 
+            CheckCompatibility();
         }
 
         private void nextMemoryButton_Click(object sender, EventArgs e)
@@ -189,7 +230,10 @@
         }
 
         private void processorRemoveButton_Click(object sender, EventArgs e)
-            => BuildProcessor = null;
+        {
+            BuildProcessor = null;
+            CheckCompatibility();
+        }
 
         private async void processorSelectButton_Click(object sender, EventArgs e)
         {
@@ -199,6 +243,7 @@
 
             BuildProcessor = presenter.SelectedEntity;
             presenter.LeaveImage = true;
+            CheckCompatibility();
         }
 
         public void RemoveMemory(int index)
@@ -317,6 +362,11 @@
 
             processorPriceLabel.Visible = processorRemoveButton.Visible = processor != null;
             _processor = processor;
+        }
+
+        private void BuildView_Load(object sender, EventArgs e)
+        {
+            CheckCompatibility();
         }
     }
 }
