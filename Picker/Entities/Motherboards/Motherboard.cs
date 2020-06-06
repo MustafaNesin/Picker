@@ -9,7 +9,6 @@ namespace Picker
     {
         public virtual ICollection<Build> Builds { get; set; }
 
-        [Required]
         public virtual Chipset Chipset { get; set; }
 
         public int ChipsetId { get; set; }
@@ -28,7 +27,6 @@ namespace Picker
         [Required]
         public string MemoryType { get; set; }
 
-        [Required]
         public virtual Socket Socket { get; set; }
 
         public int SocketId { get; set; }

@@ -22,11 +22,9 @@
 
         protected override void UpdateEntity()
         {
-            Entity.Chipset = View.MotherboardChipset;
-            Entity.Chipset.Brand = null;
-            Entity.Socket = View.MotherboardSocket;
-            Entity.Socket.Brand = null;
-            Entity.Brand = View.MotherboardBrand;
+            Entity.Chipset = null;
+            Entity.Socket = null;
+            Entity.Brand = null;
             Entity.BrandId = View.MotherboardBrand.Id;
             Entity.ChipsetId = View.MotherboardChipset.Id;
             Entity.SocketId = View.MotherboardSocket.Id;

@@ -22,7 +22,7 @@
 
         protected override void UpdateEntity()
         {
-            Entity.Brand = View.GraphicsCardBrand;
+            Entity.Brand = null;
             Entity.BrandId = View.GraphicsCardBrand.Id;
             Entity.ChipsetBrand = null;
             Entity.ChipsetBrandId = View.GraphicsCardChipsetBrand.Id;

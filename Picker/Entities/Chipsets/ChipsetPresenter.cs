@@ -12,7 +12,7 @@
 
         protected override void UpdateEntity()
         {
-            Entity.Brand = View.ChipsetBrand;
+            Entity.Brand = null;
             Entity.BrandId = View.ChipsetBrand.Id;
             base.UpdateEntity();
         }

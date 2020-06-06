@@ -23,7 +23,6 @@ namespace Picker
         public int MaxMemory { get; set; } // GB
         public int MaxMemorySpeed { get; set; } // MHz
 
-        [Required]
         public virtual Socket Socket { get; set; }
 
         public int SocketId { get; set; }

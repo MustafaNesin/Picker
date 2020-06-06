@@ -15,7 +15,7 @@
 
         protected override void UpdateEntity()
         {
-            Entity.Brand = View.SocketBrand;
+            Entity.Brand = null;
             Entity.BrandId = View.SocketBrand.Id;
             Entity.SupportsDDR2 = View.SocketSupportsDDR2;
             Entity.SupportsDDR3 = View.SocketSupportsDDR3;

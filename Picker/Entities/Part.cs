@@ -4,7 +4,6 @@ namespace Picker
 
     public abstract class Part : Entity
     {
-        [Required]
         public virtual Brand Brand { get; set; }
 
         public int BrandId { get; set; }

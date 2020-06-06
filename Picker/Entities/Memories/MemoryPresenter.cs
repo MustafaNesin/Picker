@@ -20,7 +20,7 @@
 
         protected override void UpdateEntity()
         {
-            Entity.Brand = View.MemoryBrand;
+            Entity.Brand = null;
             Entity.BrandId = View.MemoryBrand.Id;
             Entity.Type = View.MemoryType;
             Entity.Model = View.MemoryModel;

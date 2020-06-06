@@ -37,9 +37,8 @@
         protected override void UpdateEntity()
         {
             Chipsets = View.ProcessorChipsets;
-            Entity.Socket = View.ProcessorSocket;
-            Entity.Socket.Brand = null;
-            Entity.Brand = View.ProcessorBrand;
+            Entity.Brand = null;
+            Entity.Socket = null;
             Entity.BrandId = View.ProcessorBrand.Id;
             Entity.SocketId = View.ProcessorSocket.Id;
             Entity.Family = View.ProcessorFamily;
