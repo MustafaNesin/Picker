@@ -363,6 +363,11 @@
             // priceBox
             // 
             this.priceBox.DecimalPlaces = 2;
+            this.priceBox.Increment = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
             this.priceBox.Location = new System.Drawing.Point(334, 11);
             this.priceBox.Maximum = new decimal(new int[] {
             9999999,

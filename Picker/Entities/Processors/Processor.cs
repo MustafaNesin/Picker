@@ -24,6 +24,7 @@ namespace Picker
         public int MaxMemorySpeed { get; set; } // MHz
         public virtual Socket Socket { get; set; }
         public int SocketId { get; set; }
+
         public bool SupportsECC { get; set; }
         public int Threads { get; set; }
         public int TurboFrequency { get; set; } // MHz

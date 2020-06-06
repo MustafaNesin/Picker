@@ -138,6 +138,11 @@
             // 
             this.priceBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.priceBox.DecimalPlaces = 2;
+            this.priceBox.Increment = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
             this.priceBox.Location = new System.Drawing.Point(290, 43);
             this.priceBox.Maximum = new decimal(new int[] {
             9999999,
@@ -342,7 +347,7 @@
             this.label5.Location = new System.Drawing.Point(241, 47);
             this.label5.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(43, 13);
+            this.label5.Size = new System.Drawing.Size(49, 13);
             this.label5.TabIndex = 4;
             this.label5.Text = "Fiyat ($):";
             // 

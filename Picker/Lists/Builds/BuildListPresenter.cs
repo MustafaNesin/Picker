@@ -32,27 +32,34 @@
         {
             if (entry.Entity.GraphicsCard != null)
             {
-                var graphicsCard = context.Entry(entry.Entity.GraphicsCard);
                 await entry.Reference(entity => entity.GraphicsCard).LoadAsync();
+                var graphicsCard = context.Entry(entry.Entity.GraphicsCard);
                 await graphicsCard.Reference(entity => entity.Brand).LoadAsync();
                 await graphicsCard.Reference(entity => entity.ChipsetBrand).LoadAsync();
             }
 
             if (entry.Entity.Motherboard != null)
             {
-                var motherboard = context.Entry(entry.Entity.Motherboard);
                 await entry.Reference(entity => entity.Motherboard).LoadAsync();
+                var motherboard = context.Entry(entry.Entity.Motherboard);
                 await motherboard.Reference(entity => entity.Brand).LoadAsync();
+
                 await motherboard.Reference(entity => entity.Chipset).LoadAsync();
+                var chipset = context.Entry(entry.Entity.Motherboard.Chipset);
+                await chipset.Reference(entity => entity.Brand).LoadAsync();
+
                 await motherboard.Reference(entity => entity.Socket).LoadAsync();
+                var socket = context.Entry(entry.Entity.Motherboard.Socket);
+                await socket.Reference(entity => entity.Brand).LoadAsync();
             }
 
             if (entry.Entity.Processor != null)
             {
-                var processor = context.Entry(entry.Entity.Processor);
                 await entry.Reference(entity => entity.Processor).LoadAsync();
+                var processor = context.Entry(entry.Entity.Processor);
                 await processor.Reference(entity => entity.Brand).LoadAsync();
                 await processor.Reference(entity => entity.Socket).LoadAsync();
+                await context.Entry(entry.Entity.Processor.Socket).Reference(entity => entity.Brand).LoadAsync();
             }
         }
 

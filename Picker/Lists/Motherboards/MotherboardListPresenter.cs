@@ -58,7 +58,7 @@
 
             if (!string.IsNullOrWhiteSpace(View.MotherboardFormFactor))
                 query = query.Where(
-                    entity => entity.MemoryType.Contains(View.MotherboardFormFactor));
+                    entity => entity.FormFactor.Contains(View.MotherboardFormFactor));
 
             if (View.MotherboardMinMemorySlots.HasValue)
                 query = query.Where(entity
