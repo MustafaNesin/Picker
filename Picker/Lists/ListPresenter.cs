@@ -16,9 +16,9 @@
         where TEntityView : Form, IEntityView
         where TItemView : UserControl, IItemView<TEntity>
     {
-        public bool LeaveImage { get; set; }
         public BuildPresenter BuildPresenter { get; }
         public bool GeneratingList { get; private set; }
+        public bool LeaveImage { get; set; }
         protected abstract Panel ListPanel { get; }
         public TEntity SelectedEntity { get; private set; }
 
@@ -214,7 +214,10 @@
                 await context.SaveChangesAsync();
             }
 
-            itemView.UpdateView(entity);
+            if (entity is Build)
+                await GenerateListAsync();
+            else
+                itemView.UpdateView(entity);
         }
 
         public async Task GenerateListAsync(bool paging = false)

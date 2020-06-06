@@ -22,9 +22,7 @@ namespace Picker
         public bool Is64Bit { get; set; }
         public int MaxMemory { get; set; } // GB
         public int MaxMemorySpeed { get; set; } // MHz
-
         public virtual Socket Socket { get; set; }
-
         public int SocketId { get; set; }
         public bool SupportsECC { get; set; }
         public int Threads { get; set; }

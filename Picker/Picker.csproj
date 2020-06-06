@@ -72,7 +72,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CompabilityNote.cs" />
     <Compile Include="Entities\Brands\BrandView.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -8,9 +8,7 @@ namespace Picker
     public class Motherboard : Product
     {
         public virtual ICollection<Build> Builds { get; set; }
-
         public virtual Chipset Chipset { get; set; }
-
         public int ChipsetId { get; set; }
 
         [Required]
@@ -28,7 +26,6 @@ namespace Picker
         public string MemoryType { get; set; }
 
         public virtual Socket Socket { get; set; }
-
         public int SocketId { get; set; }
         public bool SupportsECC { get; set; }
 

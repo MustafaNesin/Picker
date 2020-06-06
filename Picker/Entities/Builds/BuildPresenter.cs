@@ -24,41 +24,6 @@
                     .Include(p => p.Brand).ToList();
         }
 
-        public bool IsCompatibleWith(Motherboard motherboard)
-            => IsCompatibleWith(motherboard, out var messages);
-
-        public bool IsCompatibleWith(Motherboard motherboard, out List<CompabilityNote> issues)
-        {
-            issues = new List<CompabilityNote>();
-            return issues.All(issue => !issue.IsIssue);
-        }
-
-        public bool IsCompatibleWith(Processor processor)
-            => IsCompatibleWith(processor, out var messages);
-
-        public bool IsCompatibleWith(Processor processor, out List<CompabilityNote> issues)
-        {
-            issues = new List<CompabilityNote>();
-            return issues.All(issue => !issue.IsIssue);
-        }
-
-        public bool IsCompatibleWith(GraphicsCard graphicsCard)
-            => IsCompatibleWith(graphicsCard, out var messages);
-
-        public bool IsCompatibleWith(GraphicsCard graphicsCard, out List<CompabilityNote> issues)
-        {
-            issues = new List<CompabilityNote>();
-            return issues.All(issue => !issue.IsIssue);
-        }
-
-        public bool IsCompatibleWith(Memory memory) => IsCompatibleWith(memory, out var messages);
-
-        public bool IsCompatibleWith(Memory memory, out List<CompabilityNote> issues)
-        {
-            issues = new List<CompabilityNote>();
-            return issues.All(issue => !issue.IsIssue);
-        }
-
         protected override void UpdateEntity()
         {
             View.BuildMotherboard?.DisposeImage();

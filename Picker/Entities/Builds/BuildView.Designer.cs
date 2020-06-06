@@ -36,8 +36,6 @@
             this.cancelButton = new System.Windows.Forms.Button();
             this.acceptButton = new System.Windows.Forms.Button();
             this.container = new System.Windows.Forms.SplitContainer();
-            this.compabilityBox = new System.Windows.Forms.ListBox();
-            this.compabilityInfoLabel = new System.Windows.Forms.Label();
             this.memoriesPanel = new System.Windows.Forms.Panel();
             this.memoryBox = new System.Windows.Forms.GroupBox();
             this.memoryPriceLabel = new System.Windows.Forms.Label();
@@ -67,6 +65,7 @@
             this.motherboardSelectButton = new System.Windows.Forms.Button();
             this.motherboardNameLabel = new System.Windows.Forms.Label();
             this.motherboardImageBox = new System.Windows.Forms.PictureBox();
+            this.compabilityBox = new System.Windows.Forms.ListBox();
             this.controlPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.container)).BeginInit();
             this.container.Panel1.SuspendLayout();
@@ -92,9 +91,9 @@
             this.controlPanel.Controls.Add(this.cancelButton);
             this.controlPanel.Controls.Add(this.acceptButton);
             this.controlPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.controlPanel.Location = new System.Drawing.Point(0, 579);
+            this.controlPanel.Location = new System.Drawing.Point(0, 529);
             this.controlPanel.Name = "controlPanel";
-            this.controlPanel.Size = new System.Drawing.Size(684, 32);
+            this.controlPanel.Size = new System.Drawing.Size(984, 32);
             this.controlPanel.TabIndex = 2;
             // 
             // totalLabel
@@ -104,7 +103,7 @@
             this.totalLabel.Location = new System.Drawing.Point(89, 0);
             this.totalLabel.Name = "totalLabel";
             this.totalLabel.Padding = new System.Windows.Forms.Padding(0, 0, 6, 0);
-            this.totalLabel.Size = new System.Drawing.Size(194, 32);
+            this.totalLabel.Size = new System.Drawing.Size(494, 32);
             this.totalLabel.TabIndex = 4;
             this.totalLabel.Text = "Toplam tutar: $0.00";
             this.totalLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -113,7 +112,7 @@
             // 
             this.nameLabel.Dock = System.Windows.Forms.DockStyle.Right;
             this.nameLabel.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.nameLabel.Location = new System.Drawing.Point(283, 0);
+            this.nameLabel.Location = new System.Drawing.Point(583, 0);
             this.nameLabel.Name = "nameLabel";
             this.nameLabel.Size = new System.Drawing.Size(97, 32);
             this.nameLabel.TabIndex = 3;
@@ -125,7 +124,7 @@
             this.nameBox.Dock = System.Windows.Forms.DockStyle.Right;
             this.nameBox.Font = new System.Drawing.Font("Segoe UI", 13.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.nameBox.ForeColor = System.Drawing.Color.Black;
-            this.nameBox.Location = new System.Drawing.Point(380, 0);
+            this.nameBox.Location = new System.Drawing.Point(680, 0);
             this.nameBox.Name = "nameBox";
             this.nameBox.Size = new System.Drawing.Size(215, 31);
             this.nameBox.TabIndex = 2;
@@ -155,7 +154,7 @@
             this.acceptButton.FlatAppearance.BorderSize = 0;
             this.acceptButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.acceptButton.ForeColor = System.Drawing.Color.White;
-            this.acceptButton.Location = new System.Drawing.Point(595, 0);
+            this.acceptButton.Location = new System.Drawing.Point(895, 0);
             this.acceptButton.Name = "acceptButton";
             this.acceptButton.Size = new System.Drawing.Size(89, 32);
             this.acceptButton.TabIndex = 0;
@@ -172,45 +171,21 @@
             // 
             // container.Panel1
             // 
-            this.container.Panel1.Controls.Add(this.compabilityBox);
-            this.container.Panel1.Controls.Add(this.compabilityInfoLabel);
+            this.container.Panel1.Controls.Add(this.memoriesPanel);
+            this.container.Panel1.Controls.Add(this.graphicsCardBox);
+            this.container.Panel1.Controls.Add(this.processorBox);
+            this.container.Panel1.Controls.Add(this.motherboardBox);
             this.container.Panel1.Padding = new System.Windows.Forms.Padding(10);
-            this.container.Panel1MinSize = 40;
+            this.container.Panel1MinSize = 400;
             // 
             // container.Panel2
             // 
-            this.container.Panel2.Controls.Add(this.memoriesPanel);
-            this.container.Panel2.Controls.Add(this.graphicsCardBox);
-            this.container.Panel2.Controls.Add(this.processorBox);
-            this.container.Panel2.Controls.Add(this.motherboardBox);
+            this.container.Panel2.Controls.Add(this.compabilityBox);
             this.container.Panel2.Padding = new System.Windows.Forms.Padding(10);
-            this.container.Panel2MinSize = 400;
-            this.container.Size = new System.Drawing.Size(684, 579);
-            this.container.SplitterDistance = 162;
+            this.container.Panel2MinSize = 100;
+            this.container.Size = new System.Drawing.Size(984, 529);
+            this.container.SplitterDistance = 400;
             this.container.TabIndex = 5;
-            // 
-            // compabilityBox
-            // 
-            this.compabilityBox.BackColor = System.Drawing.SystemColors.Control;
-            this.compabilityBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.compabilityBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.compabilityBox.FormattingEnabled = true;
-            this.compabilityBox.Location = new System.Drawing.Point(10, 36);
-            this.compabilityBox.Name = "compabilityBox";
-            this.compabilityBox.SelectionMode = System.Windows.Forms.SelectionMode.None;
-            this.compabilityBox.Size = new System.Drawing.Size(664, 116);
-            this.compabilityBox.TabIndex = 3;
-            this.compabilityBox.Visible = false;
-            // 
-            // compabilityInfoLabel
-            // 
-            this.compabilityInfoLabel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.compabilityInfoLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.compabilityInfoLabel.Location = new System.Drawing.Point(10, 10);
-            this.compabilityInfoLabel.Name = "compabilityInfoLabel";
-            this.compabilityInfoLabel.Size = new System.Drawing.Size(664, 26);
-            this.compabilityInfoLabel.TabIndex = 2;
-            this.compabilityInfoLabel.Text = "Hiçbir parça seçilmedi. (Bu kısım yapılacak)";
             // 
             // memoriesPanel
             // 
@@ -219,8 +194,8 @@
             this.memoriesPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.memoriesPanel.Location = new System.Drawing.Point(10, 295);
             this.memoriesPanel.Name = "memoriesPanel";
-            this.memoriesPanel.Size = new System.Drawing.Size(664, 95);
-            this.memoriesPanel.TabIndex = 7;
+            this.memoriesPanel.Size = new System.Drawing.Size(964, 95);
+            this.memoriesPanel.TabIndex = 11;
             // 
             // memoryBox
             // 
@@ -233,7 +208,7 @@
             this.memoryBox.Location = new System.Drawing.Point(50, 0);
             this.memoryBox.Name = "memoryBox";
             this.memoryBox.Padding = new System.Windows.Forms.Padding(8);
-            this.memoryBox.Size = new System.Drawing.Size(614, 95);
+            this.memoryBox.Size = new System.Drawing.Size(914, 95);
             this.memoryBox.TabIndex = 0;
             this.memoryBox.TabStop = false;
             this.memoryBox.Text = "Bellek";
@@ -246,7 +221,7 @@
             this.memoryPriceLabel.Location = new System.Drawing.Point(72, 58);
             this.memoryPriceLabel.Name = "memoryPriceLabel";
             this.memoryPriceLabel.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.memoryPriceLabel.Size = new System.Drawing.Size(440, 29);
+            this.memoryPriceLabel.Size = new System.Drawing.Size(740, 29);
             this.memoryPriceLabel.TabIndex = 3;
             this.memoryPriceLabel.Text = "Fiyat: $0.00";
             this.memoryPriceLabel.Visible = false;
@@ -258,14 +233,13 @@
             this.memoryRemoveButton.Dock = System.Windows.Forms.DockStyle.Right;
             this.memoryRemoveButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.memoryRemoveButton.ForeColor = System.Drawing.Color.White;
-            this.memoryRemoveButton.Location = new System.Drawing.Point(512, 58);
+            this.memoryRemoveButton.Location = new System.Drawing.Point(812, 58);
             this.memoryRemoveButton.Name = "memoryRemoveButton";
             this.memoryRemoveButton.Size = new System.Drawing.Size(47, 29);
             this.memoryRemoveButton.TabIndex = 1;
             this.memoryRemoveButton.Text = "Kaldır";
             this.memoryRemoveButton.UseVisualStyleBackColor = false;
             this.memoryRemoveButton.Visible = false;
-            this.memoryRemoveButton.Click += new System.EventHandler(this.memoryRemoveButton_Click);
             // 
             // memorySelectButton
             // 
@@ -274,13 +248,12 @@
             this.memorySelectButton.Dock = System.Windows.Forms.DockStyle.Right;
             this.memorySelectButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.memorySelectButton.ForeColor = System.Drawing.Color.White;
-            this.memorySelectButton.Location = new System.Drawing.Point(559, 58);
+            this.memorySelectButton.Location = new System.Drawing.Point(859, 58);
             this.memorySelectButton.Name = "memorySelectButton";
             this.memorySelectButton.Size = new System.Drawing.Size(47, 29);
             this.memorySelectButton.TabIndex = 0;
             this.memorySelectButton.Text = "Ekle...";
             this.memorySelectButton.UseVisualStyleBackColor = false;
-            this.memorySelectButton.Click += new System.EventHandler(this.memorySelectButton_Click);
             // 
             // memoryNameLabel
             // 
@@ -291,11 +264,10 @@
             this.memoryNameLabel.Location = new System.Drawing.Point(72, 23);
             this.memoryNameLabel.Name = "memoryNameLabel";
             this.memoryNameLabel.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.memoryNameLabel.Size = new System.Drawing.Size(534, 35);
+            this.memoryNameLabel.Size = new System.Drawing.Size(834, 35);
             this.memoryNameLabel.TabIndex = 2;
             this.memoryNameLabel.Text = "Bir bellek seçin...";
             this.memoryNameLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.memoryNameLabel.Click += new System.EventHandler(this.memoryNameLabel_Click);
             // 
             // memoryImageBox
             // 
@@ -342,7 +314,6 @@
             this.nextMemoryButton.TabIndex = 2;
             this.nextMemoryButton.Text = "▼";
             this.nextMemoryButton.UseVisualStyleBackColor = true;
-            this.nextMemoryButton.Click += new System.EventHandler(this.nextMemoryButton_Click);
             // 
             // previousMemoryButton
             // 
@@ -354,7 +325,6 @@
             this.previousMemoryButton.TabIndex = 0;
             this.previousMemoryButton.Text = "▲";
             this.previousMemoryButton.UseVisualStyleBackColor = true;
-            this.previousMemoryButton.Click += new System.EventHandler(this.previousMemoryButton_Click);
             // 
             // graphicsCardBox
             // 
@@ -367,8 +337,8 @@
             this.graphicsCardBox.Location = new System.Drawing.Point(10, 200);
             this.graphicsCardBox.Name = "graphicsCardBox";
             this.graphicsCardBox.Padding = new System.Windows.Forms.Padding(8);
-            this.graphicsCardBox.Size = new System.Drawing.Size(664, 95);
-            this.graphicsCardBox.TabIndex = 6;
+            this.graphicsCardBox.Size = new System.Drawing.Size(964, 95);
+            this.graphicsCardBox.TabIndex = 10;
             this.graphicsCardBox.TabStop = false;
             this.graphicsCardBox.Text = "Ekran Kartı";
             // 
@@ -380,7 +350,7 @@
             this.graphicsCardPriceLabel.Location = new System.Drawing.Point(72, 58);
             this.graphicsCardPriceLabel.Name = "graphicsCardPriceLabel";
             this.graphicsCardPriceLabel.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.graphicsCardPriceLabel.Size = new System.Drawing.Size(490, 29);
+            this.graphicsCardPriceLabel.Size = new System.Drawing.Size(790, 29);
             this.graphicsCardPriceLabel.TabIndex = 3;
             this.graphicsCardPriceLabel.Text = "Fiyat: $0.00";
             this.graphicsCardPriceLabel.Visible = false;
@@ -392,14 +362,13 @@
             this.graphicsCardRemoveButton.Dock = System.Windows.Forms.DockStyle.Right;
             this.graphicsCardRemoveButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.graphicsCardRemoveButton.ForeColor = System.Drawing.Color.White;
-            this.graphicsCardRemoveButton.Location = new System.Drawing.Point(562, 58);
+            this.graphicsCardRemoveButton.Location = new System.Drawing.Point(862, 58);
             this.graphicsCardRemoveButton.Name = "graphicsCardRemoveButton";
             this.graphicsCardRemoveButton.Size = new System.Drawing.Size(47, 29);
             this.graphicsCardRemoveButton.TabIndex = 1;
             this.graphicsCardRemoveButton.Text = "Kaldır";
             this.graphicsCardRemoveButton.UseVisualStyleBackColor = false;
             this.graphicsCardRemoveButton.Visible = false;
-            this.graphicsCardRemoveButton.Click += new System.EventHandler(this.graphicsCardRemoveButton_Click);
             // 
             // graphicsCardSelectButton
             // 
@@ -408,13 +377,12 @@
             this.graphicsCardSelectButton.Dock = System.Windows.Forms.DockStyle.Right;
             this.graphicsCardSelectButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.graphicsCardSelectButton.ForeColor = System.Drawing.Color.White;
-            this.graphicsCardSelectButton.Location = new System.Drawing.Point(609, 58);
+            this.graphicsCardSelectButton.Location = new System.Drawing.Point(909, 58);
             this.graphicsCardSelectButton.Name = "graphicsCardSelectButton";
             this.graphicsCardSelectButton.Size = new System.Drawing.Size(47, 29);
             this.graphicsCardSelectButton.TabIndex = 0;
             this.graphicsCardSelectButton.Text = "Seç...";
             this.graphicsCardSelectButton.UseVisualStyleBackColor = false;
-            this.graphicsCardSelectButton.Click += new System.EventHandler(this.graphicsCardSelectButton_Click);
             // 
             // graphicsCardNameLabel
             // 
@@ -425,11 +393,10 @@
             this.graphicsCardNameLabel.Location = new System.Drawing.Point(72, 23);
             this.graphicsCardNameLabel.Name = "graphicsCardNameLabel";
             this.graphicsCardNameLabel.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.graphicsCardNameLabel.Size = new System.Drawing.Size(584, 35);
+            this.graphicsCardNameLabel.Size = new System.Drawing.Size(884, 35);
             this.graphicsCardNameLabel.TabIndex = 2;
             this.graphicsCardNameLabel.Text = "Bir ekran kartı seçin...";
             this.graphicsCardNameLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.graphicsCardNameLabel.Click += new System.EventHandler(this.graphicsCardNameLabel_Click);
             // 
             // graphicsCardImageBox
             // 
@@ -454,8 +421,8 @@
             this.processorBox.Location = new System.Drawing.Point(10, 105);
             this.processorBox.Name = "processorBox";
             this.processorBox.Padding = new System.Windows.Forms.Padding(8);
-            this.processorBox.Size = new System.Drawing.Size(664, 95);
-            this.processorBox.TabIndex = 5;
+            this.processorBox.Size = new System.Drawing.Size(964, 95);
+            this.processorBox.TabIndex = 9;
             this.processorBox.TabStop = false;
             this.processorBox.Text = "İşlemci";
             // 
@@ -467,7 +434,7 @@
             this.processorPriceLabel.Location = new System.Drawing.Point(72, 58);
             this.processorPriceLabel.Name = "processorPriceLabel";
             this.processorPriceLabel.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.processorPriceLabel.Size = new System.Drawing.Size(490, 29);
+            this.processorPriceLabel.Size = new System.Drawing.Size(790, 29);
             this.processorPriceLabel.TabIndex = 3;
             this.processorPriceLabel.Text = "Fiyat: $0.00";
             this.processorPriceLabel.Visible = false;
@@ -479,14 +446,13 @@
             this.processorRemoveButton.Dock = System.Windows.Forms.DockStyle.Right;
             this.processorRemoveButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.processorRemoveButton.ForeColor = System.Drawing.Color.White;
-            this.processorRemoveButton.Location = new System.Drawing.Point(562, 58);
+            this.processorRemoveButton.Location = new System.Drawing.Point(862, 58);
             this.processorRemoveButton.Name = "processorRemoveButton";
             this.processorRemoveButton.Size = new System.Drawing.Size(47, 29);
             this.processorRemoveButton.TabIndex = 1;
             this.processorRemoveButton.Text = "Kaldır";
             this.processorRemoveButton.UseVisualStyleBackColor = false;
             this.processorRemoveButton.Visible = false;
-            this.processorRemoveButton.Click += new System.EventHandler(this.processorRemoveButton_Click);
             // 
             // processorSelectButton
             // 
@@ -495,13 +461,12 @@
             this.processorSelectButton.Dock = System.Windows.Forms.DockStyle.Right;
             this.processorSelectButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.processorSelectButton.ForeColor = System.Drawing.Color.White;
-            this.processorSelectButton.Location = new System.Drawing.Point(609, 58);
+            this.processorSelectButton.Location = new System.Drawing.Point(909, 58);
             this.processorSelectButton.Name = "processorSelectButton";
             this.processorSelectButton.Size = new System.Drawing.Size(47, 29);
             this.processorSelectButton.TabIndex = 0;
             this.processorSelectButton.Text = "Seç...";
             this.processorSelectButton.UseVisualStyleBackColor = false;
-            this.processorSelectButton.Click += new System.EventHandler(this.processorSelectButton_Click);
             // 
             // processorNameLabel
             // 
@@ -512,11 +477,10 @@
             this.processorNameLabel.Location = new System.Drawing.Point(72, 23);
             this.processorNameLabel.Name = "processorNameLabel";
             this.processorNameLabel.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.processorNameLabel.Size = new System.Drawing.Size(584, 35);
+            this.processorNameLabel.Size = new System.Drawing.Size(884, 35);
             this.processorNameLabel.TabIndex = 2;
             this.processorNameLabel.Text = "Bir işlemci seçin...";
             this.processorNameLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.processorNameLabel.Click += new System.EventHandler(this.processorNameLabel_Click);
             // 
             // processorImageBox
             // 
@@ -541,8 +505,8 @@
             this.motherboardBox.Location = new System.Drawing.Point(10, 10);
             this.motherboardBox.Name = "motherboardBox";
             this.motherboardBox.Padding = new System.Windows.Forms.Padding(8);
-            this.motherboardBox.Size = new System.Drawing.Size(664, 95);
-            this.motherboardBox.TabIndex = 4;
+            this.motherboardBox.Size = new System.Drawing.Size(964, 95);
+            this.motherboardBox.TabIndex = 8;
             this.motherboardBox.TabStop = false;
             this.motherboardBox.Text = "Anakart";
             // 
@@ -554,7 +518,7 @@
             this.motherboardPriceLabel.Location = new System.Drawing.Point(72, 58);
             this.motherboardPriceLabel.Name = "motherboardPriceLabel";
             this.motherboardPriceLabel.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.motherboardPriceLabel.Size = new System.Drawing.Size(490, 29);
+            this.motherboardPriceLabel.Size = new System.Drawing.Size(790, 29);
             this.motherboardPriceLabel.TabIndex = 3;
             this.motherboardPriceLabel.Text = "Fiyat: $0.00";
             this.motherboardPriceLabel.Visible = false;
@@ -566,14 +530,13 @@
             this.motherboardRemoveButton.Dock = System.Windows.Forms.DockStyle.Right;
             this.motherboardRemoveButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.motherboardRemoveButton.ForeColor = System.Drawing.Color.White;
-            this.motherboardRemoveButton.Location = new System.Drawing.Point(562, 58);
+            this.motherboardRemoveButton.Location = new System.Drawing.Point(862, 58);
             this.motherboardRemoveButton.Name = "motherboardRemoveButton";
             this.motherboardRemoveButton.Size = new System.Drawing.Size(47, 29);
             this.motherboardRemoveButton.TabIndex = 1;
             this.motherboardRemoveButton.Text = "Kaldır";
             this.motherboardRemoveButton.UseVisualStyleBackColor = false;
             this.motherboardRemoveButton.Visible = false;
-            this.motherboardRemoveButton.Click += new System.EventHandler(this.motherboardRemoveButton_Click);
             // 
             // motherboardSelectButton
             // 
@@ -582,13 +545,12 @@
             this.motherboardSelectButton.Dock = System.Windows.Forms.DockStyle.Right;
             this.motherboardSelectButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.motherboardSelectButton.ForeColor = System.Drawing.Color.White;
-            this.motherboardSelectButton.Location = new System.Drawing.Point(609, 58);
+            this.motherboardSelectButton.Location = new System.Drawing.Point(909, 58);
             this.motherboardSelectButton.Name = "motherboardSelectButton";
             this.motherboardSelectButton.Size = new System.Drawing.Size(47, 29);
             this.motherboardSelectButton.TabIndex = 0;
             this.motherboardSelectButton.Text = "Seç...";
             this.motherboardSelectButton.UseVisualStyleBackColor = false;
-            this.motherboardSelectButton.Click += new System.EventHandler(this.motherboardSelectButton_Click);
             // 
             // motherboardNameLabel
             // 
@@ -599,11 +561,10 @@
             this.motherboardNameLabel.Location = new System.Drawing.Point(72, 23);
             this.motherboardNameLabel.Name = "motherboardNameLabel";
             this.motherboardNameLabel.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.motherboardNameLabel.Size = new System.Drawing.Size(584, 35);
+            this.motherboardNameLabel.Size = new System.Drawing.Size(884, 35);
             this.motherboardNameLabel.TabIndex = 2;
             this.motherboardNameLabel.Text = "Bir anakart seçin...";
             this.motherboardNameLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.motherboardNameLabel.Click += new System.EventHandler(this.motherboardNameLabel_Click);
             // 
             // motherboardImageBox
             // 
@@ -617,18 +578,30 @@
             this.motherboardImageBox.TabIndex = 4;
             this.motherboardImageBox.TabStop = false;
             // 
+            // compabilityBox
+            // 
+            this.compabilityBox.BackColor = System.Drawing.SystemColors.Control;
+            this.compabilityBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.compabilityBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.compabilityBox.FormattingEnabled = true;
+            this.compabilityBox.Location = new System.Drawing.Point(10, 10);
+            this.compabilityBox.Name = "compabilityBox";
+            this.compabilityBox.SelectionMode = System.Windows.Forms.SelectionMode.None;
+            this.compabilityBox.Size = new System.Drawing.Size(964, 105);
+            this.compabilityBox.TabIndex = 8;
+            // 
             // BuildView
             // 
             this.AcceptButton = this.acceptButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.cancelButton;
-            this.ClientSize = new System.Drawing.Size(684, 611);
+            this.ClientSize = new System.Drawing.Size(984, 561);
             this.Controls.Add(this.container);
             this.Controls.Add(this.controlPanel);
             this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MinimumSize = new System.Drawing.Size(700, 600);
+            this.MinimumSize = new System.Drawing.Size(1000, 600);
             this.Name = "BuildView";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Bilgisayar";
@@ -661,13 +634,11 @@
         private System.Windows.Forms.Label nameLabel;
         private System.Windows.Forms.Label totalLabel;
         private System.Windows.Forms.SplitContainer container;
-        private System.Windows.Forms.ListBox compabilityBox;
-        private System.Windows.Forms.Label compabilityInfoLabel;
         private System.Windows.Forms.Panel memoriesPanel;
         private System.Windows.Forms.GroupBox memoryBox;
         private System.Windows.Forms.Label memoryPriceLabel;
-        private System.Windows.Forms.Button memorySelectButton;
         private System.Windows.Forms.Button memoryRemoveButton;
+        private System.Windows.Forms.Button memorySelectButton;
         private System.Windows.Forms.Label memoryNameLabel;
         private System.Windows.Forms.PictureBox memoryImageBox;
         private System.Windows.Forms.Panel memoryNavigationPanel;
@@ -676,21 +647,22 @@
         private System.Windows.Forms.Button previousMemoryButton;
         private System.Windows.Forms.GroupBox graphicsCardBox;
         private System.Windows.Forms.Label graphicsCardPriceLabel;
-        private System.Windows.Forms.Button graphicsCardSelectButton;
         private System.Windows.Forms.Button graphicsCardRemoveButton;
+        private System.Windows.Forms.Button graphicsCardSelectButton;
         private System.Windows.Forms.Label graphicsCardNameLabel;
         private System.Windows.Forms.PictureBox graphicsCardImageBox;
         private System.Windows.Forms.GroupBox processorBox;
         private System.Windows.Forms.Label processorPriceLabel;
-        private System.Windows.Forms.Button processorSelectButton;
         private System.Windows.Forms.Button processorRemoveButton;
+        private System.Windows.Forms.Button processorSelectButton;
         private System.Windows.Forms.Label processorNameLabel;
         private System.Windows.Forms.PictureBox processorImageBox;
         private System.Windows.Forms.GroupBox motherboardBox;
         private System.Windows.Forms.Label motherboardPriceLabel;
-        private System.Windows.Forms.Button motherboardSelectButton;
         private System.Windows.Forms.Button motherboardRemoveButton;
+        private System.Windows.Forms.Button motherboardSelectButton;
         private System.Windows.Forms.Label motherboardNameLabel;
         private System.Windows.Forms.PictureBox motherboardImageBox;
+        private System.Windows.Forms.ListBox compabilityBox;
     }
 }

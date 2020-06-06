@@ -8,9 +8,9 @@
 
     internal partial class BuildView : Form, IBuildView
     {
+        private readonly List<Memory> _memories = new List<Memory>();
         private readonly BuildPresenter _presenter;
         private GraphicsCard _graphicsCard;
-        private readonly List<Memory> _memories = new List<Memory>();
         private Motherboard _motherboard;
         private Processor _processor;
         private int _selectedMemoryIndex;
@@ -92,6 +92,16 @@
             _memories.Add(memory);
             if (select)
                 SelectMemory(_memories.Count - 1);
+        }
+
+        public void CheckCompability()
+        {
+            compabilityBox.Items.Clear();
+
+            /*if (BuildGraphicsCard)
+            {
+                compabilityBox.Items.Add("Hiçbir parça seçilmedi.");
+            }*/
         }
 
         private async void graphicsCardNameLabel_Click(object sender, EventArgs e)
@@ -249,8 +259,7 @@
             previousMemoryButton.Enabled = index > 0;
             nextMemoryButton.Enabled = index + 1 < _memories.Count;
             memoryLabel.Text = index + 1 + " / " + _memories.Count;
-            memoryNameLabel.ForeColor =
-                memorySelectButton.BackColor = memory?.Brand.Color ?? Color.Green;
+            memoryNameLabel.ForeColor = memory?.Brand.Color ?? Color.Green;
 
             memoryPriceLabel.Visible = memoryRemoveButton.Visible = index != -1;
             _selectedMemoryIndex = index;
