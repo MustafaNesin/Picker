@@ -183,7 +183,7 @@
             // 
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.label16.Location = new System.Drawing.Point(296, 143);
+            this.label16.Location = new System.Drawing.Point(308, 143);
             this.label16.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(30, 13);
@@ -193,7 +193,7 @@
             // turboFrequencyBox
             // 
             this.turboFrequencyBox.DecimalPlaces = 2;
-            this.turboFrequencyBox.Location = new System.Drawing.Point(210, 109);
+            this.turboFrequencyBox.Location = new System.Drawing.Point(222, 109);
             this.turboFrequencyBox.Maximum = new decimal(new int[] {
             999,
             0,
@@ -207,7 +207,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.label3.Location = new System.Drawing.Point(151, 111);
+            this.label3.Location = new System.Drawing.Point(163, 111);
             this.label3.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(59, 13);
@@ -218,7 +218,7 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.label11.Location = new System.Drawing.Point(256, 111);
+            this.label11.Location = new System.Drawing.Point(268, 111);
             this.label11.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(28, 13);
@@ -263,7 +263,7 @@
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.label13.Location = new System.Drawing.Point(149, 79);
+            this.label13.Location = new System.Drawing.Point(161, 79);
             this.label13.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(66, 13);
@@ -272,7 +272,7 @@
             // 
             // threadsBox
             // 
-            this.threadsBox.Location = new System.Drawing.Point(216, 77);
+            this.threadsBox.Location = new System.Drawing.Point(228, 77);
             this.threadsBox.Maximum = new decimal(new int[] {
             999,
             0,
@@ -327,7 +327,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.label10.Location = new System.Drawing.Point(122, 143);
+            this.label10.Location = new System.Drawing.Point(128, 143);
             this.label10.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(21, 13);
@@ -384,17 +384,17 @@
             // 
             this.maxMemoryBox.Location = new System.Drawing.Point(82, 141);
             this.maxMemoryBox.Maximum = new decimal(new int[] {
-            999,
+            9999,
             0,
             0,
             0});
             this.maxMemoryBox.Name = "maxMemoryBox";
-            this.maxMemoryBox.Size = new System.Drawing.Size(40, 22);
+            this.maxMemoryBox.Size = new System.Drawing.Size(46, 22);
             this.maxMemoryBox.TabIndex = 22;
             // 
             // maxMemorySpeedBox
             // 
-            this.maxMemorySpeedBox.Location = new System.Drawing.Point(247, 141);
+            this.maxMemorySpeedBox.Location = new System.Drawing.Point(259, 141);
             this.maxMemorySpeedBox.Maximum = new decimal(new int[] {
             9999,
             0,
@@ -408,7 +408,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.label6.Location = new System.Drawing.Point(151, 143);
+            this.label6.Location = new System.Drawing.Point(163, 143);
             this.label6.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(95, 13);
