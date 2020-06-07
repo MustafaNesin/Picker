@@ -104,6 +104,7 @@
             // 
             this.ddr4Label.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.ddr4Label.AutoSize = true;
+            this.ddr4Label.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Strikeout, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.ddr4Label.ForeColor = System.Drawing.Color.Red;
             this.ddr4Label.Location = new System.Drawing.Point(138, 9);
             this.ddr4Label.Name = "ddr4Label";
@@ -115,6 +116,7 @@
             // 
             this.ddr3Label.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.ddr3Label.AutoSize = true;
+            this.ddr3Label.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Strikeout, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.ddr3Label.ForeColor = System.Drawing.Color.Red;
             this.ddr3Label.Location = new System.Drawing.Point(96, 9);
             this.ddr3Label.Name = "ddr3Label";
@@ -138,6 +140,7 @@
             // 
             this.ddr2Label.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.ddr2Label.AutoSize = true;
+            this.ddr2Label.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Strikeout, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.ddr2Label.ForeColor = System.Drawing.Color.Red;
             this.ddr2Label.Location = new System.Drawing.Point(54, 9);
             this.ddr2Label.Name = "ddr2Label";

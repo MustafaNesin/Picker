@@ -131,6 +131,7 @@
             // 
             this.bufferedLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.bufferedLabel.AutoSize = true;
+            this.bufferedLabel.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Strikeout, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.bufferedLabel.ForeColor = System.Drawing.Color.Red;
             this.bufferedLabel.Location = new System.Drawing.Point(359, 9);
             this.bufferedLabel.Name = "bufferedLabel";
@@ -142,6 +143,7 @@
             // 
             this.eccLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.eccLabel.AutoSize = true;
+            this.eccLabel.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Strikeout, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.eccLabel.ForeColor = System.Drawing.Color.Red;
             this.eccLabel.Location = new System.Drawing.Point(326, 9);
             this.eccLabel.Name = "eccLabel";

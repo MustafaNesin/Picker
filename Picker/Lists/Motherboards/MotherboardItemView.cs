@@ -80,6 +80,8 @@
             maxMemoryLabel.Text = "Max " + entity.MaxMemory + " GB bellek";
             maxMemoryFrequencyLabel.Text = "Max " + entity.MaxMemoryFrequency + " MHz bellek";
             eccLabel.ForeColor = entity.SupportsECC ? Color.Green : Color.Red;
+            eccLabel.Font = new Font(eccLabel.Font,
+                entity.SupportsECC ? FontStyle.Regular : FontStyle.Strikeout);
 
             itemPanel.BackColor = nameLabel.ForeColor = entity.Brand.Color;
             foreach (Button button in controlPanel.Controls)

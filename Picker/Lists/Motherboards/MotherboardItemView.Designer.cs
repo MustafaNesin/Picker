@@ -32,6 +32,9 @@
             this.nameLabel = new System.Windows.Forms.Label();
             this.priceLabel = new System.Windows.Forms.Label();
             this.propertiesPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.eccLabel = new System.Windows.Forms.Label();
+            this.maxMemoryFrequencyLabel = new System.Windows.Forms.Label();
+            this.maxMemoryLabel = new System.Windows.Forms.Label();
             this.memorySlotsLabel = new System.Windows.Forms.Label();
             this.memoryTypeLabel = new System.Windows.Forms.Label();
             this.socketLabel = new System.Windows.Forms.Label();
@@ -43,9 +46,6 @@
             this.deleteButton = new System.Windows.Forms.Button();
             this.imagePanel = new System.Windows.Forms.Panel();
             this.imageBox = new System.Windows.Forms.PictureBox();
-            this.maxMemoryLabel = new System.Windows.Forms.Label();
-            this.maxMemoryFrequencyLabel = new System.Windows.Forms.Label();
-            this.eccLabel = new System.Windows.Forms.Label();
             this.itemPanel.SuspendLayout();
             this.propertiesPanel.SuspendLayout();
             this.controlPanel.SuspendLayout();
@@ -129,6 +129,38 @@
             this.propertiesPanel.Size = new System.Drawing.Size(758, 32);
             this.propertiesPanel.TabIndex = 3;
             this.propertiesPanel.Click += new System.EventHandler(this.entity_Click);
+            // 
+            // eccLabel
+            // 
+            this.eccLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.eccLabel.AutoSize = true;
+            this.eccLabel.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Strikeout, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.eccLabel.ForeColor = System.Drawing.Color.Red;
+            this.eccLabel.Location = new System.Drawing.Point(601, 9);
+            this.eccLabel.Name = "eccLabel";
+            this.eccLabel.Size = new System.Drawing.Size(27, 13);
+            this.eccLabel.TabIndex = 8;
+            this.eccLabel.Text = "ECC";
+            // 
+            // maxMemoryFrequencyLabel
+            // 
+            this.maxMemoryFrequencyLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.maxMemoryFrequencyLabel.AutoSize = true;
+            this.maxMemoryFrequencyLabel.Location = new System.Drawing.Point(467, 9);
+            this.maxMemoryFrequencyLabel.Name = "maxMemoryFrequencyLabel";
+            this.maxMemoryFrequencyLabel.Size = new System.Drawing.Size(128, 13);
+            this.maxMemoryFrequencyLabel.TabIndex = 7;
+            this.maxMemoryFrequencyLabel.Text = "Max Memory Frequency";
+            // 
+            // maxMemoryLabel
+            // 
+            this.maxMemoryLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.maxMemoryLabel.AutoSize = true;
+            this.maxMemoryLabel.Location = new System.Drawing.Point(389, 9);
+            this.maxMemoryLabel.Name = "maxMemoryLabel";
+            this.maxMemoryLabel.Size = new System.Drawing.Size(72, 13);
+            this.maxMemoryLabel.TabIndex = 6;
+            this.maxMemoryLabel.Text = "Max Memory";
             // 
             // memorySlotsLabel
             // 
@@ -260,37 +292,6 @@
             this.imageBox.TabIndex = 1;
             this.imageBox.TabStop = false;
             this.imageBox.Click += new System.EventHandler(this.entity_Click);
-            // 
-            // maxMemoryLabel
-            // 
-            this.maxMemoryLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.maxMemoryLabel.AutoSize = true;
-            this.maxMemoryLabel.Location = new System.Drawing.Point(389, 9);
-            this.maxMemoryLabel.Name = "maxMemoryLabel";
-            this.maxMemoryLabel.Size = new System.Drawing.Size(72, 13);
-            this.maxMemoryLabel.TabIndex = 6;
-            this.maxMemoryLabel.Text = "Max Memory";
-            // 
-            // maxMemoryFrequencyLabel
-            // 
-            this.maxMemoryFrequencyLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.maxMemoryFrequencyLabel.AutoSize = true;
-            this.maxMemoryFrequencyLabel.Location = new System.Drawing.Point(467, 9);
-            this.maxMemoryFrequencyLabel.Name = "maxMemoryFrequencyLabel";
-            this.maxMemoryFrequencyLabel.Size = new System.Drawing.Size(128, 13);
-            this.maxMemoryFrequencyLabel.TabIndex = 7;
-            this.maxMemoryFrequencyLabel.Text = "Max Memory Frequency";
-            // 
-            // eccLabel
-            // 
-            this.eccLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.eccLabel.AutoSize = true;
-            this.eccLabel.ForeColor = System.Drawing.Color.Red;
-            this.eccLabel.Location = new System.Drawing.Point(601, 9);
-            this.eccLabel.Name = "eccLabel";
-            this.eccLabel.Size = new System.Drawing.Size(27, 13);
-            this.eccLabel.TabIndex = 8;
-            this.eccLabel.Text = "ECC";
             // 
             // MotherboardItemView
             // 

@@ -164,6 +164,7 @@
             // 
             this.is64BitLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.is64BitLabel.AutoSize = true;
+            this.is64BitLabel.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Strikeout, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.is64BitLabel.ForeColor = System.Drawing.Color.Red;
             this.is64BitLabel.Location = new System.Drawing.Point(699, 9);
             this.is64BitLabel.Name = "is64BitLabel";
@@ -175,6 +176,7 @@
             // 
             this.eccLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.eccLabel.AutoSize = true;
+            this.eccLabel.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Strikeout, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.eccLabel.ForeColor = System.Drawing.Color.Red;
             this.eccLabel.Location = new System.Drawing.Point(666, 9);
             this.eccLabel.Name = "eccLabel";

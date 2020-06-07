@@ -72,8 +72,16 @@
             nameLabel.Text = entity.Name;
             brandLabel.Text = entity.Brand.Name;
             ddr2Label.ForeColor = entity.SupportsDDR2 ? Color.Green : Color.Red;
+            ddr2Label.Font = new Font(ddr2Label.Font,
+                entity.SupportsDDR2 ? FontStyle.Regular : FontStyle.Strikeout);
+
             ddr3Label.ForeColor = entity.SupportsDDR3 ? Color.Green : Color.Red;
+            ddr3Label.Font = new Font(ddr3Label.Font,
+                entity.SupportsDDR3 ? FontStyle.Regular : FontStyle.Strikeout);
+
             ddr4Label.ForeColor = entity.SupportsDDR4 ? Color.Green : Color.Red;
+            ddr4Label.Font = new Font(ddr4Label.Font,
+                entity.SupportsDDR4 ? FontStyle.Regular : FontStyle.Strikeout);
 
             itemPanel.BackColor = nameLabel.ForeColor = entity.Brand.Color;
             foreach (Button button in controlPanel.Controls)

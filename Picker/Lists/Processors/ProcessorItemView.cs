@@ -84,7 +84,12 @@
             maxMemorySpeedLabel.Text = "Max " + entity.MaxMemorySpeed + " MHz bellek";
             socketLabel.Text = entity.Socket.Name;
             eccLabel.ForeColor = entity.SupportsECC ? Color.Green : Color.Red;
+            eccLabel.Font = new Font(eccLabel.Font,
+                entity.SupportsECC ? FontStyle.Regular : FontStyle.Strikeout);
+
             is64BitLabel.ForeColor = entity.Is64Bit ? Color.Green : Color.Red;
+            is64BitLabel.Font = new Font(is64BitLabel.Font,
+                entity.Is64Bit ? FontStyle.Regular : FontStyle.Strikeout);
 
             itemPanel.BackColor = nameLabel.ForeColor = entity.Brand.Color;
             foreach (Button button in controlPanel.Controls)

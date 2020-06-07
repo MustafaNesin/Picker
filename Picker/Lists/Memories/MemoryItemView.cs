@@ -80,7 +80,12 @@
                                   (entity.GetBandwidth() / 1000d).ToString("0.##") + " GB/s";
 
             eccLabel.ForeColor = entity.HasECC ? Color.Green : Color.Red;
+            eccLabel.Font = new Font(eccLabel.Font,
+                entity.HasECC ? FontStyle.Regular : FontStyle.Strikeout);
+
             bufferedLabel.ForeColor = entity.IsBuffered ? Color.Green : Color.Red;
+            bufferedLabel.Font = new Font(bufferedLabel.Font,
+                entity.IsBuffered ? FontStyle.Regular : FontStyle.Strikeout);
 
             itemPanel.BackColor = nameLabel.ForeColor = entity.Brand.Color;
             foreach (Button button in controlPanel.Controls)
