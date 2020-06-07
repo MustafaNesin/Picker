@@ -57,7 +57,7 @@
             => enableMaxMaxMemorySpeedBox.Checked ? (int?)maxMaxMemorySpeedBox.Value : null;
 
         public decimal? ProcessorMaxPrice
-            => enableMaxPriceBox.Checked ? (int?)maxPriceBox.Value : null;
+            => enableMaxPriceBox.Checked ? (decimal?)maxPriceBox.Value : null;
 
         public int? ProcessorMaxThreads
             => enableMaxThreadsBox.Checked ? (int?)maxThreadsBox.Value : null;
@@ -82,7 +82,7 @@
             => enableMinMaxMemorySpeedBox.Checked ? (int?)minMaxMemorySpeedBox.Value : null;
 
         public decimal? ProcessorMinPrice
-            => enableMinPriceBox.Checked ? (int?)minPriceBox.Value : null;
+            => enableMinPriceBox.Checked ? (decimal?)minPriceBox.Value : null;
 
         public int? ProcessorMinThreads
             => enableMinThreadsBox.Checked ? (int?)minThreadsBox.Value : null;

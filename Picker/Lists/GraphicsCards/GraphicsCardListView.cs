@@ -24,7 +24,7 @@
             => enableMaxMemoryFrequencyBox.Checked ? (int?)maxMemoryFrequencyBox.Value : null;
 
         public decimal? GraphicsCardMaxPrice
-            => enableMaxPriceBox.Checked ? (int?)maxPriceBox.Value : null;
+            => enableMaxPriceBox.Checked ? (decimal?)maxPriceBox.Value : null;
 
         public int? GraphicsCardMaxTurboFrequency
             => enableMaxTurboFrequencyBox.Checked ? (int?)maxTurboFrequencyBox.Value : null;
@@ -44,7 +44,7 @@
             => enableMinMemoryFrequencyBox.Checked ? (int?)minMemoryFrequencyBox.Value : null;
 
         public decimal? GraphicsCardMinPrice
-            => enableMinPriceBox.Checked ? (int?)minPriceBox.Value : null;
+            => enableMinPriceBox.Checked ? (decimal?)minPriceBox.Value : null;
 
         public int? GraphicsCardMinTurboFrequency
             => enableMinTurboFrequencyBox.Checked ? (int?)minTurboFrequencyBox.Value : null;

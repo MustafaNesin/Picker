@@ -37,7 +37,7 @@
             => enableMaxFrequencyBox.Checked ? (int?)maxFrequencyBox.Value : null;
 
         public decimal? MemoryMaxPrice
-            => enableMaxPriceBox.Checked ? (int?)maxPriceBox.Value : null;
+            => enableMaxPriceBox.Checked ? (decimal?)maxPriceBox.Value : null;
 
         public int? MemoryMinCapacity
             => enableMinCapacityBox.Checked ? (int?)minCapacityBox.Value : null;
@@ -46,7 +46,7 @@
             => enableMinFrequencyBox.Checked ? (int?)minFrequencyBox.Value : null;
 
         public decimal? MemoryMinPrice
-            => enableMinPriceBox.Checked ? (int?)minPriceBox.Value : null;
+            => enableMinPriceBox.Checked ? (decimal?)minPriceBox.Value : null;
 
         public string MemoryType => typeBox.Text;
         public bool OnlyCompatibles => compatiblesBox.Checked;

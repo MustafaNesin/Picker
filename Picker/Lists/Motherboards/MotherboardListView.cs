@@ -27,7 +27,7 @@
             => enableMaxMemorySlotsBox.Checked ? (int?)maxMemorySlotsBox.Value : null;
 
         public decimal? MotherboardMaxPrice
-            => enableMaxPriceBox.Checked ? (int?)maxPriceBox.Value : null;
+            => enableMaxPriceBox.Checked ? (decimal?)maxPriceBox.Value : null;
 
         public string MotherboardMemoryType => memoryTypeBox.Text;
 
@@ -41,7 +41,7 @@
             => enableMinMemorySlotsBox.Checked ? (int?)minMemorySlotsBox.Value : null;
 
         public decimal? MotherboardMinPrice
-            => enableMinPriceBox.Checked ? (int?)minPriceBox.Value : null;
+            => enableMinPriceBox.Checked ? (decimal?)minPriceBox.Value : null;
 
         public string MotherboardSocket => socketBox.Text;
         public CheckState MotherboardSupportsECC => eccBox.CheckState;
