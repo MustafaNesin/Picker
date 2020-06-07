@@ -176,11 +176,11 @@
                             $"({memory.Type}) aynı olmalıdır.");
                     }
 
-                    if (memory.HasECC != BuildMotherboard.SupportsECC)
+                    if (memory.HasECC && !BuildMotherboard.SupportsECC)
                     {
                         isCompatible = false;
                         compatibilityBox.Items.Add(
-                            $"Anakart ve {memoryNumber}. belleğin 'ECC' özelliği aynı olmalıdır.");
+                            $"Anakart {memoryNumber}. belleğin 'ECC' özelliğini desteklemiyor.");
                     }
 
                     if (memory.Frequency > BuildMotherboard.MaxMemoryFrequency)
@@ -193,11 +193,11 @@
 
                 if (BuildProcessor != null)
                 {
-                    if (memory.HasECC != BuildProcessor.SupportsECC)
+                    if (memory.HasECC && !BuildProcessor.SupportsECC)
                     {
                         isCompatible = false;
                         compatibilityBox.Items.Add(
-                            $"İşlemci ve {memoryNumber}. belleğin 'ECC' özelliği aynı olmalıdır.");
+                            $"İşlemci {memoryNumber}. belleğin 'ECC' özelliğini desteklemiyor.");
                     }
 
                     if (memory.Frequency > BuildProcessor.MaxMemorySpeed)
