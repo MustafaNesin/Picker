@@ -300,7 +300,7 @@
             // maxBusWidthBox
             // 
             this.maxBusWidthBox.Enabled = false;
-            this.maxBusWidthBox.Location = new System.Drawing.Point(859, 52);
+            this.maxBusWidthBox.Location = new System.Drawing.Point(875, 52);
             this.maxBusWidthBox.Maximum = new decimal(new int[] {
             9999,
             0,
@@ -314,7 +314,7 @@
             // 
             this.enableMaxBusWidthBox.AutoSize = true;
             this.enableMaxBusWidthBox.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.enableMaxBusWidthBox.Location = new System.Drawing.Point(829, 55);
+            this.enableMaxBusWidthBox.Location = new System.Drawing.Point(845, 55);
             this.enableMaxBusWidthBox.Name = "enableMaxBusWidthBox";
             this.enableMaxBusWidthBox.Size = new System.Drawing.Size(30, 17);
             this.enableMaxBusWidthBox.TabIndex = 26;
@@ -325,7 +325,7 @@
             // minBusWidthBox
             // 
             this.minBusWidthBox.Enabled = false;
-            this.minBusWidthBox.Location = new System.Drawing.Point(783, 52);
+            this.minBusWidthBox.Location = new System.Drawing.Point(799, 52);
             this.minBusWidthBox.Maximum = new decimal(new int[] {
             9999,
             0,
@@ -339,7 +339,7 @@
             // 
             this.enableMinBusWidthBox.AutoSize = true;
             this.enableMinBusWidthBox.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.enableMinBusWidthBox.Location = new System.Drawing.Point(768, 56);
+            this.enableMinBusWidthBox.Location = new System.Drawing.Point(784, 56);
             this.enableMinBusWidthBox.Name = "enableMinBusWidthBox";
             this.enableMinBusWidthBox.Size = new System.Drawing.Size(15, 14);
             this.enableMinBusWidthBox.TabIndex = 24;
@@ -349,7 +349,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(639, 56);
+            this.label11.Location = new System.Drawing.Point(655, 56);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(123, 13);
             this.label11.TabIndex = 23;
@@ -499,21 +499,21 @@
             // maxMemoryFrequencyBox
             // 
             this.maxMemoryFrequencyBox.Enabled = false;
-            this.maxMemoryFrequencyBox.Location = new System.Drawing.Point(570, 52);
+            this.maxMemoryFrequencyBox.Location = new System.Drawing.Point(581, 52);
             this.maxMemoryFrequencyBox.Maximum = new decimal(new int[] {
             99999,
             0,
             0,
             0});
             this.maxMemoryFrequencyBox.Name = "maxMemoryFrequencyBox";
-            this.maxMemoryFrequencyBox.Size = new System.Drawing.Size(46, 22);
+            this.maxMemoryFrequencyBox.Size = new System.Drawing.Size(56, 22);
             this.maxMemoryFrequencyBox.TabIndex = 22;
             // 
             // enableMaxMemoryFrequencyBox
             // 
             this.enableMaxMemoryFrequencyBox.AutoSize = true;
             this.enableMaxMemoryFrequencyBox.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.enableMaxMemoryFrequencyBox.Location = new System.Drawing.Point(540, 55);
+            this.enableMaxMemoryFrequencyBox.Location = new System.Drawing.Point(550, 55);
             this.enableMaxMemoryFrequencyBox.Name = "enableMaxMemoryFrequencyBox";
             this.enableMaxMemoryFrequencyBox.Size = new System.Drawing.Size(30, 17);
             this.enableMaxMemoryFrequencyBox.TabIndex = 21;
@@ -531,7 +531,7 @@
             0,
             0});
             this.minMemoryFrequencyBox.Name = "minMemoryFrequencyBox";
-            this.minMemoryFrequencyBox.Size = new System.Drawing.Size(46, 22);
+            this.minMemoryFrequencyBox.Size = new System.Drawing.Size(56, 22);
             this.minMemoryFrequencyBox.TabIndex = 20;
             // 
             // enableMinMemoryFrequencyBox
