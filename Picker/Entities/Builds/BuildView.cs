@@ -147,7 +147,7 @@
                 }
             }
 
-            /*if (BuildProcessor != null)
+            if (BuildProcessor != null)
                 if (BuildMemories.Sum(memory => memory.Count * memory.Capacity) >
                     BuildProcessor.MaxMemory)
                 {
@@ -155,7 +155,7 @@
                     compatibilityBox.Items.Add(
                         "İşlemcinin desteklediği maksimum bellek kapasitesi" +
                         $" ({BuildProcessor.MaxMemory} GB) aşıldı.");
-                }*/
+                }
 
             if (BuildGraphicsCard != null)
                 partSelected = true;
@@ -200,12 +200,12 @@
                             $"İşlemci {memoryNumber}. belleğin 'ECC' özelliğini desteklemiyor.");
                     }
 
-                    if (memory.Frequency > BuildProcessor.MaxMemorySpeed)
+                    /*if (memory.Frequency > BuildProcessor.MaxMemorySpeed)
                     {
                         isCompatible = false;
                         compatibilityBox.Items.Add($"{memoryNumber}. bellek işlemcinin " +
                                                    "desteklediği maksimum bellek hızını aşıyor.");
-                    }
+                    }*/
                 }
 
                 memoryNumber++;
