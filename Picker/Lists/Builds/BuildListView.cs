@@ -61,7 +61,11 @@
                 await _presenter.AddItemAsync();
         }
 
-        private void nextPageButton_Click(object sender, EventArgs e) => pageNumberBox.Value++;
+        private void nextPageButton_Click(object sender, EventArgs e)
+        {
+            if (!_presenter.GeneratingList)
+                pageNumberBox.Value++;
+        }
 
         private async void pageBox_ValueChanged(object sender, EventArgs e)
         {
@@ -69,7 +73,11 @@
                 await _presenter.GenerateListAsync(true);
         }
 
-        private void previousPageButton_Click(object sender, EventArgs e) => pageNumberBox.Value--;
+        private void previousPageButton_Click(object sender, EventArgs e)
+        {
+            if (!_presenter.GeneratingList)
+                pageNumberBox.Value--;
+        }
 
         public void SetCountLabel(int itemCount, int totalItemCount)
             => countLabel.Text =
