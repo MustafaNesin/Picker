@@ -113,7 +113,7 @@
             this.nameBox.Location = new System.Drawing.Point(6, 48);
             this.nameBox.Name = "nameBox";
             this.nameBox.Size = new System.Drawing.Size(266, 22);
-            this.nameBox.TabIndex = 3;
+            this.nameBox.TabIndex = 0;
             // 
             // countryBox
             // 
@@ -142,7 +142,7 @@
             this.applyFilterButton.Location = new System.Drawing.Point(278, 48);
             this.applyFilterButton.Name = "applyFilterButton";
             this.applyFilterButton.Size = new System.Drawing.Size(47, 22);
-            this.applyFilterButton.TabIndex = 4;
+            this.applyFilterButton.TabIndex = 0;
             this.applyFilterButton.Text = "Ara";
             this.applyFilterButton.UseVisualStyleBackColor = true;
             this.applyFilterButton.Click += new System.EventHandler(this.GenerateListAsyncEvent);

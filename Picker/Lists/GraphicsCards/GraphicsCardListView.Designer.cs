@@ -432,7 +432,7 @@
             this.clearFilterButton.Location = new System.Drawing.Point(421, 117);
             this.clearFilterButton.Name = "clearFilterButton";
             this.clearFilterButton.Size = new System.Drawing.Size(91, 22);
-            this.clearFilterButton.TabIndex = 46;
+            this.clearFilterButton.TabIndex = 2;
             this.clearFilterButton.Text = "Filtreyi Temizle";
             this.clearFilterButton.UseVisualStyleBackColor = true;
             this.clearFilterButton.Click += new System.EventHandler(this.clearFilterButton_Click);
@@ -630,7 +630,7 @@
             this.brandBox.Location = new System.Drawing.Point(60, 19);
             this.brandBox.Name = "brandBox";
             this.brandBox.Size = new System.Drawing.Size(164, 22);
-            this.brandBox.TabIndex = 1;
+            this.brandBox.TabIndex = 2;
             // 
             // nameBox
             // 
@@ -638,7 +638,7 @@
             this.nameBox.Location = new System.Drawing.Point(45, 117);
             this.nameBox.Name = "nameBox";
             this.nameBox.Size = new System.Drawing.Size(273, 22);
-            this.nameBox.TabIndex = 44;
+            this.nameBox.TabIndex = 0;
             // 
             // label1
             // 
@@ -656,7 +656,7 @@
             this.applyFilterButton.Location = new System.Drawing.Point(324, 117);
             this.applyFilterButton.Name = "applyFilterButton";
             this.applyFilterButton.Size = new System.Drawing.Size(91, 22);
-            this.applyFilterButton.TabIndex = 45;
+            this.applyFilterButton.TabIndex = 1;
             this.applyFilterButton.Text = "Ara ve Filtrele";
             this.applyFilterButton.UseVisualStyleBackColor = true;
             this.applyFilterButton.Click += new System.EventHandler(this.GenerateListAsyncEvent);

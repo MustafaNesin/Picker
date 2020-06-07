@@ -161,7 +161,7 @@
             this.clearFilterButton.Location = new System.Drawing.Point(431, 87);
             this.clearFilterButton.Name = "clearFilterButton";
             this.clearFilterButton.Size = new System.Drawing.Size(91, 22);
-            this.clearFilterButton.TabIndex = 26;
+            this.clearFilterButton.TabIndex = 2;
             this.clearFilterButton.Text = "Filtreyi Temizle";
             this.clearFilterButton.UseVisualStyleBackColor = true;
             this.clearFilterButton.Click += new System.EventHandler(this.clearFilterButton_Click);
@@ -361,7 +361,7 @@
             131072});
             this.maxPriceBox.Name = "maxPriceBox";
             this.maxPriceBox.Size = new System.Drawing.Size(70, 22);
-            this.maxPriceBox.TabIndex = 6;
+            this.maxPriceBox.TabIndex = 7;
             this.maxPriceBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // minPriceBox
@@ -382,7 +382,7 @@
             131072});
             this.minPriceBox.Name = "minPriceBox";
             this.minPriceBox.Size = new System.Drawing.Size(70, 22);
-            this.minPriceBox.TabIndex = 4;
+            this.minPriceBox.TabIndex = 5;
             this.minPriceBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label7
@@ -415,7 +415,7 @@
             this.bufferedBox.Location = new System.Drawing.Point(565, 21);
             this.bufferedBox.Name = "bufferedBox";
             this.bufferedBox.Size = new System.Drawing.Size(81, 17);
-            this.bufferedBox.TabIndex = 7;
+            this.bufferedBox.TabIndex = 8;
             this.bufferedBox.Text = "Registered";
             this.bufferedBox.ThreeState = true;
             this.bufferedBox.UseVisualStyleBackColor = true;
@@ -429,7 +429,7 @@
             this.eccBox.Location = new System.Drawing.Point(652, 21);
             this.eccBox.Name = "eccBox";
             this.eccBox.Size = new System.Drawing.Size(46, 17);
-            this.eccBox.TabIndex = 8;
+            this.eccBox.TabIndex = 9;
             this.eccBox.Text = "ECC";
             this.eccBox.ThreeState = true;
             this.eccBox.UseVisualStyleBackColor = true;
@@ -441,7 +441,7 @@
             this.brandBox.Location = new System.Drawing.Point(60, 19);
             this.brandBox.Name = "brandBox";
             this.brandBox.Size = new System.Drawing.Size(243, 22);
-            this.brandBox.TabIndex = 1;
+            this.brandBox.TabIndex = 3;
             // 
             // nameBox
             // 
@@ -450,7 +450,7 @@
             this.nameBox.Location = new System.Drawing.Point(45, 87);
             this.nameBox.Name = "nameBox";
             this.nameBox.Size = new System.Drawing.Size(283, 22);
-            this.nameBox.TabIndex = 24;
+            this.nameBox.TabIndex = 0;
             // 
             // label1
             // 
@@ -468,7 +468,7 @@
             this.applyFilterButton.Location = new System.Drawing.Point(334, 87);
             this.applyFilterButton.Name = "applyFilterButton";
             this.applyFilterButton.Size = new System.Drawing.Size(91, 22);
-            this.applyFilterButton.TabIndex = 25;
+            this.applyFilterButton.TabIndex = 1;
             this.applyFilterButton.Text = "Ara ve Filtrele";
             this.applyFilterButton.UseVisualStyleBackColor = true;
             this.applyFilterButton.Click += new System.EventHandler(this.GenerateListAsyncEvent);
@@ -481,7 +481,7 @@
             this.enableMaxPriceBox.Location = new System.Drawing.Point(449, 21);
             this.enableMaxPriceBox.Name = "enableMaxPriceBox";
             this.enableMaxPriceBox.Size = new System.Drawing.Size(30, 17);
-            this.enableMaxPriceBox.TabIndex = 5;
+            this.enableMaxPriceBox.TabIndex = 6;
             this.enableMaxPriceBox.Text = "-";
             this.enableMaxPriceBox.UseVisualStyleBackColor = true;
             this.enableMaxPriceBox.CheckedChanged += new System.EventHandler(this.enableMaxPriceBox_CheckedChanged);
@@ -494,7 +494,7 @@
             this.enableMinPriceBox.Location = new System.Drawing.Point(364, 22);
             this.enableMinPriceBox.Name = "enableMinPriceBox";
             this.enableMinPriceBox.Size = new System.Drawing.Size(15, 14);
-            this.enableMinPriceBox.TabIndex = 3;
+            this.enableMinPriceBox.TabIndex = 4;
             this.enableMinPriceBox.UseVisualStyleBackColor = true;
             this.enableMinPriceBox.CheckedChanged += new System.EventHandler(this.enableMinPriceBox_CheckedChanged);
             // 

@@ -100,7 +100,7 @@
             this.brandBox.Location = new System.Drawing.Point(57, 21);
             this.brandBox.Name = "brandBox";
             this.brandBox.Size = new System.Drawing.Size(263, 22);
-            this.brandBox.TabIndex = 1;
+            this.brandBox.TabIndex = 2;
             // 
             // nameBox
             // 
@@ -109,14 +109,14 @@
             this.nameBox.Location = new System.Drawing.Point(6, 48);
             this.nameBox.Name = "nameBox";
             this.nameBox.Size = new System.Drawing.Size(266, 22);
-            this.nameBox.TabIndex = 6;
+            this.nameBox.TabIndex = 0;
             // 
             // label1
             // 
             this.label1.Location = new System.Drawing.Point(6, 21);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(45, 21);
-            this.label1.TabIndex = 0;
+            this.label1.TabIndex = 1;
             this.label1.Text = "Marka:";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
@@ -126,7 +126,7 @@
             this.applyFilterButton.Location = new System.Drawing.Point(278, 48);
             this.applyFilterButton.Name = "applyFilterButton";
             this.applyFilterButton.Size = new System.Drawing.Size(47, 22);
-            this.applyFilterButton.TabIndex = 7;
+            this.applyFilterButton.TabIndex = 0;
             this.applyFilterButton.Text = "Ara";
             this.applyFilterButton.UseVisualStyleBackColor = true;
             this.applyFilterButton.Click += new System.EventHandler(this.GenerateListAsyncEvent);
