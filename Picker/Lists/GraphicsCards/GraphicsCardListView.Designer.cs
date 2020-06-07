@@ -501,7 +501,7 @@
             this.maxMemoryFrequencyBox.Enabled = false;
             this.maxMemoryFrequencyBox.Location = new System.Drawing.Point(570, 52);
             this.maxMemoryFrequencyBox.Maximum = new decimal(new int[] {
-            9999,
+            99999,
             0,
             0,
             0});
@@ -526,7 +526,7 @@
             this.minMemoryFrequencyBox.Enabled = false;
             this.minMemoryFrequencyBox.Location = new System.Drawing.Point(494, 52);
             this.minMemoryFrequencyBox.Maximum = new decimal(new int[] {
-            9999,
+            99999,
             0,
             0,
             0});

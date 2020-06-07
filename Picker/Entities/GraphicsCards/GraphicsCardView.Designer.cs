@@ -293,14 +293,14 @@
             // 
             // memoryFrequencyBox
             // 
-            this.memoryFrequencyBox.Location = new System.Drawing.Point(406, 109);
+            this.memoryFrequencyBox.Location = new System.Drawing.Point(400, 109);
             this.memoryFrequencyBox.Maximum = new decimal(new int[] {
-            9999,
+            99999,
             0,
             0,
             0});
             this.memoryFrequencyBox.Name = "memoryFrequencyBox";
-            this.memoryFrequencyBox.Size = new System.Drawing.Size(50, 22);
+            this.memoryFrequencyBox.Size = new System.Drawing.Size(56, 22);
             this.memoryFrequencyBox.TabIndex = 16;
             this.memoryFrequencyBox.ValueChanged += new System.EventHandler(this.bandwidth_Changed);
             // 
@@ -308,7 +308,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.label7.Location = new System.Drawing.Point(341, 111);
+            this.label7.Location = new System.Drawing.Point(335, 111);
             this.label7.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(62, 13);
