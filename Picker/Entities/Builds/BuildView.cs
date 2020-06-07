@@ -221,8 +221,8 @@
                 {
                     isCompatible = false;
                     compatibilityBox.Items.Add(
-                        $"{BuildMemories.IndexOf(firstMemory)}. bellek ile " +
-                        $"{BuildMemories.IndexOf(memory)}. belleğin " +
+                        $"{BuildMemories.IndexOf(firstMemory) + 1}. bellek ile " +
+                        $"{BuildMemories.IndexOf(memory) + 1}. belleğin " +
                         "'Registered' özelliği aynı olmalıdır.");
                 }
             }
