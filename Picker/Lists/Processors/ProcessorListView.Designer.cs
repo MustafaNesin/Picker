@@ -538,7 +538,7 @@
             // 
             this.socketBox.Location = new System.Drawing.Point(57, 115);
             this.socketBox.Name = "socketBox";
-            this.socketBox.Size = new System.Drawing.Size(269, 22);
+            this.socketBox.Size = new System.Drawing.Size(261, 22);
             this.socketBox.TabIndex = 37;
             // 
             // label10
@@ -577,7 +577,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(332, 120);
+            this.label9.Location = new System.Drawing.Point(329, 120);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(96, 13);
             this.label9.TabIndex = 37;
@@ -587,21 +587,21 @@
             // maxMaxMemoryBox
             // 
             this.maxMaxMemoryBox.Enabled = false;
-            this.maxMaxMemoryBox.Location = new System.Drawing.Point(519, 117);
+            this.maxMaxMemoryBox.Location = new System.Drawing.Point(523, 117);
             this.maxMaxMemoryBox.Maximum = new decimal(new int[] {
-            999,
+            9999,
             0,
             0,
             0});
             this.maxMaxMemoryBox.Name = "maxMaxMemoryBox";
-            this.maxMaxMemoryBox.Size = new System.Drawing.Size(40, 22);
+            this.maxMaxMemoryBox.Size = new System.Drawing.Size(46, 22);
             this.maxMaxMemoryBox.TabIndex = 42;
             // 
             // enableMaxMaxMemoryBox
             // 
             this.enableMaxMaxMemoryBox.AutoSize = true;
             this.enableMaxMaxMemoryBox.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.enableMaxMaxMemoryBox.Location = new System.Drawing.Point(489, 120);
+            this.enableMaxMaxMemoryBox.Location = new System.Drawing.Point(492, 120);
             this.enableMaxMaxMemoryBox.Name = "enableMaxMaxMemoryBox";
             this.enableMaxMaxMemoryBox.Size = new System.Drawing.Size(30, 17);
             this.enableMaxMaxMemoryBox.TabIndex = 41;
@@ -613,7 +613,7 @@
             // 
             this.enableMinMaxMemoryBox.AutoSize = true;
             this.enableMinMaxMemoryBox.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.enableMinMaxMemoryBox.Location = new System.Drawing.Point(434, 121);
+            this.enableMinMaxMemoryBox.Location = new System.Drawing.Point(431, 121);
             this.enableMinMaxMemoryBox.Name = "enableMinMaxMemoryBox";
             this.enableMinMaxMemoryBox.Size = new System.Drawing.Size(15, 14);
             this.enableMinMaxMemoryBox.TabIndex = 39;
@@ -623,14 +623,14 @@
             // minMaxMemoryBox
             // 
             this.minMaxMemoryBox.Enabled = false;
-            this.minMaxMemoryBox.Location = new System.Drawing.Point(449, 117);
+            this.minMaxMemoryBox.Location = new System.Drawing.Point(446, 117);
             this.minMaxMemoryBox.Maximum = new decimal(new int[] {
-            999,
+            9999,
             0,
             0,
             0});
             this.minMaxMemoryBox.Name = "minMaxMemoryBox";
-            this.minMaxMemoryBox.Size = new System.Drawing.Size(40, 22);
+            this.minMaxMemoryBox.Size = new System.Drawing.Size(46, 22);
             this.minMaxMemoryBox.TabIndex = 40;
             // 
             // maxMaxMemorySpeedBox
